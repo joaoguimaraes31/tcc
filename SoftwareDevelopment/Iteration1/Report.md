@@ -14,11 +14,11 @@ The hardware was separated in two parts, one for programming the Microcontroller
 
 In to upload the code into de Microcontroller a USBasp was used. 
 
-(USBasp Board)[http://www.learningaboutelectronics.com/images/USBASP.png]
+!(USBasp Board)[http://www.learningaboutelectronics.com/images/USBASP.png]
 
 This device is based on a ATMega8 microcontroller and is used to program AVR microcontrollers. Whereas most of the time it is refered just as USB AVR programmer. It is consisted with a 10 pin cable according to layout in the bellow image.
 
-(USBasp pins)[http://www.learningaboutelectronics.com/images/AVR-programmer-10-pin-cable-pinout.png]
+!(USBasp pins)[http://www.learningaboutelectronics.com/images/AVR-programmer-10-pin-cable-pinout.png]
 
 | Pin Name   | Description   	    | Comment  |
 | -----------|:--------------------:| -----:|
@@ -77,11 +77,11 @@ This code prints the value of voltage on the potentiometer output with a value i
 
 The hardware was mounted on the breadboard and connect on the computer as the image bellow.
 
-(Circuit Wired)[real_schematic.png]
+!(Circuit Wired)[real_schematic.png]
 
 The reading from the serial monitor varies with the potentiometer angle.
 
-(Screen Monitor)[serial_monitor.png]
+!(Screen Monitor)[serial_monitor.png]
 
 ## 4. Conclusion
 
