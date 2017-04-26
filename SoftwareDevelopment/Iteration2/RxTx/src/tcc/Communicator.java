@@ -1,26 +1,29 @@
-package tcc.test;
+package tcc;
 
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.TooManyListenersException;
 
 import gnu.io.CommPortIdentifier;
 import gnu.io.PortInUseException;
 import gnu.io.SerialPort;
+import gnu.io.SerialPortEvent;
+import gnu.io.SerialPortEventListener;
 
-public class Communicator {
+public class Communicator implements SerialPortEventListener {
 
-	private static HashMap<CommPortIdentifier, String> portMap = new HashMap<CommPortIdentifier, String>();
+	private HashMap<CommPortIdentifier, String> portMap = new HashMap<CommPortIdentifier, String>();
 
-	private static OutputStream outputStream;
-	private static InputStream inStream;
-	private static SerialPort serialPort = null;
-
-	final static int TIMEOUT = 2000;
+	private OutputStream outputStream;
+	private InputStream inStream;
+	private SerialPort serialPort = null;
+	final int TIMEOUT = 2000;
+	private int samples = 0;
 
 	// metodo que retorna as portas seriais connectadas ao computador
-	public static CommPortIdentifier getPorts() {
+	public CommPortIdentifier getPorts() {
 
 		CommPortIdentifier serialPortId = null;
 		Enumeration<CommPortIdentifier> ports = CommPortIdentifier.getPortIdentifiers();
@@ -39,7 +42,7 @@ public class Communicator {
 
 	}
 
-	public static void connect() {
+	public void connect() {
 
 		try {
 
@@ -65,7 +68,7 @@ public class Communicator {
 		}
 	}
 
-	public static void disconnect() {
+	public void disconnect() {
 		try {
 			serialPort.removeEventListener();
 			serialPort.close();
@@ -77,15 +80,55 @@ public class Communicator {
 		}
 	}
 
-	
-	public static void main(String[] args) {
-		connect();
+	public void initListener(int samples) {
+		this.samples=samples;
+		try {
+			serialPort.addEventListener(this);
+			serialPort.notifyOnDataAvailable(true);
+		} catch (TooManyListenersException e) {
+			// logText = "Too many listeners. (" + e.toString() + ")";
 
-		MyListener myListener = new MyListener(inStream);
-		myListener.initListener(serialPort);
-		
-		while(serialPort.isRTS());
-		disconnect();
+		}
 	}
+	
+	
+	public void serialEvent(SerialPortEvent evt) {
+		if (evt.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
+			if(samples==0){
+				try {
+					System.out.println("Calling finalized");
+					disconnect();
+					this.finalize();
+				} catch (Throwable e) {
+					e.printStackTrace();
+				}
+			} else {
+				try {
+					byte singleData = (byte) inStream.read();
+					if (singleData != 10) {
+						System.out.println(new String(new byte[] { singleData }));
+						System.out.println(samples);
+					} else {
+						System.out.println("EOF");
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+	
+				}
+			}
+		}
+		samples--;
+
+	}
+
+	public int getSamples() {
+		return samples;
+	}
+
+	public void setSamples(int samples) {
+		this.samples = samples;
+	}
+	
+	
 
 }
