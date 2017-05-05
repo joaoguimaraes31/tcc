@@ -35,7 +35,7 @@ void configureTimer2() {
 //Interrupcao pelo timer 1 por overflow
 void timer1_OISR(){
   if (samples<NUMBER_OF_SAMPLES){
-  Serial.println("ISR");
+  //Serial.println("ISR");
   samples++;
   }
 }
@@ -60,9 +60,21 @@ void commandOutput(){
   }
 }
 
+//Funcao que "reseta" os comandos/saidas digitais
+void resetCommandOutput(){
+  for(int i=0;i<sizeof(COMMAND_PORTS);i++){
+    commandInstruction[i]=0;
+  }
+  commandOutput();
+}
+
 //Funcao setup - inicializada com arduino
 void setup(){
   pinMode(LED_PIN,OUTPUT);
+  for(int i=0;i<sizeof(COMMAND_PORTS);i++){
+     pinMode(COMMAND_PORTS[i],OUTPUT);
+     digitalWrite(COMMAND_PORTS[i],LOW);
+  }
   digitalWrite(LED_PIN,LOW);
   configureTimer1();
   configureTimer2();
