@@ -1,6 +1,6 @@
 #include <TimerOne.h>
+#include <MsTimer2.h>
 
-#include "TimerOne.h"
 
 
 //Definicoes
@@ -10,6 +10,7 @@
 #define NUMBER_OF_SAMPLES     5
 #define START_ACQ             '!'
 #define STOP_ACQ              '"'
+#define ACQ_LED_BLINK_MS     250
 
 
 //Variaveis Globais
@@ -23,6 +24,11 @@ void configureTimer1(){
   Timer1.stop();
 }
 
+//Funcao que configura o timer 2 - Led aquisicao
+void configureTimer2() {
+  MsTimer2::set(ACQ_LED_BLINK_MS, timer2_OISR); 
+}
+
 //Interrupcao pelo timer 1 por overflow
 void timer1_OISR(){
   if(enableAcquisition){
@@ -31,11 +37,24 @@ void timer1_OISR(){
   }
 }
 
+//Interrupcao pelo timer 2 por overflow
+void timer2_OISR(){
+  if(enableAcquisition){
+    digitalWrite(LED_PIN, digitalRead(LED_PIN) ^ 1);
+  }else{
+    digitalWrite(LED_PIN, LOW);
+  }
+}
+
 //Funcao setup - inicializada com arduino
 void setup(){
+  pinMode(LED_PIN,OUTPUT);
+  digitalWrite(LED_PIN,LOW);
   configureTimer1();
+  configureTimer2();
   Serial.begin(9600);
   Timer1.restart();
+  MsTimer2::start();
   enableAcquisition=true;
 }
 
