@@ -20,11 +20,13 @@ int samples=0;
 short COMMAND_PORTS[]={2,3,4,5};
 boolean commandInstruction[4]={0,0,0,0};
 unsigned long int RATES[]={1000000,100000,10000,1000,100,10,1};
+int numberSamples = 100;
+int SAMPLES[]={1,10,100,500,1000};
 
 //Funcao que configura o timer 1 - Aquisicao
 void configureTimer1(){
   Timer1.attachInterrupt(timer1_OISR);
-  Timer1.initialize(1000000);
+  Timer1.initialize(1000);
   Timer1.stop();
 }
 
@@ -35,7 +37,7 @@ void configureTimer2() {
 
 //Interrupcao pelo timer 1 por overflow
 void timer1_OISR(){
-  if (samples<NUMBER_OF_SAMPLES){
+  if (samples<numberSamples){
   //Serial.println("ISR");
   samples++;
   }
@@ -87,7 +89,7 @@ void setup(){
 //Funcao loop - executada continuamente
 void loop(){
   //parar o timer quando o numero de amostras for o desejado
-  if(samples>=NUMBER_OF_SAMPLES){
+  if(samples>=numberSamples){
     Timer1.stop();
     Serial.println(samples);
     Serial.println("Event for Samples limit");
@@ -151,7 +153,14 @@ void loop(){
               
             }
           }
+
+          if (byteRead > 47){     //Controle da Number of Samples
+            if (byteRead <53){
+              numberSamples=SAMPLES[(byteRead - 48)]; 
+            }
+          }
         }
+
       break; 
     }
   }
