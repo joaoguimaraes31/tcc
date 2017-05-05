@@ -16,6 +16,8 @@
 //Variaveis Globais
 boolean enableAcquisition=false;
 int samples=0;
+short COMMAND_PORTS[]={2,3,4,5};
+boolean commandInstruction[4]={0,0,0,0};
 
 //Funcao que configura o timer 1 - Aquisicao
 void configureTimer1(){
@@ -32,7 +34,7 @@ void configureTimer2() {
 //Interrupcao pelo timer 1 por overflow
 void timer1_OISR(){
   if(enableAcquisition){
-    Serial.println("interrupcao");
+    Serial.println("Event for ISR");
     samples++;
   }
 }
@@ -43,6 +45,17 @@ void timer2_OISR(){
     digitalWrite(LED_PIN, digitalRead(LED_PIN) ^ 1);
   }else{
     digitalWrite(LED_PIN, LOW);
+  }
+}
+
+//FUNCAO QUE CONTROLA OS COMANDOS/SAIDAS-DIGITAIS
+void commandOutput(){
+  for(int i=0;i<sizeof(COMMAND_PORTS);i++){
+    if(commandInstruction[i]){
+      digitalWrite(COMMAND_PORTS[i],HIGH);
+    }else{
+      digitalWrite(COMMAND_PORTS[i],LOW);
+    }
   }
 }
 
@@ -63,7 +76,7 @@ void loop(){
   if(samples>=NUMBER_OF_SAMPLES){
     Timer1.stop();
        
-    Serial.println("Samples limit");
+    Serial.println("Event for Samples limit");
     samples=RESET;
     Timer1.restart();   //reinciando o timer        
   }
@@ -74,23 +87,33 @@ void loop(){
     //Lendo o byte mais recente
     char byteRead = Serial.read();
 
-    switch(byteRead)
-    {
+    switch(byteRead) {
+      
       //Recebeu comando iniciar aquisicao
-      case START_ACQ:
-      {
+      case START_ACQ:{
         if(enableAcquisition==false){
           //Habilita a aquisicao
           enableAcquisition=true;       
         }            
       }
       break;
-      case STOP_ACQ:
-      {
+      case STOP_ACQ:{
         if(enableAcquisition==true){
           //Desabilita a aquisicao
           enableAcquisition=false;     
         } 
+      }
+      break;
+      
+      default:{
+        if (byteRead > 95){       //Controle dos comandos
+          if (byteRead < 112){
+            for (int i = 3; i>-1; i--) {
+              commandInstruction[i]=((byteRead >> i) & 1);
+            }
+            commandOutput();
+          }
+        }
       }
       break; 
     }
