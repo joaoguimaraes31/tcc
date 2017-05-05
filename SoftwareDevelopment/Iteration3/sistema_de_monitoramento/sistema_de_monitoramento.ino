@@ -1,6 +1,6 @@
 #include <TimerOne.h>
 #include <MsTimer2.h>
-
+#include <math.h>
 
 
 //Definicoes
@@ -18,6 +18,7 @@ boolean enableAcquisition=false;
 int samples=0;
 short COMMAND_PORTS[]={2,3,4,5};
 boolean commandInstruction[4]={0,0,0,0};
+unsigned long int RATES[]={1,10,100,1000,10000,100000,1000000};
 
 //Funcao que configura o timer 1 - Aquisicao
 void configureTimer1(){
@@ -116,6 +117,15 @@ void loop(){
           }
         }
       }
+      if(enableAcquisition==false){
+          if (byteRead > 64){     //Controle da Sampling Rate (default 1KHz)
+            if (byteRead <72){
+              unsigned long int k = RATES[(byteRead-65)];
+     
+              
+            }
+          }
+        }
       break; 
     }
   }
