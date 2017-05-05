@@ -7,7 +7,7 @@
 #define RESET                 0
 #define LED_PIN               13
 #define samplingRate         1000000
-#define NUMBER_OF_SAMPLES     5
+#define NUMBER_OF_SAMPLES     100
 #define START_ACQ             '!'
 #define STOP_ACQ              '"'
 #define ACQ_LED_BLINK_MS     250
@@ -18,7 +18,7 @@ boolean enableAcquisition=false;
 int samples=0;
 short COMMAND_PORTS[]={2,3,4,5};
 boolean commandInstruction[4]={0,0,0,0};
-unsigned long int RATES[]={1,10,100,1000,10000,100000,1000000};
+unsigned long int RATES[]={1000000,100000,10000,1000,100,10,1};
 
 //Funcao que configura o timer 1 - Aquisicao
 void configureTimer1(){
@@ -34,8 +34,10 @@ void configureTimer2() {
 
 //Interrupcao pelo timer 1 por overflow
 void timer1_OISR(){
-  Serial.println("Event for ISR");
+  if (samples<NUMBER_OF_SAMPLES){
+  Serial.println("ISR");
   samples++;
+  }
 }
 
 //Interrupcao pelo timer 2 por overflow
@@ -74,7 +76,7 @@ void loop(){
   //parar o timer quando o numero de amostras for o desejado
   if(samples>=NUMBER_OF_SAMPLES){
     Timer1.stop();
-       
+    Serial.println(samples);
     Serial.println("Event for Samples limit");
     samples=RESET;
     delay(2000);
@@ -94,6 +96,7 @@ void loop(){
         if(enableAcquisition==false){
           //Habilita a aquisicao
           enableAcquisition=true;
+          samples=RESET;
           Timer1.restart();       
         }            
       }
@@ -102,7 +105,7 @@ void loop(){
         if(enableAcquisition==true){
           //Desabilita a aquisicao
           enableAcquisition=false;
-          Timer1.stop();     
+          Timer1.stop();               
         } 
       }
       break;
@@ -120,8 +123,8 @@ void loop(){
       if(enableAcquisition==false){
           if (byteRead > 64){     //Controle da Sampling Rate (default 1KHz)
             if (byteRead <72){
-              unsigned long int k = RATES[(byteRead-65)];
-     
+              Timer1.setPeriod(RATES[(byteRead-65)]);
+              Timer1.stop();
               
             }
           }
