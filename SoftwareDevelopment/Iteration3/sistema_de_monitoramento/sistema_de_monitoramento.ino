@@ -55,7 +55,6 @@ void setup(){
   Serial.begin(9600);
   Timer1.restart();
   MsTimer2::start();
-  enableAcquisition=true;
 }
 
 //Funcao loop - executada continuamente
@@ -66,8 +65,34 @@ void loop(){
        
     Serial.println("Samples limit");
     samples=RESET;
-    Timer1.restart();   //reinciando o timer
+    Timer1.restart();   //reinciando o timer        
+  }
 
-        
+  //Verificado dado da porta serial
+  if (Serial.available()){
+    
+    //Lendo o byte mais recente
+    char byteRead = Serial.read();
+
+    switch(byteRead)
+    {
+      //Recebeu comando iniciar aquisicao
+      case START_ACQ:
+      {
+        if(enableAcquisition==false){
+          //Habilita a aquisicao
+          enableAcquisition=true;       
+        }            
+      }
+      break;
+      case STOP_ACQ:
+      {
+        if(enableAcquisition==true){
+          //Desabilita a aquisicao
+          enableAcquisition=false;     
+        } 
+      }
+      break; 
+    }
   }
 }
