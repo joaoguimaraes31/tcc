@@ -10,6 +10,7 @@
 #define NUMBER_OF_SAMPLES     100
 #define START_ACQ             '!'
 #define STOP_ACQ              '"'
+#define MASTER_RESET          '#'
 #define ACQ_LED_BLINK_MS     250
 
 
@@ -119,6 +120,16 @@ void loop(){
           enableAcquisition=false;
           Timer1.stop();               
         } 
+      }
+      break;
+
+      case MASTER_RESET:{
+        Timer1.setPeriod(RATES[(0)]);
+        Timer1.stop();
+        enableAcquisition=false;
+        samples=RESET;
+        resetCommandOutput();
+         
       }
       break;
       
