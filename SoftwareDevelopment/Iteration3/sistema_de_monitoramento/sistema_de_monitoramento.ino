@@ -33,10 +33,8 @@ void configureTimer2() {
 
 //Interrupcao pelo timer 1 por overflow
 void timer1_OISR(){
-  if(enableAcquisition){
-    Serial.println("Event for ISR");
-    samples++;
-  }
+  Serial.println("Event for ISR");
+  samples++;
 }
 
 //Interrupcao pelo timer 2 por overflow
@@ -66,7 +64,7 @@ void setup(){
   configureTimer1();
   configureTimer2();
   Serial.begin(9600);
-  Timer1.restart();
+  //Timer1.restart();
   MsTimer2::start();
 }
 
@@ -78,6 +76,7 @@ void loop(){
        
     Serial.println("Event for Samples limit");
     samples=RESET;
+    delay(2000);
     Timer1.restart();   //reinciando o timer        
   }
 
@@ -93,14 +92,16 @@ void loop(){
       case START_ACQ:{
         if(enableAcquisition==false){
           //Habilita a aquisicao
-          enableAcquisition=true;       
+          enableAcquisition=true;
+          Timer1.restart();       
         }            
       }
       break;
       case STOP_ACQ:{
         if(enableAcquisition==true){
           //Desabilita a aquisicao
-          enableAcquisition=false;     
+          enableAcquisition=false;
+          Timer1.stop();     
         } 
       }
       break;
