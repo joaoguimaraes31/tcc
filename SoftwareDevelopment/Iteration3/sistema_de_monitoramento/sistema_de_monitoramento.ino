@@ -7,26 +7,27 @@
 #define RESET                 0
 #define LED_PIN               13
 #define samplingRate         1000000
-#define NUMBER_OF_SAMPLES     100
-#define START_ACQ             '!'
-#define STOP_ACQ              '"'
-#define MASTER_RESET          '#'
+#define START_ACQ             '+'
+#define STOP_ACQ              ','
+#define MASTER_RESET          '.'
 #define ACQ_LED_BLINK_MS     250
 
 
 //Variaveis Globais
-boolean enableAcquisition=false;
+static boolean enableAcquisition=false;
 int samples=0;
 short COMMAND_PORTS[]={2,3,4,5};
-boolean commandInstruction[4]={0,0,0,0};
-unsigned long int RATES[]={1000000,100000,10000,1000,100,10,1};
-int numberSamples = 100;
-int SAMPLES[]={1,10,100,500,1000};
+boolean commandInstruction[]={0,0,0,0};
+unsigned long int RATES[]={1000000,100000,10000,1000,100,10,5};
+unsigned long int numberSamples = 100;
+unsigned long int SAMPLES[]={1,10,100,500,1000};
+static float sensorData[]={0,0,0,0,0,0};
+unsigned long int sampleRate=1000;
 
 //Funcao que configura o timer 1 - Aquisicao
 void configureTimer1(){
   Timer1.attachInterrupt(timer1_OISR);
-  Timer1.initialize(1000);
+  Timer1.initialize(sampleRate);
   Timer1.stop();
 }
 
@@ -38,8 +39,16 @@ void configureTimer2() {
 //Interrupcao pelo timer 1 por overflow
 void timer1_OISR(){
   if (samples<numberSamples){
-  //Serial.println("ISR");
+    if(enableAcquisition==true){
+      //Lendo dado analogico
+    sensorData[0]=sensorData[0]+analogRead(A0);
+    sensorData[1]=sensorData[1]+analogRead(A1);
+    sensorData[2]=sensorData[2]+analogRead(A2);
+    sensorData[3]=sensorData[3]+analogRead(A3);
+    sensorData[4]=sensorData[4]+analogRead(A4);
+    sensorData[5]=sensorData[5]+analogRead(A5);
   samples++;
+    }   
   }
 }
 
@@ -71,6 +80,16 @@ void resetCommandOutput(){
   commandOutput();
 }
 
+//Funcao quando a acquisicao para
+void acquisitionStop(){
+   Timer1.stop();
+   enableAcquisition=false;
+   samples=RESET;
+   for(int i=0;i<6;i++){
+    sensorData[i]=RESET;
+   }
+}
+
 //Funcao setup - inicializada com arduino
 void setup(){
   pinMode(LED_PIN,OUTPUT);
@@ -91,11 +110,21 @@ void loop(){
   //parar o timer quando o numero de amostras for o desejado
   if(samples>=numberSamples){
     Timer1.stop();
-    Serial.println(samples);
-    Serial.println("Event for Samples limit");
+    
+    static int resultAcq[6];
+    for(int counter=0;counter<6;counter++){
+      resultAcq[counter] = (int)roundf((sensorData[counter]/numberSamples));    
+      sensorData[counter]=RESET;
+    }
     samples=RESET;
-    delay(2000);
-    Timer1.restart();   //reinciando o timer        
+    Timer1.restart();   //reinciando o timer 
+
+    for(int k=0;k<6;k++){
+      Serial.print(resultAcq[k]);
+      Serial.print(" ");
+    }
+    Serial.println();
+    
   }
 
   //Verificado dado da porta serial
@@ -112,25 +141,25 @@ void loop(){
           //Habilita a aquisicao
           enableAcquisition=true;
           samples=RESET;
+          Serial.println(numberSamples);
+          Serial.println(sampleRate);
           Timer1.restart();       
         }            
       }
       break;
       case STOP_ACQ:{
-        if(enableAcquisition==true){
           //Desabilita a aquisicao
-          enableAcquisition=false;
-          Timer1.stop();               
-        } 
+          acquisitionStop();
+                         
       }
       break;
 
       case MASTER_RESET:{
-        Timer1.setPeriod(RATES[(0)]);
-        Timer1.stop();
-        enableAcquisition=false;
-        samples=RESET;
+        acquisitionStop();
         resetCommandOutput();
+        sampleRate=RATES[3];
+        numberSamples=SAMPLES[2];
+        configureTimer1();      
          
       }
       break;
@@ -148,15 +177,16 @@ void loop(){
       if(enableAcquisition==false){
           if (byteRead > 64){     //Controle da Sampling Rate (default 1KHz)
             if (byteRead <72){
-              Timer1.setPeriod(RATES[(byteRead-65)]);
+              sampleRate=RATES[(byteRead-65)];
+              Timer1.setPeriod(sampleRate);
               Timer1.stop();
               
             }
           }
 
-          if (byteRead > 47){     //Controle da Number of Samples
-            if (byteRead <53){
-              numberSamples=SAMPLES[(byteRead - 48)]; 
+          if (byteRead > 32){     //Controle da Number of Samples
+            if (byteRead <38){
+              numberSamples=SAMPLES[(byteRead - 33)];
             }
           }
         }
