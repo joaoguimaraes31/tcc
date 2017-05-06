@@ -93,12 +93,56 @@ void acquisitionStop(){
 //Funcao que escreve os resultados da aquisicao na porta serial
 void printResults(int * result){    
     for(int k=0;k<6;k++){
-      Serial.print(result[k]);
-      Serial.print(" ");
+      unsigned char * resultConverted=inteiroParaByte4(result[k]);
+      for(int i=0;i<4;i++){
+        Serial.print(resultConverted[i]);
+        Serial.print(" ");
+      }
+      Serial.print("   ");
     }
     Serial.println();
 }
 
+//Funcao que converte um inteiro em um array de 4 caracteres
+char * inteiroParaByte4(int numberToConvert) {
+
+  static unsigned char result[4];
+
+  //garantir que numero esteja dentro do intervalo aceitavel
+  if (numberToConvert < 0){
+    numberToConvert =0;
+  }
+
+  if (numberToConvert > 1020){
+    numberToConvert = 1020;
+  }
+  
+  //convertendo para array de byte
+  if (numberToConvert <= 1020 && numberToConvert >= 765){
+    result[0]=255;
+    result[1]=255;
+    result[2]=255;
+    result[3]=numberToConvert-765;
+  }else if (numberToConvert < 765 && numberToConvert >= 510){
+    result[0]=255;
+    result[1]=255;
+    result[2]=numberToConvert-510;
+    result[3]=0;
+  }else if (numberToConvert < 510 && numberToConvert >= 255){
+    result[0]=255;
+    result[1]=numberToConvert-255;
+    result[2]=0;
+    result[3]=0;
+  }else{ 
+    result[0]=numberToConvert;
+    result[1]=0;
+    result[2]=0;
+    result[3]=0;
+  }
+
+  return result;
+
+}
 
 //Funcao setup - inicializada com arduino
 void setup(){
