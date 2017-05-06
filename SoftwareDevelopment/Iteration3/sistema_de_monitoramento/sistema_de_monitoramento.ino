@@ -90,6 +90,16 @@ void acquisitionStop(){
    }
 }
 
+//Funcao que escreve os resultados da aquisicao na porta serial
+void printResults(int * result){    
+    for(int k=0;k<6;k++){
+      Serial.print(result[k]);
+      Serial.print(" ");
+    }
+    Serial.println();
+}
+
+
 //Funcao setup - inicializada com arduino
 void setup(){
   pinMode(LED_PIN,OUTPUT);
@@ -119,11 +129,7 @@ void loop(){
     samples=RESET;
     Timer1.restart();   //reinciando o timer 
 
-    for(int k=0;k<6;k++){
-      Serial.print(resultAcq[k]);
-      Serial.print(" ");
-    }
-    Serial.println();
+    printResults(resultAcq);
     
   }
 
@@ -141,8 +147,8 @@ void loop(){
           //Habilita a aquisicao
           enableAcquisition=true;
           samples=RESET;
-          Serial.println(numberSamples);
-          Serial.println(sampleRate);
+          //Serial.println(numberSamples);
+          //Serial.println(sampleRate);
           Timer1.restart();       
         }            
       }
