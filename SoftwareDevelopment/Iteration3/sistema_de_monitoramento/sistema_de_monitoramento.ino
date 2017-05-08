@@ -95,7 +95,7 @@ void printResults(int * result){
     for(int k=0;k<6;k++){
       unsigned char * resultConverted=inteiroParaByte4(result[k]);
       for(int i=0;i<4;i++){
-        Serial.print(resultConverted[i]);
+        Serial.write(resultConverted[i]);
         Serial.print(" ");
       }
       Serial.print("   ");
