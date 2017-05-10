@@ -11,18 +11,19 @@
 #define STOP_ACQ              ','
 #define MASTER_RESET          '.'
 #define ACQ_LED_BLINK_MS     250
-
+#define SAMPLE_RATE_1K        10000
+#define DEBUG
 
 //Variaveis Globais
 static boolean enableAcquisition=false;
 int samples=0;
 short COMMAND_PORTS[]={2,3,4,5};
 boolean commandInstruction[]={0,0,0,0};
-unsigned long int RATES[]={1000000,100000,10000,1000,100,10,5};
+unsigned long int RATES[]={1000000,100000,10000,SAMPLE_RATE_1K,100,10,5};
 unsigned long int numberSamples = 100;
 unsigned long int SAMPLES[]={1,10,100,500,1000};
 static float sensorData[]={0,0,0,0,0,0};
-unsigned long int sampleRate=1000;
+unsigned long int sampleRate=SAMPLE_RATE_1K;
 
 //Funcao que configura o timer 1 - Aquisicao
 void configureTimer1(){
@@ -92,56 +93,17 @@ void acquisitionStop(){
 
 //Funcao que escreve os resultados da aquisicao na porta serial
 void printResults(int * result){    
-    for(int k=0;k<6;k++){
-      unsigned char * resultConverted=inteiroParaByte4(result[k]);
-      for(int i=0;i<4;i++){
-        Serial.write(resultConverted[i]);
-        Serial.print(" ");
-      }
-      Serial.print("   ");
-    }
-    Serial.println();
-}
-
-//Funcao que converte um inteiro em um array de 4 caracteres
-char * inteiroParaByte4(int numberToConvert) {
-
-  static unsigned char result[4];
-
-  //garantir que numero esteja dentro do intervalo aceitavel
-  if (numberToConvert < 0){
-    numberToConvert =0;
-  }
-
-  if (numberToConvert > 1020){
-    numberToConvert = 1020;
-  }
-  
-  //convertendo para array de byte
-  if (numberToConvert <= 1020 && numberToConvert >= 765){
-    result[0]=255;
-    result[1]=255;
-    result[2]=255;
-    result[3]=numberToConvert-765;
-  }else if (numberToConvert < 765 && numberToConvert >= 510){
-    result[0]=255;
-    result[1]=255;
-    result[2]=numberToConvert-510;
-    result[3]=0;
-  }else if (numberToConvert < 510 && numberToConvert >= 255){
-    result[0]=255;
-    result[1]=numberToConvert-255;
-    result[2]=0;
-    result[3]=0;
-  }else{ 
-    result[0]=numberToConvert;
-    result[1]=0;
-    result[2]=0;
-    result[3]=0;
-  }
-
-  return result;
-
+    Serial.print(result[0]);
+    Serial.print(",");
+    Serial.print(result[1]);
+    Serial.print(",");
+    Serial.print(result[2]);
+    Serial.print(",");
+    Serial.print(result[3]);
+    Serial.print(",");
+    Serial.print(result[4]);
+    Serial.print(",");
+    Serial.println(result[5]);
 }
 
 //Funcao setup - inicializada com arduino
