@@ -12,16 +12,16 @@
 #define MASTER_RESET          '.'
 #define ACQ_LED_BLINK_MS     250
 #define SAMPLE_RATE_1K        10000
-#define DEBUG
+#define DEBUG                 1
 
 //Variaveis Globais
 static boolean enableAcquisition=false;
 int samples=0;
 short COMMAND_PORTS[]={2,3,4,5};
 boolean commandInstruction[]={0,0,0,0};
-unsigned long int RATES[]={1000000,100000,10000,SAMPLE_RATE_1K,100,10,5};
+unsigned long int RATES[]={1000000,100000,10000,SAMPLE_RATE_1K,100,10};
 unsigned long int numberSamples = 100;
-unsigned long int SAMPLES[]={1,10,100,500,1000};
+unsigned long int SAMPLES[]={1,10,100,500,1000,10000};
 static float sensorData[]={0,0,0,0,0,0};
 unsigned long int sampleRate=SAMPLE_RATE_1K;
 
@@ -106,8 +106,23 @@ void printResults(int * result){
     Serial.println(result[5]);
 }
 
+//Funcao que printa um cabecalho para debug
+void debugStarterMenu(){
+
+Serial.println(F("--------------------------------------------------------------------------------------------------------------------------------------------------\n--------------------------------------------------------------------------------------------------------------------------------------------------\nPrograma para aquisicao de dados analogicos atraves de 6 entradas analogicas usando o chip ATMEGA328p integrado com controle de 4 saidas digitais.\n--------------------------------------------------------------------------------------------------------------------------------------------------\nFeito Por: Joao Guimaraes \nComandos:\n      -Inicar Aquisicao: '+'\n      -Terminar Aquisicao: ','\n      -Mater Reset(Reseta samplingRate, numberOfSamples e comandos digitais para valores padroes): '.'\n      -Set numberOfSamples:\n           -1:         '!'\n           -10:        '\"'\n           -100:       '#'\n           -500:       '$'\n           -1k:        '%'\n           -10k:       '&'\n     -Set numberOfSamples:\n           -1Hz:       'A'\n           -10Hz:      'B'\n           -100Hz:     'C'\n           -1kHz:      'D'\n           -10kHz:     'E'\n           -100kHz:    'F'\n      -Saidas Digitais:\n           -0000:      '`'\n           -0001:      'a'\n           -0010:      'b'\n           -...        ...\n           -1110:      'n'\n           -1111:      'o'\n"));
+
+
+
+}
 //Funcao setup - inicializada com arduino
 void setup(){
+  
+  Serial.begin(9600);
+
+  #ifdef DEBUG
+    debugStarterMenu();
+  #endif
+  
   pinMode(LED_PIN,OUTPUT);
   for(int i=0;i<sizeof(COMMAND_PORTS);i++){
      pinMode(COMMAND_PORTS[i],OUTPUT);
@@ -116,7 +131,7 @@ void setup(){
   digitalWrite(LED_PIN,LOW);
   configureTimer1();
   configureTimer2();
-  Serial.begin(9600);
+  
   //Timer1.restart();
   MsTimer2::start();
 }
@@ -188,7 +203,7 @@ void loop(){
       }
       if(enableAcquisition==false){
           if (byteRead > 64){     //Controle da Sampling Rate (default 1KHz)
-            if (byteRead <72){
+            if (byteRead <71){
               sampleRate=RATES[(byteRead-65)];
               Timer1.setPeriod(sampleRate);
               Timer1.stop();
@@ -197,7 +212,7 @@ void loop(){
           }
 
           if (byteRead > 32){     //Controle da Number of Samples
-            if (byteRead <38){
+            if (byteRead <39){
               numberSamples=SAMPLES[(byteRead - 33)];
             }
           }
