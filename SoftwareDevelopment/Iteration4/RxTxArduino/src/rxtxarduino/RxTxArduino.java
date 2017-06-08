@@ -20,11 +20,14 @@ public class RxTxArduino {
     public static void main(String[] args) {
         
         Communicator communicator = new Communicator();
-	communicator.connect();
-	communicator.initListener(SAMPLES_TO_READ);
-        
+	//communicator.connect();
+	//communicator.initListener(SAMPLES_TO_READ);
+        //communicator.writeData(97);
+        //communicator.disconnect();
+        communicator.connect();
+        communicator.writeData(97);
         communicator.disconnect();
-/*
+/*      
          String libPathProperty = System.getProperty("java.library.path");
         System.out.println(libPathProperty);*/
     }

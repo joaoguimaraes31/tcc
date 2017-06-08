@@ -12,6 +12,8 @@ import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 
+
+
 public class Communicator implements SerialPortEventListener {
 
 	private HashMap<CommPortIdentifier, String> portMap = new HashMap<CommPortIdentifier, String>();
@@ -21,6 +23,9 @@ public class Communicator implements SerialPortEventListener {
 	private SerialPort serialPort = null;
 	final int TIMEOUT = 2000;
 	private int samples = 0;
+        final static int SPACE_ASCII = 32;
+        final static int DASH_ASCII = 45;
+        final static int NEW_LINE_ASCII = 10;
 
 	// metodo que retorna as portas seriais connectadas ao computador
 	public CommPortIdentifier getPorts() {
@@ -97,7 +102,8 @@ public class Communicator implements SerialPortEventListener {
 			if(samples==0){
 				try {
 					System.out.println("Calling finalized");
-					disconnect();
+                                        //serialPort.removeEventListener();
+					disconnect();                                        
 					this.finalize();
 				} catch (Throwable e) {
 					e.printStackTrace();
@@ -120,6 +126,29 @@ public class Communicator implements SerialPortEventListener {
 		samples--;
 
 	}
+        
+        public void writeData(int leftThrottle)
+       {
+           try
+           {
+               outputStream.write(leftThrottle);
+               outputStream.flush();
+               //this is a delimiter for the data
+               outputStream.write(DASH_ASCII);
+               outputStream.flush();
+/*
+               outputStream.write(rightThrottle);
+               outputStream.flush();
+               //will be read as a byte so it is a space key
+               outputStream.write(SPACE_ASCII);
+               outputStream.flush();*/
+           }
+           catch (Exception e)
+           {
+               System.out.println("Failed to write data. (" + e.toString() + ")");
+            }
+        }
+        
 
 	public int getSamples() {
 		return samples;
