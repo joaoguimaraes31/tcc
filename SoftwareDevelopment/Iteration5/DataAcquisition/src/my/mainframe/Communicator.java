@@ -6,83 +6,144 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.TooManyListenersException;
 
+import gnu.io.*;
+import java.awt.Color;
+import java.io.IOException;
+
 import gnu.io.CommPortIdentifier;
 import gnu.io.PortInUseException;
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
+import java.awt.Component;
+import javax.swing.JOptionPane;
 
 
 
 public class Communicator implements SerialPortEventListener {
 
-	private HashMap<CommPortIdentifier, String> portMap = new HashMap<CommPortIdentifier, String>();
+	//for containing the ports that will be found
+        private Enumeration ports = null;
+        //map the port names to CommPortIdentifiers
+        private HashMap portMap = new HashMap();
 
+        //this is the object that contains the opened port
+        private CommPortIdentifier portId = null;
+        private SerialPort serialPort = null;
+        
+        //Flag for connection status
+        boolean isConnected = false;
+        boolean connectionError = false;
+        
+        
 	private OutputStream outputStream;
 	private InputStream inStream;
-	private SerialPort serialPort = null;
+
 	final int TIMEOUT = 2000;
 	private int samples = 0;
         final static int SPACE_ASCII = 32;
         final static int DASH_ASCII = 45;
         final static int NEW_LINE_ASCII = 10;
+        final static int START_ACQ  = 43;   //+
+        final static int STOP_ACQ = 44;     //,
+        final static int MASTER_RESET = 46; //.
+        
+        
+        
 
 	// metodo que retorna as portas seriais connectadas ao computador
-	public CommPortIdentifier getPorts() {
+	public void searchForPorts()
+        {   
+            ports = CommPortIdentifier.getPortIdentifiers();
+            portMap.clear();
+            
+            
+            while (ports.hasMoreElements())
+            {
+                CommPortIdentifier curPort = (CommPortIdentifier)ports.nextElement();
+                
+                
+                //get only serial ports
+                if (curPort.getPortType() == CommPortIdentifier.PORT_SERIAL)
+                {
+                    portMap.put(curPort.getName(), curPort);
+                }
+            }
+        }
+        
+        public String[] getPortMapValues(){
+            searchForPorts();
+            String [] portNames = new String[portMap.size()];
+            
+            int i = 0;
+            for(Object port : portMap.values().toArray()) {
+                portNames[i] = ((CommPortIdentifier)port).getName();
+            }
+            
+            return portNames;
+        }
+        
 
-		CommPortIdentifier serialPortId = null;
-		Enumeration<CommPortIdentifier> ports = CommPortIdentifier.getPortIdentifiers();
-
-		while (ports.hasMoreElements()) {
-			serialPortId = (CommPortIdentifier) ports.nextElement();
-
-			// Preenchendo a lista de portas
-			if (serialPortId.getPortType() == CommPortIdentifier.PORT_SERIAL) {
-				portMap.put(serialPortId, serialPortId.getName());
-				System.out.println(serialPortId.getName());
-			}
-		}
-
-		return serialPortId;
-
-	}
-
-	public void connect() {
+	public void connect(String selectedPort) {
 
 		try {
+			// Obtaining port identifier using data from GUI
+			searchForPorts();
+                        portId = (CommPortIdentifier)portMap.get(selectedPort);
+                        
+			//Opening port
+                        if (portId!=null){
+                            serialPort = (SerialPort) portId.open("Demo application", TIMEOUT);
+                        
+                            //Msg to user
+                            Component frame = null;
+                            JOptionPane.showMessageDialog(frame,"Connection Sucessful!");
+                            //System.out.println("Serial Port: " + serialPort.getName() + " opened sucessfully");
+                            //System.out.println("Connected");
 
-			// Obtendo identificador para porta
-			CommPortIdentifier portId = CommPortIdentifier.getPortIdentifier(getPorts().getName());
+                            //Setting connection FLAG
+                            isConnected = true;
 
-			// Abrindo porta
-			serialPort = (SerialPort) portId.open("Demo application", TIMEOUT);
+                            // Configuring port parameters
+                            serialPort.setSerialPortParams(9600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
 
-			System.out.println("Porta Serial: " + portId.getName() + " aberta com sucesso");
-
-			// Configurando parametros da porta
-			serialPort.setSerialPortParams(9600, SerialPort.DATABITS_8, SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
-
-			outputStream = serialPort.getOutputStream();
-			inStream = serialPort.getInputStream();
-
+                            outputStream = serialPort.getOutputStream();
+                            inStream = serialPort.getInputStream();
+                        }else{
+                            Component frame = null;
+                            JOptionPane.showMessageDialog(frame,"Could not connect to desired serial port!"+ System.lineSeparator() +"Please check connections.","Connection ERROR",JOptionPane.ERROR_MESSAGE);
+			
+                        }
 		} catch (PortInUseException e) {
-			// System.out.println("Porta Serial" + portId.getName() + " esta em
-			// uso (" + e.toString() + ")");
-		} catch (Exception e) {
-			System.out.println("Falha ao tentar abrir porta Serial (" + e.toString() + ")");
+                        Component frame = null;			
+                        JOptionPane.showMessageDialog(frame,"Could not connect to desired serial port!"+ System.lineSeparator() +"Port already being used.","Connection ERROR",JOptionPane.ERROR_MESSAGE);
+                        //System.out.println("Serial port already in use" + e.toString() + ")");
+                } catch (Exception e) {
+                        Component frame = null;
+                        JOptionPane.showMessageDialog(frame,"Could not connect to desired serial port!"+ System.lineSeparator() +"Please check connections.","Connection ERROR",JOptionPane.ERROR_MESSAGE);
+			//System.out.println("Could not connect to desired serial port!" + e.toString() + ")");
 		}
 	}
 
 	public void disconnect() {
 		try {
+                        if (!connectionError){
+                            writeData(MASTER_RESET);
+                        }
+                        connectionError=false;
 			serialPort.removeEventListener();
 			serialPort.close();
-			System.out.println("Porta Serial: " + serialPort.getName() + " fechada com sucesso");
+                        Component frame = null;
+                        JOptionPane.showMessageDialog(frame,"Port disconnection sucessfull!");
+			//System.out.println("Serial Port: " + serialPort.getName() + " closed sucessfully");
+                        isConnected = false;
 
-			System.out.println("Desconectado");
+			//System.out.println("Disconnected");
 		} catch (Exception e) {
-			System.out.println("Falha ao fechar porta: " + serialPort.getName() + "(" + e.toString() + ")");
-		}
+                        Component frame = null;
+                        JOptionPane.showMessageDialog(frame,"Could not disconnect to serial port!","Connection ERROR",JOptionPane.ERROR_MESSAGE);
+			//System.out.println("Fail to close serial port");
+		} 
 	}
 
 	public void initListener(int samples) {
@@ -91,7 +152,6 @@ public class Communicator implements SerialPortEventListener {
 			serialPort.addEventListener(this);
 			serialPort.notifyOnDataAvailable(true);
 		} catch (TooManyListenersException e) {
-			// logText = "Too many listeners. (" + e.toString() + ")";
 
 		}
 	}
@@ -145,11 +205,16 @@ public class Communicator implements SerialPortEventListener {
            }
            catch (Exception e)
            {
-               System.out.println("Failed to write data. (" + e.toString() + ")");
+                Component frame = null;
+                JOptionPane.showMessageDialog(frame,"Could not write to the serial port!","Connection ERROR",JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(frame,"Disconnection Eminent!","Connection Status",JOptionPane.WARNING_MESSAGE);
+                connectionError=true;
+                disconnect();
+                
             }
         }
         
-
+        //getters and setters methods
 	public int getSamples() {
 		return samples;
 	}
@@ -158,6 +223,12 @@ public class Communicator implements SerialPortEventListener {
 		this.samples = samples;
 	}
 	
-	
+	public boolean getIsConnected() {
+		return isConnected;
+	}
+
+	public void setIsConnected(boolean IsConnected) {
+		this.isConnected = isConnected;
+	}
 
 }
