@@ -38,18 +38,12 @@ public class Communicator implements SerialPortEventListener {
         
 	private OutputStream outputStream;
 	private InputStream inStream;
+        
 
 	final int TIMEOUT = 2000;
-	private int samples = 0;
-        final static int SPACE_ASCII = 32;
-        final static int DASH_ASCII = 45;
-        final static int NEW_LINE_ASCII = 10;
-        final static int START_ACQ  = 43;   //+
-        final static int STOP_ACQ = 44;     //,
-        final static int MASTER_RESET = 46; //.
         
-        
-        
+        //hardware flags
+        final int MASTER_RESET = 43;
 
 	// metodo que retorna as portas seriais connectadas ao computador
 	public void searchForPorts()
@@ -147,8 +141,7 @@ public class Communicator implements SerialPortEventListener {
 		} 
 	}
 
-	public void initListener(int samples) {
-		this.samples=samples;
+	public void initListener() {
 		try {
 			serialPort.addEventListener(this);
 			serialPort.notifyOnDataAvailable(true);
@@ -160,29 +153,17 @@ public class Communicator implements SerialPortEventListener {
 	
 	public void serialEvent(SerialPortEvent evt) {
 		if (evt.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
-			if(samples==0){
-				try {
-					System.out.println("Calling finalized");
-                                        serialPort.removeEventListener();
-					//disconnect();                                        
-					this.finalize();
-				} catch (Throwable e) {
-					e.printStackTrace();
-				}
-			} else {
-				try {
-                                    byte singleData = (byte) inStream.read();                                    
-                                    if (singleData!=46){
-                                        System.out.print(new String(new byte[] { singleData }));
-                                    }else{
-                                        System.out.println(" ");
-                                    }
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+                    try {
+                        byte singleData = (byte) inStream.read();                                    
+                        if (singleData!=46){
+                            System.out.print(new String(new byte[] { singleData }));
+                        }else{
+                            System.out.println(" ");
+                        }
+                    } catch (Exception e) {
+			e.printStackTrace();
 			}
 		}
-		//samples--;
 
 	}
         
@@ -192,15 +173,6 @@ public class Communicator implements SerialPortEventListener {
            {
                outputStream.write(leftThrottle);
                outputStream.flush();
-               //this is a delimiter for the data
-               //outputStream.write(DASH_ASCII);
-               //outputStream.flush();
-/*
-               outputStream.write(rightThrottle);
-               outputStream.flush();
-               //will be read as a byte so it is a space key
-               outputStream.write(SPACE_ASCII);
-               outputStream.flush();*/
            }
            catch (Exception e)
            {
@@ -213,14 +185,6 @@ public class Communicator implements SerialPortEventListener {
             }
         }
         
-        //getters and setters methods
-	public int getSamples() {
-		return samples;
-	}
-
-	public void setSamples(int samples) {
-		this.samples = samples;
-	}
 	
 	public boolean getIsConnected() {
 		return isConnected;
