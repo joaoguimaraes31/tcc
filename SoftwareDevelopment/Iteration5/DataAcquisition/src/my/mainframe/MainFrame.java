@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package my.mainframe;
 
 import java.awt.Component;
@@ -11,10 +6,6 @@ import javax.swing.JOptionPane;
 public class MainFrame extends javax.swing.JFrame {
     
     private static final int asciiCommandNullId = 96;
-    //private String[] test = {"test0","test1","test2"};
-    //private String[] test2;
-    
-    
     Communicator communicator = new Communicator();
     CommandHandlings commandHandlings = new CommandHandlings(asciiCommandNullId);
             
@@ -199,22 +190,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_command3_RBActionPerformed
 
     private void connectBTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_connectBTMouseClicked
-        //Connecting to the serial port
-        if (!communicator.getIsConnected() && connectBT.isEnabled()){
-            communicator.connect(portsCB.getSelectedItem().toString());
-        }
-        
-        //Controlling GUI elements
-        if (communicator.getIsConnected() && connectBT.isEnabled() && !disconnectBT.isEnabled()){
-            connectBT.setEnabled(false);
-            disconnectBT.setEnabled(true);
-            commandsPN.setEnabled(true);
-            command0_RB.setEnabled(true);
-            command1_RB.setEnabled(true);
-            command2_RB.setEnabled(true);
-            command3_RB.setEnabled(true);
-        }
-        
+        connect_routine();        
     }//GEN-LAST:event_connectBTMouseClicked
 
     private void disconnectBTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_disconnectBTMouseClicked
@@ -223,35 +199,9 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_disconnectBTMouseClicked
 
     private void searchBTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBTMouseClicked
-        
-        portsCB.removeAllItems();
-        String[] portMapValues =  communicator.getPortMapValues();
-        
-        for(int i =0;i<portMapValues.length;i++){
-            portsCB.addItem(portMapValues[i]);
-        }
-        
-        if (portsCB.getSelectedItem()==null){
-            connectBT.setEnabled(false);
-            Component frame = null;			
-            JOptionPane.showMessageDialog(frame,"No serial ports were found!","ERROR",JOptionPane.ERROR_MESSAGE);
-                        
-        }else{
-            connectBT.setEnabled(true);
-        }
-        
-        
+        search_routine();       
     }//GEN-LAST:event_searchBTMouseClicked
     
-    public void commandOperation(){       
-        communicator.writeData(commandHandlings.commandHandle(command0_RB.isSelected(),command1_RB.isSelected(),command2_RB.isSelected(),command3_RB.isSelected()));
-        if (!communicator.getIsConnected()){
-            portsCB.removeAllItems();
-            disconnect_routine();
-            
-            //connectBT.setEnabled(false);
-        }
-    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -301,8 +251,44 @@ public class MainFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 
-public void disconnect_routine(){
-    if (communicator.getIsConnected()){
+    public void search_routine(){
+        portsCB.removeAllItems();
+        String[] portMapValues =  communicator.getPortMapValues();
+        
+        for(int i =0;i<portMapValues.length;i++){
+            portsCB.addItem(portMapValues[i]);
+        }
+        
+        if (portsCB.getSelectedItem()==null){
+            connectBT.setEnabled(false);
+            Component frame = null;			
+            JOptionPane.showMessageDialog(frame,"No serial ports were found!","ERROR",JOptionPane.ERROR_MESSAGE);
+                        
+        }else{
+            connectBT.setEnabled(true);
+        }
+    }
+    
+    public void connect_routine(){
+        //Connecting to the serial port
+        if (!communicator.getIsConnected() && connectBT.isEnabled()){
+            communicator.connect(portsCB.getSelectedItem().toString());
+        }
+        
+        //Controlling GUI elements
+        if (communicator.getIsConnected() && connectBT.isEnabled() && !disconnectBT.isEnabled()){
+            connectBT.setEnabled(false);
+            disconnectBT.setEnabled(true);
+            commandsPN.setEnabled(true);
+            command0_RB.setEnabled(true);
+            command1_RB.setEnabled(true);
+            command2_RB.setEnabled(true);
+            command3_RB.setEnabled(true);
+        }
+    }
+    
+    public void disconnect_routine(){
+        if (communicator.getIsConnected()){
             communicator.disconnect();
         }
         
@@ -321,5 +307,19 @@ public void disconnect_routine(){
             command3_RB.setEnabled(false);
             
         }
-}
+    }
+
+    public void commandOperation(){       
+        communicator.writeData(commandHandlings.commandHandle(command0_RB.isSelected(),command1_RB.isSelected(),command2_RB.isSelected(),command3_RB.isSelected()));
+        if (!communicator.getIsConnected()){
+            portsCB.removeAllItems();
+            disconnect_routine();
+            
+            //connectBT.setEnabled(false);
+        }
+    }
+
+
+
+
 }
