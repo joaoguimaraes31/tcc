@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 public class MainFrame extends javax.swing.JFrame {
     
-    private static final int asciiCommandNullId = 96;
+    private static final int asciiCommandNullId = 43;
     Communicator communicator = new Communicator();
     CommandHandlings commandHandlings = new CommandHandlings(asciiCommandNullId);
             
@@ -28,6 +28,7 @@ public class MainFrame extends javax.swing.JFrame {
         connectBT = new javax.swing.JButton();
         searchBT = new javax.swing.JButton();
         portsCB = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,6 +149,13 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton1.setText("jButton1");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -159,13 +167,19 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(commandsPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
+                .addGap(73, 73, 73)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
                 .addComponent(commandsPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -201,6 +215,11 @@ public class MainFrame extends javax.swing.JFrame {
     private void searchBTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchBTMouseClicked
         search_routine();       
     }//GEN-LAST:event_searchBTMouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        communicator.writeData(97);
+    }//GEN-LAST:event_jButton1MouseClicked
     
 
     public static void main(String args[]) {
@@ -245,6 +264,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel commandsPN;
     private javax.swing.JButton connectBT;
     private javax.swing.JButton disconnectBT;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JComboBox<String> portsCB;
     private javax.swing.JButton searchBT;
@@ -285,6 +305,7 @@ public class MainFrame extends javax.swing.JFrame {
             command2_RB.setEnabled(true);
             command3_RB.setEnabled(true);
         }
+        communicator.initListener(1000);    
     }
     
     public void disconnect_routine(){

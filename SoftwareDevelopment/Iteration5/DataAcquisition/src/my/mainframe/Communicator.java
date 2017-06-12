@@ -127,6 +127,7 @@ public class Communicator implements SerialPortEventListener {
 
 	public void disconnect() {
 		try {
+                        System.out.println();
                         if (!connectionError){
                             writeData(MASTER_RESET);
                         }
@@ -170,20 +171,18 @@ public class Communicator implements SerialPortEventListener {
 				}
 			} else {
 				try {
-					byte singleData = (byte) inStream.read();
-					if (singleData != 10) {
-						System.out.println(new String(new byte[] { singleData }));
-						//System.out.println(samples);
-					} else {
-						System.out.println("EOF");
-					}
+                                    byte singleData = (byte) inStream.read();                                    
+                                    if (singleData!=46){
+                                        System.out.print(new String(new byte[] { singleData }));
+                                    }else{
+                                        System.out.println(" ");
+                                    }
 				} catch (Exception e) {
 					e.printStackTrace();
-	
 				}
 			}
 		}
-		samples--;
+		//samples--;
 
 	}
         
@@ -194,8 +193,8 @@ public class Communicator implements SerialPortEventListener {
                outputStream.write(leftThrottle);
                outputStream.flush();
                //this is a delimiter for the data
-               outputStream.write(DASH_ASCII);
-               outputStream.flush();
+               //outputStream.write(DASH_ASCII);
+               //outputStream.flush();
 /*
                outputStream.write(rightThrottle);
                outputStream.flush();

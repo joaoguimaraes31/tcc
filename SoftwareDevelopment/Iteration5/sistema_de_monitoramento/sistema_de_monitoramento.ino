@@ -7,9 +7,9 @@
 //Definicoes Basicas para execucao
 #define RESET                 0
 #define ACQ_LED_PIN           13
-#define START_ACQ             '+'
-#define STOP_ACQ              ','
-#define MASTER_RESET          '.'
+#define START_ACQ             '('
+#define STOP_ACQ              ')'
+#define MASTER_RESET          '+'
 #define ACQ_LED_BLINK_MS      250
 
 //Definicao de Portas usadas para acionamento de comandos (saidas digitais). Portas 0 e 1 NUNCA podem ser usadas.
@@ -37,7 +37,7 @@
 #define DEFAULT_NUMBER_OF_SAMPLES     100           //Se nenhuma opcao for definida pelo usuario programa toma esse valor como padrao
 
 //Flag usada para definir se o programa esta em modo de execucao normal ou modo debug
-#define DEBUG                 1
+//#define DEBUG                 false
 
 //Variaveis Globais
 static boolean enableAcquisition=false;
@@ -139,7 +139,7 @@ void printResults(int * result){
     Serial.print(result[4]);
     Serial.print(",");
     Serial.print(result[5]);
-    Serial.print(",");
+    Serial.print(".");
 }
 
 //Funcao que printa um cabecalho para debug
