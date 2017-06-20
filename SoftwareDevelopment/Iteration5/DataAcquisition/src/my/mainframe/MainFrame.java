@@ -40,7 +40,6 @@ public class MainFrame extends javax.swing.JFrame {
         StartAcquisitionBT = new javax.swing.JButton();
         RunTimeTF = new javax.swing.JTextField();
         RunTimeLB = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -50,7 +49,6 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setEnabled(false);
 
         commandsPN.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Commands Control", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 2, 24))); // NOI18N
         commandsPN.setToolTipText("");
@@ -239,9 +237,19 @@ public class MainFrame extends javax.swing.JFrame {
 
         StopAcquisitionBT.setText("Stop Acquisition");
         StopAcquisitionBT.setEnabled(false);
+        StopAcquisitionBT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                StopAcquisitionBTMouseClicked(evt);
+            }
+        });
 
         StartAcquisitionBT.setText("Start Acquisition");
         StartAcquisitionBT.setEnabled(false);
+        StartAcquisitionBT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                StartAcquisitionBTMouseClicked(evt);
+            }
+        });
 
         RunTimeTF.setEditable(false);
         RunTimeTF.setText("0ms");
@@ -281,19 +289,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton2.setText("jButton2");
-        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton2MouseClicked(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(AcquisitionControlPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createSequentialGroup()
@@ -304,8 +305,6 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(SetNumberOfSamplesPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(207, 207, 207)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(commandsPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -319,15 +318,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(SetNumberOfSamplesPN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AcquisitionControlPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                        .addComponent(commandsPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(jButton2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addComponent(commandsPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -367,9 +360,38 @@ public class MainFrame extends javax.swing.JFrame {
         communicator.writeData(97);
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-search_routine();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2MouseClicked
+    private void StartAcquisitionBTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartAcquisitionBTMouseClicked
+        communicator.initListener();
+        
+        //controlling GUI elements
+        SetSamplingRatePN.setEnabled(false);
+        samplingRatesCB.setEnabled(false);
+        setSamplingRateBT.setEnabled(false);
+        SetNumberOfSamplesPN.setEnabled(false);
+        NumberOfSamplesCB.setEnabled(false);
+        SetNumberOfSamplesBT.setEnabled(false);
+        StartAcquisitionBT.setEnabled(false);
+        StopAcquisitionBT.setEnabled(true);
+        RunTimeLB.setEnabled(true);
+        RunTimeTF.setEnabled(true);
+    }//GEN-LAST:event_StartAcquisitionBTMouseClicked
+
+    private void StopAcquisitionBTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StopAcquisitionBTMouseClicked
+        
+        communicator.removeListener();
+        
+        //controlling GUI elements
+        SetSamplingRatePN.setEnabled(true);
+        samplingRatesCB.setEnabled(true);
+        setSamplingRateBT.setEnabled(true);
+        SetNumberOfSamplesPN.setEnabled(true);
+        NumberOfSamplesCB.setEnabled(true);
+        SetNumberOfSamplesBT.setEnabled(true);
+        StartAcquisitionBT.setEnabled(true);
+        StopAcquisitionBT.setEnabled(false);
+        RunTimeLB.setEnabled(false);
+        RunTimeTF.setEnabled(false);
+    }//GEN-LAST:event_StopAcquisitionBTMouseClicked
     
 
     public static void main(String args[]) {
@@ -424,7 +446,6 @@ search_routine();        // TODO add your handling code here:
     private javax.swing.JButton connectBT;
     private javax.swing.JButton disconnectBT;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JComboBox<String> portsCB;
     private javax.swing.JComboBox<String> samplingRatesCB;
@@ -465,7 +486,7 @@ search_routine();        // TODO add your handling code here:
             command0_RB.setEnabled(true);
             command1_RB.setEnabled(true);
             command2_RB.setEnabled(true);
-            command3_RB.setEnabled(true);/*
+            command3_RB.setEnabled(true);
             SetSamplingRatePN.setEnabled(true);
             samplingRatesCB.setEnabled(true);
             setSamplingRateBT.setEnabled(true);
@@ -473,7 +494,7 @@ search_routine();        // TODO add your handling code here:
             NumberOfSamplesCB.setEnabled(true);
             SetNumberOfSamplesBT.setEnabled(true);
             AcquisitionControlPN.setEnabled(true);
-            StartAcquisitionBT.setEnabled(true);*/
+            StartAcquisitionBT.setEnabled(true);
         }
         //communicator.initListener();    
     }
@@ -495,7 +516,7 @@ search_routine();        // TODO add your handling code here:
             command2_RB.setEnabled(false);
             command2_RB.setSelected(false);
             command3_RB.setSelected(false);
-            command3_RB.setEnabled(false);/*
+            command3_RB.setEnabled(false);
             samplingRatesCB.setEnabled(false);
             setSamplingRateBT.setEnabled(false);
             SetNumberOfSamplesPN.setEnabled(false);
@@ -503,7 +524,7 @@ search_routine();        // TODO add your handling code here:
             SetNumberOfSamplesBT.setEnabled(false);
             AcquisitionControlPN.setEnabled(false);
             StartAcquisitionBT.setEnabled(false);
-            */
+            
         }
     }
 

@@ -150,6 +150,10 @@ public class Communicator implements SerialPortEventListener {
 
 		}
 	}
+        
+        public void removeListener(){
+           serialPort.removeEventListener();
+        }
 	
 	
 	public void serialEvent(SerialPortEvent evt) {
