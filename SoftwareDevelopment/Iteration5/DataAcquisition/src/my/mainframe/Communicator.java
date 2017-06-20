@@ -30,6 +30,7 @@ public class Communicator implements SerialPortEventListener {
         //this is the object that contains the opened port
         private CommPortIdentifier portId = null;
         private SerialPort serialPort = null;
+        private String jointData = "";
         
         //Flag for connection status
         boolean isConnected = false;
@@ -154,11 +155,16 @@ public class Communicator implements SerialPortEventListener {
 	public void serialEvent(SerialPortEvent evt) {
 		if (evt.getEventType() == SerialPortEvent.DATA_AVAILABLE) {
                     try {
-                        byte singleData = (byte) inStream.read();                                    
+                        byte singleData = (byte) inStream.read();
                         if (singleData!=46){
-                            System.out.print(new String(new byte[] { singleData }));
+                            //System.out.print(new String(new byte[] { singleData }));
+                            jointData = (new String(new byte[] { singleData })) + jointData;
+                            
                         }else{
-                            System.out.println(" ");
+                            
+                            System.out.println(jointData);
+                            jointData = "";
+                            //System.out.println(" ");
                         }
                     } catch (Exception e) {
 			e.printStackTrace();
