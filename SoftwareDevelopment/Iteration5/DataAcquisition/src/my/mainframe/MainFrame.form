@@ -45,10 +45,7 @@
                           <Component id="SetNumberOfSamplesPN" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="207" max="-2" attributes="0"/>
-                      <Component id="commandsPN" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="commandsPN" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -263,18 +260,12 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="samplingRatesCB" min="-2" pref="205" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                  <Component id="setSamplingRateBT" min="-2" max="-2" attributes="0"/>
-              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="samplingRatesCB" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="setSamplingRateBT" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -294,17 +285,12 @@
               </StringArray>
             </Property>
             <Property name="selectedIndex" type="int" value="3"/>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="setSamplingRateBT">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Set Value"/>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>
@@ -325,16 +311,8 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="NumberOfSamplesCB" min="-2" pref="205" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="SetNumberOfSamplesBT" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="NumberOfSamplesCB" min="-2" pref="205" max="-2" attributes="0"/>
                   <EmptySpace pref="33" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -343,9 +321,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="NumberOfSamplesCB" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="SetNumberOfSamplesBT" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="62" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -369,12 +345,6 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="SetNumberOfSamplesBT">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Set Value"/>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
         </Component>
       </SubComponents>
     </Container>

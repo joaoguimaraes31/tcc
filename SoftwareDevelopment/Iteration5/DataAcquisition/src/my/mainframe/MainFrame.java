@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 public class MainFrame extends javax.swing.JFrame {
     
     private static final int asciiCommandNullId = 43;
+    ExecutionTimerControl execTimer =  new ExecutionTimerControl();
     Communicator communicator = new Communicator();
     CommandHandlings commandHandlings = new CommandHandlings(asciiCommandNullId);
             
@@ -31,10 +32,8 @@ public class MainFrame extends javax.swing.JFrame {
         portsCB = new javax.swing.JComboBox<>();
         SetSamplingRatePN = new javax.swing.JPanel();
         samplingRatesCB = new javax.swing.JComboBox<>();
-        setSamplingRateBT = new javax.swing.JButton();
         SetNumberOfSamplesPN = new javax.swing.JPanel();
         NumberOfSamplesCB = new javax.swing.JComboBox<>();
-        SetNumberOfSamplesBT = new javax.swing.JButton();
         AcquisitionControlPN = new javax.swing.JPanel();
         StopAcquisitionBT = new javax.swing.JButton();
         StartAcquisitionBT = new javax.swing.JButton();
@@ -173,10 +172,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         samplingRatesCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1 Hz", "10Hz", "100Hz", "1KHz", "10KHz", "100KHz" }));
         samplingRatesCB.setSelectedIndex(3);
+        samplingRatesCB.setToolTipText("");
         samplingRatesCB.setEnabled(false);
-
-        setSamplingRateBT.setText("Set Value");
-        setSamplingRateBT.setEnabled(false);
 
         javax.swing.GroupLayout SetSamplingRatePNLayout = new javax.swing.GroupLayout(SetSamplingRatePN);
         SetSamplingRatePN.setLayout(SetSamplingRatePNLayout);
@@ -185,16 +182,11 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(SetSamplingRatePNLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(samplingRatesCB, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(SetSamplingRatePNLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(setSamplingRateBT))
         );
         SetSamplingRatePNLayout.setVerticalGroup(
             SetSamplingRatePNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SetSamplingRatePNLayout.createSequentialGroup()
                 .addComponent(samplingRatesCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(setSamplingRateBT)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -206,30 +198,20 @@ public class MainFrame extends javax.swing.JFrame {
         NumberOfSamplesCB.setSelectedIndex(2);
         NumberOfSamplesCB.setEnabled(false);
 
-        SetNumberOfSamplesBT.setText("Set Value");
-        SetNumberOfSamplesBT.setEnabled(false);
-
         javax.swing.GroupLayout SetNumberOfSamplesPNLayout = new javax.swing.GroupLayout(SetNumberOfSamplesPN);
         SetNumberOfSamplesPN.setLayout(SetNumberOfSamplesPNLayout);
         SetNumberOfSamplesPNLayout.setHorizontalGroup(
             SetNumberOfSamplesPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SetNumberOfSamplesPNLayout.createSequentialGroup()
-                .addGroup(SetNumberOfSamplesPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SetNumberOfSamplesPNLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(NumberOfSamplesCB, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(SetNumberOfSamplesPNLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(SetNumberOfSamplesBT)))
+                .addContainerGap()
+                .addComponent(NumberOfSamplesCB, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         SetNumberOfSamplesPNLayout.setVerticalGroup(
             SetNumberOfSamplesPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SetNumberOfSamplesPNLayout.createSequentialGroup()
                 .addComponent(NumberOfSamplesCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SetNumberOfSamplesBT)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         AcquisitionControlPN.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Acquisition Control", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 24))); // NOI18N
@@ -303,9 +285,7 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(SetSamplingRatePN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(SetNumberOfSamplesPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(207, 207, 207)
-                        .addComponent(commandsPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(commandsPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -361,32 +341,18 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void StartAcquisitionBTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StartAcquisitionBTMouseClicked
-        communicator.initListener();
-        
-        //controlling GUI elements
-        SetSamplingRatePN.setEnabled(false);
-        samplingRatesCB.setEnabled(false);
-        setSamplingRateBT.setEnabled(false);
-        SetNumberOfSamplesPN.setEnabled(false);
-        NumberOfSamplesCB.setEnabled(false);
-        SetNumberOfSamplesBT.setEnabled(false);
-        StartAcquisitionBT.setEnabled(false);
-        StopAcquisitionBT.setEnabled(true);
-        RunTimeLB.setEnabled(true);
-        RunTimeTF.setEnabled(true);
+        startAcquisitionRoutine();
     }//GEN-LAST:event_StartAcquisitionBTMouseClicked
 
     private void StopAcquisitionBTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StopAcquisitionBTMouseClicked
-        
+        communicator.writeData(41);
         communicator.removeListener();
         
         //controlling GUI elements
         SetSamplingRatePN.setEnabled(true);
         samplingRatesCB.setEnabled(true);
-        setSamplingRateBT.setEnabled(true);
         SetNumberOfSamplesPN.setEnabled(true);
         NumberOfSamplesCB.setEnabled(true);
-        SetNumberOfSamplesBT.setEnabled(true);
         StartAcquisitionBT.setEnabled(true);
         StopAcquisitionBT.setEnabled(false);
         RunTimeLB.setEnabled(false);
@@ -433,7 +399,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> NumberOfSamplesCB;
     private javax.swing.JLabel RunTimeLB;
     private javax.swing.JTextField RunTimeTF;
-    private javax.swing.JButton SetNumberOfSamplesBT;
     private javax.swing.JPanel SetNumberOfSamplesPN;
     private javax.swing.JPanel SetSamplingRatePN;
     private javax.swing.JButton StartAcquisitionBT;
@@ -450,7 +415,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> portsCB;
     private javax.swing.JComboBox<String> samplingRatesCB;
     private javax.swing.JButton searchBT;
-    private javax.swing.JButton setSamplingRateBT;
     // End of variables declaration//GEN-END:variables
 
 
@@ -489,10 +453,8 @@ public class MainFrame extends javax.swing.JFrame {
             command3_RB.setEnabled(true);
             SetSamplingRatePN.setEnabled(true);
             samplingRatesCB.setEnabled(true);
-            setSamplingRateBT.setEnabled(true);
             SetNumberOfSamplesPN.setEnabled(true);
             NumberOfSamplesCB.setEnabled(true);
-            SetNumberOfSamplesBT.setEnabled(true);
             AcquisitionControlPN.setEnabled(true);
             StartAcquisitionBT.setEnabled(true);
         }
@@ -518,10 +480,8 @@ public class MainFrame extends javax.swing.JFrame {
             command3_RB.setSelected(false);
             command3_RB.setEnabled(false);
             samplingRatesCB.setEnabled(false);
-            setSamplingRateBT.setEnabled(false);
             SetNumberOfSamplesPN.setEnabled(false);
             NumberOfSamplesCB.setEnabled(false);
-            SetNumberOfSamplesBT.setEnabled(false);
             AcquisitionControlPN.setEnabled(false);
             StartAcquisitionBT.setEnabled(false);
             
@@ -530,6 +490,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     public void commandOperation(){       
         communicator.writeData(commandHandlings.commandHandle(command0_RB.isSelected(),command1_RB.isSelected(),command2_RB.isSelected(),command3_RB.isSelected()));
+        //System.out.println(commandHandlings.commandHandle(command0_RB.isSelected(),command1_RB.isSelected(),command2_RB.isSelected(),command3_RB.isSelected()));
         if (!communicator.getIsConnected()){
             portsCB.removeAllItems();
             disconnect_routine();
@@ -538,7 +499,62 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
 
+    public void setSamplingRateRoutine(int input ) {
+        switch (input){
+            case 0:
+                communicator.writeData(65);
+            case 1:
+                communicator.writeData(66);
+            case 2:
+                communicator.writeData(67);
+            case 3:
+                communicator.writeData(68);
+            case 4:
+                communicator.writeData(69);
+            case 5:
+                communicator.writeData(70); 
+        }
+        
+    }
+    
+    public void setNumberOfSamplesRoutine (int input ) {
+        switch (input){
+            case 0:
+                communicator.writeData(33);
+            case 1:
+                communicator.writeData(34);
+            case 2:
+                communicator.writeData(35);
+            case 3:
+                communicator.writeData(36);
+            case 4:
+                communicator.writeData(37);
+            case 5:
+                communicator.writeData(38); 
+        }
+    }
 
-
-
+    public void startAcquisitionRoutine(){
+        if (JOptionPane.showConfirmDialog(null, "Sampling Rate defined at: "
+            + samplingRatesCB.getSelectedItem().toString()
+            + ".\nNumberOfSamples defined at: "
+            + NumberOfSamplesCB.getSelectedItem().toString()
+            +" samples.\n Are you sure you want to start acquistion with these settings?", "WARNING",
+            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                //setNumberOfSamplesRoutine(samplingRatesCB.getSelectedIndex());
+                //setNumberOfSamplesRoutine(NumberOfSamplesCB.getSelectedIndex());
+                communicator.writeData(40);
+                communicator.initListener();
+                
+                //controlling GUI elements
+                SetSamplingRatePN.setEnabled(false);
+                samplingRatesCB.setEnabled(false);
+                SetNumberOfSamplesPN.setEnabled(false);
+                NumberOfSamplesCB.setEnabled(false);
+                StartAcquisitionBT.setEnabled(false);
+                StopAcquisitionBT.setEnabled(true);
+                RunTimeLB.setEnabled(true);
+                RunTimeTF.setEnabled(true);
+        }               
+    }
 }
