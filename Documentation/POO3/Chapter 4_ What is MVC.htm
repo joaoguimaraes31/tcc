@@ -1,0 +1,268 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0061)http://www.jcorporate.com/expresso/doc/edg/edg_WhatIsMVC.html -->
+<HTML><HEAD><TITLE>Chapter 4. What is MVC?</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=utf-8"><LINK 
+href="Chapter&nbsp;4_&nbsp;What is MVC_arquivos/docbook.css" type=text/css 
+rel=stylesheet>
+<META content="MSHTML 6.00.2800.1106" name=GENERATOR><LINK 
+title="Expresso Developer's Guide" href="edg_index.html" rel=home><LINK 
+title="Expresso Developer's Guide" href="edg_index.html" rel=up><LINK 
+title="Chapter&nbsp;3.&nbsp;Why Use An Architectural Framework?" 
+href="edg_WhyUseFramework.html" rel=previous><LINK 
+title="Chapter&nbsp;5.&nbsp;Why Use Expresso?" href="edg_WhyUseExpresso.html" 
+rel=next></HEAD>
+<BODY text=black vLink=#840084 aLink=#0000ff link=#0000ff bgColor=white>
+<DIV class=navheader>
+<TABLE width="100%" summary="Navigation header">
+  <TBODY>
+  <TR>
+    <TH align=middle colSpan=3>Chapter&nbsp;4.&nbsp;What is MVC?</TH></TR>
+  <TR>
+    <TD align=left width="20%"><A accessKey=p 
+      href="http://www.jcorporate.com/expresso/doc/edg/edg_WhyUseFramework.html">Prev</A>&nbsp;</TD>
+    <TH align=middle width="60%">&nbsp;</TH>
+    <TD align=right width="20%">&nbsp;<A accessKey=n 
+      href="http://www.jcorporate.com/expresso/doc/edg/edg_WhyUseExpresso.html">Next</A></TD></TR></TBODY></TABLE>
+<HR>
+</DIV>
+<DIV class=chapter lang=en>
+<DIV class=titlepage>
+<DIV>
+<DIV>
+<H2 class=title><A name=WhatIsMVC></A>Chapter&nbsp;4.&nbsp;What is 
+MVC?</H2></DIV></DIV>
+<DIV></DIV></DIV>
+<DIV class=toc>
+<P><B>Table of Contents</B></P>
+<DL>
+  <DT><SPAN class=sect1><A 
+  href="http://www.jcorporate.com/expresso/doc/edg/edg_WhatIsMVC.html#N103A9">MVC 
+  Overview</A></SPAN>
+  <DT><SPAN class=sect1><A 
+  href="http://www.jcorporate.com/expresso/doc/edg/edg_WhatIsMVC.html#N103C1">MVC 
+  in Java Server Pages</A></SPAN>
+  <DT><SPAN class=sect1><A 
+  href="http://www.jcorporate.com/expresso/doc/edg/edg_WhatIsMVC.html#N103D6">The 
+  case for separating presentation and logic</A></SPAN>
+  <DT><SPAN class=sect1><A 
+  href="http://www.jcorporate.com/expresso/doc/edg/edg_WhatIsMVC.html#N103DF">Conclusion</A></SPAN>
+  <DD>
+  <DL>
+    <DT><SPAN class=sect2><A 
+    href="http://www.jcorporate.com/expresso/doc/edg/edg_WhatIsMVC.html#N103E2">Contributors</A></SPAN></DT></DL></DD></DL></DIV>
+<P>
+<DIV class=note style="MARGIN-LEFT: 0.5in; MARGIN-RIGHT: 0.5in">
+<H3 class=title>Note</H3>
+<P>If you find this EDG documentation helpful please consider <A 
+href="http://www.jcorporate.com/expresso/doc/edg/edg_WhatIsMVC.html#donate_WhatIsMVC">DONATING</A>! 
+to keep the doc alive and current. </P></DIV>
+<P></P>
+<P>
+<DIV class=informaltable>
+<TABLE width="100%" border=0>
+  <COLGROUP>
+  <COL align=left>
+  <COL align=right></COLGROUP>
+  <TBODY>
+  <TR>
+    <TD align=left>&nbsp;</TD>
+    <TD align=right><SPAN class=bold><B>Maintainer:</B></SPAN><A 
+      href="mailto:dlloyd@jgroup.net?Subject=EDG" target=_top><SPAN 
+      class=maintainer>David Lloyd</SPAN></A></TD></TR></TBODY></TABLE></DIV>
+<P></P>
+<DIV class=sect1 lang=en>
+<DIV class=titlepage>
+<DIV>
+<DIV>
+<H2 class=title style="CLEAR: both"><A name=N103A9></A>MVC 
+Overview</H2></DIV></DIV>
+<DIV></DIV></DIV>
+<P>Flexibility in large component based systems raise questions on how to 
+organize a project for easy development and maintenance while protecting your 
+data and reputation, especially from new developers and unwitting users. The 
+answer is in using the Model, View, Control (MVC) architecture. An architecture 
+such as MVC is a design pattern that describes a recurring problem and its 
+solution where the solution is never exactly the same for every recurrence. </P>
+<P>To use the <I class=glossterm>Model-View-Controller</I> MVC paradigm 
+effectively you must understand the division of labor within the MVC triad. You 
+also must understand how the three parts of the triad communicate with each 
+other and with other active views and controllers; the sharing of a single 
+mouse, keybord and display screen among several applications demands 
+communication and cooperation. To make the best use of the MVC paradigm you need 
+also to learn about the available subclasses of View and Controller which 
+provide ready made starting points for your applications. </P>
+<P>In the MVC design pattern , application flow is mediated by a central 
+controller. The controller delegates requests to an appropriate handler. The 
+controller is the means by which the user interacts with the web application. 
+The controller is responsible for the input to the model. A pure GUI controller 
+accepts input from the user and instructs the model and viewport to perform 
+action based on that input. If an invalid input is sent to the controller from 
+the view, the model informs the controller to direct the view that error 
+occurred and to tell it to try again. </P>
+<P>A web application controller can be thought of as specialised view since it 
+has a visual aspect. It would be actually be one or more HTML forms in a web 
+application and therefore the model can also dictate what the controller should 
+display as input. The controller would produce HTML to allow the user input a 
+query to the web application. The controller would add the necessary 
+parameterisation of the individual form element so that the Servlet can observe 
+the input. This is different from a GUI, actually back-to-front, where the 
+controller is waiting and acting on event-driven input from mouse or graphics 
+tablet. </P>
+<P>The controller adapts the request to the model. The model represents, or 
+encapsulates, an application's business logic or state. It captures not only the 
+state of a process or system, but also how the system works. It notifies any 
+observer when any of the data has changed. The model would execute the database 
+query for example. </P>
+<P>Control is then usually forwarded back through the controller to the 
+appropriate view. The view is responsible for the output of the model. A pure 
+GUI view attaches to a model and renders its contents to the display surface. In 
+addition, when the model changes, the viewport automatically redraws the 
+affected part of the image to reflect those changes. A web application view just 
+transforms the state of the model into readable HTML. The forwarding can be 
+implemented by a lookup in a mapping in either a database or a file. This 
+provides a loose coupling between the model and the view, which can make an 
+application much easier to write and maintain. </P>
+<P></P>
+<DIV><IMG 
+src="Chapter&nbsp;4_&nbsp;What is MVC_arquivos/MVC-Applied-Servlet.gif"></DIV>
+<P></P>
+<P>By dividing the web application into a Model, View, and Controller we can, 
+therefore, separate the presentation from the business logic. If the MVC 
+architecture is designed purely, then a Model can have multiple views and 
+controllers. Also note that the model does not necessarily have to be a Java 
+Servlet. In fact a single Java Servlet can offer multiple models. The Java 
+Servlet is where you would place security login, user authentication and 
+database pooling for example. After all these latter have nothing to do with the 
+business logic of the web application or the presentation. </P></DIV>
+<DIV class=sect1 lang=en>
+<DIV class=titlepage>
+<DIV>
+<DIV>
+<H2 class=title style="CLEAR: both"><A name=N103C1></A>MVC in Java Server 
+Pages</H2></DIV></DIV>
+<DIV></DIV></DIV>
+<P>Now that we have a convenient architucture to separate the view, how can we 
+leverage that? <I class=glossterm>Java Server Pages</I> (JSP) becomes more 
+interesting because the HTML content can be separated from the Java business 
+objects. JSP can also make use of Java Beans. The business logic could be placed 
+inside Java Beans. If the design is architected correctly, a Web Designer could 
+work with HTML on the JSP site without interfering with the Java developer. </P>
+<P>The Model/View/Controller architecture also works with JSP. In fact it makes 
+the initial implementation a little easier to write. The controller object is 
+master Servlet. Every request goes through the controller who retrieves the 
+necessary model object. The model may interact with other business entities such 
+as databases or <I class=glossterm>Enterprise Java Beans</I> (EJB). The model 
+object sends the output results back to the controller. The controller takes the 
+results and places it inside the web browser session and forwards a redirect 
+request to a particular Java Server Page. The JSP, in the case, is the view. 
+</P>
+<P></P>
+<DIV><IMG 
+src="Chapter&nbsp;4_&nbsp;What is MVC_arquivos/MVC-Applied-JSP-Model2.gif"></DIV>
+<P></P>
+<P>The controller has to bind a model and a view, but it could be any model and 
+associated any view. Therein lies the flexibility and perhaps an insight to 
+developing a very advanced dynamic controller that associates models to a view. 
+</P>
+<P>The prior sections have concentrated on their being one controller, one 
+model, and one view. In practice, multiple controllers may exist - but only one 
+controls a section of the application at a time. For example, the 
+administrator's functions may be controlled by one controller and the main logic 
+controlled by another. Since only one controller can be in control at a given 
+time, they must communicate. There may also be multiple models - but the 
+controller takes the simplified view representation and maps it to the models 
+appropriately and also translates that response back to the view. The view never 
+needs to know how the logic is implemented. </P></DIV>
+<DIV class=sect1 lang=en>
+<DIV class=titlepage>
+<DIV>
+<DIV>
+<H2 class=title style="CLEAR: both"><A name=N103D6></A>The case for separating 
+presentation and logic</H2></DIV></DIV>
+<DIV></DIV></DIV>
+<P>Decoupling data presentation and the program implementation becomes 
+beneficial since a change to one does not affect the other. This implies that 
+both can be developed separately from the other: a division of labor. The look 
+and feel of the web application, the fonts, the colours and the layout can be 
+revised without having to change any Java code. As it should be. Similarly if 
+the business logic in the application changes, for instance to improve 
+performance and reliability, then this should not cause change in the 
+presentation. </P>
+<P>A model-view-controller based web application written with only Java Servlets 
+would give this decoupling. If the presentation changed then the Java code that 
+generates the HTML, the presentation, in the view object only has to change. 
+</P>
+<P>Similarly if the business logic changed then only the model object has to 
+change. A web application built with MVC and Java Server Pages would be slightly 
+easier if the business logic is contained only in Java Beans. The presentation 
+(JSP) should only access these beans through custom tag libraries. This means 
+that the Java Beans did not have Java code that wrote HTML. Your beans would 
+only concern themselves with the business logic and not the presentation. The 
+JSP would get the data from the Beans and then display the presentation (the 
+"view"). Decoupling is therefore easy. A change to the implementation only 
+necessitates changes to the Java Beans. A change to the presentation only 
+concern changes to the relevant Java Server Page. With Java Server Pages a web 
+designer who knows nothing about Java can concentrate on the HTML layout, look 
+and feel. While a Java developer can concentrate on the Java Beans and the core 
+logic of the web application. </P></DIV>
+<DIV class=sect1 lang=en>
+<DIV class=titlepage>
+<DIV>
+<DIV>
+<H2 class=title style="CLEAR: both"><A 
+name=N103DF></A>Conclusion</H2></DIV></DIV>
+<DIV></DIV></DIV>
+<DIV class=sect2 lang=en>
+<DIV class=titlepage>
+<DIV>
+<DIV>
+<H3 class=title><A name=N103E2></A>Contributors</H3></DIV></DIV>
+<DIV></DIV></DIV>
+<P>The following persons have contributed their time to this chapter: 
+<DIV class=itemizedlist>
+<UL type=bullet>
+  <LI style="LIST-STYLE-TYPE: disc">
+  <P>David Lloyd (<A title="Jcorporate's JGroup Services" 
+  href="http://www.jcorporate.com/expresso/doc/edg/edg_intro.html#jgroup">JGroup 
+  Expert</A>) </P>
+  <LI style="LIST-STYLE-TYPE: disc">
+  <P>Sandra Cann</P></LI></UL></DIV>
+<P></P>
+<P>
+<DIV class=note style="MARGIN-LEFT: 0.5in; MARGIN-RIGHT: 0.5in">
+<H3 class=title>Note</H3>
+<P><A name=donate_WhatIsMVC></A>Was this EDG documentation helpful? Do you wish 
+to express your appreciation for the time expended over years developing the EDG 
+doc? We now accept and appreciate monetary donations. Your support will keep the 
+EDG doc alive and current. Please click the Donate button and enter ANY amount 
+you think the EDG doc is worth. In appreciation of a $35+ donation, we'll give 
+you a subscription service by emailing you notifications of doc updates; and 
+donations $75+ will also receive an Expresso T-shirt. All online donation forms 
+are SSL secured and payment can be made via Credit Card or your Paypal account. 
+Thank you in advance. </P>
+<P><A href="http://www.jcorporate.com/edgdoc.html" target=_top><SPAN 
+class=inlinemediaobject><IMG 
+src="Chapter&nbsp;4_&nbsp;What is MVC_arquivos/paypal.bmp"></SPAN> 
+</A></P></DIV>
+<P></P>
+<P>Copyright © 2001-2004 Jcorporate Ltd. All rights reserved. 
+</P></DIV></DIV></DIV>
+<DIV class=navfooter>
+<HR>
+
+<TABLE width="100%" summary="Navigation footer">
+  <TBODY>
+  <TR>
+    <TD align=left width="40%"><A accessKey=p 
+      href="http://www.jcorporate.com/expresso/doc/edg/edg_WhyUseFramework.html">Prev</A>&nbsp;</TD>
+    <TD align=middle width="20%"><A accessKey=u 
+      href="http://www.jcorporate.com/expresso/doc/edg/edg_index.html">Up</A></TD>
+    <TD align=right width="40%">&nbsp;<A accessKey=n 
+      href="http://www.jcorporate.com/expresso/doc/edg/edg_WhyUseExpresso.html">Next</A></TD></TR>
+  <TR>
+    <TD vAlign=top align=left width="40%">Chapter&nbsp;3.&nbsp;Why Use An 
+      Architectural Framework?&nbsp;</TD>
+    <TD align=middle width="20%"><A accessKey=h 
+      href="http://www.jcorporate.com/expresso/doc/edg/edg_index.html">Home</A></TD>
+    <TD vAlign=top align=right width="40%">&nbsp;Chapter&nbsp;5.&nbsp;Why Use 
+      Expresso?</TD></TR></TBODY></TABLE></DIV></BODY></HTML>

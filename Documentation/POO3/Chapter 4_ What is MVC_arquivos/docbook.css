@@ -1,0 +1,78 @@
+BODY {
+	FONT-SIZE: 9pt; MARGIN: 10pt; COLOR: black; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; BACKGROUND-COLOR: white
+}
+TABLE {
+	FONT-SIZE: 9pt
+}
+.title {
+	COLOR: black
+}
+H1.title {
+	COLOR: black; TEXT-ALIGN: center
+}
+H2.title {
+	COLOR: blue; TEXT-ALIGN: left
+}
+.subtitle {
+	COLOR: blue
+}
+.author {
+	COLOR: #666666; TEXT-ALIGN: center
+}
+.version {
+	FONT-SIZE: 10pt; COLOR: #a0a0a0; TEXT-DECORATION: none
+}
+.maintainer {
+	FONT-SIZE: 10pt; COLOR: #a0a0a0; TEXT-DECORATION: none
+}
+.inlinemediaobject {
+	PADDING-RIGHT: 12pt; PADDING-LEFT: 12pt; PADDING-BOTTOM: 12pt; MARGIN: 5pt; PADDING-TOP: 12pt
+}
+.mediaobject {
+	BORDER-RIGHT: black 2px solid; PADDING-RIGHT: 12pt; BORDER-TOP: black 2px solid; PADDING-LEFT: 12pt; PADDING-BOTTOM: 12pt; MARGIN: 5pt; BORDER-LEFT: black 2px solid; PADDING-TOP: 12pt; BORDER-BOTTOM: black 2px solid; TEXT-ALIGN: center
+}
+.programlisting {
+	PADDING-RIGHT: 5pt; PADDING-LEFT: 5pt; PADDING-BOTTOM: 5pt; MARGIN: 5pt; PADDING-TOP: 5pt; BACKGROUND-COLOR: #d0d0d0
+}
+.programlistingco {
+	PADDING-RIGHT: 5pt; PADDING-LEFT: 5pt; PADDING-BOTTOM: 5pt; MARGIN: 5pt; PADDING-TOP: 5pt; BACKGROUND-COLOR: #d0d0d0
+}
+.screen {
+	PADDING-RIGHT: 5pt; PADDING-LEFT: 5pt; PADDING-BOTTOM: 5pt; MARGIN: 5pt; PADDING-TOP: 5pt; BACKGROUND-COLOR: #d0d0d0
+}
+:hover {
+	COLOR: red; TEXT-DECORATION: underline
+}
+A {
+	COLOR: navy; TEXT-DECORATION: underline
+}
+.navfooter {
+	MARGIN-BOTTOM: 12pt; BACKGROUND-COLOR: #ffcc33
+}
+.navheader {
+	MARGIN-BOTTOM: 12pt; BACKGROUND-COLOR: #ffcc33
+}
+.chapter {
+	MARGIN-LEFT: 10pt; MARGIN-RIGHT: 10pt
+}
+.refentry {
+	MARGIN-LEFT: 10pt; MARGIN-RIGHT: 10pt
+}
+.book {
+	MARGIN-LEFT: 10pt; MARGIN-RIGHT: 10pt
+}
+.reference {
+	MARGIN-LEFT: 10pt; MARGIN-RIGHT: 10pt
+}
+.preface {
+	MARGIN-LEFT: 10pt; MARGIN-RIGHT: 10pt
+}
+.colophon {
+	MARGIN-LEFT: 10pt; MARGIN-RIGHT: 10pt
+}
+.note {
+	BORDER-RIGHT: black 1px solid; PADDING-RIGHT: 10pt; BORDER-TOP: black 1px solid; MARGIN-TOP: 10pt; PADDING-LEFT: 10pt; MARGIN-BOTTOM: 10pt; BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid
+}
+.sidebar {
+	BORDER-RIGHT: black 1px solid; PADDING-RIGHT: 10pt; BORDER-TOP: black 1px solid; MARGIN-TOP: 10pt; PADDING-LEFT: 10pt; MARGIN-BOTTOM: 10pt; BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid; BACKGROUND-COLOR: #ffffc0
+}
