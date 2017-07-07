@@ -28,14 +28,10 @@ public class CommandHandlings {
         return output;
     }
     
-    //Method that converts integer value to a value regarding hardware config
-    public int integerToAscii2(int input){
-        return input + asciiCommandNullId;
-    }
     
     //Method for doing both functions above
     public int commandHandle(boolean state0,boolean state1,boolean state2,boolean state3){
-       return integerToAscii2(convertBooleanInteger(state0,state1,state2,state3));
+       return (convertBooleanInteger(state0,state1,state2,state3) + asciiCommandNullId);
     }
     
 }

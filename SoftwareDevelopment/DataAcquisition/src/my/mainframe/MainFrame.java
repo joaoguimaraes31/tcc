@@ -1,11 +1,13 @@
 package my.mainframe;
 
 import java.awt.Component;
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JOptionPane;
 
 public class MainFrame extends javax.swing.JFrame {
     
-    private static final int asciiCommandNullId = 43;
+    private static final int asciiCommandNullId = 96;
     ExecutionTimerControl execTimer =  new ExecutionTimerControl();
     Communicator communicator = new Communicator();
     CommandHandlings commandHandlings = new CommandHandlings(asciiCommandNullId);
@@ -357,6 +359,8 @@ public class MainFrame extends javax.swing.JFrame {
         StopAcquisitionBT.setEnabled(false);
         RunTimeLB.setEnabled(false);
         RunTimeTF.setEnabled(false);
+        communicator.setIsConnected(true);
+        
     }//GEN-LAST:event_StopAcquisitionBTMouseClicked
     
 
