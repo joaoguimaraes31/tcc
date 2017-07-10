@@ -5,4 +5,59 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.6 }
 
+\bibitem[CNW 2017]{cnwgol2013}
+\abntrefinfo{CNW}{CNW}{2017a}
+{CNW. \emph{{Volkswagen Gol 1.0} Ficha Técnica}. 2017.
+Dispon{\'\i}vel em:
+  \url{http://www.carrosnaweb.com.br/fichadetalhe.asp?codigo=1528}.}
+
+\bibitem[CNW 2017]{cnwgol1993}
+\abntrefinfo{CNW}{CNW}{2017b}
+{CNW. \emph{{Volkswagen Gol Plus 1.0} Ficha Técnica}. 2017.
+Dispon{\'\i}vel em:
+  \url{http://www.carrosnaweb.com.br/fichadetalhe.asp?codigo=431}.}
+
+\bibitem[Gardinalli 2005]{gardinalli2005comparaccao}
+\abntrefinfo{Gardinalli}{GARDINALLI}{2005}
+{GARDINALLI, G.~J. Compara{\c{c}}{\~a}o do desempenho de frenagem simulada x
+  experimental de um ve{\'\i}culo de passeio com freios hidr{\'a}ulicos e abs.
+\emph{Trabalho de Conclus{\~a}o de Curso apresentado {\`a} Escola
+  Polit{\'e}cnica da Universidade de S{\~a}o Paulo para obten{\c{c}}{\~a}o do
+  t{\'\i}tulo de Mestre em Engenharia Automotiva}, 2005.}
+
+\bibitem[Halderman e Mitchell 2016]{halderman2016automotive}
+\abntrefinfo{Halderman e Mitchell}{HALDERMAN; MITCHELL}{2016}
+{HALDERMAN, J.~D.; MITCHELL, C.~D. \emph{Automotive brake systems}. [S.l.]:
+  Prentice Hall, 2016.}
+
+\bibitem[Hernandes 2017]{lideres-vendas-brasil}
+\abntrefinfo{Hernandes}{HERNANDES}{2017}
+{HERNANDES, D. \emph{Relembre todos os carros que já lideraram as vendas no
+  Brasil em 60 anos de hitória}. 2017.
+Dispon{\'\i}vel em:
+  \url{https://www.flatout.com.br/relembre-todos-os-carros-que-ja-lideraram-as-vendas-no-brasil-em-60-anos-de-historia/}.}
+
+\bibitem[INMETRO 2013]{inmetro2013}
+\abntrefinfo{INMETRO}{INMETRO}{2013}
+{INMETRO. \emph{Regulamento Técnico da Qualidade para Materiais de Atrito
+  Destinados ao Uso em Freios de Veículos Roviários Automotores}.
+Rio de Janeiro, Brasil, 2013. 25~p.}
+
+\bibitem[Kawaguchi 2005]{kawaguchi}
+\abntrefinfo{Kawaguchi}{KAWAGUCHI}{2005}
+{KAWAGUCHI, H. Comparação da análise de conforto de frenagem subjetiva x
+  objetiva de um veículo de passeio.
+São Paulo, Brazil, p.~101, 2005.}
+
+\bibitem[SAE 2016]{sae}
+\abntrefinfo{SAE}{SAE}{2016}
+{SAE. \emph{SAE}. 2016.
+Dispon{\'\i}vel em: \url{http://www.sae.org/}.}
+
+\bibitem[Unknown 2017]{working-of-disk-breaks}
+\abntrefinfo{Unknown}{UNKNOWN}{2017}
+{UNKNOWN. \emph{Working Of Disk Breaks}. 2017.
+Dispon{\'\i}vel em:
+  \url{http://www.mechanicalengineeringblog.com/wp-content/uploads/2015/07/01-WORKING-OF-A-DISK-BRAKE-MECHANICAL-BRAKE-AND-ITS-CONSTRUCTION-AND-WORKING\_thumb.jpg}.}
+
 \end{thebibliography}

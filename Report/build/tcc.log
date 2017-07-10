@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.7.8)  9 JUL 2017 21:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.7.8)  9 JUL 2017 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**thesis.tex
-(./thesis.tex
+**tcc.tex
+(./tcc.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
 (./fixos/pacotes.tex
@@ -981,13 +981,13 @@ Package: eso-pic 2015/07/21 v2.0g eso-pic (RN)
 Package color Info: Redefining color blue on input line 1.
 Package hyperref Info: Option `colorlinks' set `true' on input line 16.
 )
-\thesis@idxfile=\write4
-\openout4 = `thesis.idx'.
+\tcc@idxfile=\write4
+\openout4 = `tcc.idx'.
 
 
-Writing index file thesis.idx 
-(build/thesis.aux)
-\openout1 = `thesis.aux'.
+Writing index file tcc.idx 
+(build/tcc.aux)
+\openout1 = `tcc.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
@@ -1123,41 +1123,91 @@ l.15
       [1
 
 
-] (./contents/introduction.texpdfTeX warning (ext4): destination with the same 
-identifier (name{page.2}) has been already used, duplicate ignored
+] (./fixos/fichaCatalografica.tex
+Underfull \hbox (badness 10000) in paragraph at lines 12--13
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
+
+ []
+
+
+Overfull \hbox (16.44858pt too wide) in paragraph at lines 16--19
+[]  [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--19
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 20--27
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
+
+ []
+
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 30.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 30.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 30.
+) (./fixos/folhaDeAprovacao.texpdfTeX warning (ext4): destination with the same
+ identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.1 \chapter
-            {Introduction} [2
+l.2 
+     [2] [3
+
+] [4
+
+]) (./editaveis/dedicatoria.tex [5] [6
+
+])
+(./editaveis/agradecimentos.tex [7
+
+] [8
+
+]) (./editaveis/epigrafe.tex [9] [10
+
+])
+(./editaveis/resumo.tex [11] [12
+
+]) (./fixos/listasAutomaticas.tex
+(build/tcc.lof) [13] [14
+
+] (build/tcc.lot) [15] [16
+
+])
+(./editaveis/abreviaturas.tex [17
+
+] [18
+
+]) (./editaveis/simbolos.tex [19
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[20
 
- [3])
-(./contents/literature_review.tex [4]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 7.
- (/usr/share/texmf/tex/latex/lm/omslmr.fd
-File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 7.
-[5
+]) (./fixos/indiceAutomatico.tex (build/tcc.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 17.
+) [21] [22
 
-] <figuras/disk_brake_working.jpg, id=85, 477.785pt x 348.30125pt>
-File: figuras/disk_brake_working.jpg Graphic file (type jpg)
-
-<use figuras/disk_brake_working.jpg>
-Package pdftex.def Info: figuras/disk_brake_working.jpg used on input line 30.
-(pdftex.def)             Requested size: 262.78256pt x 191.56627pt.
- [6 <./figuras/disk_brake_working.jpg>])
-(./contents/methodology.tex [7] [8
-
-]) (build/thesis.bbl (build/thesis.brf)
+])
+(./contents/introduction.tex) (build/tcc.bbl (build/tcc.brf)
 \tf@brf=\write5
-\openout5 = `thesis.brf'.
+\openout5 = `tcc.brf'.
 
+ [23
 
-[9] [10
+] [24
 
 ]
 
@@ -1166,75 +1216,78 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 bibitemlist
 
-Overfull \hbox (133.77087pt too wide) in paragraph at lines 62--62
-\T1/lmr/m/n/12 01-[]WORKING-[]OF-[]A-[]DISK-[]BRAKE-[]MECHANICAL-[]BRAKE-[]AND-
-[]ITS-[]CONSTRUCTION-[]AND-[]WORKING _ 
- []
+LaTeX Warning: Empty `thebibliography' environment on input line 8.
 
-) (./editaveis/apendices.tex [11] [12
+) (./editaveis/apendices.tex [25] [26
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 4.
 
-[13
+[27
 
-] [14] [15
+] [28] [29
 
-] [16
+] [30
 
-]) (./editaveis/anexos.tex [17] [18
+]) (./editaveis/anexos.tex [31] [32
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\uppercase' on input line 4.
 
-[19
+[33
 
-] [20] [21
+] [34] [35
 
-] [22
+] [36
 
 ])
-No file thesis.ind.
+No file tcc.ind.
 
 AED: lastpage setting LastPage
-[23]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 43.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 43.
- (build/thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 43.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 43.
-Package rerunfilecheck Info: File `thesis.brf' has not changed.
+[37]
+\tf@lof=\write6
+\openout6 = `tcc.lof'.
+
+\tf@lot=\write7
+\openout7 = `tcc.lot'.
+
+\tf@toc=\write8
+\openout8 = `tcc.toc'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 41.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 41.
+ (build/tcc.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 41.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 41.
+Package rerunfilecheck Info: File `tcc.brf' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 43.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 41.
  ) 
 Here is how much of TeX's memory you used:
- 11529 strings out of 493029
- 167277 string characters out of 6136235
- 290502 words of memory out of 5000000
- 14773 multiletter control sequences out of 15000+600000
- 58986 words of font info for 41 fonts, out of 8000000 for 9000
+ 11502 strings out of 493029
+ 166296 string characters out of 6136235
+ 284804 words of memory out of 5000000
+ 14686 multiletter control sequences out of 15000+600000
+ 69097 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,13n,38p,966b,462s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,13n,38p,238b,463s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
-c/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/s
-hare/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public
-/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lm
-ss12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/f
-onts/type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy1
-0.pfb>
-Output written on build/thesis.pdf (25 pages, 342782 bytes).
+c/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/s
+hare/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf/fonts/type1/public/lm
+/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmss12.pfb><
+/usr/share/texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
+Output written on build/tcc.pdf (39 pages, 302210 bytes).
 PDF statistics:
- 295 PDF objects out of 1000 (max. 8388607)
- 246 compressed objects within 3 object streams
- 53 named destinations out of 1000 (max. 500000)
- 159 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 342 PDF objects out of 1000 (max. 8388607)
+ 281 compressed objects within 3 object streams
+ 70 named destinations out of 1000 (max. 500000)
+ 178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
