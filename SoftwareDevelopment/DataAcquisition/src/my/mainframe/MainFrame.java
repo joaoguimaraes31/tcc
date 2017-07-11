@@ -1,5 +1,6 @@
 package my.mainframe;
 
+import serialCommunication.Communicator;
 import java.awt.Component;
 import java.util.HashSet;
 import java.util.Set;
@@ -8,7 +9,7 @@ import javax.swing.JOptionPane;
 public class MainFrame extends javax.swing.JFrame {
     
     private static final int asciiCommandNullId = 96;
-    ExecutionTimerControl execTimer =  new ExecutionTimerControl();
+    //ExecutionTimerControl execTimer =  new ExecutionTimerControl();
     Communicator communicator = new Communicator();
     CommandHandlings commandHandlings = new CommandHandlings(asciiCommandNullId);
             
