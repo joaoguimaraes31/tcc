@@ -9,4 +9,22 @@ public class Sensor {
     protected float conversionFactor = 1;
     protected float sensorReading=0;
     protected String unityOfMeasurement = "";
+
+    public void sensorReadingCalibration(){
+        sensorReading=(sensorReading*conversionFactor)+calibrationOffset;
+    }  
+    
+    public float getCalibrationOffset() {
+        return calibrationOffset;
+    }
+
+    public float getConversionFactor() {
+        return conversionFactor;
+    }
+    
+    public void setSensorReading(float sensorReading){
+        this.sensorReading=sensorReading;
+    }
+    
+    
 }

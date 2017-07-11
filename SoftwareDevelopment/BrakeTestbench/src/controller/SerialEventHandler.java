@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.TooManyListenersException;
 
-public class SerialEventController implements SerialPortEventListener {   
+public class SerialEventHandler implements SerialPortEventListener {   
     SerialPortsFacade serialPortsController = new SerialPortsFacade();
     SerialOutputWriter serialOutputWriter = new SerialOutputWriter();
     String jointData = "";
