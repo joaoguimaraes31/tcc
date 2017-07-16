@@ -2,29 +2,20 @@ package controller;
 
 import builders.BuilderSensorCalibration;
 import models.Sensor;
-import models.Thermocouple;
-import views.SensorSetup;
 
 public class CalibrationData {
 
-    public SensorSetup sensorSetup = new SensorSetup();
-    private BuilderSensorCalibration builderCalibrationData = new BuilderSensorCalibration();
-    private Sensor[] sensors = {null, null, null, null, null, null};
+    private final BuilderSensorCalibration builderCalibrationData = new BuilderSensorCalibration();
+    private Sensor[] sensors;
 
-    public void createCalibrationInstances(String[] calibrationInfo) {
+    public CalibrationData() {
+        this.sensors = new Sensor[]{null, null, null, null, null, null};
+    }
+
+    public void createCalibrationInstances(String[] calibrationInfo, String[] sensorModel, float[] calibrationOffset, float[] conversionFactor) {
 
         for (int i = 0; i < 6; i++) {
-            sensors[i]=builderCalibrationData.builderCalibrationData(calibrationInfo[i], i, "generic",0, 1);
+            sensors[i]=builderCalibrationData.builderCalibrationData(calibrationInfo[i], i, sensorModel[i],calibrationOffset[i],conversionFactor[i]);
         }
-
     }
-
-    public void showSensorSetup() {
-        sensorSetup.setVisible(true);
-    }
-
-    public void hideSensorSetup() {
-        sensorSetup.setVisible(false);
-    }
-
 }

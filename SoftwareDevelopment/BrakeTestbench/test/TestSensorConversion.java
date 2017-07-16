@@ -1,15 +1,20 @@
-package controller;
 
-import models.Sensor;
+import controller.SensorDataConverter;
 
-public class SensorDataConverter {
+public class TestSensorConversion {
 
-    public Sensor sensorAdjustment(int sensorReading, Sensor sensor){      
-        sensor.setSensorReading(sensorReading);
-        sensor.sensorReadingCalibration();       
-        return sensor;
+    public static void main(String args[]) {
+        int[] readings;
+        readings=stringSensorConverter("123,234,345,456,567,678.");
+        
+        System.out.println(readings[0]);
+        System.out.println(readings[1]);
+        System.out.println(readings[2]);
+        System.out.println(readings[3]);
+        System.out.println(readings[4]);
+        System.out.println(readings[5]);
     }
-    
+
     public static int[] stringSensorConverter(String sensorsReadingsString) {
         int i=0;
         int k=0;
@@ -29,4 +34,5 @@ public class SensorDataConverter {
         }
         return readings;
     }
+
 }

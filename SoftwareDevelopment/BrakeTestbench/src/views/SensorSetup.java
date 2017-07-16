@@ -28,51 +28,51 @@ public class SensorSetup extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        setBT = new javax.swing.JButton();
+        cancelBT = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        analogCH0_CB1 = new javax.swing.JComboBox<>();
+        analogCH0_CB = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        sensorModel_CH0_TF = new javax.swing.JTextField();
         jPanel9 = new javax.swing.JPanel();
-        analogCH0_CB2 = new javax.swing.JComboBox<>();
+        analogCH1_CB = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        sensorModel_CH1_TF = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
-        analogCH0_CB3 = new javax.swing.JComboBox<>();
+        analogCH3_CB = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        sensorModel_CH3_TF = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
-        analogCH0_CB4 = new javax.swing.JComboBox<>();
+        analogCH2_CB = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        sensorModel_CH2_TF = new javax.swing.JTextField();
         jPanel12 = new javax.swing.JPanel();
-        analogCH0_CB5 = new javax.swing.JComboBox<>();
+        analogCH4_CB = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        sensorModel_CH4_TF = new javax.swing.JTextField();
         jPanel13 = new javax.swing.JPanel();
-        analogCH0_CB6 = new javax.swing.JComboBox<>();
+        analogCH5_CB = new javax.swing.JComboBox<>();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        sensorModel_CH5_TF = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SensorSetup", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 36))); // NOI18N
 
-        jButton1.setText("Set New Configuration");
+        setBT.setText("Set New Configuration");
 
-        jButton2.setText("Cancel");
+        cancelBT.setText("Cancel");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Analog CH0:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 24))); // NOI18N
 
-        analogCH0_CB1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not in use", "Thermocouple", "LoadCell", "CrankshaftPosition", "Accelerometer" }));
+        analogCH0_CB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not in use", "Thermocouple", "LoadCell", "CrankshaftPosition", "Accelerometer" }));
 
         jLabel8.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel8.setText("Sensor Type");
@@ -80,10 +80,10 @@ public class SensorSetup extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel9.setText("Sensor Model");
 
-        jTextField2.setEnabled(false);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        sensorModel_CH0_TF.setEnabled(false);
+        sensorModel_CH0_TF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                sensorModel_CH0_TFActionPerformed(evt);
             }
         });
 
@@ -94,10 +94,10 @@ public class SensorSetup extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(analogCH0_CB1, 0, 311, Short.MAX_VALUE)
+                    .addComponent(analogCH0_CB, 0, 311, Short.MAX_VALUE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField2))
+                    .addComponent(sensorModel_CH0_TF))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -106,17 +106,17 @@ public class SensorSetup extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(analogCH0_CB1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(analogCH0_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sensorModel_CH0_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Analog CH1:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 24))); // NOI18N
 
-        analogCH0_CB2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not in use", "Thermocouple", "LoadCell", "CrankshaftPosition", "Accelerometer" }));
+        analogCH1_CB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not in use", "Thermocouple", "LoadCell", "CrankshaftPosition", "Accelerometer" }));
 
         jLabel10.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel10.setText("Sensor Type");
@@ -124,7 +124,7 @@ public class SensorSetup extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel11.setText("Sensor Model");
 
-        jTextField3.setEnabled(false);
+        sensorModel_CH1_TF.setEnabled(false);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -133,10 +133,10 @@ public class SensorSetup extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(analogCH0_CB2, 0, 311, Short.MAX_VALUE)
+                    .addComponent(analogCH1_CB, 0, 311, Short.MAX_VALUE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField3))
+                    .addComponent(sensorModel_CH1_TF))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
@@ -145,17 +145,17 @@ public class SensorSetup extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(analogCH0_CB2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(analogCH1_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sensorModel_CH1_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Analog CH3:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 24))); // NOI18N
 
-        analogCH0_CB3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not in use", "Thermocouple", "LoadCell", "CrankshaftPosition", "Accelerometer" }));
+        analogCH3_CB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not in use", "Thermocouple", "LoadCell", "CrankshaftPosition", "Accelerometer" }));
 
         jLabel12.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel12.setText("Sensor Type");
@@ -163,7 +163,7 @@ public class SensorSetup extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel13.setText("Sensor Model");
 
-        jTextField4.setEnabled(false);
+        sensorModel_CH3_TF.setEnabled(false);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -172,10 +172,10 @@ public class SensorSetup extends javax.swing.JFrame {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(analogCH0_CB3, 0, 311, Short.MAX_VALUE)
+                    .addComponent(analogCH3_CB, 0, 311, Short.MAX_VALUE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField4))
+                    .addComponent(sensorModel_CH3_TF))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -184,17 +184,17 @@ public class SensorSetup extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(analogCH0_CB3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(analogCH3_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sensorModel_CH3_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Analog CH2:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 24))); // NOI18N
 
-        analogCH0_CB4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not in use", "Thermocouple", "LoadCell", "CrankshaftPosition", "Accelerometer" }));
+        analogCH2_CB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not in use", "Thermocouple", "LoadCell", "CrankshaftPosition", "Accelerometer" }));
 
         jLabel14.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel14.setText("Sensor Type");
@@ -202,7 +202,7 @@ public class SensorSetup extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel15.setText("Sensor Model");
 
-        jTextField5.setEnabled(false);
+        sensorModel_CH2_TF.setEnabled(false);
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -211,10 +211,10 @@ public class SensorSetup extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(analogCH0_CB4, 0, 311, Short.MAX_VALUE)
+                    .addComponent(analogCH2_CB, 0, 311, Short.MAX_VALUE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel15)
-                    .addComponent(jTextField5))
+                    .addComponent(sensorModel_CH2_TF))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
@@ -223,17 +223,17 @@ public class SensorSetup extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel14)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(analogCH0_CB4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(analogCH2_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sensorModel_CH2_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel12.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Analog CH4:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 24))); // NOI18N
 
-        analogCH0_CB5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not in use", "Thermocouple", "LoadCell", "CrankshaftPosition", "Accelerometer" }));
+        analogCH4_CB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not in use", "Thermocouple", "LoadCell", "CrankshaftPosition", "Accelerometer" }));
 
         jLabel16.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel16.setText("Sensor Type");
@@ -241,7 +241,7 @@ public class SensorSetup extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel17.setText("Sensor Model");
 
-        jTextField6.setEnabled(false);
+        sensorModel_CH4_TF.setEnabled(false);
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -250,10 +250,10 @@ public class SensorSetup extends javax.swing.JFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(analogCH0_CB5, 0, 311, Short.MAX_VALUE)
+                    .addComponent(analogCH4_CB, 0, 311, Short.MAX_VALUE)
                     .addComponent(jLabel16)
                     .addComponent(jLabel17)
-                    .addComponent(jTextField6))
+                    .addComponent(sensorModel_CH4_TF))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
@@ -262,17 +262,17 @@ public class SensorSetup extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(analogCH0_CB5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(analogCH4_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sensorModel_CH4_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel13.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Analog CH5:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 24))); // NOI18N
 
-        analogCH0_CB6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not in use", "Thermocouple", "LoadCell", "CrankshaftPosition", "Accelerometer" }));
+        analogCH5_CB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not in use", "Thermocouple", "LoadCell", "CrankshaftPosition", "Accelerometer" }));
 
         jLabel18.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel18.setText("Sensor Type");
@@ -280,7 +280,7 @@ public class SensorSetup extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel19.setText("Sensor Model");
 
-        jTextField7.setEnabled(false);
+        sensorModel_CH5_TF.setEnabled(false);
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -289,10 +289,10 @@ public class SensorSetup extends javax.swing.JFrame {
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(analogCH0_CB6, 0, 311, Short.MAX_VALUE)
+                    .addComponent(analogCH5_CB, 0, 311, Short.MAX_VALUE)
                     .addComponent(jLabel18)
                     .addComponent(jLabel19)
-                    .addComponent(jTextField7))
+                    .addComponent(sensorModel_CH5_TF))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
@@ -301,11 +301,11 @@ public class SensorSetup extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(analogCH0_CB6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(analogCH5_CB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sensorModel_CH5_TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -314,9 +314,9 @@ public class SensorSetup extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jPanel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -324,11 +324,10 @@ public class SensorSetup extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(setBT)
+                        .addGap(107, 107, 107)
+                        .addComponent(cancelBT)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -351,8 +350,8 @@ public class SensorSetup extends javax.swing.JFrame {
                     .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(setBT)
+                    .addComponent(cancelBT))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -376,9 +375,9 @@ public class SensorSetup extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void sensorModel_CH0_TFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sensorModel_CH0_TFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_sensorModel_CH0_TFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -416,14 +415,13 @@ public class SensorSetup extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> analogCH0_CB1;
-    private javax.swing.JComboBox<String> analogCH0_CB2;
-    private javax.swing.JComboBox<String> analogCH0_CB3;
-    private javax.swing.JComboBox<String> analogCH0_CB4;
-    private javax.swing.JComboBox<String> analogCH0_CB5;
-    private javax.swing.JComboBox<String> analogCH0_CB6;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JComboBox<String> analogCH0_CB;
+    private javax.swing.JComboBox<String> analogCH1_CB;
+    private javax.swing.JComboBox<String> analogCH2_CB;
+    private javax.swing.JComboBox<String> analogCH3_CB;
+    private javax.swing.JComboBox<String> analogCH4_CB;
+    private javax.swing.JComboBox<String> analogCH5_CB;
+    private javax.swing.JButton cancelBT;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -443,12 +441,13 @@ public class SensorSetup extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField sensorModel_CH0_TF;
+    private javax.swing.JTextField sensorModel_CH1_TF;
+    private javax.swing.JTextField sensorModel_CH2_TF;
+    private javax.swing.JTextField sensorModel_CH3_TF;
+    private javax.swing.JTextField sensorModel_CH4_TF;
+    private javax.swing.JTextField sensorModel_CH5_TF;
+    private javax.swing.JButton setBT;
     // End of variables declaration//GEN-END:variables
 
 

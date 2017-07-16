@@ -1,13 +1,14 @@
-package controller;
+package communicationtest;
 
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
-//import java.io.InputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.TooManyListenersException;
 
-public class SerialEventHandler implements SerialPortEventListener {   
-    SerialPortsFacade serialFacade = new SerialPortsFacade();
+public class SerialEventController implements SerialPortEventListener {   
+    SerialPortsFacade serialPortsController = new SerialPortsFacade();
     SerialOutputWriter serialOutputWriter = new SerialOutputWriter();
     String jointData = "";
     
@@ -27,7 +28,7 @@ public class SerialEventHandler implements SerialPortEventListener {
     public void serialEvent(SerialPortEvent evt) {
         if (evt.getEventType() == SerialPortEvent.DATA_AVAILABLE) { 
             try {    
-                byte singleData = (byte) serialFacade.inputStream.read();
+                byte singleData = (byte) serialPortsController.inputStream.read();
                 if (singleData != 46) {
                     //System.out.print(new String(new byte[] { singleData }));
                     jointData = (new String(new byte[]{singleData})) + jointData;
