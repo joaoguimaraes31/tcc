@@ -3,7 +3,6 @@ package controller;
 import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
-//import java.io.InputStream;
 import java.util.TooManyListenersException;
 
 public class SerialEventHandler implements SerialPortEventListener {   

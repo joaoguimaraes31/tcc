@@ -2,11 +2,11 @@ package controller;
 
 public class SerialOutputWriter {
 
-    public void writeData(int serialOutput, SerialPortsFacade serialPortsController) {
+    public void writeData(int serialOutput, SerialPortsFacade serialPortsFacade) {
         try {
-            serialPortsController.outputStream.write(serialOutput);
+            serialPortsFacade.outputStream.write(serialOutput);
             System.out.println(serialOutput);
-            serialPortsController.outputStream.flush();
+            serialPortsFacade.outputStream.flush();
         } catch (Exception e) {
             System.out.println("Fail to write data");;
 

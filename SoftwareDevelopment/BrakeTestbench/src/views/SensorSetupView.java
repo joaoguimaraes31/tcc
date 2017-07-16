@@ -9,12 +9,12 @@ package views;
  *
  * @author joao
  */
-public class SensorSetup extends javax.swing.JFrame {
+public class SensorSetupView extends javax.swing.JFrame {
 
     /**
      * Creates new form SensorSetup
      */
-    public SensorSetup() {
+    public SensorSetupView() {
         initComponents();
     }
 
@@ -62,6 +62,7 @@ public class SensorSetup extends javax.swing.JFrame {
         sensorModel_CH5_TF = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 600));
         setPreferredSize(new java.awt.Dimension(800, 600));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "SensorSetup", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 36))); // NOI18N
@@ -94,7 +95,7 @@ public class SensorSetup extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(analogCH0_CB, 0, 311, Short.MAX_VALUE)
+                    .addComponent(analogCH0_CB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel8)
                     .addComponent(jLabel9)
                     .addComponent(sensorModel_CH0_TF))
@@ -133,7 +134,7 @@ public class SensorSetup extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(analogCH1_CB, 0, 311, Short.MAX_VALUE)
+                    .addComponent(analogCH1_CB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11)
                     .addComponent(sensorModel_CH1_TF))
@@ -172,7 +173,7 @@ public class SensorSetup extends javax.swing.JFrame {
             .addGroup(jPanel10Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(analogCH3_CB, 0, 311, Short.MAX_VALUE)
+                    .addComponent(analogCH3_CB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel12)
                     .addComponent(jLabel13)
                     .addComponent(sensorModel_CH3_TF))
@@ -211,7 +212,7 @@ public class SensorSetup extends javax.swing.JFrame {
             .addGroup(jPanel11Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(analogCH2_CB, 0, 311, Short.MAX_VALUE)
+                    .addComponent(analogCH2_CB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel14)
                     .addComponent(jLabel15)
                     .addComponent(sensorModel_CH2_TF))
@@ -250,7 +251,7 @@ public class SensorSetup extends javax.swing.JFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(analogCH4_CB, 0, 311, Short.MAX_VALUE)
+                    .addComponent(analogCH4_CB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel16)
                     .addComponent(jLabel17)
                     .addComponent(sensorModel_CH4_TF))
@@ -289,7 +290,7 @@ public class SensorSetup extends javax.swing.JFrame {
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(analogCH5_CB, 0, 311, Short.MAX_VALUE)
+                    .addComponent(analogCH5_CB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel18)
                     .addComponent(jLabel19)
                     .addComponent(sensorModel_CH5_TF))
@@ -352,7 +353,7 @@ public class SensorSetup extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(setBT)
                     .addComponent(cancelBT))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -396,20 +397,21 @@ public class SensorSetup extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SensorSetup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SensorSetupView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SensorSetup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SensorSetupView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SensorSetup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SensorSetupView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SensorSetup.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SensorSetupView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SensorSetup().setVisible(true);
+                new SensorSetupView().setVisible(true);
             }
         });
     }
