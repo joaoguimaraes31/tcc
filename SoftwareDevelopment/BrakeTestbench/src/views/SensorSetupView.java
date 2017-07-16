@@ -5,6 +5,8 @@
  */
 package views;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author joao
@@ -81,6 +83,7 @@ public class SensorSetupView extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel9.setText("Sensor Model");
 
+        sensorModel_CH0_TF.setToolTipText("");
         sensorModel_CH0_TF.setEnabled(false);
         sensorModel_CH0_TF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -452,5 +455,27 @@ public class SensorSetupView extends javax.swing.JFrame {
     private javax.swing.JButton setBT;
     // End of variables declaration//GEN-END:variables
 
-
+    public JButton getSetBT() {
+        return setBT;
+    }
+    
+    public String[] getAnalogChannelsSensorsTypes(){
+        String[] strings = {analogCH0_CB.getSelectedItem().toString(),
+                            analogCH1_CB.getSelectedItem().toString(),
+                            analogCH2_CB.getSelectedItem().toString(),
+                            analogCH3_CB.getSelectedItem().toString(),
+                            analogCH4_CB.getSelectedItem().toString(),
+                            analogCH5_CB.getSelectedItem().toString()};
+        return strings;
+    }
+    
+    public String[] getSensorsModels(){
+        String[] strings = {sensorModel_CH0_TF.getSelectedText(),
+                            sensorModel_CH1_TF.getSelectedText(),
+                            sensorModel_CH2_TF.getSelectedText(),
+                            sensorModel_CH3_TF.getSelectedText(),
+                            sensorModel_CH4_TF.getSelectedText(),
+                            sensorModel_CH5_TF.getSelectedText()};
+        return strings;
+    }   
 }

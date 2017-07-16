@@ -205,6 +205,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="sensorModel_CH0_TF">
               <Properties>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
                 <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>

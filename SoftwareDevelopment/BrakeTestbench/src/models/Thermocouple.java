@@ -2,10 +2,6 @@ package models;
 
 public class Thermocouple extends Sensor {
     
-    public Thermocouple(){
-        
-    }
-    
     //constructor for calibration
     public Thermocouple(int sensorID, String partModel, float sensorReading) {
         this.sensorType="Thermocouple_"+Integer.toString(sensorID);
