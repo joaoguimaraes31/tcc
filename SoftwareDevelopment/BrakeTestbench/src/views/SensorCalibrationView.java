@@ -5,6 +5,11 @@
  */
 package views;
 
+import java.util.logging.Logger;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author joao
@@ -274,4 +279,29 @@ public class SensorCalibrationView extends javax.swing.JFrame {
     private javax.swing.JButton stopBT;
     private javax.swing.JLabel unityOfMeasurementLB;
     // End of variables declaration//GEN-END:variables
+
+    public float getCalibrationOffsetTF() {
+        return Float.valueOf(calibrationOffsetTF.getSelectedText());
+    }
+
+    public void setCalibrationOffsetTF(float calibrationOffset) {
+        calibrationOffsetTF.setText(String.valueOf(calibrationOffset));
+    }
+
+    public float getConversionFactorTF() {
+        return Float.valueOf(conversionFactorTF.getSelectedText());
+    }
+
+    public void setConversionFactorTF(float conversionFactor) {
+        conversionFactorTF.setText(String.valueOf(conversionFactor));
+    }
+
+    public void setUnityOfMeasurementLB(String unityofmeasurement) {
+        unityOfMeasurementLB.setText(unityofmeasurement);
+    }
+
+    public String getChannelCB() {
+        return channelCB.getSelectedItem().toString();
+    }
+    
 }

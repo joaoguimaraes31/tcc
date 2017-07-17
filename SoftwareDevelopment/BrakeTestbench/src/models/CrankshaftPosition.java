@@ -18,5 +18,9 @@ public class CrankshaftPosition  extends Sensor {
         this.conversionFactor=conversionFactor;
         this.unityOfMeasurement = "Hz";
     }
+
+    CrankshaftPosition() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

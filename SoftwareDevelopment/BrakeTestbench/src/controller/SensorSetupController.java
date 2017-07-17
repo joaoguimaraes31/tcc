@@ -17,7 +17,7 @@ public class SensorSetupController {
         this.model = model;
     }
     
-    public void contol(){        
+    public void control(){        
         actionListener = new ActionListener() {
               public void actionPerformed(ActionEvent actionEvent) {                  
                   updateModel();
@@ -30,11 +30,9 @@ public class SensorSetupController {
         //SensorsType
         String[] analogChannelsSensorsTypes = view.getAnalogChannelsSensorsTypes();
         String[] sensorsModels = view.getSensorsModels();
-        Sensor[] sensorList = null;
         
         for(int i=0;i<6;i++){
-            sensorList[i]=model.sensorInstances(analogChannelsSensorsTypes[i], i, sensorsModels[i]);                    
+            Main.sensorList[i]=model.sensorInstances(analogChannelsSensorsTypes[i], i, sensorsModels[i]);                    
         }
-        model.setSensorList(sensorList);
     }
 }
