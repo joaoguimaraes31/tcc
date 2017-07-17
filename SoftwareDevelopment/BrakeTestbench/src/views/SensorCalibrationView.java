@@ -6,6 +6,7 @@
 package views;
 
 import java.util.logging.Logger;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -112,6 +113,7 @@ public class SensorCalibrationView extends javax.swing.JFrame {
         startBT.setText("Start");
 
         stopBT.setText("Stop");
+        stopBT.setEnabled(false);
 
         channelCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Analog CH0", "Analog CH1", "Analog CH2", "Analog CH3", "Analog CH4", "Analog CH5" }));
 
@@ -280,28 +282,85 @@ public class SensorCalibrationView extends javax.swing.JFrame {
     private javax.swing.JLabel unityOfMeasurementLB;
     // End of variables declaration//GEN-END:variables
 
-    public float getCalibrationOffsetTF() {
-        return Float.valueOf(calibrationOffsetTF.getSelectedText());
+    public JTextField getCalibrationOffsetTF() {
+        return calibrationOffsetTF;
     }
 
-    public void setCalibrationOffsetTF(float calibrationOffset) {
-        calibrationOffsetTF.setText(String.valueOf(calibrationOffset));
+    public void setCalibrationOffsetTF(JTextField calibrationOffsetTF) {
+        this.calibrationOffsetTF = calibrationOffsetTF;
     }
 
-    public float getConversionFactorTF() {
-        return Float.valueOf(conversionFactorTF.getSelectedText());
+    public JComboBox<String> getChannelCB() {
+        return channelCB;
     }
 
-    public void setConversionFactorTF(float conversionFactor) {
-        conversionFactorTF.setText(String.valueOf(conversionFactor));
+    public void setChannelCB(JComboBox<String> channelCB) {
+        this.channelCB = channelCB;
     }
 
-    public void setUnityOfMeasurementLB(String unityofmeasurement) {
-        unityOfMeasurementLB.setText(unityofmeasurement);
+    public JTextField getConversionFactorTF() {
+        return conversionFactorTF;
     }
 
-    public String getChannelCB() {
-        return channelCB.getSelectedItem().toString();
+    public void setConversionFactorTF(JTextField conversionFactorTF) {
+        this.conversionFactorTF = conversionFactorTF;
     }
-    
+
+    public JLabel getReadingLB() {
+        return readingLB;
+    }
+
+    public void setReadingLB(JLabel readingLB) {
+        this.readingLB = readingLB;
+    }
+
+    public JButton getResetBT() {
+        return resetBT;
+    }
+
+    public void setResetBT(JButton resetBT) {
+        this.resetBT = resetBT;
+    }
+
+    public JButton getSetBT() {
+        return setBT;
+    }
+
+    public void setSetBT(JButton setBT) {
+        this.setBT = setBT;
+    }
+
+    public JButton getSetupBT() {
+        return setupBT;
+    }
+
+    public void setSetupBT(JButton setupBT) {
+        this.setupBT = setupBT;
+    }
+
+    public JButton getStartBT() {
+        return startBT;
+    }
+
+    public void setStartBT(JButton startBT) {
+        this.startBT = startBT;
+    }
+
+    public JButton getStopBT() {
+        return stopBT;
+    }
+
+    public void setStopBT(JButton stopBT) {
+        this.stopBT = stopBT;
+    }
+
+    public JLabel getUnityOfMeasurementLB() {
+        return unityOfMeasurementLB;
+    }
+
+    public void setUnityOfMeasurementLB(JLabel unityOfMeasurementLB) {
+        this.unityOfMeasurementLB = unityOfMeasurementLB;
+    }
+
+   
 }
