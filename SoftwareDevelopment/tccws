@@ -1,0 +1,9 @@
+cd ~/Documents/tcc/SoftwareDevelopment
+
+nohup gedit MicrocontrollerCode/MicrocontrollerCode.ino > /dev/null &
+
+nohup netbeans > /dev/null &
+
+gnome-terminal -e 'bash -c "gnome-open ClassDiagram.asta;sleep 12;echo '\n';git status;exec bash"'
+
+kill -9 $PPID
