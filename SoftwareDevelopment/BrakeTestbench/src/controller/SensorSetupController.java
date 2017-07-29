@@ -18,6 +18,7 @@ public class SensorSetupController {
     }
     
     public void control(){        
+        view.setVisible(true);
         actionListener = new ActionListener() {
               public void actionPerformed(ActionEvent actionEvent) {                  
                   updateModel();

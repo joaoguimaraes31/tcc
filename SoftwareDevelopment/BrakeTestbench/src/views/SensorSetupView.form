@@ -206,7 +206,6 @@
             <Component class="javax.swing.JTextField" name="sensorModel_CH0_TF">
               <Properties>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
-                <Property name="enabled" type="boolean" value="false"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sensorModel_CH0_TFActionPerformed"/>
@@ -290,9 +289,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="sensorModel_CH1_TF">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -372,9 +368,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="sensorModel_CH3_TF">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -454,9 +447,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="sensorModel_CH2_TF">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -536,9 +526,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="sensorModel_CH4_TF">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -618,9 +605,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="sensorModel_CH5_TF">
-              <Properties>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>

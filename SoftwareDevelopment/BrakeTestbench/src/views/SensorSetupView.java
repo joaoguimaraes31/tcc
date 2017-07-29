@@ -84,7 +84,6 @@ public class SensorSetupView extends javax.swing.JFrame {
         jLabel9.setText("Sensor Model");
 
         sensorModel_CH0_TF.setToolTipText("");
-        sensorModel_CH0_TF.setEnabled(false);
         sensorModel_CH0_TF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sensorModel_CH0_TFActionPerformed(evt);
@@ -128,8 +127,6 @@ public class SensorSetupView extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel11.setText("Sensor Model");
 
-        sensorModel_CH1_TF.setEnabled(false);
-
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -166,8 +163,6 @@ public class SensorSetupView extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel13.setText("Sensor Model");
-
-        sensorModel_CH3_TF.setEnabled(false);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -206,8 +201,6 @@ public class SensorSetupView extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel15.setText("Sensor Model");
 
-        sensorModel_CH2_TF.setEnabled(false);
-
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
@@ -245,8 +238,6 @@ public class SensorSetupView extends javax.swing.JFrame {
         jLabel17.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel17.setText("Sensor Model");
 
-        sensorModel_CH4_TF.setEnabled(false);
-
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
@@ -283,8 +274,6 @@ public class SensorSetupView extends javax.swing.JFrame {
 
         jLabel19.setFont(new java.awt.Font("Ubuntu", 0, 24)); // NOI18N
         jLabel19.setText("Sensor Model");
-
-        sensorModel_CH5_TF.setEnabled(false);
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
