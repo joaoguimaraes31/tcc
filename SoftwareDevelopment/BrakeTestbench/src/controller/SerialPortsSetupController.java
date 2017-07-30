@@ -1,5 +1,6 @@
 package controller;
 
+import static controller.Main.selectedSerialPort;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
@@ -43,6 +44,8 @@ public class SerialPortsSetupController {
                   serialPortsFacade.connect(view.getPortsCB().getSelectedItem().toString());
                   //function to control view
                   model.updateViewConnection(view,serialPortsFacade);
+                  //update main class wih serial port name
+                  selectedSerialPort=view.getPortsCB().getSelectedItem().toString();
               }
         };
         
