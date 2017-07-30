@@ -16,8 +16,7 @@ public class SerialPortsSetupController {
     private HashMap portMap = new HashMap();
     
     private ActionListener actionListenerSearch;
-    private ActionListener actionListenerConnect;
-    private ActionListener actionListenerDisconnect;
+    private ActionListener actionListenerSetPort;
     
     
     public SerialPortsSetupController(SerialPortsSetupModel model, SerialPortsSetupView view) {
@@ -35,28 +34,17 @@ public class SerialPortsSetupController {
                   //function to control view
                   model.fillComboBoxWithPortNames(view,portMap);        
               }
-        }; 
+        };
+        view.getSearchBT().addActionListener(actionListenerSearch);
         
-        //connect
-        actionListenerConnect = new ActionListener() {
+        //SetPort
+        actionListenerSetPort = new ActionListener() {
               public void actionPerformed(ActionEvent actionEvent) {        
-                  //connecting
-                  serialPortsFacade.connect(view.getPortsCB().getSelectedItem().toString());
-                  //function to control view
-                  model.updateViewConnection(view,serialPortsFacade);
-                  //update main class wih serial port name
+                  //set value in main class
                   selectedSerialPort=view.getPortsCB().getSelectedItem().toString();
               }
         };
-        
-        //disconnect
-        actionListenerDisconnect = new ActionListener() {
-              public void actionPerformed(ActionEvent actionEvent) {        
-                  //disconnecting
-                  serialPortsFacade.disconnect();
-                  //function to control view 
-                  model.updateViewConnection(view,serialPortsFacade);
-              }
-        };
+        view.getSetBT().addActionListener(actionListenerSetPort);
     }
 }
+        

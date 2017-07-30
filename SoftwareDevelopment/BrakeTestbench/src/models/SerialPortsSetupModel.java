@@ -25,24 +25,13 @@ public class SerialPortsSetupModel {
         }
 
         if (view.getPortsCB().getSelectedItem() == null) {
-            view.getConnectBT().setEnabled(false);
+            view.getSetBT().setEnabled(false);
             //Component frame = null;			
             //JOptionPane.showMessageDialog(frame,"No serial ports were found!","ERROR",JOptionPane.ERROR_MESSAGE);
 
         } else {
-            view.getConnectBT().setEnabled(true);
+            view.getSetBT().setEnabled(true);
         }
 
-    }
-
-    public void updateViewConnection(SerialPortsSetupView view, SerialPortsFacade serialPortsFacade) {
-        //controlling GUI elements
-        if (serialPortsFacade.isIsConnected()) {
-            view.getConnectBT().setEnabled(true);
-            view.getDisconnectBT().setEnabled(false);
-        } else {
-            view.getConnectBT().setEnabled(false);
-            view.getDisconnectBT().setEnabled(true);
-        }
     }
 }

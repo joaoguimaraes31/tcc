@@ -31,19 +31,15 @@ public class SerialPortsSetupView extends javax.swing.JFrame {
     private void initComponents() {
 
         searchBT = new javax.swing.JButton();
-        connectBT = new javax.swing.JButton();
-        disconnectBT = new javax.swing.JButton();
+        setBT = new javax.swing.JButton();
         portsCB = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         searchBT.setText("Search for ports");
 
-        connectBT.setText("Connect");
-        connectBT.setEnabled(false);
-
-        disconnectBT.setText("Disconnect");
-        disconnectBT.setEnabled(false);
+        setBT.setText("Set Serial Port");
+        setBT.setEnabled(false);
 
         portsCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         portsCB.setEnabled(false);
@@ -53,18 +49,12 @@ public class SerialPortsSetupView extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(214, 214, 214)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(connectBT)
-                        .addGap(83, 83, 83)
-                        .addComponent(disconnectBT))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(portsCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchBT))))
-                .addContainerGap(230, Short.MAX_VALUE))
+                    .addComponent(setBT)
+                    .addComponent(portsCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchBT))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,15 +63,9 @@ public class SerialPortsSetupView extends javax.swing.JFrame {
                 .addComponent(searchBT)
                 .addGap(45, 45, 45)
                 .addComponent(portsCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(connectBT)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
-                        .addComponent(disconnectBT)
-                        .addGap(146, 146, 146))))
+                .addGap(18, 18, 18)
+                .addComponent(setBT)
+                .addContainerGap(196, Short.MAX_VALUE))
         );
 
         pack();
@@ -123,22 +107,17 @@ public class SerialPortsSetupView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton connectBT;
-    private javax.swing.JButton disconnectBT;
     private javax.swing.JComboBox<String> portsCB;
     private javax.swing.JButton searchBT;
+    private javax.swing.JButton setBT;
     // End of variables declaration//GEN-END:variables
 
     public JComboBox<String> getPortsCB() {
         return portsCB;
     }
 
-    public JButton getConnectBT() {
-        return connectBT;
-    }
-
-    public JButton getDisconnectBT() {
-        return disconnectBT;
+    public JButton getSetBT() {
+        return setBT;
     }
 
     public JButton getSearchBT() {
