@@ -27,14 +27,20 @@ public class InitialScreen extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         SensorSetupBT = new javax.swing.JButton();
         sensorCalibrationBT = new javax.swing.JButton();
+        serialPortSetupBT = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         SensorSetupBT.setText("SensorSetup");
 
         sensorCalibrationBT.setText("SensorCalibration");
+
+        serialPortSetupBT.setText("SerialPortSetup");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -43,6 +49,7 @@ public class InitialScreen extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(223, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(serialPortSetupBT)
                     .addComponent(sensorCalibrationBT)
                     .addComponent(SensorSetupBT))
                 .addGap(42, 42, 42))
@@ -54,7 +61,9 @@ public class InitialScreen extends javax.swing.JFrame {
                 .addComponent(SensorSetupBT)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(sensorCalibrationBT)
-                .addContainerGap(198, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(serialPortSetupBT)
+                .addContainerGap(142, Short.MAX_VALUE))
         );
 
         pack();
@@ -97,6 +106,8 @@ public class InitialScreen extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton SensorSetupBT;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton sensorCalibrationBT;
+    private javax.swing.JButton serialPortSetupBT;
     // End of variables declaration//GEN-END:variables
 }

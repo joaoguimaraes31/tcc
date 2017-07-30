@@ -82,6 +82,7 @@ public class SensorCalibrationController {
                   view.getStopBT().setEnabled(true);
                   
                   //data_acquisition
+                  
               }
         };                
         view.getStartBT().addActionListener(actionListenerStartBT);

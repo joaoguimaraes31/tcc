@@ -15,6 +15,7 @@ public class SerialPortsFacade {
     private SerialPort serialPort = null;
     OutputStream outputStream = null;
     InputStream inputStream = null;
+    private boolean isConnected = false;
 
     //Method for searching for serial ports and filling a HashMap with then
     public void searchForPorts() {
@@ -46,13 +47,17 @@ public class SerialPortsFacade {
 
                 outputStream = serialPort.getOutputStream();
                 inputStream = serialPort.getInputStream();
+                isConnected = true;
             } else {
                 System.out.println("Could not connect to desired serial port!");
+                isConnected = false;
             }
         } catch (PortInUseException e) {
             System.out.println("Serial port already in use" + e.toString() + ")");
+            isConnected = false;
         } catch (Exception e) {
             System.out.println("Could not connect to desired serial port!" + e.toString() + ")");
+            isConnected = false;
         }
     }
     
@@ -77,4 +82,9 @@ public class SerialPortsFacade {
         return portMap;
     }
 
+    public boolean isIsConnected() {
+        return isConnected;
+    }
+    
+    
 }
