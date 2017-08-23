@@ -5,16 +5,18 @@
  */
 package views;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author joao
  */
-public class InitialScreen extends javax.swing.JFrame {
+public class InitialScreenView extends javax.swing.JFrame {
 
     /**
      * Creates new form InitialScreen
      */
-    public InitialScreen() {
+    public InitialScreenView() {
         initComponents();
     }
 
@@ -86,20 +88,21 @@ public class InitialScreen extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InitialScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InitialScreenView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InitialScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InitialScreenView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InitialScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InitialScreenView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InitialScreen.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InitialScreenView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InitialScreen().setVisible(true);
+                new InitialScreenView().setVisible(true);
             }
         });
     }
@@ -110,4 +113,21 @@ public class InitialScreen extends javax.swing.JFrame {
     private javax.swing.JButton sensorCalibrationBT;
     private javax.swing.JButton serialPortSetupBT;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getSensorSetupBT() {
+        return SensorSetupBT;
+    }
+
+    public JButton getSensorCalibrationBT() {
+        return sensorCalibrationBT;
+    }
+
+    public JButton getSerialPortSetupBT() {
+        return serialPortSetupBT;
+    }
+
+
+    
+
+
 }

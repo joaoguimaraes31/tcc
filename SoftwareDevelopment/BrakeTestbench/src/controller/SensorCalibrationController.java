@@ -1,5 +1,6 @@
 package controller;
 
+import static controller.Main.selectedSerialPort;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import models.Sensor;
@@ -10,12 +11,15 @@ public class SensorCalibrationController {
 
     SensorCalibrationView view = new SensorCalibrationView();
     SensorCalibrationModel model = new SensorCalibrationModel();
+    SerialEventHandler serialEventHandler =  new SerialEventHandler();
+    
     private ActionListener actionListenerPortsCB;
     private ActionListener actionListenerResetBT;
     private ActionListener actionListenerSetEnable;
     private ActionListener actionListenerSetBT;
     private ActionListener actionListenerStartBT;
     private ActionListener actionListenerStopBT;
+    
     Sensor sensor = null;
     
     public SensorCalibrationController(SensorCalibrationView view, SensorCalibrationModel model) {
@@ -82,6 +86,9 @@ public class SensorCalibrationController {
                   view.getStopBT().setEnabled(true);
                   
                   //data_acquisition
+                  serialEventHandler.serialFacade.connect(selectedSerialPort);
+                  serialEventHandler.initListener(serialEventHandler.serialFacade.getSerialPort());
+                 
                   
               }
         };                
@@ -98,6 +105,8 @@ public class SensorCalibrationController {
                   view.getStopBT().setEnabled(false);
                   
                   //data_acquisition
+                  serialEventHandler.removeListener(serialEventHandler.serialFacade.getSerialPort());
+                  serialEventHandler.serialFacade.disconnect();
               }
         };                
         view.getStartBT().addActionListener(actionListenerStopBT);
