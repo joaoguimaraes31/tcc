@@ -40,7 +40,7 @@ public class SerialPortSetupController {
         actionListenerReturnBT = new ActionListener() {
               public void actionPerformed(ActionEvent actionEvent) {                  
                  view.dispose();
-                 navigationController.getInitialScreenController().createView();
+                 navigationController.getInitialScreenController().createView(model.getSelectedSerialPort());
               }
         };                
         view.getReturnBT().addActionListener(actionListenerReturnBT);   
@@ -73,6 +73,7 @@ public class SerialPortSetupController {
                  //view.dispose();
                  System.out.println("setBT");
                  model.setSelectedSerialPort(view.getPortsCB().getSelectedItem().toString());
+                 view.getSelectedPortLB().setText(model.getSelectedSerialPort());
                  view.getSetBT().setEnabled(false);
               }
         };                

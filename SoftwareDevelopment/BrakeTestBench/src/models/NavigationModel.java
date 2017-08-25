@@ -5,7 +5,7 @@ public class NavigationModel {
     //enum type to define current screen
     private ScreenPossibilities currentScreen;
     public enum ScreenPossibilities {
-        INITIAL, SERIAL_SETUP
+        INITIAL, SERIAL_SETUP, CALIBRATION
     }
     
     private boolean serialPortSetted;

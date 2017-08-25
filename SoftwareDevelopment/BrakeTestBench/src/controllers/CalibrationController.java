@@ -10,25 +10,26 @@ public class CalibrationController {
     private NavigationController navigationController;
     
     //MVC
-    //private SerialPortSetupView view;
+    private CalibrationView view;
     //private ActionListener actionListenerReturnBT;
     
     public CalibrationController() {
-        //createView();        
+        createView();        
     }
     
     public void setNavigationController(NavigationController navigationController){
         this.navigationController=navigationController;
     }
     
-    /*
+    
     //CRIAR TELA INICIAL E ADCIONAR EVENTOS
     public void createView(){
-		view = new SerialPortSetupView();
+		view = new CalibrationView();
                 view.setVisible(true);
-                addListeners();
+                //addListeners();
 		//System.out.println("deu certo!");
     }
+    /*
     
     //addListeners for controlling view and triggers events
     public void addListeners(){        

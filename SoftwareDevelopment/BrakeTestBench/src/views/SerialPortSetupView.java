@@ -7,6 +7,7 @@ package views;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 
 /**
  *
@@ -34,6 +35,8 @@ public class SerialPortSetupView extends javax.swing.JFrame {
         setBT = new javax.swing.JButton();
         portsCB = new javax.swing.JComboBox<>();
         returnBT = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        selectedPortLB = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,6 +50,10 @@ public class SerialPortSetupView extends javax.swing.JFrame {
 
         returnBT.setText("Return");
 
+        jLabel1.setText("Selected Serial Port: ");
+
+        selectedPortLB.setText("null");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -54,6 +61,10 @@ public class SerialPortSetupView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(214, 214, 214)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(selectedPortLB))
                     .addComponent(setBT)
                     .addComponent(portsCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -73,7 +84,11 @@ public class SerialPortSetupView extends javax.swing.JFrame {
                 .addComponent(portsCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(setBT)
-                .addContainerGap(196, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(selectedPortLB))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
 
         pack();
@@ -118,9 +133,11 @@ public class SerialPortSetupView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JComboBox<String> portsCB;
     private javax.swing.JButton returnBT;
     private javax.swing.JButton searchBT;
+    private javax.swing.JLabel selectedPortLB;
     private javax.swing.JButton setBT;
     // End of variables declaration//GEN-END:variables
 
@@ -140,5 +157,10 @@ public class SerialPortSetupView extends javax.swing.JFrame {
         return returnBT;
     }
 
+    public JLabel getSelectedPortLB() {
+        return selectedPortLB;
+    }
+    
+    
     
 }

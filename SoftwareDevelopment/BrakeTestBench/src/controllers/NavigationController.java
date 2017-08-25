@@ -20,8 +20,8 @@ public class NavigationController  {
     
     //needed controllers
     SerialPortSetupController serialPortSetupController;
-    private CalibrationController calibrationController;
-    private InitialScreenController initialScreenController;
+    CalibrationController calibrationController;
+    InitialScreenController initialScreenController;
 
     
     public NavigationController() {
@@ -50,6 +50,16 @@ public class NavigationController  {
     public InitialScreenController getInitialScreenController() {
         return initialScreenController;
     }
+
+    public SerialPortSetupController getSerialPortSetupController() {
+        return serialPortSetupController;
+    }
+
+    public CalibrationController getCalibrationController() {
+        return calibrationController;
+    }
+    
+    
     
     
          
