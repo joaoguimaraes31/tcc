@@ -38,11 +38,7 @@ public class SerialPortSetupController {
                     view.getSelectedPortLB().setText("none");
                 }
                 
-                if (model.getSelectedSerialPort()==null && model.getPortMap()!=null){
-                    view.getSetBT().setEnabled(true);
-                }else{
-                    view.getSetBT().setEnabled(false);
-                }
+               
                 
                 view.setVisible(true);
                 addListeners();
@@ -65,12 +61,8 @@ public class SerialPortSetupController {
                     model.setPortMap(command.getPortMap());
                     //function to control view
                     command.fillComboBoxWithPortNames(view,model.getPortMap());
+                    view.getSetBT().setEnabled(true);
                     
-                    if (view.getPortsCB().getSelectedItem().toString()!=null){
-                        view.getSetBT().setEnabled(true);
-                    }else{
-                        view.getSetBT().setEnabled(false);
-                    }
               }
         };                
         view.getSearchBT().addActionListener(actionListenerSearchBT);  
@@ -91,8 +83,8 @@ public class SerialPortSetupController {
                  //view.dispose();
                  System.out.println("setBT");
                  model.setSelectedSerialPort(view.getPortsCB().getSelectedItem().toString());
-                 view.getSetBT().setEnabled(false);
                  view.getSelectedPortLB().setText(model.getSelectedSerialPort());
+                 view.getSetBT().setEnabled(false);
               }
         };                
         view.getSetBT().addActionListener(actionListenerSetBT);
