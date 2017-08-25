@@ -7,6 +7,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Enumeration;
 import java.util.HashMap;
+import models.SerialPortsSetupModel;
 import views.SerialPortSetupView;
 
 public class SerialPortSetupCommand {
@@ -92,25 +93,10 @@ public class SerialPortSetupCommand {
             view.getPortsCB().addItem(portMapValues[k]);
         }
 
-        if (view.getPortsCB().getSelectedItem() == null) {
-            view.getSetBT().setEnabled(false);
-
-        } else {
-            view.getSetBT().setEnabled(true);
-        }
+       
 
     }
     
-    public void portsEnableEvents(SerialPortSetupView view){
-        if (view.getPortsCB().getSelectedItem()!=null){
-            view.getSetBT().setEnabled(true);
-            view.getPortsCB().setEnabled(true);
-        }else{
-            view.getSetBT().setEnabled(false);
-            view.getPortsCB().setEnabled(false);
-            System.out.println("no serial port");
-        }
-    }
     
     public SerialPort getSerialPort() {
         return serialPort;

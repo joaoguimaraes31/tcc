@@ -45,9 +45,6 @@ public class SerialPortSetupView extends javax.swing.JFrame {
         setBT.setText("Set Serial Port");
         setBT.setEnabled(false);
 
-        portsCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        portsCB.setEnabled(false);
-
         returnBT.setText("Return");
 
         jLabel1.setText("Selected Serial Port: ");
