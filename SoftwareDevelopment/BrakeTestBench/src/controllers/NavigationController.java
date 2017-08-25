@@ -44,7 +44,6 @@ public class NavigationController  {
         
         
         //ViewControl
-        initialScreenController.createView();
         //model.setCurrentScreen(ScreenPossibilities.INITIAL);
     }   
 

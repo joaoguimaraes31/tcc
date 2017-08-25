@@ -2,6 +2,11 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import gnu.io.CommPortIdentifier;
+import java.util.HashMap;
+
+import commands.*;
+import models.*;
 import views.*;
 
 public class SerialPortSetupController {
@@ -10,23 +15,24 @@ public class SerialPortSetupController {
     private NavigationController navigationController;
     
     //MVC
+    private SerialPortsSetupModel model;
     private SerialPortSetupView view;
-    private ActionListener actionListenerReturnBT;
+    private SerialPortSetupCommand command;
+    private ActionListener actionListenerReturnBT, actionListenerSearchBT, actionListenerPortsCB, actionListenerSetBT;
     
+    
+    //constructor
     public SerialPortSetupController() {
-        createView();        
-    }
-    
-    public void setNavigationController(NavigationController navigationController){
-        this.navigationController=navigationController;
+        model = new SerialPortsSetupModel();
+        command = new SerialPortSetupCommand();
     }
     
     //CRIAR TELA INICIAL E ADCIONAR EVENTOS
     public void createView(){
 		view = new SerialPortSetupView();
+                command.fillComboBoxWithPortNames(view,model.getPortMap());
                 view.setVisible(true);
                 addListeners();
-		//System.out.println("deu certo!");
     }
     
     //addListeners for controlling view and triggers events
@@ -35,9 +41,55 @@ public class SerialPortSetupController {
               public void actionPerformed(ActionEvent actionEvent) {                  
                  view.dispose();
                  navigationController.getInitialScreenController().createView();
-                 navigationController.getInitialScreenController().addListeners();
               }
         };                
         view.getReturnBT().addActionListener(actionListenerReturnBT);   
-    }   
+        
+        actionListenerSearchBT = new ActionListener() {
+              public void actionPerformed(ActionEvent actionEvent) {                  
+                    System.out.println("SearchBT");
+                    command.searchForPorts();
+                    model.setPortMap(command.getPortMap());
+                    //function to control view
+                    command.fillComboBoxWithPortNames(view,model.getPortMap());
+                    command.portsEnableEvents(view);
+              }
+        };                
+        view.getSearchBT().addActionListener(actionListenerSearchBT);  
+        
+
+        actionListenerPortsCB = new ActionListener() {
+              public void actionPerformed(ActionEvent actionEvent) {                  
+                    //view.dispose();
+                    System.out.println("portsCB");
+                    view.getSetBT().setEnabled(true);
+              }
+        };                
+        view.getPortsCB().addActionListener(actionListenerPortsCB);  
+       
+
+        actionListenerSetBT = new ActionListener() {
+              public void actionPerformed(ActionEvent actionEvent) {                  
+                 //view.dispose();
+                 System.out.println("setBT");
+                 model.setSelectedSerialPort(view.getPortsCB().getSelectedItem().toString());
+                 view.getSetBT().setEnabled(false);
+              }
+        };                
+        view.getSetBT().addActionListener(actionListenerSetBT);
+    }  
+    
+    //getters and setters
+
+    public SerialPortsSetupModel getModel() {
+        return model;
+    }
+    
+    
+    public void setNavigationController(NavigationController navigationController){
+        this.navigationController=navigationController;
+    }
+    
+    
+
 }

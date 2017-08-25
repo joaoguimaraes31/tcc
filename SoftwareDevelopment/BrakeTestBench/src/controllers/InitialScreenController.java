@@ -15,7 +15,7 @@ public class InitialScreenController {
         private ActionListener actionListenerSerialSetupBT;
 
     public InitialScreenController() {
-        //createView();
+        createView();
     }
 
     public void setNavigationController(NavigationController navigationController) {
