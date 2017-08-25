@@ -31,6 +31,7 @@ public class SerialPortSetupController {
     public void createView(){
 		view = new SerialPortSetupView();
                 command.fillComboBoxWithPortNames(view,model.getPortMap());
+                command.portsEnableEvents(view);
                 view.setVisible(true);
                 addListeners();
     }
@@ -73,8 +74,8 @@ public class SerialPortSetupController {
                  //view.dispose();
                  System.out.println("setBT");
                  model.setSelectedSerialPort(view.getPortsCB().getSelectedItem().toString());
-                 view.getSelectedPortLB().setText(model.getSelectedSerialPort());
                  view.getSetBT().setEnabled(false);
+                 view.getSelectedPortLB().setText(model.getSelectedSerialPort());
               }
         };                
         view.getSetBT().addActionListener(actionListenerSetBT);
