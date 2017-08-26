@@ -5,10 +5,11 @@ import java.util.HashMap;
 public class SerialPortsSetupModel {
     
     private HashMap portMap;
-    private String selectedSerialPort = null;
+    private String selectedSerialPort;
 
     public SerialPortsSetupModel() {
         portMap = new HashMap();
+        selectedSerialPort = "none";
     }
 
     
@@ -28,9 +29,4 @@ public class SerialPortsSetupModel {
     public void setSelectedSerialPort(String selectedSerialPort) {
         this.selectedSerialPort = selectedSerialPort;
     }
-    
-    
-    
-    
-    
 }

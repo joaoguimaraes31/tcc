@@ -37,6 +37,7 @@ public class SerialPortSetupView extends javax.swing.JFrame {
         returnBT = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         selectedPortLB = new javax.swing.JLabel();
+        sensorSetupBT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,6 +52,9 @@ public class SerialPortSetupView extends javax.swing.JFrame {
 
         selectedPortLB.setText("null");
 
+        sensorSetupBT.setText("Sensor Setup");
+        sensorSetupBT.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,21 +63,28 @@ public class SerialPortSetupView extends javax.swing.JFrame {
                 .addGap(214, 214, 214)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(selectedPortLB))
-                    .addComponent(setBT)
-                    .addComponent(portsCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(selectedPortLB))
+                            .addComponent(setBT)
+                            .addComponent(portsCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(411, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(searchBT)
-                        .addGap(89, 89, 89)
-                        .addComponent(returnBT)))
-                .addContainerGap(141, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sensorSetupBT)
+                            .addComponent(returnBT))
+                        .addGap(107, 107, 107))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
+                .addGap(39, 39, 39)
+                .addComponent(sensorSetupBT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchBT)
                     .addComponent(returnBT))
@@ -85,7 +96,7 @@ public class SerialPortSetupView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(selectedPortLB))
-                .addContainerGap(167, Short.MAX_VALUE))
+                .addContainerGap(343, Short.MAX_VALUE))
         );
 
         pack();
@@ -135,6 +146,7 @@ public class SerialPortSetupView extends javax.swing.JFrame {
     private javax.swing.JButton returnBT;
     private javax.swing.JButton searchBT;
     private javax.swing.JLabel selectedPortLB;
+    private javax.swing.JButton sensorSetupBT;
     private javax.swing.JButton setBT;
     // End of variables declaration//GEN-END:variables
 
@@ -157,7 +169,8 @@ public class SerialPortSetupView extends javax.swing.JFrame {
     public JLabel getSelectedPortLB() {
         return selectedPortLB;
     }
-    
-    
-    
+
+    public JButton getSensorSetupBT() {
+        return sensorSetupBT;
+    }   
 }

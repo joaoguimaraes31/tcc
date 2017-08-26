@@ -59,6 +59,14 @@ public class NavigationController  {
         return sensorSetupController;
     }
 
+    public NavigationModel getModel() {
+        return model;
+    }
+
+    public void setModel(NavigationModel model) {
+        this.model = model;
+    }
+
     
     
     

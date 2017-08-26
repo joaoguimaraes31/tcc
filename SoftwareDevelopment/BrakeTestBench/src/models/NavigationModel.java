@@ -8,14 +8,12 @@ public class NavigationModel {
         INITIAL, SERIAL_SETUP, CALIBRATION
     }
     
-    private boolean serialPortSetted;
+    private boolean isSerialPortSet = false;
 
-    public NavigationModel(boolean serialPortSetted) {
-        this.serialPortSetted = serialPortSetted;
+    public NavigationModel(boolean isSerialPortSet) {
+        this.isSerialPortSet = isSerialPortSet;
     }
-    
-    
-    
+  
     //getters and setters;
     public ScreenPossibilities getCurrentScreen() {
         return currentScreen;
@@ -23,12 +21,15 @@ public class NavigationModel {
     public void setCurrentScreen(ScreenPossibilities currentScreen) {
         this.currentScreen = currentScreen;
     }
-    public boolean isSerialPortSetted() {
-        return serialPortSetted;
+
+    public boolean isIsSerialPortSet() {
+        return isSerialPortSet;
     }
-    public void setSerialPortSetted(boolean serialPortSetted) {
-        this.serialPortSetted = serialPortSetted;
+
+    public void setIsSerialPortSet(boolean isSerialPortSet) {
+        this.isSerialPortSet = isSerialPortSet;
     }
+    
     
     
 }

@@ -14,7 +14,7 @@ public class SensorSetupController {
     //private ActionListener actionListenerReturnBT;
     
     public SensorSetupController() {
-        createView();        
+        //createView();        
     }
     
     public void setNavigationController(NavigationController navigationController){

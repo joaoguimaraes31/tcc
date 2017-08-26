@@ -2,6 +2,7 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import models.NavigationModel;
 import views.*;
 
 public class InitialScreenController {
@@ -30,13 +31,15 @@ public class InitialScreenController {
     //CRIAR TELA INICIAL E ADCIONAR EVENTOS
     public void createView(String selectedSerialPort){
 		view = new InitialScreenView();
-                view.setVisible(true);                
-                addListeners();
+                             
+                
                 if (selectedSerialPort != "none"){
                     view.getSensorSetupBT().setEnabled(true);
                 }else{
                     view.getSensorSetupBT().setEnabled(false);
                 }
+                addListeners();
+                view.setVisible(true);   
     }
     
     public void addListeners(){        
@@ -68,7 +71,5 @@ public class InitialScreenController {
 
     public InitialScreenView getView() {
         return view;
-    }
-    
-    
+    }   
 }
