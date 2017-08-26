@@ -5,6 +5,8 @@
  */
 package views;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author joao
@@ -82,6 +84,7 @@ public class SensorSetupView extends javax.swing.JFrame {
         returnBT.setText("Return");
 
         jButton1.setText("Brake Test");
+        jButton1.setEnabled(false);
 
         serialBT.setText("Serial Port Setup");
 
@@ -181,4 +184,18 @@ public class SensorSetupView extends javax.swing.JFrame {
     private javax.swing.JTabbedPane sensorTP;
     private javax.swing.JButton serialBT;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getExitBT() {
+        return exitBT;
+    }
+
+    public JButton getReturnBT() {
+        return returnBT;
+    }
+
+    public JButton getSerialBT() {
+        return serialBT;
+    }
+
+
 }

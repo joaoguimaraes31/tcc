@@ -46,7 +46,7 @@ public class InitialScreenController {
         actionListenerSerialSetupBT = new ActionListener() {
               public void actionPerformed(ActionEvent actionEvent) {                  
                  view.dispose();
-                 navigationController.serialPortSetupController.createView();
+                 navigationController.getSerialPortSetupController().createView();
                  //model.setCurrentScreen(ScreenPossibilities.SERIAL_SETUP);
               }
         };                
@@ -55,7 +55,7 @@ public class InitialScreenController {
         actionListenerCalibrationMenuBT = new ActionListener() {
               public void actionPerformed(ActionEvent actionEvent) {                  
                  view.dispose();
-                 navigationController.sensorSetupController.createView();
+                 navigationController.getSensorSetupController().createView();
                  //model.setCurrentScreen(ScreenPossibilities.CALIBRATION);   
               }
         };                
