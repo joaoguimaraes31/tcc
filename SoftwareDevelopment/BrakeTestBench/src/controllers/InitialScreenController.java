@@ -24,26 +24,18 @@ public class InitialScreenController {
         
 
     public InitialScreenController() {
-        createView();
+        createView("none");
     }
-
-
-    
     
     //CRIAR TELA INICIAL E ADCIONAR EVENTOS
-    public void createView(){
+    public void createView(String selectedSerialPort){
 		view = new InitialScreenView();
                 view.setVisible(true);                
                 addListeners();
-    }
-    
-    
-    public void createView(String selectedSerialPort){
-		createView();
-                if (selectedSerialPort != null){
-                    view.getCalibrationMenuBT().setEnabled(true);
+                if (selectedSerialPort != "none"){
+                    view.getSensorSetupBT().setEnabled(true);
                 }else{
-                    view.getCalibrationMenuBT().setEnabled(false);
+                    view.getSensorSetupBT().setEnabled(false);
                 }
     }
     
@@ -60,11 +52,11 @@ public class InitialScreenController {
         actionListenerCalibrationMenuBT = new ActionListener() {
               public void actionPerformed(ActionEvent actionEvent) {                  
                  view.dispose();
-                 navigationController.calibrationController.createView();
+                 navigationController.sensorSetupController.createView();
                  //model.setCurrentScreen(ScreenPossibilities.CALIBRATION);   
               }
         };                
-        view.getCalibrationMenuBT().addActionListener(actionListenerCalibrationMenuBT);
+        view.getSensorSetupBT().addActionListener(actionListenerCalibrationMenuBT);
         
         actionListenerExitBT = new ActionListener() {
               public void actionPerformed(ActionEvent actionEvent) {                  

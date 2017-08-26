@@ -26,10 +26,10 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="122" max="32767" attributes="0"/>
+              <EmptySpace pref="125" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="brakeTestBT" min="-2" max="-2" attributes="0"/>
-                  <Component id="calibrationMenuBT" min="-2" max="-2" attributes="0"/>
+                  <Component id="sensorSetupBT" min="-2" max="-2" attributes="0"/>
                   <Component id="serialSetupBT" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
@@ -57,7 +57,7 @@
                   <Group type="102" attributes="0">
                       <Component id="serialSetupBT" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="calibrationMenuBT" min="-2" max="-2" attributes="0"/>
+                      <Component id="sensorSetupBT" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="brakeTestBT" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -78,9 +78,9 @@
         <Property name="text" type="java.lang.String" value="Initial View"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="calibrationMenuBT">
+    <Component class="javax.swing.JButton" name="sensorSetupBT">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Calibration Menu"/>
+        <Property name="text" type="java.lang.String" value="Sensor Setup"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>

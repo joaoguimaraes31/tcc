@@ -4,16 +4,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import views.*;
 
-public class CalibrationController {
+public class SensorSetupController {
     
     //upper controller
     private NavigationController navigationController;
     
     //MVC
-    private CalibrationView view;
+    private SensorSetupView view;
     //private ActionListener actionListenerReturnBT;
     
-    public CalibrationController() {
+    public SensorSetupController() {
         createView();        
     }
     
@@ -24,7 +24,7 @@ public class CalibrationController {
     
     //CRIAR TELA INICIAL E ADCIONAR EVENTOS
     public void createView(){
-		view = new CalibrationView();
+		view = new SensorSetupView();
                 view.setVisible(true);
                 //addListeners();
 		//System.out.println("deu certo!");

@@ -31,7 +31,7 @@ public class InitialScreenView extends javax.swing.JFrame {
 
         serialSetupBT = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        calibrationMenuBT = new javax.swing.JButton();
+        sensorSetupBT = new javax.swing.JButton();
         brakeTestBT = new javax.swing.JButton();
         readmeBT = new javax.swing.JButton();
         exitBT = new javax.swing.JButton();
@@ -42,8 +42,8 @@ public class InitialScreenView extends javax.swing.JFrame {
 
         jLabel1.setText("Initial View");
 
-        calibrationMenuBT.setText("Calibration Menu");
-        calibrationMenuBT.setEnabled(false);
+        sensorSetupBT.setText("Sensor Setup");
+        sensorSetupBT.setEnabled(false);
 
         brakeTestBT.setText("Brake Test!");
         brakeTestBT.setEnabled(false);
@@ -59,10 +59,10 @@ public class InitialScreenView extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(brakeTestBT)
-                    .addComponent(calibrationMenuBT)
+                    .addComponent(sensorSetupBT)
                     .addComponent(serialSetupBT))
                 .addGap(32, 32, 32))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -85,7 +85,7 @@ public class InitialScreenView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(serialSetupBT)
                         .addGap(18, 18, 18)
-                        .addComponent(calibrationMenuBT)
+                        .addComponent(sensorSetupBT)
                         .addGap(18, 18, 18)
                         .addComponent(brakeTestBT)))
                 .addContainerGap(112, Short.MAX_VALUE))
@@ -134,10 +134,10 @@ public class InitialScreenView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton brakeTestBT;
-    private javax.swing.JButton calibrationMenuBT;
     private javax.swing.JButton exitBT;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton readmeBT;
+    private javax.swing.JButton sensorSetupBT;
     private javax.swing.JButton serialSetupBT;
     // End of variables declaration//GEN-END:variables
 
@@ -145,8 +145,8 @@ public class InitialScreenView extends javax.swing.JFrame {
         return brakeTestBT;
     }
 
-    public JButton getCalibrationMenuBT() {
-        return calibrationMenuBT;
+    public JButton getSensorSetupBT() {
+        return sensorSetupBT;
     }
 
     public JButton getExitBT() {

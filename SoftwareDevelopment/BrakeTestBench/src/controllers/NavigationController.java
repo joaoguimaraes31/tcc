@@ -15,12 +15,12 @@ public class NavigationController  {
     
     //builders to create subsystems
     private SerialPortSetupBuilder serialPortSetupBuilder;
-    private CalibrationBuilder calibrationBuilder;
+    private SensorSetupBuilder sensorSetupBuilder;
     private InitialScreenBuilder initialScreenBuilder;
     
     //needed controllers
     SerialPortSetupController serialPortSetupController;
-    CalibrationController calibrationController;
+    SensorSetupController sensorSetupController;
     InitialScreenController initialScreenController;
 
     
@@ -34,9 +34,9 @@ public class NavigationController  {
         serialPortSetupBuilder.createSubsystem(this);
         serialPortSetupController = serialPortSetupBuilder.getSerialPortSetupController();
         ///subsystem calibration
-        calibrationBuilder = new CalibrationBuilder();
-        calibrationBuilder.createSubsystem(this);
-        calibrationController = calibrationBuilder.getCalibrationController();
+        sensorSetupBuilder = new SensorSetupBuilder();
+        sensorSetupBuilder.createSubsystem(this);
+        sensorSetupController = sensorSetupBuilder.getSensorSetupController();
         ///initialScreen
         initialScreenBuilder = new InitialScreenBuilder();
         initialScreenBuilder.createSubsystem(this);
@@ -55,9 +55,11 @@ public class NavigationController  {
         return serialPortSetupController;
     }
 
-    public CalibrationController getCalibrationController() {
-        return calibrationController;
+    public SensorSetupController getSensorSetupController() {
+        return sensorSetupController;
     }
+
+    
     
     
     

@@ -37,9 +37,7 @@ public class SerialPortSetupController {
                 }else{
                     view.getSelectedPortLB().setText("none");
                 }
-                
-               
-                
+ 
                 view.setVisible(true);
                 addListeners();
     }
@@ -61,13 +59,15 @@ public class SerialPortSetupController {
                     model.setPortMap(command.getPortMap());
                     //function to control view
                     command.fillComboBoxWithPortNames(view,model.getPortMap());
-                    view.getSetBT().setEnabled(true);
-                    
+                    if (model.getPortMap().isEmpty()){
+                        view.getSetBT().setEnabled(false);
+                        model.setSelectedSerialPort("none");
+                        view.getSelectedPortLB().setText(model.getSelectedSerialPort());
+                    }
               }
         };                
         view.getSearchBT().addActionListener(actionListenerSearchBT);  
         
-
         actionListenerPortsCB = new ActionListener() {
               public void actionPerformed(ActionEvent actionEvent) {                  
                     //view.dispose();
@@ -91,7 +91,6 @@ public class SerialPortSetupController {
     }  
     
     //getters and setters
-
     public SerialPortsSetupModel getModel() {
         return model;
     }
@@ -100,7 +99,4 @@ public class SerialPortSetupController {
     public void setNavigationController(NavigationController navigationController){
         this.navigationController=navigationController;
     }
-    
-    
-
 }
