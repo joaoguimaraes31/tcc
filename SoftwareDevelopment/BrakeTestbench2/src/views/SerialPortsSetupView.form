@@ -28,9 +28,13 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="setBT" min="-2" max="-2" attributes="0"/>
                   <Component id="portsCB" min="-2" max="-2" attributes="0"/>
-                  <Component id="searchBT" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="searchBT" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
+                      <Component id="returnBT" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="289" max="32767" attributes="0"/>
+              <EmptySpace pref="141" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -38,7 +42,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-              <Component id="searchBT" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="searchBT" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="returnBT" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Component id="portsCB" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -75,6 +82,11 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="returnBT">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="REturn"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

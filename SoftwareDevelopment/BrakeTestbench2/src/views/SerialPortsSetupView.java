@@ -33,6 +33,7 @@ public class SerialPortsSetupView extends javax.swing.JFrame {
         searchBT = new javax.swing.JButton();
         setBT = new javax.swing.JButton();
         portsCB = new javax.swing.JComboBox<>();
+        returnBT = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,6 +45,8 @@ public class SerialPortsSetupView extends javax.swing.JFrame {
         portsCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         portsCB.setEnabled(false);
 
+        returnBT.setText("REturn");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -53,14 +56,19 @@ public class SerialPortsSetupView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(setBT)
                     .addComponent(portsCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(searchBT))
-                .addContainerGap(289, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(searchBT)
+                        .addGap(89, 89, 89)
+                        .addComponent(returnBT)))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(80, 80, 80)
-                .addComponent(searchBT)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchBT)
+                    .addComponent(returnBT))
                 .addGap(45, 45, 45)
                 .addComponent(portsCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -108,6 +116,7 @@ public class SerialPortsSetupView extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> portsCB;
+    private javax.swing.JButton returnBT;
     private javax.swing.JButton searchBT;
     private javax.swing.JButton setBT;
     // End of variables declaration//GEN-END:variables
@@ -124,5 +133,9 @@ public class SerialPortsSetupView extends javax.swing.JFrame {
         return searchBT;
     }
 
+    public JButton getReturnBT() {
+        return returnBT;
+    }
 
+    
 }

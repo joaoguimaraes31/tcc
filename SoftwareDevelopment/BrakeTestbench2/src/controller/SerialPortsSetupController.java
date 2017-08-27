@@ -17,6 +17,7 @@ public class SerialPortsSetupController {
     
     private ActionListener actionListenerSearch;
     private ActionListener actionListenerSetPort;
+    private ActionListener actionListenerReturnBT;
     
     
     public SerialPortsSetupController(SerialPortsSetupModel model, SerialPortsSetupView view) {
@@ -25,6 +26,8 @@ public class SerialPortsSetupController {
     }
     
     public void control(){
+        
+        view.setVisible(true);
         //Search for serial ports
         actionListenerSearch = new ActionListener() {
               public void actionPerformed(ActionEvent actionEvent) {        
@@ -45,6 +48,14 @@ public class SerialPortsSetupController {
               }
         };
         view.getSetBT().addActionListener(actionListenerSetPort);
+        
+        //Return
+        actionListenerReturnBT = new ActionListener() {
+              public void actionPerformed(ActionEvent actionEvent) {        
+                  
+              }
+        };
+        view.getSetBT().addActionListener(actionListenerReturnBT);
     }
 }
         
