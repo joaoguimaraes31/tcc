@@ -8,8 +8,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Map;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -53,7 +51,7 @@ public class TestController {
                 System.out.println("SET BT");
                 String[] headers = {"Info1", "Info2", "Info3"};
                 String[] values = {view.getInfo1TF().getText(), view.getInfo2TF().getText(), view.getInfo3TF().getText()};
-                writtingToFileRoutine(headers, values, "C:\\user\\Desktop\\dir2\\filename.txt");
+                writtingToFileRoutine(headers, values);
             }
         };
         view.getSetFileBT().addActionListener(actionListenerSetFileBT);
@@ -72,18 +70,24 @@ public class TestController {
 
     }
 
-    public void writtingToFileRoutine(String[] headers, String[] values, String pathToFile) {
+    public void writtingToFileRoutine(String[] headers, String[] values) {
 
         try {
-            //Path file = Paths.get("c:\\data\\myfile.txt");
-            File file = new File(pathToFile);
-            file.getParentFile().mkdirs();
-            FileWriter fileWriter = new FileWriter(file);
-            PrintWriter writer = new PrintWriter(fileWriter);
-            for (int i = 0; i < values.length; i++) {
-                writer.println(headers[i] + "=" + values[i]);
+            JFileChooser chooser = new JFileChooser();
+            chooser.setDialogTitle("Select Configuration File Directory");
+            chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            int result = chooser.showSaveDialog(view);
+
+            if (result == chooser.APPROVE_OPTION) {
+                PrintWriter file = new PrintWriter(new File(chooser.getSelectedFile(), "BrakeTestBench.cfg"));
+                for (int i = 0; i < values.length; i++) {
+                    file.println(headers[i] + "=" + values[i]);
+                }
+                file.close();
+            } else {
+
             }
-            writer.close();
+
         } catch (IOException e) {
             // do something
         }

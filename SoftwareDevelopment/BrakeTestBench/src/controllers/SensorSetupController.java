@@ -11,7 +11,7 @@ public class SensorSetupController {
 
     //MVC
     private SensorSetupView view;
-    private ActionListener actionListenerReturnBT, actionListenerserialBT, actionListenerExitBT;
+    private ActionListener actionListenerReturnBT, actionListenerserialBT, actionListenerExitBT, actionListenerLoadBT, actionListenerSaveBT;
 
     public SensorSetupController() {
         //createView();        
