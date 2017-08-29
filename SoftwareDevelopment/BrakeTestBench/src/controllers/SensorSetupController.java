@@ -2,7 +2,9 @@ package controllers;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import models.*;
 import views.*;
+import commands.*;
 
 public class SensorSetupController {
 
@@ -10,12 +12,12 @@ public class SensorSetupController {
     private NavigationController navigationController;
 
     //MVC
+    private SensorSetupModel model;
     private SensorSetupView view;
     private ActionListener actionListenerReturnBT, actionListenerserialBT, actionListenerExitBT, actionListenerLoadBT, actionListenerSaveBT;
-
-    public SensorSetupController() {
-        //createView();        
-    }
+    
+    //commands
+    private FileFunctions fileFunctions;
 
     public void setNavigationController(NavigationController navigationController) {
         this.navigationController = navigationController;
@@ -52,6 +54,20 @@ public class SensorSetupController {
             }
         };
         view.getExitBT().addActionListener(actionListenerExitBT);
+        
+        actionListenerLoadBT = new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                //
+            }
+        };
+        view.getLoadFileBT().addActionListener(actionListenerLoadBT);
+        
+        actionListenerSaveBT = new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                //
+            }
+        };
+        view.getSaveFileBT().addActionListener(actionListenerSaveBT);
     }
 
 }
