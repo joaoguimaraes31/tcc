@@ -9,10 +9,10 @@ package models;
  *
  * @author joao
  */
-public class SensorSetupModel {
-    
+public class SensorSetupModel {    
+
    //info for configuration files
-    private final String[] HEADER = {
+   private String[] HEADER = {
         "SENSOR0_TYPE","SENSOR0_LABEL","SENSOR0_CALIBRATION_OFFSET","SENSOR0_CALIBRATION_FACTOR",
         
         "SENSOR1_TYPE","SENSOR1_LABEL","SENSOR1_CALIBRATION_OFFSET","SENSOR1_CALIBRATION_FACTOR",
@@ -25,8 +25,10 @@ public class SensorSetupModel {
         
         "SENSOR5_TYPE","SENSOR5_LABEL","SENSOR5_CALIBRATION_OFFSET","SENSOR5_CALIBRATION_FACTOR",
     };
-    
-    private String[] values={
+    private String test = "asd";
+    private String[] values = {
+        "NULL","NULL","NULL","NULL",
+        
         "NULL","NULL","NULL","NULL",
        
         "NULL","NULL","NULL","NULL",
@@ -36,16 +38,24 @@ public class SensorSetupModel {
         "NULL","NULL","NULL","NULL",
         
         "NULL","NULL","NULL","NULL",
-        
-        "NULL","NULL","NULL","NULL"
+      
     };
+
     
 
     public String[] getHEADER() {
         return HEADER;
     }
-
+    
+    
+    
     public String[] getValues() {
         return values;
     }
+    
+    
+    
+
+
+    
 }

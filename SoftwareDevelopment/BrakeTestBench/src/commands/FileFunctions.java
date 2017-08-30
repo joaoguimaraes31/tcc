@@ -14,12 +14,13 @@ import views.SensorSetupView;
 
 public class FileFunctions {
 
-    public void writtingToFileRoutine(String[] headers, String[] values, SensorSetupView view) {
+    public void writtingToFileRoutine(String[] headers, String[] values) {
+        System.out.println("teste");
         try {
             JFileChooser chooser = new JFileChooser();
             chooser.setDialogTitle("Select Configuration File Directory");
             chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-            int result = chooser.showSaveDialog(view);
+            int result = chooser.showSaveDialog(null);
 
             if (result == chooser.APPROVE_OPTION) {
                 PrintWriter file = new PrintWriter(new File(chooser.getSelectedFile(), "BrakeTestBench.cfg"));
