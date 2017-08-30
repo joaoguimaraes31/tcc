@@ -5,10 +5,6 @@ import java.awt.event.ActionListener;
 import models.*;
 import views.*;
 import commands.*;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.swing.JFileChooser;
 
 public class SensorSetupController {
 

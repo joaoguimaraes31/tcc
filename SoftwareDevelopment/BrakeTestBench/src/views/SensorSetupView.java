@@ -42,22 +42,11 @@ public class SensorSetupView extends javax.swing.JFrame {
         fileNameLB = new javax.swing.JLabel();
         loadFileBT = new javax.swing.JButton();
         saveFileBT = new javax.swing.JButton();
-        sensorTP = new javax.swing.JTabbedPane();
-        sensorCalibrationPN = new javax.swing.JPanel();
-        sensorSelectionPN = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        channelSelectionCB = new javax.swing.JComboBox<>();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        sensorTypeLB = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        startBT = new javax.swing.JButton();
-        stopBT = new javax.swing.JButton();
-        offsetSP = new javax.swing.JSpinner();
-        factorSP = new javax.swing.JSpinner();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        exitBT = new javax.swing.JButton();
+        returnBT = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        serialBT = new javax.swing.JButton();
+        sensorCalibrationTP = new javax.swing.JTabbedPane();
         sensorSettingsPN = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -90,10 +79,7 @@ public class SensorSetupView extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         sensor3TF = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        exitBT = new javax.swing.JButton();
-        returnBT = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        serialBT = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Channel0", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
 
@@ -135,6 +121,8 @@ public class SensorSetupView extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 600));
+        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jLabel1.setText("File Name:");
 
@@ -146,129 +134,19 @@ public class SensorSetupView extends javax.swing.JFrame {
         saveFileBT.setText("Save");
         saveFileBT.setToolTipText("Save Configuration File");
 
-        sensorSelectionPN.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sensor Selection", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
+        exitBT.setText("Exit");
 
-        jLabel18.setText("Channel");
+        returnBT.setText("Return");
 
-        channelSelectionCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Channel0", "Channel1", "Channel2", "Channel3", "Channel4", "Channel5" }));
+        jButton1.setText("Brake Test");
+        jButton1.setEnabled(false);
 
-        jLabel19.setText("Label:");
-
-        jLabel2.setText("default");
-
-        jLabel20.setText("Sensor Type:");
-
-        sensorTypeLB.setText("none");
-
-        javax.swing.GroupLayout sensorSelectionPNLayout = new javax.swing.GroupLayout(sensorSelectionPN);
-        sensorSelectionPN.setLayout(sensorSelectionPNLayout);
-        sensorSelectionPNLayout.setHorizontalGroup(
-            sensorSelectionPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sensorSelectionPNLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(sensorSelectionPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(channelSelectionCB, 0, 204, Short.MAX_VALUE)
-                    .addGroup(sensorSelectionPNLayout.createSequentialGroup()
-                        .addGroup(sensorSelectionPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel20)
-                            .addComponent(sensorTypeLB))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        sensorSelectionPNLayout.setVerticalGroup(
-            sensorSelectionPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sensorSelectionPNLayout.createSequentialGroup()
-                .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(channelSelectionCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sensorTypeLB)
-                .addGap(24, 24, 24)
-                .addComponent(jLabel19)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(0, 20, Short.MAX_VALUE))
-        );
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Calibration Settings", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
-
-        startBT.setText("Start Acquisition");
-
-        stopBT.setText("Stop Acquisition");
-
-        jLabel21.setText("Offset:");
-
-        jLabel22.setText("Factor:");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(startBT)
-                            .addComponent(stopBT))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel22))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(factorSP, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                            .addComponent(offsetSP))
-                        .addGap(51, 51, 51))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(startBT)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(stopBT)
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(offsetSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(factorSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel22))
-                .addContainerGap(44, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout sensorCalibrationPNLayout = new javax.swing.GroupLayout(sensorCalibrationPN);
-        sensorCalibrationPN.setLayout(sensorCalibrationPNLayout);
-        sensorCalibrationPNLayout.setHorizontalGroup(
-            sensorCalibrationPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sensorCalibrationPNLayout.createSequentialGroup()
-                .addContainerGap(516, Short.MAX_VALUE)
-                .addGroup(sensorCalibrationPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sensorSelectionPN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        sensorCalibrationPNLayout.setVerticalGroup(
-            sensorCalibrationPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sensorCalibrationPNLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(sensorSelectionPN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        sensorTP.addTab("Calibration", sensorCalibrationPN);
+        serialBT.setText("Serial Port Setup");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Channel0", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
+        jPanel3.setMaximumSize(new java.awt.Dimension(225, 180));
+        jPanel3.setMinimumSize(new java.awt.Dimension(225, 180));
+        jPanel3.setPreferredSize(new java.awt.Dimension(225, 180));
 
         jLabel6.setText("Sensor Type:");
 
@@ -285,7 +163,7 @@ public class SensorSetupView extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sensor0TypeCB, 0, 204, Short.MAX_VALUE)
+                    .addComponent(sensor0TypeCB, 0, 189, Short.MAX_VALUE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -308,7 +186,9 @@ public class SensorSetupView extends javax.swing.JFrame {
         );
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Channel2", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
-        jPanel4.setPreferredSize(new java.awt.Dimension(240, 214));
+        jPanel4.setMaximumSize(new java.awt.Dimension(225, 180));
+        jPanel4.setMinimumSize(new java.awt.Dimension(225, 180));
+        jPanel4.setPreferredSize(new java.awt.Dimension(225, 180));
 
         jLabel8.setText("Sensor Type:");
 
@@ -330,13 +210,13 @@ public class SensorSetupView extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sensor2TypeCB, 0, 204, Short.MAX_VALUE)
+                    .addComponent(sensor2TypeCB, 0, 198, Short.MAX_VALUE)
+                    .addComponent(sensor2TF)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
                             .addComponent(jLabel9))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(sensor2TF))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -349,10 +229,13 @@ public class SensorSetupView extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sensor2TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 38, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Channel1", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
+        jPanel5.setMaximumSize(new java.awt.Dimension(225, 180));
+        jPanel5.setMinimumSize(new java.awt.Dimension(225, 180));
+        jPanel5.setPreferredSize(new java.awt.Dimension(225, 180));
 
         jLabel10.setText("Sensor Type:");
 
@@ -369,7 +252,7 @@ public class SensorSetupView extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sensor1TypeCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sensor1TypeCB, 0, 189, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
@@ -388,11 +271,14 @@ public class SensorSetupView extends javax.swing.JFrame {
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sensor1TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 38, Short.MAX_VALUE))
         );
 
         jPannel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Channel5", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
-        jPannel5.setPreferredSize(new java.awt.Dimension(240, 214));
+        jPannel5.setMaximumSize(new java.awt.Dimension(225, 180));
+        jPannel5.setMinimumSize(new java.awt.Dimension(225, 180));
+        jPannel5.setPreferredSize(new java.awt.Dimension(225, 180));
+        jPannel5.setRequestFocusEnabled(false);
 
         jLabel12.setText("Sensor Type:");
 
@@ -409,7 +295,7 @@ public class SensorSetupView extends javax.swing.JFrame {
             .addGroup(jPannel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPannel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sensor5TypeCB, 0, 204, Short.MAX_VALUE)
+                    .addComponent(sensor5TypeCB, 0, 198, Short.MAX_VALUE)
                     .addGroup(jPannel5Layout.createSequentialGroup()
                         .addGroup(jPannel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
@@ -428,10 +314,13 @@ public class SensorSetupView extends javax.swing.JFrame {
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sensor5TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 29, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Channel4", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
+        jPanel7.setMaximumSize(new java.awt.Dimension(225, 180));
+        jPanel7.setMinimumSize(new java.awt.Dimension(225, 180));
+        jPanel7.setPreferredSize(new java.awt.Dimension(225, 180));
 
         jLabel14.setText("Sensor Type:");
 
@@ -448,13 +337,13 @@ public class SensorSetupView extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sensor4TypeCB, 0, 204, Short.MAX_VALUE)
+                    .addComponent(sensor4TypeCB, 0, 189, Short.MAX_VALUE)
+                    .addComponent(sensor4TF)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(sensor4TF))
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel14))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -467,10 +356,13 @@ public class SensorSetupView extends javax.swing.JFrame {
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sensor4TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 29, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Channel3", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
+        jPanel6.setMaximumSize(new java.awt.Dimension(225, 180));
+        jPanel6.setMinimumSize(new java.awt.Dimension(225, 180));
+        jPanel6.setPreferredSize(new java.awt.Dimension(225, 180));
 
         jLabel16.setText("Sensor Type:");
 
@@ -487,7 +379,7 @@ public class SensorSetupView extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sensor3TypeCB, 0, 204, Short.MAX_VALUE)
+                    .addComponent(sensor3TypeCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
@@ -506,7 +398,7 @@ public class SensorSetupView extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sensor3TF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 38, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Ubuntu", 0, 36)); // NOI18N
@@ -520,21 +412,24 @@ public class SensorSetupView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(sensorSettingsPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(sensorSettingsPNLayout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(sensorSettingsPNLayout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPannel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(sensorSettingsPNLayout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sensorSettingsPNLayout.createSequentialGroup()
+                        .addGroup(sensorSettingsPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(sensorSettingsPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, sensorSettingsPNLayout.createSequentialGroup()
+                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPannel5, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
+                            .addGroup(sensorSettingsPNLayout.createSequentialGroup()
+                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22))))))
         );
         sensorSettingsPNLayout.setVerticalGroup(
             sensorSettingsPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -542,29 +437,32 @@ public class SensorSetupView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addGroup(sensorSettingsPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(sensorSettingsPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
-                .addGroup(sensorSettingsPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(sensorSettingsPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(sensorSettingsPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPannel5, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 41, Short.MAX_VALUE))
+                    .addComponent(jPannel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        sensorTP.addTab("Sensor Settings", sensorSettingsPN);
+        sensorCalibrationTP.addTab("Sensor Settings", sensorSettingsPN);
 
-        exitBT.setText("Exit");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 746, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 458, Short.MAX_VALUE)
+        );
 
-        returnBT.setText("Return");
-
-        jButton1.setText("Brake Test");
-        jButton1.setEnabled(false);
-
-        serialBT.setText("Serial Port Setup");
+        sensorCalibrationTP.addTab("Sensor Calibration", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -573,24 +471,24 @@ public class SensorSetupView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sensorTP)
+                    .addComponent(sensorCalibrationTP, javax.swing.GroupLayout.PREFERRED_SIZE, 754, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(loadFileBT)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(saveFileBT)
-                        .addGap(18, 18, 18)
+                        .addGap(43, 43, 43)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(fileNameLB)
-                        .addGap(83, 83, 83)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(serialBT)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(returnBT)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(exitBT)))
-                .addContainerGap())
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -605,9 +503,9 @@ public class SensorSetupView extends javax.swing.JFrame {
                     .addComponent(returnBT)
                     .addComponent(jButton1)
                     .addComponent(serialBT))
-                .addGap(18, 18, 18)
-                .addComponent(sensorTP)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sensorCalibrationTP, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
@@ -654,9 +552,7 @@ public class SensorSetupView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> channelSelectionCB;
     private javax.swing.JButton exitBT;
-    private javax.swing.JSpinner factorSP;
     private javax.swing.JLabel fileNameLB;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -669,12 +565,6 @@ public class SensorSetupView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -692,7 +582,6 @@ public class SensorSetupView extends javax.swing.JFrame {
     private javax.swing.JPanel jPannel5;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JButton loadFileBT;
-    private javax.swing.JSpinner offsetSP;
     private javax.swing.JButton returnBT;
     private javax.swing.JButton saveFileBT;
     private javax.swing.JTextField sensor0TF;
@@ -707,14 +596,9 @@ public class SensorSetupView extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> sensor4TypeCB;
     private javax.swing.JTextField sensor5TF;
     private javax.swing.JComboBox<String> sensor5TypeCB;
-    private javax.swing.JPanel sensorCalibrationPN;
-    private javax.swing.JPanel sensorSelectionPN;
+    private javax.swing.JTabbedPane sensorCalibrationTP;
     private javax.swing.JPanel sensorSettingsPN;
-    private javax.swing.JTabbedPane sensorTP;
-    private javax.swing.JLabel sensorTypeLB;
     private javax.swing.JButton serialBT;
-    private javax.swing.JButton startBT;
-    private javax.swing.JButton stopBT;
     // End of variables declaration//GEN-END:variables
 
     public JButton getExitBT() {
@@ -737,16 +621,8 @@ public class SensorSetupView extends javax.swing.JFrame {
         return saveFileBT;
     }
 
-    public JSpinner getFactorSP() {
-        return factorSP;
-    }
-
     public JLabel getFileNameLB() {
         return fileNameLB;
-    }
-
-    public JSpinner getOffsetSP() {
-        return offsetSP;
     }
 
     public JTextField getSensor0TF() {
@@ -797,11 +673,8 @@ public class SensorSetupView extends javax.swing.JFrame {
         return sensor5TypeCB;
     }
 
-    public JLabel getSensorTypeLB() {
-        return sensorTypeLB;
-    }
     
-    
+  
     
     
 
