@@ -62,14 +62,14 @@ public class SensorSetupController {
 
         actionListenerLoadBT = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-acquireFileValues();
+
             }
         };
         view.getLoadFileBT().addActionListener(actionListenerLoadBT);
 
         actionListenerSaveBT = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                
+                acquireFileValues();
                 fileFunctions.writtingToFileRoutine(model.getHEADER(), model.getValues());
             }
         };
@@ -80,19 +80,19 @@ acquireFileValues();
         model.getValues()[0] = view.getSensor0TypeCB().getSelectedItem().toString();
         model.getValues()[1] = view.getSensor0TF().getText();
         
-        model.getValues()[4] = view.getSensor0TypeCB().getSelectedItem().toString();
-        model.getValues()[5] = view.getSensor0TF().getText();
+        model.getValues()[4] = view.getSensor1TypeCB().getSelectedItem().toString();
+        model.getValues()[5] = view.getSensor1TF().getText();
         
-        model.getValues()[8] = view.getSensor0TypeCB().getSelectedItem().toString();
-        model.getValues()[9] = view.getSensor0TF().getText();
+        model.getValues()[8] = view.getSensor2TypeCB().getSelectedItem().toString();
+        model.getValues()[9] = view.getSensor2TF().getText();
         
-        model.getValues()[12] = view.getSensor0TypeCB().getSelectedItem().toString();
-        model.getValues()[16] = view.getSensor0TF().getText(); 
+        model.getValues()[12] = view.getSensor3TypeCB().getSelectedItem().toString();
+        model.getValues()[16] = view.getSensor3TF().getText(); 
         
-        model.getValues()[16] = view.getSensor0TypeCB().getSelectedItem().toString();
-        model.getValues()[17] = view.getSensor0TF().getText();
+        model.getValues()[16] = view.getSensor4TypeCB().getSelectedItem().toString();
+        model.getValues()[17] = view.getSensor4TF().getText();
         
-        model.getValues()[20] = view.getSensor0TypeCB().getSelectedItem().toString();
-        model.getValues()[21] = view.getSensor0TF().getText();
+        model.getValues()[20] = view.getSensor5TypeCB().getSelectedItem().toString();
+        model.getValues()[21] = view.getSensor5TF().getText();
     }
 }
