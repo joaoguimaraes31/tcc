@@ -25,7 +25,7 @@ public class SensorSetupModel {
         
         "SENSOR5_TYPE","SENSOR5_LABEL","SENSOR5_CALIBRATION_OFFSET","SENSOR5_CALIBRATION_FACTOR",
     };
-    private String test = "asd";
+
     private String[] values = {
         "NULL","NULL","NULL","NULL",
         
