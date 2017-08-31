@@ -84,7 +84,7 @@ public class SensorSetupController {
                     view.getSensorTypeLB().setText("Sensor Type: " + model.getValues()[(view.getChannelsCB().getSelectedIndex() - 1) * 4]);
                     view.getSensorLabelLB().setText("Sensor Label: " + model.getValues()[((view.getChannelsCB().getSelectedIndex() - 1) * 4) + 1]);
                     
-                    if (model.getValues()[(view.getChannelsCB().getSelectedIndex() - 1) * 4]!="Not Connected"){
+                    if (model.getValues()[(view.getChannelsCB().getSelectedIndex() - 1) * 4].equals("Not Connected")){
                         view.getStartCalibrationBT().setEnabled(true);
                     }else{
                         view.getStartCalibrationBT().setEnabled(false);
