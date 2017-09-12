@@ -92,6 +92,8 @@ public class SensorSetupView extends javax.swing.JFrame {
         sensorLabelLB = new javax.swing.JLabel();
         startCalibrationBT = new javax.swing.JButton();
         stopCalibrationBT = new javax.swing.JButton();
+        voltageChartLabel = new javax.swing.JLabel();
+        measureChartLabel = new javax.swing.JLabel();
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Channel0", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
 
@@ -134,7 +136,6 @@ public class SensorSetupView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
 
         jLabel1.setText("File Name:");
 
@@ -463,6 +464,8 @@ public class SensorSetupView extends javax.swing.JFrame {
 
         sensorCalibrationTP.addTab("Sensor Settings", sensorSettingsPN);
 
+        calibrationPN.setEnabled(false);
+
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Calibration Settings", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
 
         channelsCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Channel", "AnalogCH0", "AnalogCH1", "AnalogCH2", "AnalogCH3", "AnalogCH4", "AnalogCH5" }));
@@ -544,12 +547,22 @@ public class SensorSetupView extends javax.swing.JFrame {
                 .addContainerGap(61, Short.MAX_VALUE))
         );
 
+        voltageChartLabel.setText("jLabel20");
+        voltageChartLabel.setEnabled(false);
+
+        measureChartLabel.setText("jLabel21");
+        measureChartLabel.setEnabled(false);
+
         javax.swing.GroupLayout calibrationPNLayout = new javax.swing.GroupLayout(calibrationPN);
         calibrationPN.setLayout(calibrationPNLayout);
         calibrationPNLayout.setHorizontalGroup(
             calibrationPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, calibrationPNLayout.createSequentialGroup()
-                .addContainerGap(440, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(calibrationPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(voltageChartLabel)
+                    .addComponent(measureChartLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 371, Short.MAX_VALUE)
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -557,7 +570,13 @@ public class SensorSetupView extends javax.swing.JFrame {
             calibrationPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(calibrationPNLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(calibrationPNLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(calibrationPNLayout.createSequentialGroup()
+                        .addComponent(voltageChartLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(measureChartLabel)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -689,6 +708,7 @@ public class SensorSetupView extends javax.swing.JFrame {
     private javax.swing.JPanel jPannel5;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JButton loadFileBT;
+    private javax.swing.JLabel measureChartLabel;
     private javax.swing.JSpinner offsetJS;
     private javax.swing.JButton returnBT;
     private javax.swing.JButton saveFileBT;
@@ -711,6 +731,7 @@ public class SensorSetupView extends javax.swing.JFrame {
     private javax.swing.JButton serialBT;
     private javax.swing.JButton startCalibrationBT;
     private javax.swing.JButton stopCalibrationBT;
+    private javax.swing.JLabel voltageChartLabel;
     // End of variables declaration//GEN-END:variables
 
     public JButton getExitBT() {
@@ -819,6 +840,14 @@ public class SensorSetupView extends javax.swing.JFrame {
 
     public JPanel getCalibrationPN() {
         return calibrationPN;
+    }
+
+    public JLabel getMeasureChartLabel() {
+        return measureChartLabel;
+    }
+
+    public JLabel getVoltageChartLabel() {
+        return voltageChartLabel;
     }
     
 }

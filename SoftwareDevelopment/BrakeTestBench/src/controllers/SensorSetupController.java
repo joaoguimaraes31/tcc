@@ -14,6 +14,10 @@ public class SensorSetupController {
     //MVC
     private SensorSetupModel model = new SensorSetupModel();
     private SensorSetupView view;
+    
+    //chartCommands
+    private ChartOperations chart1,chart2;
+    
     private ActionListener actionListenerReturnBT, actionListenerserialBT, actionListenerExitBT, actionListenerLoadBT, actionListenerSaveBT,
             actionListenerSetValues;
 
@@ -27,6 +31,9 @@ public class SensorSetupController {
     //CRIAR TELA INICIAL E ADCIONAR EVENTOS
     public void createView() {
         view = new SensorSetupView();
+        
+        chart1 = new ChartOperations("Voltage Reading","Time (ms)","Voltage",400,200,view.getVoltageChartLabel());
+        chart2 = new ChartOperations("Measured Value","Time (ms)","Measurement",400,200,view.getMeasureChartLabel());
         view.setVisible(true);
         addListeners();
 
@@ -85,9 +92,9 @@ public class SensorSetupController {
                     view.getSensorLabelLB().setText("Sensor Label: " + model.getValues()[((view.getChannelsCB().getSelectedIndex() - 1) * 4) + 1]);
                     
                     if (model.getValues()[(view.getChannelsCB().getSelectedIndex() - 1) * 4].equals("Not Connected")){
-                        view.getStartCalibrationBT().setEnabled(true);
-                    }else{
                         view.getStartCalibrationBT().setEnabled(false);
+                    }else{
+                        view.getStartCalibrationBT().setEnabled(true);
                     }
                 }
             }
