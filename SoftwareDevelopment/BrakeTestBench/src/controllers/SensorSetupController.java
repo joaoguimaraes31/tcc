@@ -23,7 +23,7 @@ public class SensorSetupController {
 
     //commands
     private FileFunctions fileFunctions = new FileFunctions();
-    private Communicator communicator;
+    private CalibrationCommunicator communicator;
 
     public void setNavigationController(NavigationController navigationController) {
         this.navigationController = navigationController;
@@ -35,13 +35,14 @@ public class SensorSetupController {
 
         chart1 = new ChartOperations("Voltage Reading", "Time (ms)", "Voltage", 400, 200, view.getVoltageChartLabel());
         chart2 = new ChartOperations("Measured Value", "Time (ms)", "Measurement", 400, 200, view.getMeasureChartLabel());
+        communicator = new CalibrationCommunicator(navigationController.getSerialPortSetupController().getModel().getSelectedSerialPort(), this);
         view.setVisible(true);
         addListeners();
-
     }
 
     //addListeners for controlling view and triggers events
     public void addListeners() {
+        
         actionListenerReturnBT = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 view.dispose();
@@ -117,10 +118,9 @@ public class SensorSetupController {
         actionListenerStartCalibration = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 //control
-                communicator = new Communicator(navigationController.getSerialPortSetupController().getModel().getSelectedSerialPort());
                 communicator.connect();
-                
-                if (communicator.isConnected()){
+
+                if (communicator.isConnected()) {
                     //view
                     view.getStartCalibrationBT().setEnabled(false);
                     view.getStopCalibrationBT().setEnabled(true);
@@ -130,7 +130,7 @@ public class SensorSetupController {
             }
         };
         view.getStartCalibrationBT().addActionListener(actionListenerStartCalibration);
-        
+
         actionListenerStopCalibration = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 //control
@@ -191,4 +191,14 @@ public class SensorSetupController {
             model.getValues()[21] = view.getSensor5TF().getText();
         }
     }
+
+    public SensorSetupModel getModel() {
+        return model;
+    }
+
+    public SensorSetupView getView() {
+        return view;
+    }
+    
+    
 }

@@ -14,13 +14,13 @@ import javax.swing.JOptionPane;
 public class Communicator implements SerialPortEventListener {
 
     private SerialPort serialPort = null;
-    private OutputStream outStream;
-    private InputStream inStream;
+    OutputStream outStream;
+    InputStream inStream;
 
-    private String jointData = "";
+    String jointData = "";
 
     private boolean connectionError = false;
-    private boolean isConnected = false;
+    boolean isConnected = false;
     
     //hardware constants
     final short TIMEOUT = 2000;
@@ -148,5 +148,7 @@ public class Communicator implements SerialPortEventListener {
     public boolean isConnected() {
         return isConnected;
     }
+    
+    
 
 }
