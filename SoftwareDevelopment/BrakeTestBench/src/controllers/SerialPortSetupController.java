@@ -4,8 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import gnu.io.CommPortIdentifier;
 import java.util.HashMap;
+import gnu.io.CommPortIdentifier;
 
 import commands.*;
+import java.util.HashSet;
 import models.*;
 import views.*;
 
@@ -33,7 +35,7 @@ public class SerialPortSetupController {
         command.fillComboBoxWithPortNames(view, model.getPortMap());
 
         if (navigationController.getModel().isIsSerialPortSet()) {
-            view.getSelectedPortLB().setText(model.getSelectedSerialPort());
+            view.getSelectedPortLB().setText(model.getSelectedSerialPort().getName());
             view.getSensorSetupBT().setEnabled(true);
         } else {
             view.getSelectedPortLB().setText("none");
@@ -64,8 +66,9 @@ public class SerialPortSetupController {
                     view.getSetBT().setEnabled(false);
                     view.getSensorSetupBT().setEnabled(false);
                     navigationController.getModel().setIsSerialPortSet(false);
-                    model.setSelectedSerialPort("none");
-                    view.getSelectedPortLB().setText(model.getSelectedSerialPort());
+                    
+                    model.setSelectedSerialPort(null);
+                    view.getSelectedPortLB().setText(model.getSelectedSerialPort().toString());
                 }
             }
         };
@@ -80,9 +83,9 @@ public class SerialPortSetupController {
 
         actionListenerSetBT = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                model.setSelectedSerialPort(view.getPortsCB().getSelectedItem().toString());
+                model.setSelectedSerialPort((CommPortIdentifier) model.getPortMap().get(view.getPortsCB().getSelectedItem().toString()));
                 navigationController.getModel().setIsSerialPortSet(true);
-                view.getSelectedPortLB().setText(model.getSelectedSerialPort());
+                view.getSelectedPortLB().setText(model.getSelectedSerialPort().getName());
                 view.getSetBT().setEnabled(false);
                 view.getSensorSetupBT().setEnabled(true);
             }

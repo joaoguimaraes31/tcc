@@ -1,5 +1,6 @@
 package controllers;
 
+import gnu.io.CommPortIdentifier;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import models.NavigationModel;
@@ -25,15 +26,15 @@ public class InitialScreenController {
         
 
     public InitialScreenController() {
-        createView("none");
+        createView(null);
     }
     
     //CRIAR TELA INICIAL E ADCIONAR EVENTOS
-    public void createView(String selectedSerialPort){
+    public void createView(CommPortIdentifier selectedSerialPort){
 		view = new InitialScreenView();
                              
                 
-                if (selectedSerialPort != "none"){
+                if (selectedSerialPort != null){
                     view.getSensorSetupBT().setEnabled(true);
                 }else{
                     view.getSensorSetupBT().setEnabled(false);

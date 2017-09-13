@@ -1,15 +1,15 @@
 package models;
 
 import java.util.HashMap;
+import gnu.io.CommPortIdentifier;
 
 public class SerialPortsSetupModel {
     
     private HashMap portMap;
-    private String selectedSerialPort;
+    private CommPortIdentifier selectedSerialPort = null;
 
     public SerialPortsSetupModel() {
         portMap = new HashMap();
-        selectedSerialPort = "none";
     }
 
     
@@ -22,11 +22,13 @@ public class SerialPortsSetupModel {
         this.portMap = portMap;
     }
 
-    public String getSelectedSerialPort() {
+    public CommPortIdentifier getSelectedSerialPort() {
         return selectedSerialPort;
     }
 
-    public void setSelectedSerialPort(String selectedSerialPort) {
+    public void setSelectedSerialPort(CommPortIdentifier selectedSerialPort) {
         this.selectedSerialPort = selectedSerialPort;
     }
+
+    
 }
