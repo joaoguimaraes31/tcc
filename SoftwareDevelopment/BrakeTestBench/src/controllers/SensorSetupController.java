@@ -14,15 +14,16 @@ public class SensorSetupController {
     //MVC
     private SensorSetupModel model = new SensorSetupModel();
     private SensorSetupView view;
-    
+
     //chartCommands
-    private ChartOperations chart1,chart2;
-    
+    private ChartOperations chart1, chart2;
+
     private ActionListener actionListenerReturnBT, actionListenerserialBT, actionListenerExitBT, actionListenerLoadBT, actionListenerSaveBT,
-            actionListenerSetValues;
+            actionListenerSetValues, actionListenerStartCalibration, actionListenerStopCalibration;
 
     //commands
-    FileFunctions fileFunctions = new FileFunctions();
+    private FileFunctions fileFunctions = new FileFunctions();
+    private Communicator communicator;
 
     public void setNavigationController(NavigationController navigationController) {
         this.navigationController = navigationController;
@@ -31,9 +32,9 @@ public class SensorSetupController {
     //CRIAR TELA INICIAL E ADCIONAR EVENTOS
     public void createView() {
         view = new SensorSetupView();
-        
-        chart1 = new ChartOperations("Voltage Reading","Time (ms)","Voltage",400,200,view.getVoltageChartLabel());
-        chart2 = new ChartOperations("Measured Value","Time (ms)","Measurement",400,200,view.getMeasureChartLabel());
+
+        chart1 = new ChartOperations("Voltage Reading", "Time (ms)", "Voltage", 400, 200, view.getVoltageChartLabel());
+        chart2 = new ChartOperations("Measured Value", "Time (ms)", "Measurement", 400, 200, view.getMeasureChartLabel());
         view.setVisible(true);
         addListeners();
 
@@ -82,7 +83,7 @@ public class SensorSetupController {
         actionListenerSetValues = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 acquireFileValues();
-                 acquireFileValues();
+                acquireFileValues();
                 if (view.getChannelsCB().getSelectedIndex() == 0) {
                     view.getStartCalibrationBT().setEnabled(false);
                     view.getSensorTypeLB().setText("Sensor Type: none");
@@ -90,10 +91,10 @@ public class SensorSetupController {
                 } else {
                     view.getSensorTypeLB().setText("Sensor Type: " + model.getValues()[(view.getChannelsCB().getSelectedIndex() - 1) * 4]);
                     view.getSensorLabelLB().setText("Sensor Label: " + model.getValues()[((view.getChannelsCB().getSelectedIndex() - 1) * 4) + 1]);
-                    
-                    if (model.getValues()[(view.getChannelsCB().getSelectedIndex() - 1) * 4].equals("Not Connected")){
+
+                    if (model.getValues()[(view.getChannelsCB().getSelectedIndex() - 1) * 4].equals("Not Connected")) {
                         view.getStartCalibrationBT().setEnabled(false);
-                    }else{
+                    } else {
                         view.getStartCalibrationBT().setEnabled(true);
                     }
                 }
@@ -113,56 +114,81 @@ public class SensorSetupController {
         view.getSensor5TF().addActionListener(actionListenerSetValues);
         view.getChannelsCB().addActionListener(actionListenerSetValues);
 
+        actionListenerStartCalibration = new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                //control
+                communicator = new Communicator(navigationController.getSerialPortSetupController().getModel().getSelectedSerialPort());
+                communicator.connect();
+                
+                if (communicator.isConnected()){
+                    //view
+                    view.getStartCalibrationBT().setEnabled(false);
+                    view.getStopCalibrationBT().setEnabled(true);
+                    communicator.startAcquisition();
+                    communicator.initListener();
+                }
+            }
+        };
+        view.getStartCalibrationBT().addActionListener(actionListenerStartCalibration);
+        
+        actionListenerStopCalibration = new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                //control
+                communicator.disconnect();
+                //view
+                view.getStartCalibrationBT().setEnabled(true);
+                view.getStopCalibrationBT().setEnabled(false);
+            }
+        };
+        view.getStopCalibrationBT().addActionListener(actionListenerStopCalibration);
     }
 
     public void acquireFileValues() {
         model.getValues()[0] = view.getSensor0TypeCB().getSelectedItem().toString();
         String str = "(optional)";
         String result = "NULL";
-        
-        if (view.getSensor0TF().getText().equals(str)){
-            model.getValues()[1]=result;
-        }else{
-            model.getValues()[1]=view.getSensor0TF().getText();
+
+        if (view.getSensor0TF().getText().equals(str)) {
+            model.getValues()[1] = result;
+        } else {
+            model.getValues()[1] = view.getSensor0TF().getText();
         }
-        
 
         model.getValues()[4] = view.getSensor1TypeCB().getSelectedItem().toString();
-        
-        if (view.getSensor1TF().getText().equals(str)){
-            model.getValues()[5]=result;
-        }else{
-            model.getValues()[5]=view.getSensor1TF().getText();
+
+        if (view.getSensor1TF().getText().equals(str)) {
+            model.getValues()[5] = result;
+        } else {
+            model.getValues()[5] = view.getSensor1TF().getText();
         }
-        
 
         model.getValues()[8] = view.getSensor2TypeCB().getSelectedItem().toString();
-        
-        if (view.getSensor2TF().getText().equals(str)){
-            model.getValues()[9]=result;
-        }else{
-            model.getValues()[9]=view.getSensor2TF().getText();
+
+        if (view.getSensor2TF().getText().equals(str)) {
+            model.getValues()[9] = result;
+        } else {
+            model.getValues()[9] = view.getSensor2TF().getText();
         }
 
         model.getValues()[12] = view.getSensor3TypeCB().getSelectedItem().toString();
-        if (view.getSensor3TF().getText().equals(str)){
-            model.getValues()[13]=result;
-        }else{
-            model.getValues()[13]=view.getSensor3TF().getText();
+        if (view.getSensor3TF().getText().equals(str)) {
+            model.getValues()[13] = result;
+        } else {
+            model.getValues()[13] = view.getSensor3TF().getText();
         }
 
         model.getValues()[16] = view.getSensor4TypeCB().getSelectedItem().toString();
-        if (view.getSensor4TF().getText().equals(str)){
-            model.getValues()[17]=result;
-        }else{
-            model.getValues()[17]=view.getSensor4TF().getText();
+        if (view.getSensor4TF().getText().equals(str)) {
+            model.getValues()[17] = result;
+        } else {
+            model.getValues()[17] = view.getSensor4TF().getText();
         }
 
         model.getValues()[20] = view.getSensor5TypeCB().getSelectedItem().toString();
-        if (view.getSensor5TF().getText().equals(str)){
-            model.getValues()[21]=result;
-        }else{
-            model.getValues()[21]=view.getSensor5TF().getText();
+        if (view.getSensor5TF().getText().equals(str)) {
+            model.getValues()[21] = result;
+        } else {
+            model.getValues()[21] = view.getSensor5TF().getText();
         }
     }
 }
