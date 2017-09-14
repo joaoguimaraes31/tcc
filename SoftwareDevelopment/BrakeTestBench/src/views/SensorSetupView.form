@@ -916,6 +916,11 @@
                           </Group>
                           <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                          <Component id="updateBT" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -940,7 +945,9 @@
                               <Component id="offsetJS" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="updateBT" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="startCalibrationBT" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="stopCalibrationBT" min="-2" max="-2" attributes="0"/>
@@ -976,6 +983,7 @@
                 <Component class="javax.swing.JSpinner" name="factorJS">
                   <Properties>
                     <Property name="enabled" type="boolean" value="false"/>
+                    <Property name="name" type="java.lang.String" value="" noResource="true"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel18">
@@ -1012,6 +1020,12 @@
                 <Component class="javax.swing.JButton" name="stopCalibrationBT">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Stop Calibration"/>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="updateBT">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Update"/>
                     <Property name="enabled" type="boolean" value="false"/>
                   </Properties>
                 </Component>

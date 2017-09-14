@@ -92,6 +92,7 @@ public class SensorSetupView extends javax.swing.JFrame {
         sensorLabelLB = new javax.swing.JLabel();
         startCalibrationBT = new javax.swing.JButton();
         stopCalibrationBT = new javax.swing.JButton();
+        updateBT = new javax.swing.JButton();
         voltageChartLabel = new javax.swing.JLabel();
         measureChartLabel = new javax.swing.JLabel();
 
@@ -473,6 +474,7 @@ public class SensorSetupView extends javax.swing.JFrame {
         jLabel2.setText("Channel:");
 
         factorJS.setEnabled(false);
+        factorJS.setName(""); // NOI18N
 
         jLabel18.setText("ConvFactor:");
 
@@ -489,6 +491,9 @@ public class SensorSetupView extends javax.swing.JFrame {
 
         stopCalibrationBT.setText("Stop Calibration");
         stopCalibrationBT.setEnabled(false);
+
+        updateBT.setText("Update");
+        updateBT.setEnabled(false);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -520,6 +525,10 @@ public class SensorSetupView extends javax.swing.JFrame {
                     .addComponent(startCalibrationBT)
                     .addComponent(stopCalibrationBT))
                 .addGap(78, 78, 78))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(106, 106, 106)
+                .addComponent(updateBT)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -540,7 +549,9 @@ public class SensorSetupView extends javax.swing.JFrame {
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(offsetJS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19))
-                .addGap(57, 57, 57)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(updateBT)
+                .addGap(22, 22, 22)
                 .addComponent(startCalibrationBT)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(stopCalibrationBT)
@@ -731,6 +742,7 @@ public class SensorSetupView extends javax.swing.JFrame {
     private javax.swing.JButton serialBT;
     private javax.swing.JButton startCalibrationBT;
     private javax.swing.JButton stopCalibrationBT;
+    private javax.swing.JButton updateBT;
     private javax.swing.JLabel voltageChartLabel;
     // End of variables declaration//GEN-END:variables
 
@@ -849,5 +861,11 @@ public class SensorSetupView extends javax.swing.JFrame {
     public JLabel getVoltageChartLabel() {
         return voltageChartLabel;
     }
+
+    public JButton getUpdateBT() {
+        return updateBT;
+    }
+    
+    
     
 }

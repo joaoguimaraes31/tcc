@@ -8,11 +8,14 @@ import java.util.regex.Pattern;
 public class CalibrationCommunicator extends Communicator {
 
     private SensorSetupController sensorSetupController;
+    private ChartOperations voltageChartOp,measurementChartOp;
     private int index=0;
 
-    public CalibrationCommunicator(CommPortIdentifier portId, SensorSetupController sensorSetupController) {
+    public CalibrationCommunicator(CommPortIdentifier portId, SensorSetupController sensorSetupController, ChartOperations voltageChartOp, ChartOperations measurementChartOp) {
         super(portId);
         this.sensorSetupController = sensorSetupController;
+        this.voltageChartOp=voltageChartOp;
+        this.measurementChartOp=measurementChartOp;
     }
 
     @Override
@@ -25,7 +28,9 @@ public class CalibrationCommunicator extends Communicator {
                     jointData = (new String(new byte[]{singleData})) + jointData;
                 } else {
                     //System.out.println(jointData);
-                    System.out.println(getSensorData());
+                    System.out.printf("%.2f\n",getSensorData());
+                    voltageChartOp.updateSeries(getSensorData());
+                    voltageChartOp.createChart();
                     jointData = "";
                     //System.out.println(" ");
                 }
@@ -44,17 +49,18 @@ public class CalibrationCommunicator extends Communicator {
                 index--;
             }
             writeData(START_ACQUISITION_COMMAND);
+            voltageChartOp.startTimer();
         }
     }
 
     public float getSensorData() {
        if (jointData.contains(",")) {
+            
             String[] parts = jointData.split(Pattern.quote(",")); // Split on comma.
-            return Integer.parseInt(parts[index])*5/1024;
+            return Float.parseFloat(parts[index])*5/1022;
         } else {
             return -1;
         }
-       
     }
     
     

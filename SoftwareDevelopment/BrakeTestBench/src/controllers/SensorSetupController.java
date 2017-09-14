@@ -16,10 +16,10 @@ public class SensorSetupController {
     private SensorSetupView view;
 
     //chartCommands
-    private ChartOperations chart1, chart2;
+    private ChartOperations voltageChartOp, measurementeChartOp;
 
     private ActionListener actionListenerReturnBT, actionListenerserialBT, actionListenerExitBT, actionListenerLoadBT, actionListenerSaveBT,
-            actionListenerSetValues, actionListenerStartCalibration, actionListenerStopCalibration;
+            actionListenerSetValues, actionListenerStartCalibration, actionListenerStopCalibration,actionListenerCalibrationValues;
 
     //commands
     private FileFunctions fileFunctions = new FileFunctions();
@@ -33,16 +33,16 @@ public class SensorSetupController {
     public void createView() {
         view = new SensorSetupView();
 
-        chart1 = new ChartOperations("Voltage Reading", "Time (ms)", "Voltage", 400, 200, view.getVoltageChartLabel());
-        chart2 = new ChartOperations("Measured Value", "Time (ms)", "Measurement", 400, 200, view.getMeasureChartLabel());
-        communicator = new CalibrationCommunicator(navigationController.getSerialPortSetupController().getModel().getSelectedSerialPort(), this);
+        voltageChartOp = new ChartOperations("Voltage Reading", "Time (ms)", "Voltage", 400, 200, view.getVoltageChartLabel());
+        measurementeChartOp = new ChartOperations("Measured Value", "Time (s)", "Measurement", 400, 200, view.getMeasureChartLabel());
+        communicator = new CalibrationCommunicator(navigationController.getSerialPortSetupController().getModel().getSelectedSerialPort(), this, voltageChartOp, measurementeChartOp);
         view.setVisible(true);
         addListeners();
     }
 
     //addListeners for controlling view and triggers events
     public void addListeners() {
-        
+
         actionListenerReturnBT = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 view.dispose();
@@ -124,6 +124,22 @@ public class SensorSetupController {
                     //view
                     view.getStartCalibrationBT().setEnabled(false);
                     view.getStopCalibrationBT().setEnabled(true);
+                    view.getCalibrationPN().setEnabled(true);
+                    view.getVoltageChartLabel().setEnabled(true);
+                    view.getUpdateBT().setEnabled(true);
+                    view.getOffsetJS().setValue(Integer.parseInt(model.getValues()[(((view.getChannelsCB().getSelectedIndex())-1)*4)+2]));
+                    view.getOffsetJS().setEnabled(true);
+                    view.getFactorJS().setValue(Integer.parseInt(model.getValues()[(((view.getChannelsCB().getSelectedIndex())-1)*4)+3]));
+                    view.getFactorJS().setEnabled(true);
+                    //control
+                    int currentCalibration[]={(Integer.parseInt(model.getValues()[(((view.getChannelsCB().getSelectedIndex())-1)*4)+3])),(Integer.parseInt(model.getValues()[(((view.getChannelsCB().getSelectedIndex())-1)*4)+2]))};
+                    model.setCurrentCalibration(currentCalibration);
+                    
+                    LedBlinker ledBlinker =  new LedBlinker(communicator);
+                    ledBlinker.Blink(150, 150, 2);
+                    
+                    //voltageChartOp.updateSeries(100);
+                    //voltageChartOp.createChart();
                     communicator.startAcquisition();
                     communicator.initListener();
                 }
@@ -134,13 +150,30 @@ public class SensorSetupController {
         actionListenerStopCalibration = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 //control
+                LedBlinker ledBlinker =  new LedBlinker(communicator);
+                ledBlinker.Blink(150, 150, 1);
+                model.getValues()[(((view.getChannelsCB().getSelectedIndex())-1)*4)+2]=view.getOffsetJS().getValue().toString();
+                model.getValues()[(((view.getChannelsCB().getSelectedIndex())-1)*4)+3]=view.getFactorJS().getValue().toString();
                 communicator.disconnect();
                 //view
                 view.getStartCalibrationBT().setEnabled(true);
                 view.getStopCalibrationBT().setEnabled(false);
+                view.getCalibrationPN().setEnabled(true);
+                view.getVoltageChartLabel().setEnabled(true);
+                view.getUpdateBT().setEnabled(false);
+                view.getOffsetJS().setEnabled(false);
+                view.getFactorJS().setEnabled(false);
             }
         };
-        view.getStopCalibrationBT().addActionListener(actionListenerStopCalibration);
+        view.getStopCalibrationBT().addActionListener(actionListenerStopCalibration);//
+        
+        actionListenerCalibrationValues = new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                int currentCalibration[]={view.getFactorJS().getValue().hashCode(),view.getOffsetJS().getValue().hashCode()};
+                model.setCurrentCalibration(currentCalibration);
+            }
+        };
+        view.getUpdateBT().addActionListener(actionListenerCalibrationValues);
     }
 
     public void acquireFileValues() {
@@ -198,7 +231,5 @@ public class SensorSetupController {
 
     public SensorSetupView getView() {
         return view;
-    }
-    
-    
+    }  
 }

@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package models;
 
-/**
- *
- * @author joao
- */
 public class SensorSetupModel {    
 
    //info for configuration files
@@ -27,27 +18,33 @@ public class SensorSetupModel {
     };
 
     private String[] values = {
-        "NULL","NULL","NULL","NULL",
+        "NULL","NULL","0","1",
         
-        "NULL","NULL","NULL","NULL",
+        "NULL","NULL","0","1",
        
-        "NULL","NULL","NULL","NULL",
+        "NULL","NULL","0","1",
         
-        "NULL","NULL","NULL","NULL",
+        "NULL","NULL","0","1",
         
-        "NULL","NULL","NULL","NULL",
+        "NULL","NULL","0","1",
         
-        "NULL","NULL","NULL","NULL",
+        "NULL","NULL","0","1",
       
     };
-
     
+    private int currentCalibration[]={0,0}; //{factor,offset}
+
+    public int[] getCurrentCalibration() {
+        return currentCalibration;
+    }
+
+    public void setCurrentCalibration(int[] currentCalibration) {
+        this.currentCalibration = currentCalibration;
+    }
 
     public String[] getHEADER() {
         return HEADER;
     }
-    
-    
     
     public String[] getValues() {
         return values;
