@@ -341,8 +341,8 @@
                         <StringItem index="0" value="Not Connected"/>
                         <StringItem index="1" value="Thermocouple"/>
                         <StringItem index="2" value="Load Cell"/>
-                        <StringItem index="3" value="CKP"/>
-                        <StringItem index="4" value="Accelerometer"/>
+                        <StringItem index="3" value="Accelerometer"/>
+                        <StringItem index="4" value="CKP"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -430,8 +430,8 @@
                         <StringItem index="0" value="Not Connected"/>
                         <StringItem index="1" value="Thermocouple"/>
                         <StringItem index="2" value="Load Cell"/>
-                        <StringItem index="3" value="CKP"/>
-                        <StringItem index="4" value="Accelerometer"/>
+                        <StringItem index="3" value="Accelerometer"/>
+                        <StringItem index="4" value="CKP"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -522,8 +522,8 @@
                         <StringItem index="0" value="Not Connected"/>
                         <StringItem index="1" value="Thermocouple"/>
                         <StringItem index="2" value="Load Cell"/>
-                        <StringItem index="3" value="CKP"/>
-                        <StringItem index="4" value="Accelerometer"/>
+                        <StringItem index="3" value="Accelerometer"/>
+                        <StringItem index="4" value="CKP"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -612,8 +612,8 @@
                         <StringItem index="0" value="Not Connected"/>
                         <StringItem index="1" value="Thermocouple"/>
                         <StringItem index="2" value="Load Cell"/>
-                        <StringItem index="3" value="CKP"/>
-                        <StringItem index="4" value="Accelerometer"/>
+                        <StringItem index="3" value="Accelerometer"/>
+                        <StringItem index="4" value="CKP"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -701,8 +701,8 @@
                         <StringItem index="0" value="Not Connected"/>
                         <StringItem index="1" value="Thermocouple"/>
                         <StringItem index="2" value="Load Cell"/>
-                        <StringItem index="3" value="CKP"/>
-                        <StringItem index="4" value="Accelerometer"/>
+                        <StringItem index="3" value="Accelerometer"/>
+                        <StringItem index="4" value="CKP"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -790,8 +790,8 @@
                         <StringItem index="0" value="Not Connected"/>
                         <StringItem index="1" value="Thermocouple"/>
                         <StringItem index="2" value="Load Cell"/>
-                        <StringItem index="3" value="CKP"/>
-                        <StringItem index="4" value="Accelerometer"/>
+                        <StringItem index="3" value="Accelerometer"/>
+                        <StringItem index="4" value="CKP"/>
                       </StringArray>
                     </Property>
                   </Properties>

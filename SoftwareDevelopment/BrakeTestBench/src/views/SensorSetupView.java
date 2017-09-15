@@ -164,7 +164,7 @@ public class SensorSetupView extends javax.swing.JFrame {
 
         jLabel6.setText("Sensor Type:");
 
-        sensor0TypeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Connected", "Thermocouple", "Load Cell", "CKP", "Accelerometer" }));
+        sensor0TypeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Connected", "Thermocouple", "Load Cell", "Accelerometer", "CKP" }));
 
         jLabel7.setText("Label:");
 
@@ -206,7 +206,7 @@ public class SensorSetupView extends javax.swing.JFrame {
 
         jLabel8.setText("Sensor Type:");
 
-        sensor2TypeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Connected", "Thermocouple", "Load Cell", "CKP", "Accelerometer" }));
+        sensor2TypeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Connected", "Thermocouple", "Load Cell", "Accelerometer", "CKP" }));
         sensor2TypeCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sensor2TypeCBActionPerformed(evt);
@@ -253,7 +253,7 @@ public class SensorSetupView extends javax.swing.JFrame {
 
         jLabel10.setText("Sensor Type:");
 
-        sensor1TypeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Connected", "Thermocouple", "Load Cell", "CKP", "Accelerometer" }));
+        sensor1TypeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Connected", "Thermocouple", "Load Cell", "Accelerometer", "CKP" }));
 
         jLabel11.setText("Label:");
 
@@ -296,7 +296,7 @@ public class SensorSetupView extends javax.swing.JFrame {
 
         jLabel12.setText("Sensor Type:");
 
-        sensor5TypeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Connected", "Thermocouple", "Load Cell", "CKP", "Accelerometer" }));
+        sensor5TypeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Connected", "Thermocouple", "Load Cell", "Accelerometer", "CKP" }));
 
         jLabel13.setText("Label:");
 
@@ -338,7 +338,7 @@ public class SensorSetupView extends javax.swing.JFrame {
 
         jLabel14.setText("Sensor Type:");
 
-        sensor4TypeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Connected", "Thermocouple", "Load Cell", "CKP", "Accelerometer" }));
+        sensor4TypeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Connected", "Thermocouple", "Load Cell", "Accelerometer", "CKP" }));
 
         jLabel15.setText("Label:");
 
@@ -380,7 +380,7 @@ public class SensorSetupView extends javax.swing.JFrame {
 
         jLabel16.setText("Sensor Type:");
 
-        sensor3TypeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Connected", "Thermocouple", "Load Cell", "CKP", "Accelerometer" }));
+        sensor3TypeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Not Connected", "Thermocouple", "Load Cell", "Accelerometer", "CKP" }));
 
         jLabel17.setText("Label:");
 

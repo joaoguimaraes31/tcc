@@ -126,6 +126,7 @@ public class SensorSetupController {
                     view.getStopCalibrationBT().setEnabled(true);
                     view.getCalibrationPN().setEnabled(true);
                     view.getVoltageChartLabel().setEnabled(true);
+                    view.getMeasureChartLabel().setEnabled(true);
                     view.getUpdateBT().setEnabled(true);
                     view.getOffsetJS().setValue(Integer.parseInt(model.getValues()[(((view.getChannelsCB().getSelectedIndex())-1)*4)+2]));
                     view.getOffsetJS().setEnabled(true);
@@ -171,6 +172,8 @@ public class SensorSetupController {
             public void actionPerformed(ActionEvent actionEvent) {
                 int currentCalibration[]={view.getFactorJS().getValue().hashCode(),view.getOffsetJS().getValue().hashCode()};
                 model.setCurrentCalibration(currentCalibration);
+                //System.out.println(model.getCurrentCalibration()[0]);
+                //System.out.println(model.getCurrentCalibration()[1]);
             }
         };
         view.getUpdateBT().addActionListener(actionListenerCalibrationValues);
