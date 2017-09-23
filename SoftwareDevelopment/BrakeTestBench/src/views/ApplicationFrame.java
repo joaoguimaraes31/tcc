@@ -1,37 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package views;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-/**
- *
- * @author joao
- */
 public class ApplicationFrame extends javax.swing.JFrame {
 
-    private SerialPortSetupPanel p1;
-    private CalibrationPanel p3;
+    private SerialPortSetupPanel serialPortSetupPanel;
+    private CalibrationPanel calibrationPanel;
     GridBagLayout layout = new GridBagLayout();
 
     public ApplicationFrame() {
         initComponents();
-        p1 = new SerialPortSetupPanel();
-        p3 = new CalibrationPanel();
+        serialPortSetupPanel = new SerialPortSetupPanel();
+        calibrationPanel = new CalibrationPanel();
         DynamicPanel.setLayout(layout);
         GridBagConstraints c = new GridBagConstraints();
         c.gridx = 0;
         c.gridy = 0;
-        DynamicPanel.add(p1, c);
+        DynamicPanel.add(serialPortSetupPanel, c);
         c.gridx = 0;
         c.gridy = 0;
-        DynamicPanel.add(p3, c);
-        p1.setVisible(true);
-        p3.setVisible(false);
+        DynamicPanel.add(calibrationPanel, c);
+        serialPortSetupPanel.setVisible(true);
+        calibrationPanel.setVisible(false);
     }
 
     @SuppressWarnings("unchecked")
@@ -162,13 +153,13 @@ public class ApplicationFrame extends javax.swing.JFrame {
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
         deselectButtonsPannels();
-        p1.setVisible(true);
+        serialPortSetupPanel.setVisible(true);
         b1.setSelected(true);
     }//GEN-LAST:event_b1ActionPerformed
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
         deselectButtonsPannels();
-        p3.setVisible(true);
+        calibrationPanel.setVisible(true);
         b3.setSelected(true);
     }//GEN-LAST:event_b3ActionPerformed
 
@@ -221,8 +212,18 @@ public class ApplicationFrame extends javax.swing.JFrame {
     public void deselectButtonsPannels() {
         b1.setSelected(false);
         b3.setSelected(false);
-        p1.setVisible(false);
-        p3.setVisible(false);
+        serialPortSetupPanel.setVisible(false);
+        calibrationPanel.setVisible(false);
     }
+
+    public SerialPortSetupPanel getSerialPortSetupPanel() {
+        return serialPortSetupPanel;
+    }
+
+    public CalibrationPanel getCalibrationPanel() {
+        return calibrationPanel;
+    }
+    
+    
     
 }

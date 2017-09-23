@@ -1,37 +1,49 @@
 package controllers;
 
 import builders.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import views.*;
+import models.NavigationModel;
+import views.ApplicationFrame;
 
 public class NavigationController {
 
     //builders to create subsystems
-    private SerialPortSetupBuilder serialPortSetupBuilder;
+    private SerialPortSetupControllerBuilder serialPortSetupBuilder;
+    private CalibrationControllerBuilder calibrationControllerBuilder;
 
-    //needed controllers
+    //Lower controllers
     private SerialPortSetupController serialPortSetupController;
+    private CalibrationController calibrationController;
 
     //MVC
     private ApplicationFrame view;
-    private ActionListener aLB0, aLB1, aLB2, aLB3, aLB4;
+    private NavigationModel model;
 
     public NavigationController() {
+        ////MVC
+        model = new NavigationModel(false);
+        view = new ApplicationFrame();
+        
 
         //Creating Sub-systems
-        ////MVC
-        view = new ApplicationFrame();
-        view.setVisible(true);
-
         ///Subsystem serial setup
-        serialPortSetupBuilder = new SerialPortSetupBuilder();
-        serialPortSetupBuilder.createSubsystem(this);
+        serialPortSetupBuilder = new SerialPortSetupControllerBuilder(this);
         serialPortSetupController = serialPortSetupBuilder.getSerialPortSetupController();
+        
+        ///Subsystem calibration
+        calibrationControllerBuilder = new CalibrationControllerBuilder(this);
+        calibrationController = calibrationControllerBuilder.getCalibrationController();
+        
+        
+        view.setVisible(true);
     }
 
-   
+    //Getters
+    public ApplicationFrame getView() {
+        return view;
+    }
 
+    public NavigationModel getModel() {
+        return model;
+    }
 
-    
 }

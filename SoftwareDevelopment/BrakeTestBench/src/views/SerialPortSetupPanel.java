@@ -5,6 +5,8 @@
  */
 package views;
 
+import javax.swing.JComboBox;
+
 /**
  *
  * @author joao
@@ -27,61 +29,67 @@ public class SerialPortSetupPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        portsSearchPanel = new javax.swing.JPanel();
         searchButton = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        portsCB = new javax.swing.JComboBox<>();
         setButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        serialPortFixedLabel = new javax.swing.JLabel();
         selectedPortLabel = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(600, 569));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Ports Search"));
+        portsSearchPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Ports Search"));
 
         searchButton.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         searchButton.setText("Search");
 
-        jComboBox1.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        portsCB.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        portsCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        portsCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                portsCBActionPerformed(evt);
+            }
+        });
 
         setButton.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         setButton.setText("Set");
+        setButton.setEnabled(false);
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 2, 18)); // NOI18N
-        jLabel1.setText("Selected Serial Port:");
+        serialPortFixedLabel.setFont(new java.awt.Font("Ubuntu", 2, 18)); // NOI18N
+        serialPortFixedLabel.setText("Selected Serial Port:");
 
         selectedPortLabel.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         selectedPortLabel.setText("null");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout portsSearchPanelLayout = new javax.swing.GroupLayout(portsSearchPanel);
+        portsSearchPanel.setLayout(portsSearchPanelLayout);
+        portsSearchPanelLayout.setHorizontalGroup(
+            portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(portsSearchPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(portsSearchPanelLayout.createSequentialGroup()
+                        .addComponent(portsCB, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(setButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                .addGroup(portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(serialPortFixedLabel)
                     .addComponent(selectedPortLabel))
                 .addGap(33, 33, 33))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        portsSearchPanelLayout.setVerticalGroup(
+            portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(portsSearchPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchButton)
-                    .addComponent(jLabel1))
+                    .addComponent(serialPortFixedLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(portsCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(setButton))
                     .addComponent(selectedPortLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -93,25 +101,52 @@ public class SerialPortSetupPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(portsSearchPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(portsSearchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(438, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void portsCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_portsCBActionPerformed
+        setButton.setEnabled(true);
+    }//GEN-LAST:event_portsCBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JComboBox<String> portsCB;
+    private javax.swing.JPanel portsSearchPanel;
     private javax.swing.JButton searchButton;
     private javax.swing.JLabel selectedPortLabel;
+    private javax.swing.JLabel serialPortFixedLabel;
     private javax.swing.JButton setButton;
     // End of variables declaration//GEN-END:variables
+    
+    
+    //Getters and Setters
+    public javax.swing.JComboBox<String> getPortsCB() {
+        return portsCB;
+    }
+
+    public javax.swing.JPanel getPortsSearchPanel() {
+        return portsSearchPanel;
+    }
+
+    public javax.swing.JButton getSearchButton() {
+        return searchButton;
+    }
+
+    public javax.swing.JLabel getSelectedPortLabel() {
+        return selectedPortLabel;
+    }
+
+    public javax.swing.JButton getSetButton() {
+        return setButton;
+    }
+    
 }
