@@ -7,9 +7,6 @@ package views;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import javax.swing.JToggleButton;
 
 /**
  *
@@ -42,11 +39,11 @@ public class ApplicationFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         menuPanel = new javax.swing.JPanel();
-        serialPortSetupToggleButton = new javax.swing.JToggleButton();
-        sensorSetupToggleButton = new javax.swing.JToggleButton();
-        configurationToggleButton = new javax.swing.JToggleButton();
-        calibrationToggleButton = new javax.swing.JToggleButton();
-        braketestToggleButton = new javax.swing.JToggleButton();
+        b1 = new javax.swing.JToggleButton();
+        b2 = new javax.swing.JToggleButton();
+        b4 = new javax.swing.JToggleButton();
+        b3 = new javax.swing.JToggleButton();
+        b5 = new javax.swing.JToggleButton();
         DynamicPanel = new javax.swing.JPanel();
         menuBar = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
@@ -59,43 +56,53 @@ public class ApplicationFrame extends javax.swing.JFrame {
 
         menuPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Menu", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
 
-        serialPortSetupToggleButton.setSelected(true);
-        serialPortSetupToggleButton.setText("Serial Ports Setup");
+        b1.setSelected(true);
+        b1.setText("Serial Ports Setup");
+        b1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b1ActionPerformed(evt);
+            }
+        });
 
-        sensorSetupToggleButton.setText("Sensor Setup");
-        sensorSetupToggleButton.setEnabled(false);
+        b2.setText("Sensor Setup");
+        b2.setEnabled(false);
 
-        configurationToggleButton.setText("Configuration");
-        configurationToggleButton.setEnabled(false);
+        b4.setText("Configuration");
+        b4.setEnabled(false);
 
-        calibrationToggleButton.setText("Calibration");
+        b3.setText("Calibration");
+        b3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b3ActionPerformed(evt);
+            }
+        });
 
-        braketestToggleButton.setText("Braketest");
-        braketestToggleButton.setEnabled(false);
+        b5.setText("Braketest");
+        b5.setEnabled(false);
 
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
         menuPanel.setLayout(menuPanelLayout);
         menuPanelLayout.setHorizontalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(serialPortSetupToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-            .addComponent(sensorSetupToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(configurationToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(calibrationToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(braketestToggleButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(b1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+            .addComponent(b2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(b4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(b3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(b5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         menuPanelLayout.setVerticalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(serialPortSetupToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sensorSetupToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(calibrationToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(configurationToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(braketestToggleButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(193, Short.MAX_VALUE))
         );
 
@@ -117,6 +124,11 @@ public class ApplicationFrame extends javax.swing.JFrame {
         menuFile.setText("File");
 
         menuItemExit.setText("Exit");
+        menuItemExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemExitActionPerformed(evt);
+            }
+        });
         menuFile.add(menuItemExit);
 
         menuBar.add(menuFile);
@@ -143,6 +155,22 @@ public class ApplicationFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void menuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_menuItemExitActionPerformed
+
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
+        deselectButtonsPannels();
+        p1.setVisible(true);
+        b1.setSelected(true);
+    }//GEN-LAST:event_b1ActionPerformed
+
+    private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
+        deselectButtonsPannels();
+        p3.setVisible(true);
+        b3.setSelected(true);
+    }//GEN-LAST:event_b3ActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -179,49 +207,22 @@ public class ApplicationFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DynamicPanel;
-    private javax.swing.JToggleButton braketestToggleButton;
-    private javax.swing.JToggleButton calibrationToggleButton;
-    private javax.swing.JToggleButton configurationToggleButton;
+    private javax.swing.JToggleButton b1;
+    private javax.swing.JToggleButton b2;
+    private javax.swing.JToggleButton b3;
+    private javax.swing.JToggleButton b4;
+    private javax.swing.JToggleButton b5;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuFile;
     private javax.swing.JMenuItem menuItemExit;
     private javax.swing.JPanel menuPanel;
-    private javax.swing.JToggleButton sensorSetupToggleButton;
-    private javax.swing.JToggleButton serialPortSetupToggleButton;
     // End of variables declaration//GEN-END:variables
 
-    public SerialPortSetupPanel getP1() {
-        return p1;
-    }
-
-    public CalibrationPanel getP3() {
-        return p3;
-    }
-
-    public javax.swing.JToggleButton getTB1() {
-        return serialPortSetupToggleButton;
-    }
-
-    public javax.swing.JToggleButton getTB2() {
-        return sensorSetupToggleButton;
-    }
-
-    public javax.swing.JToggleButton getTB3() {
-        return calibrationToggleButton;
-    }
-
-    public javax.swing.JToggleButton getTB4() {
-        return configurationToggleButton;
-    }
-
-    public javax.swing.JToggleButton getTB5() {
-        return braketestToggleButton;
-    }
-
-    public JMenuItem getMenuItemExit() {
-        return menuItemExit;
+    public void deselectButtonsPannels() {
+        b1.setSelected(false);
+        b3.setSelected(false);
+        p1.setVisible(false);
+        p3.setVisible(false);
     }
     
-    
-
 }
