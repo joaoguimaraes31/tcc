@@ -14,7 +14,8 @@ public class SerialPortSetupCommand {
     // private SerialPort serialPort = null;
     OutputStream outputStream = null;
     InputStream inputStream = null;
-
+    
+    
     //Method for searching for serial ports and filling a HashMap with then
     public void searchForPorts() {
         Enumeration ports = CommPortIdentifier.getPortIdentifiers();
@@ -26,6 +27,8 @@ public class SerialPortSetupCommand {
             //get only serial ports
             if (curPort.getPortType() == CommPortIdentifier.PORT_SERIAL) {
                 portMap.put(curPort.getName(), curPort);
+                //System.out.print("SerialPortCommand: ");
+               // System.out.println(curPort.getName());
             }
         }
     }

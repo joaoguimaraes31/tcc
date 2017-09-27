@@ -22,9 +22,13 @@ public class SerialPortSetupController {
     private ActionListener aLsearch, aLset;
 
     //Constructor
-    public SerialPortSetupController() {
+    public SerialPortSetupController(NavigationController navigationController) {
+        this.navigationController = navigationController;
+        view = navigationController.getView().getSerialPortSetupPanel();
         model = new SerialPortSetupModel();
         command = new SerialPortSetupCommand();
+
+        controlView();
     }
 
     public void controlView() {
@@ -50,8 +54,9 @@ public class SerialPortSetupController {
                 command.fillComboBoxWithPortNames(view.getPortsCB(), model.getPortMap());
                 if (model.getPortMap().isEmpty()) {
                     view.getSetButton().setEnabled(false);
-                    navigationController.getModel().setIsSerialPortSet(true);
+                    navigationController.getModel().setIsSerialPortSet(false);                      
                     model.setSelectedSerialPort(null);
+                    navigationController.getModel().setSelectedSerialPort(model.getSelectedSerialPort());
                     view.getSelectedPortLabel().setText("none");
                 }
             }
@@ -62,20 +67,11 @@ public class SerialPortSetupController {
             public void actionPerformed(ActionEvent actionEvent) {
                 model.setSelectedSerialPort((CommPortIdentifier) model.getPortMap().get(view.getPortsCB().getSelectedItem().toString()));
                 navigationController.getModel().setIsSerialPortSet(true);
+                navigationController.getModel().setSelectedSerialPort(model.getSelectedSerialPort());
                 view.getSelectedPortLabel().setText(model.getSelectedSerialPort().getName());
                 view.getSetButton().setEnabled(false);
             }
         };
         view.getSetButton().addActionListener(aLset);
-    }
-
-    //Setters
-    public void setView(SerialPortSetupPanel view) {
-        this.view = view;
-        controlView();
-    }
-
-    public void setNavigationController(NavigationController navigationController) {
-        this.navigationController = navigationController;
     }
 }

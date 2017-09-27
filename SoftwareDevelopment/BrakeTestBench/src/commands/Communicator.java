@@ -33,6 +33,13 @@ public class Communicator implements SerialPortEventListener {
         this.portId = portId;
     }
 
+    
+    
+    public void setPortId(CommPortIdentifier portId) {
+        this.portId = portId;
+    }
+    
+
     public void connect() {
         try {
             //Opening port
@@ -41,6 +48,9 @@ public class Communicator implements SerialPortEventListener {
 
                 //Msg to user
                 Component frame = null;
+                JOptionPane.showMessageDialog(frame, "Connection Sucessful!");
+                System.out.println("Serial Port: " + serialPort.getName() + " opened sucessfully");
+                System.out.println("Connected");
 
                 //Setting connection FLAG
                 isConnected = true;
@@ -65,6 +75,7 @@ public class Communicator implements SerialPortEventListener {
             //System.out.println("Could not connect to desired serial port!" + e.toString() + ")");
         }
     }
+    
 
     public void disconnect() {
         try {

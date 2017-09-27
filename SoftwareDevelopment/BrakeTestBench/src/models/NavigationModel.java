@@ -1,9 +1,12 @@
 package models;
 
+import gnu.io.CommPortIdentifier;
+
 public class NavigationModel {
     
     //Parameters
     private boolean isSerialPortSet = false;
+    private CommPortIdentifier selectedSerialPort=null;
 
     //Constructor
     public NavigationModel(boolean isSerialPortSet) {
@@ -19,35 +22,12 @@ public class NavigationModel {
         this.isSerialPortSet = isSerialPortSet;
     }
     
+    public CommPortIdentifier getSelectedSerialPort() {
+        return selectedSerialPort;
+    }
+
+    public void setSelectedSerialPort(CommPortIdentifier selectedSerialPort) {
+        this.selectedSerialPort = selectedSerialPort;
+    }
     
 }
-/*
-//enum type to define current screen
-    private ScreenPossibilities currentScreen;
-    public enum ScreenPossibilities {
-        INITIAL, SERIAL_SETUP, CALIBRATION
-    }
-    
-    
-
-    
-  
-    //getters and setters;
-    public ScreenPossibilities getCurrentScreen() {
-        return currentScreen;
-    }
-    public void setCurrentScreen(ScreenPossibilities currentScreen) {
-        this.currentScreen = currentScreen;
-    }
-
-    public boolean isIsSerialPortSet() {
-        return isSerialPortSet;
-    }
-
-    public void setIsSerialPortSet(boolean isSerialPortSet) {
-        this.isSerialPortSet = isSerialPortSet;
-    }
-    
-    
-    
-}*/

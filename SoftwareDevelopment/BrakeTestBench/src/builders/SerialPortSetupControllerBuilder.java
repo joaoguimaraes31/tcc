@@ -14,13 +14,7 @@ public class SerialPortSetupControllerBuilder {
         this.navigationController = navigationController;
         
         //Creating SerialPortSetupController instance with view reference
-        serialPortSetupController = new SerialPortSetupController();
-
-        //Setting upper controller
-        serialPortSetupController.setNavigationController(navigationController);
-
-        //Setting view
-        serialPortSetupController.setView(navigationController.getView().getSerialPortSetupPanel());
+        serialPortSetupController = new SerialPortSetupController(navigationController);
     }
 
     //Getter

@@ -5,15 +5,23 @@
  */
 package views;
 
+import controllers.CalibrationController;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.SpinnerModel;
+import javax.swing.SpinnerNumberModel;
+
 /**
  *
  * @author joao
  */
 public class CalibrationPanel extends javax.swing.JPanel {
 
-    /**
-     * Creates new form CalibrationPanel
-     */
+    private CalibrationController controller;
+
     public CalibrationPanel() {
         initComponents();
     }
@@ -28,36 +36,33 @@ public class CalibrationPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel5 = new javax.swing.JPanel();
-        measurementsTabbedPanel = new javax.swing.JTabbedPane();
-        therm1Panel = new javax.swing.JPanel();
-        voltTemp2ChartLabel = new javax.swing.JLabel();
-        measureTemp2ChartLabel = new javax.swing.JLabel();
-        therm2Panel = new javax.swing.JPanel();
-        voltLoad1ChartLabel = new javax.swing.JLabel();
-        measureLoad1ChartLabel = new javax.swing.JLabel();
-        loadCell1Panel = new javax.swing.JPanel();
-        voltLoad2ChartLabel = new javax.swing.JLabel();
-        measureLoad2ChartLabel = new javax.swing.JLabel();
-        loadCell2Panel = new javax.swing.JPanel();
-        voltCkpChartLabel = new javax.swing.JLabel();
-        measureCkpChartLabel = new javax.swing.JLabel();
-        ckpPanel = new javax.swing.JPanel();
-        voltTemp1ChartLabel = new javax.swing.JLabel();
-        measureTemp1ChartLabel = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        settingsPanel = new javax.swing.JPanel();
+        convFactorLabel = new javax.swing.JLabel();
+        offsetLabel = new javax.swing.JLabel();
+        SpinnerModel factorSpinnerModel = new SpinnerNumberModel(1, //initial value
+            0.7, //min
+            1.3, //max
+            0.01);                //step
+        factorSpinner = new javax.swing.JSpinner(factorSpinnerModel);
+        SpinnerModel offsetSpinnerModel = new SpinnerNumberModel(0, //initial value
+            -30, //min
+            30, //max
+            0.5);                //step
+        offsetSpinner = new javax.swing.JSpinner(offsetSpinnerModel);
+        updateButton = new javax.swing.JButton();
+        loadedPanel = new javax.swing.JPanel();
+        loadedSettingLabel = new javax.swing.JLabel();
+        chartsPanel = new javax.swing.JPanel();
+        voltageChartLabel = new javax.swing.JLabel();
+        measurementChartLabel = new javax.swing.JLabel();
+        sensorPanel = new javax.swing.JPanel();
+        sensorLabel = new javax.swing.JLabel();
+        sensorComboBox = new javax.swing.JComboBox<>();
+        controlPanel = new javax.swing.JPanel();
         startButton = new javax.swing.JButton();
         stopButton = new javax.swing.JButton();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        factorSpinner = new javax.swing.JSpinner();
-        offsetSpinner = new javax.swing.JSpinner();
-        updateButton = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        serialPortPanel = new javax.swing.JPanel();
         serialPortLabel = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        loadedSettingLabel = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -70,263 +75,195 @@ public class CalibrationPanel extends javax.swing.JPanel {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setMinimumSize(new java.awt.Dimension(600, 569));
-        setPreferredSize(new java.awt.Dimension(600, 569));
+        setMinimumSize(new java.awt.Dimension(626, 569));
+        setPreferredSize(new java.awt.Dimension(626, 569));
 
-        voltTemp2ChartLabel.setText("jLabel1");
+        settingsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Calibration Settings", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14))); // NOI18N
+        settingsPanel.setEnabled(false);
 
-        measureTemp2ChartLabel.setText("jLabel1");
+        convFactorLabel.setText("Conv. Factor:");
+        convFactorLabel.setEnabled(false);
 
-        javax.swing.GroupLayout therm1PanelLayout = new javax.swing.GroupLayout(therm1Panel);
-        therm1Panel.setLayout(therm1PanelLayout);
-        therm1PanelLayout.setHorizontalGroup(
-            therm1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(therm1PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(therm1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(voltTemp2ChartLabel)
-                    .addComponent(measureTemp2ChartLabel))
-                .addContainerGap(278, Short.MAX_VALUE))
-        );
-        therm1PanelLayout.setVerticalGroup(
-            therm1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(therm1PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(voltTemp2ChartLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(measureTemp2ChartLabel)
-                .addContainerGap(456, Short.MAX_VALUE))
-        );
+        offsetLabel.setText("Offset:");
+        offsetLabel.setEnabled(false);
 
-        measurementsTabbedPanel.addTab("Thermocouple 1", therm1Panel);
+        factorSpinner.setEnabled(false);
 
-        voltLoad1ChartLabel.setText("jLabel1");
-
-        measureLoad1ChartLabel.setText("jLabel1");
-
-        javax.swing.GroupLayout therm2PanelLayout = new javax.swing.GroupLayout(therm2Panel);
-        therm2Panel.setLayout(therm2PanelLayout);
-        therm2PanelLayout.setHorizontalGroup(
-            therm2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(therm2PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(therm2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(voltLoad1ChartLabel)
-                    .addComponent(measureLoad1ChartLabel))
-                .addContainerGap(278, Short.MAX_VALUE))
-        );
-        therm2PanelLayout.setVerticalGroup(
-            therm2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(therm2PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(voltLoad1ChartLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(measureLoad1ChartLabel)
-                .addContainerGap(456, Short.MAX_VALUE))
-        );
-
-        measurementsTabbedPanel.addTab("ThermoCouple 2", therm2Panel);
-
-        voltLoad2ChartLabel.setText("jLabel1");
-
-        measureLoad2ChartLabel.setText("jLabel1");
-
-        javax.swing.GroupLayout loadCell1PanelLayout = new javax.swing.GroupLayout(loadCell1Panel);
-        loadCell1Panel.setLayout(loadCell1PanelLayout);
-        loadCell1PanelLayout.setHorizontalGroup(
-            loadCell1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loadCell1PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(loadCell1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(voltLoad2ChartLabel)
-                    .addComponent(measureLoad2ChartLabel))
-                .addContainerGap(278, Short.MAX_VALUE))
-        );
-        loadCell1PanelLayout.setVerticalGroup(
-            loadCell1PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loadCell1PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(voltLoad2ChartLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(measureLoad2ChartLabel)
-                .addContainerGap(456, Short.MAX_VALUE))
-        );
-
-        measurementsTabbedPanel.addTab("Load Cell 1", loadCell1Panel);
-
-        voltCkpChartLabel.setText("jLabel1");
-
-        measureCkpChartLabel.setText("jLabel1");
-
-        javax.swing.GroupLayout loadCell2PanelLayout = new javax.swing.GroupLayout(loadCell2Panel);
-        loadCell2Panel.setLayout(loadCell2PanelLayout);
-        loadCell2PanelLayout.setHorizontalGroup(
-            loadCell2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loadCell2PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(loadCell2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(voltCkpChartLabel)
-                    .addComponent(measureCkpChartLabel))
-                .addContainerGap(278, Short.MAX_VALUE))
-        );
-        loadCell2PanelLayout.setVerticalGroup(
-            loadCell2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loadCell2PanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(voltCkpChartLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(measureCkpChartLabel)
-                .addContainerGap(456, Short.MAX_VALUE))
-        );
-
-        measurementsTabbedPanel.addTab("Load Cell 2", loadCell2Panel);
-
-        voltTemp1ChartLabel.setText("jLabel1");
-
-        measureTemp1ChartLabel.setText("jLabel1");
-
-        javax.swing.GroupLayout ckpPanelLayout = new javax.swing.GroupLayout(ckpPanel);
-        ckpPanel.setLayout(ckpPanelLayout);
-        ckpPanelLayout.setHorizontalGroup(
-            ckpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ckpPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ckpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(voltTemp1ChartLabel)
-                    .addComponent(measureTemp1ChartLabel))
-                .addContainerGap(278, Short.MAX_VALUE))
-        );
-        ckpPanelLayout.setVerticalGroup(
-            ckpPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ckpPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(voltTemp1ChartLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(measureTemp1ChartLabel)
-                .addContainerGap(456, Short.MAX_VALUE))
-        );
-
-        measurementsTabbedPanel.addTab("CKP", ckpPanel);
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Calibration Control", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14))); // NOI18N
-
-        startButton.setText("Start Calibration");
-
-        stopButton.setText("Stop Calibration");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(startButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(stopButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(stopButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Calibration Settings", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14))); // NOI18N
-
-        jLabel1.setText("Conv. Factor:");
-
-        jLabel2.setText("Offset:");
+        offsetSpinner.setEnabled(false);
 
         updateButton.setText("Update");
+        updateButton.setEnabled(false);
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel2)))
-                .addGap(62, 62, 62)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(factorSpinner, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
-                    .addComponent(offsetSpinner))
-                .addGap(0, 9, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout settingsPanelLayout = new javax.swing.GroupLayout(settingsPanel);
+        settingsPanel.setLayout(settingsPanelLayout);
+        settingsPanelLayout.setHorizontalGroup(
+            settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(settingsPanelLayout.createSequentialGroup()
+                .addContainerGap(5, Short.MAX_VALUE)
+                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(settingsPanelLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(settingsPanelLayout.createSequentialGroup()
+                        .addGap(0, 12, Short.MAX_VALUE)
+                        .addComponent(convFactorLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(factorSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))))
+            .addGroup(settingsPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(updateButton)
-                .addGap(74, 74, 74))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(factorSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(offsetSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(updateButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Serial Port", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14))); // NOI18N
-
-        jLabel3.setText("Connected to Port:");
-
-        serialPortLabel.setText("null");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(serialPortLabel)
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(offsetLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(serialPortLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(offsetSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        settingsPanelLayout.setVerticalGroup(
+            settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(settingsPanelLayout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(convFactorLabel)
+                    .addComponent(factorSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(offsetLabel)
+                    .addComponent(offsetSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4)
+                .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Loaded Settings", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14))); // NOI18N
+        loadedPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Loaded Settings", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14))); // NOI18N
 
         loadedSettingLabel.setText("none");
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+        javax.swing.GroupLayout loadedPanelLayout = new javax.swing.GroupLayout(loadedPanel);
+        loadedPanel.setLayout(loadedPanelLayout);
+        loadedPanelLayout.setHorizontalGroup(
+            loadedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loadedPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(loadedSettingLabel)
                 .addContainerGap())
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
+        loadedPanelLayout.setVerticalGroup(
+            loadedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(loadedPanelLayout.createSequentialGroup()
                 .addComponent(loadedSettingLabel)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+
+        chartsPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Charts", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
+        chartsPanel.setEnabled(false);
+
+        voltageChartLabel.setText("jLabel5");
+        voltageChartLabel.setEnabled(false);
+
+        measurementChartLabel.setText("jLabel3");
+        measurementChartLabel.setEnabled(false);
+
+        javax.swing.GroupLayout chartsPanelLayout = new javax.swing.GroupLayout(chartsPanel);
+        chartsPanel.setLayout(chartsPanelLayout);
+        chartsPanelLayout.setHorizontalGroup(
+            chartsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chartsPanelLayout.createSequentialGroup()
+                .addGroup(chartsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(voltageChartLabel)
+                    .addComponent(measurementChartLabel))
+                .addGap(0, 360, Short.MAX_VALUE))
+        );
+        chartsPanelLayout.setVerticalGroup(
+            chartsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(chartsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(voltageChartLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(measurementChartLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        sensorPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sensor Selection", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14))); // NOI18N
+
+        sensorLabel.setText("Sensor:");
+
+        sensorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Themocouple 1", "Themocouple 2", "Load Cell 1", "Load Cell 2", "Accelerometer", "CKP" }));
+
+        javax.swing.GroupLayout sensorPanelLayout = new javax.swing.GroupLayout(sensorPanel);
+        sensorPanel.setLayout(sensorPanelLayout);
+        sensorPanelLayout.setHorizontalGroup(
+            sensorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sensorPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(sensorLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sensorPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(sensorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        sensorPanelLayout.setVerticalGroup(
+            sensorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sensorPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(sensorLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sensorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        controlPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Calibration Control", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14))); // NOI18N
+
+        startButton.setText("Start Calibration");
+        startButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startButtonActionPerformed(evt);
+            }
+        });
+
+        stopButton.setText("Stop Calibration");
+        stopButton.setEnabled(false);
+        stopButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stopButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout controlPanelLayout = new javax.swing.GroupLayout(controlPanel);
+        controlPanel.setLayout(controlPanelLayout);
+        controlPanelLayout.setHorizontalGroup(
+            controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(stopButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(startButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        controlPanelLayout.setVerticalGroup(
+            controlPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(controlPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(stopButton, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        serialPortPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Serial Port", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14))); // NOI18N
+
+        serialPortLabel.setText("null");
+
+        javax.swing.GroupLayout serialPortPanelLayout = new javax.swing.GroupLayout(serialPortPanel);
+        serialPortPanel.setLayout(serialPortPanelLayout);
+        serialPortPanelLayout.setHorizontalGroup(
+            serialPortPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, serialPortPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(serialPortLabel)
+                .addContainerGap())
+        );
+        serialPortPanelLayout.setVerticalGroup(
+            serialPortPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(serialPortPanelLayout.createSequentialGroup()
+                .addComponent(serialPortLabel)
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -334,66 +271,189 @@ public class CalibrationPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(measurementsTabbedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(chartsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(sensorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(controlPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(settingsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(loadedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(serialPortPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(measurementsTabbedPanel)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chartsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(sensorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(controlPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(settingsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(loadedPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(5, 5, 5)
+                        .addComponent(serialPortPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
+        if (controller.getCommunicator().isConnected()) {
+            chartsPanel.setEnabled(true);
+            voltageChartLabel.setEnabled(true);
+            measurementChartLabel.setEnabled(true);
+
+            sensorPanel.setEnabled(false);
+            sensorComboBox.setEnabled(false);
+            sensorLabel.setEnabled(false);
+
+            startButton.setEnabled(false);
+            stopButton.setEnabled(true);
+
+            settingsPanel.setEnabled(true);
+            convFactorLabel.setEnabled(true);
+            factorSpinner.setEnabled(true);
+            offsetLabel.setEnabled(true);
+            offsetSpinner.setEnabled(true);
+            updateButton.setEnabled(true);
+
+            factorSpinner.setValue(controller.getModel().getCalibrationData()[sensorComboBox.getSelectedIndex()][0]);
+            offsetSpinner.setValue(controller.getModel().getCalibrationData()[sensorComboBox.getSelectedIndex()][1]);
+        }
+
+    }//GEN-LAST:event_startButtonActionPerformed
+
+    private void stopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopButtonActionPerformed
+        chartsPanel.setEnabled(false);
+        voltageChartLabel.setEnabled(false);
+        measurementChartLabel.setEnabled(false);
+
+        sensorPanel.setEnabled(true);
+        sensorComboBox.setEnabled(true);
+        sensorLabel.setEnabled(true);
+
+        startButton.setEnabled(true);
+        stopButton.setEnabled(false);
+
+        settingsPanel.setEnabled(false);
+        convFactorLabel.setEnabled(false);
+        factorSpinner.setEnabled(false);
+        offsetLabel.setEnabled(false);
+        offsetSpinner.setEnabled(false);
+        updateButton.setEnabled(false);
+    }//GEN-LAST:event_stopButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel ckpPanel;
+    private javax.swing.JPanel chartsPanel;
+    private javax.swing.JPanel controlPanel;
+    private javax.swing.JLabel convFactorLabel;
     private javax.swing.JSpinner factorSpinner;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel loadCell1Panel;
-    private javax.swing.JPanel loadCell2Panel;
+    private javax.swing.JPanel loadedPanel;
     private javax.swing.JLabel loadedSettingLabel;
-    private javax.swing.JLabel measureCkpChartLabel;
-    private javax.swing.JLabel measureLoad1ChartLabel;
-    private javax.swing.JLabel measureLoad2ChartLabel;
-    private javax.swing.JLabel measureTemp1ChartLabel;
-    private javax.swing.JLabel measureTemp2ChartLabel;
-    private javax.swing.JTabbedPane measurementsTabbedPanel;
+    private javax.swing.JLabel measurementChartLabel;
+    private javax.swing.JLabel offsetLabel;
     private javax.swing.JSpinner offsetSpinner;
+    private javax.swing.JComboBox<String> sensorComboBox;
+    private javax.swing.JLabel sensorLabel;
+    private javax.swing.JPanel sensorPanel;
     private javax.swing.JLabel serialPortLabel;
+    private javax.swing.JPanel serialPortPanel;
+    private javax.swing.JPanel settingsPanel;
     private javax.swing.JButton startButton;
-    private javax.swing.JButton startCalibrationBT;
     private javax.swing.JButton stopButton;
-    private javax.swing.JButton temp1StopCalibrationButton;
-    private javax.swing.JPanel therm1Panel;
-    private javax.swing.JPanel therm2Panel;
     private javax.swing.JButton updateButton;
-    private javax.swing.JLabel voltCkpChartLabel;
-    private javax.swing.JLabel voltLoad1ChartLabel;
-    private javax.swing.JLabel voltLoad2ChartLabel;
-    private javax.swing.JLabel voltTemp1ChartLabel;
-    private javax.swing.JLabel voltTemp2ChartLabel;
+    private javax.swing.JLabel voltageChartLabel;
     // End of variables declaration//GEN-END:variables
+
+    //Getters
+    public JPanel getChartsPanel() {
+        return chartsPanel;
+    }
+
+    public JPanel getControlPanel() {
+        return controlPanel;
+    }
+
+    public JSpinner getFactorSpinner() {
+        return factorSpinner;
+    }
+
+    public JPanel getjPanel5() {
+        return jPanel5;
+    }
+
+    public JPanel getLoadedPanel() {
+        return loadedPanel;
+    }
+
+    public JLabel getLoadedSettingLabel() {
+        return loadedSettingLabel;
+    }
+
+    public JLabel getMeasurementChartLabel() {
+        return measurementChartLabel;
+    }
+
+    public JSpinner getOffsetSpinner() {
+        return offsetSpinner;
+    }
+
+    public JComboBox<String> getSensorComboBox() {
+        return sensorComboBox;
+    }
+
+    public JPanel getSensorPanel() {
+        return sensorPanel;
+    }
+
+    public JLabel getSerialPortLabel() {
+        return serialPortLabel;
+    }
+
+    public JPanel getSerialPortPanel() {
+        return serialPortPanel;
+    }
+
+    public JPanel getSettingsPanel() {
+        return settingsPanel;
+    }
+
+    public JButton getStartButton() {
+        return startButton;
+    }
+
+    public JButton getStopButton() {
+        return stopButton;
+    }
+
+    public JButton getUpdateButton() {
+        return updateButton;
+    }
+
+    public JLabel getVoltageChartLabel() {
+        return voltageChartLabel;
+    }
+
+    public JLabel getConvFactorLabel() {
+        return convFactorLabel;
+    }
+
+    public JLabel getOffsetLabel() {
+        return offsetLabel;
+    }
+
+    public JLabel getSensorLabel() {
+        return sensorLabel;
+    }
+
+    public void setController(CalibrationController controller) {
+        this.controller = controller;
+    }
+
 }

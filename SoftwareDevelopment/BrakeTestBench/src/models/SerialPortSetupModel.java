@@ -6,7 +6,7 @@ import gnu.io.CommPortIdentifier;
 public class SerialPortSetupModel {
     
     private HashMap portMap;
-    private CommPortIdentifier selectedSerialPort = null;
+    private CommPortIdentifier selectedSerialPort;
 
     public SerialPortSetupModel() {
         portMap = new HashMap();

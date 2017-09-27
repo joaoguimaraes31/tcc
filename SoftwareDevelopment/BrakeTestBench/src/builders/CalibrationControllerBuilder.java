@@ -14,13 +14,7 @@ public class CalibrationControllerBuilder {
         this.navigationController = navigationController;
 
         //Creating CalibrationController Instance
-        calibrationController = new CalibrationController();
-
-        //Setting upper controller
-        calibrationController.setNavigationController(navigationController);
-
-        //Setting view
-        calibrationController.setView(navigationController.getView().getCalibrationPanel());
+        calibrationController = new CalibrationController(navigationController);
     }
 
     public CalibrationController getCalibrationController() {

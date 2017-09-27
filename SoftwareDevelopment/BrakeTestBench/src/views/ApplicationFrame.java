@@ -75,7 +75,7 @@ public class ApplicationFrame extends javax.swing.JFrame {
         menuPanel.setLayout(menuPanelLayout);
         menuPanelLayout.setHorizontalGroup(
             menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(b1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+            .addComponent(b1, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
             .addComponent(b2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(b4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(b3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -98,14 +98,14 @@ public class ApplicationFrame extends javax.swing.JFrame {
         );
 
         DynamicPanel.setBorder(null);
-        DynamicPanel.setMinimumSize(new java.awt.Dimension(600, 569));
-        DynamicPanel.setPreferredSize(new java.awt.Dimension(600, 569));
+        DynamicPanel.setMinimumSize(new java.awt.Dimension(626, 569));
+        DynamicPanel.setPreferredSize(new java.awt.Dimension(626, 569));
 
         javax.swing.GroupLayout DynamicPanelLayout = new javax.swing.GroupLayout(DynamicPanel);
         DynamicPanel.setLayout(DynamicPanelLayout);
         DynamicPanelLayout.setHorizontalGroup(
             DynamicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 626, Short.MAX_VALUE)
         );
         DynamicPanelLayout.setVerticalGroup(
             DynamicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +133,8 @@ public class ApplicationFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(DynamicPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(menuPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

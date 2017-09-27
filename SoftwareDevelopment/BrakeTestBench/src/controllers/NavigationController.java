@@ -36,7 +36,7 @@ public class NavigationController {
         
         view.setVisible(true);
     }
-
+    
     //Getters
     public ApplicationFrame getView() {
         return view;
@@ -45,5 +45,4 @@ public class NavigationController {
     public NavigationModel getModel() {
         return model;
     }
-
 }
