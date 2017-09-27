@@ -39,6 +39,7 @@ public class SerialPortSetupController {
         } else {
             view.getSelectedPortLabel().setText("none");
             view.getSetButton().setEnabled(false);
+            navigationController.getModel().setSelectedSerialPort(null);
         }
         addListeners();
     }

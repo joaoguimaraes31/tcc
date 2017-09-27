@@ -22,6 +22,7 @@ public class NavigationController {
         ////MVC
         model = new NavigationModel(false);
         view = new ApplicationFrame();
+        view.setNavigationController(this);
         
 
         //Creating Sub-systems

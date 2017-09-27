@@ -1,5 +1,6 @@
 package views;
 
+import controllers.NavigationController;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
@@ -7,6 +8,7 @@ public class ApplicationFrame extends javax.swing.JFrame {
 
     private SerialPortSetupPanel serialPortSetupPanel;
     private CalibrationPanel calibrationPanel;
+    private NavigationController navigationController;
     GridBagLayout layout = new GridBagLayout();
 
     public ApplicationFrame() {
@@ -160,6 +162,11 @@ public class ApplicationFrame extends javax.swing.JFrame {
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
         deselectButtonsPannels();
+        if (navigationController.getModel().getSelectedSerialPort() != null) {
+            calibrationPanel.getSerialPortLabel().setText(navigationController.getModel().getSelectedSerialPort().getName());
+        }else{
+            calibrationPanel.getSerialPortLabel().setText("null");
+        }
         calibrationPanel.setVisible(true);
         b3.setSelected(true);
     }//GEN-LAST:event_b3ActionPerformed
@@ -224,7 +231,9 @@ public class ApplicationFrame extends javax.swing.JFrame {
     public CalibrationPanel getCalibrationPanel() {
         return calibrationPanel;
     }
-    
-    
-    
+
+    public void setNavigationController(NavigationController navigationController) {
+        this.navigationController = navigationController;
+    }
+
 }
