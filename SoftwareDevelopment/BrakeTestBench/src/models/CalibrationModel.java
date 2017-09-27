@@ -37,8 +37,6 @@ public class CalibrationModel {
         measurement*=currentCalibration[0];
         
         measurement+=currentCalibration[1];
-        System.out.println("factor="+currentCalibration[0]);
-        System.out.println("offset="+currentCalibration[1]);
         return measurement;
     }
     

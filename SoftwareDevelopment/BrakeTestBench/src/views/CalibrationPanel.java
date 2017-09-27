@@ -93,6 +93,11 @@ public class CalibrationPanel extends javax.swing.JPanel {
 
         updateButton.setText("Update");
         updateButton.setEnabled(false);
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout settingsPanelLayout = new javax.swing.GroupLayout(settingsPanel);
         settingsPanel.setLayout(settingsPanelLayout);
@@ -346,6 +351,10 @@ public class CalibrationPanel extends javax.swing.JPanel {
         offsetSpinner.setEnabled(false);
         updateButton.setEnabled(false);
     }//GEN-LAST:event_stopButtonActionPerformed
+
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        
+    }//GEN-LAST:event_updateButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
