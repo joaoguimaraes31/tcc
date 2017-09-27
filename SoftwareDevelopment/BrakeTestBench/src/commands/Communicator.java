@@ -49,8 +49,8 @@ public class Communicator implements SerialPortEventListener {
                 //Msg to user
                 Component frame = null;
                 JOptionPane.showMessageDialog(frame, "Connection Sucessful!");
-                System.out.println("Serial Port: " + serialPort.getName() + " opened sucessfully");
-                System.out.println("Connected");
+                //System.out.println("Serial Port: " + serialPort.getName() + " opened sucessfully");
+                //System.out.println("Connected");
 
                 //Setting connection FLAG
                 isConnected = true;

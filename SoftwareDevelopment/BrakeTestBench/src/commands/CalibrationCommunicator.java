@@ -26,22 +26,19 @@ public class CalibrationCommunicator extends Communicator {
             try {
                 byte singleData = (byte) inStream.read();
                 if (singleData != 46) {
-                    //System.out.print(new String(new byte[] { singleData }));
                     jointData = (new String(new byte[]{singleData})) + jointData;
                 } else {
                     //System.out.println(jointData);
                     CalibrationModel model = controller.getModel();
                     CalibrationPanel view = controller.getView();
-                    System.out.printf("%.2f\n", getSensorData());
-                    voltageChartOp.updateSeries(getSensorData());
-                    String sensor = view.getSensorComboBox().getSelectedItem().toString();
-                    measurementChartOp.updateSeries(model.voltageToCalibrateMeasurement((getSensorData()), sensor));
-                    measurementChartOp.setChartTitle(sensor);
-                    measurementChartOp.setyAxisLabel(model.unityOfMeasurement(sensor));
+                    //System.out.printf("%.2f\n", getSensorData());
+                    voltageChartOp.updateSeries(getSensorData());                                      
+                    measurementChartOp.updateSeries(model.voltageToCalibrateMeasurement(getSensorData(), index)); 
+                    measurementChartOp.setChartTitle(view.getSensorComboBox().getSelectedItem().toString());
+                    measurementChartOp.setyAxisLabel(model.unityOfMeasurement(view.getSensorComboBox().getSelectedItem().toString()));
                     voltageChartOp.createChart();
                     measurementChartOp.createChart();
                     jointData = "";
-                    //System.out.println(" ");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -53,10 +50,6 @@ public class CalibrationCommunicator extends Communicator {
     @Override
     public void startAcquisition() {
         if (isConnected) {
-            index = controller.getView().getSensorComboBox().getSelectedIndex();
-            if (index > 0) {
-                index--;
-            }
             writeData(START_ACQUISITION_COMMAND);
             voltageChartOp.startTimer();
             measurementChartOp.startTimer();
@@ -65,9 +58,7 @@ public class CalibrationCommunicator extends Communicator {
 
     public float getSensorData() {
         if (jointData.contains(",")) {
-
             String[] parts = jointData.split(Pattern.quote(",")); // Split on comma.
-            // return Float.parseFloat(parts[index])*5/1023;
             return controller.getModel().adcReadToVoltage(Integer.parseInt(parts[index]));
         } else {
             return -1;

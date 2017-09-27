@@ -13,30 +13,37 @@ public class CalibrationModel {
     
     
     //conversionFormulas
-    public float adcReadToVoltage(float read) {
-        return read * ADC_VOLTAGE_REFERENCE /ADC_RESOLUTION;
+    public float adcReadToVoltage(int read) {
+        return ((float) read * ADC_VOLTAGE_REFERENCE /ADC_RESOLUTION);
     }
 
-    public float voltageToCalibrateMeasurement(float voltage, String sensor) {
-        float measurement = 0;
-        switch (sensor) {
-            case "Thermocouple 1":
+    public float voltageToCalibrateMeasurement(float voltage, int index) {
+        float measurement=0;
+        switch (index) {
+            case 0:
                 measurement = voltage * 100;
-            case "Thermocouple 2":
+            case 1:
                 measurement = voltage * 100;
-            case "LoadCell 1":
+            case 2:
                 measurement = voltage * 100;
-            case "LoadCell 2":
+            case 3:
                 measurement = voltage * 100;
-            case "Accelerometer":
+            case 4:
                 measurement = voltage * 100;
-            case "CKP":
+            case 5:
                 measurement = voltage * 100;
         }
-        float factor = currentCalibration[0]/100;
-        float offset = (100 + currentCalibration[1]) / 100;
-        measurement = factor * measurement + offset;
+
+        measurement*=currentCalibration[0];
+        
+        measurement+=currentCalibration[1];
+        System.out.println("factor="+currentCalibration[0]);
+        System.out.println("offset="+currentCalibration[1]);
         return measurement;
+    }
+    
+    public float readToMeasurement(int read, int index){
+        return voltageToCalibrateMeasurement(adcReadToVoltage(read),index);
     }
     
     public String unityOfMeasurement(String sensor){

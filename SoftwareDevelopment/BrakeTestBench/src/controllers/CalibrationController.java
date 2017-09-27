@@ -20,7 +20,7 @@ public class CalibrationController {
     private ChartOperations voltageChartOp, measurementChartOp;
 
     //ActionListeners
-    private ActionListener aLstart, aLstop;
+    private ActionListener aLstart, aLstop, aLupdate;
 
     //Constructor
     public CalibrationController(NavigationController navigationController) {
@@ -76,6 +76,16 @@ public class CalibrationController {
             }
         };
         view.getStopButton().addActionListener(aLstop);
+        
+        aLupdate= new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                //set calibration data to model
+                model.getCurrentCalibration()[0]=Float.parseFloat(view.getFactorSpinner().getValue().toString());
+                model.getCurrentCalibration()[1]=Float.parseFloat(view.getOffsetSpinner().getValue().toString());
+
+            }
+        };
+        view.getUpdateButton().addActionListener(aLupdate);
     }
 
     public CalibrationModel getModel() {
