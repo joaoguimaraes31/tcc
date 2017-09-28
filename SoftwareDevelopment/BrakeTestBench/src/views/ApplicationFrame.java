@@ -9,13 +9,18 @@ public class ApplicationFrame extends javax.swing.JFrame {
 
     private SerialPortSetupPanel serialPortSetupPanel;
     private CalibrationPanel calibrationPanel;
-    private NavigationController navigationController;
+    private NavigationController controller;
     GridBagLayout layout = new GridBagLayout();
-
-    public ApplicationFrame() {
+    
+    public ApplicationFrame(){
         initComponents();
-        serialPortSetupPanel = new SerialPortSetupPanel();
-        calibrationPanel = new CalibrationPanel();
+    }
+    
+    public ApplicationFrame(NavigationController controller) {
+        this.controller=controller;
+        initComponents();
+        serialPortSetupPanel = controller.getSerialPortSetupController().getView();
+        calibrationPanel = controller.getCalibrationController().getView();
         DynamicPanel.setLayout(layout);
         GridBagConstraints c = new GridBagConstraints();
         c.gridx = 0;
@@ -175,8 +180,8 @@ public class ApplicationFrame extends javax.swing.JFrame {
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
         deselectButtonsPannels();
-        if (navigationController.getModel().getSelectedSerialPort() != null) {         
-            calibrationPanel.getSerialPortLabel().setText(navigationController.getModel().getSelectedSerialPort().getName());
+        if (controller.getModel().getSelectedSerialPort() != null) {         
+            calibrationPanel.getSerialPortLabel().setText(controller.getModel().getSelectedSerialPort().getName());
             calibrationPanel.getStartButton().setEnabled(true);
         }else{
             calibrationPanel.getSerialPortLabel().setText("null");
@@ -260,10 +265,6 @@ public class ApplicationFrame extends javax.swing.JFrame {
 
     public JMenuItem getMenuItemSaveCalibrationFile() {
         return menuItemSaveCalibrationFile;
-    }
-
-    public void setNavigationController(NavigationController navigationController) {
-        this.navigationController = navigationController;
     }
 
 }

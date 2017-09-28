@@ -30,9 +30,9 @@ public class CalibrationController {
     //Constructor
     public CalibrationController(NavigationController navigationController) {
         this.navigationController = navigationController;
-        view = navigationController.getView().getCalibrationPanel();
-        view.setController(this);
+        //view = navigationController.getView().getCalibrationPanel();
         model = new CalibrationModel();
+        view= new CalibrationPanel(this);
         voltageChartOp = new ChartOperations("Voltage Reading", "Time (ms)", "Voltage", 400, 220, view.getVoltageChartLabel());
         measurementChartOp = new ChartOperations("Measured Value", "Time (s)", "Measurement", 400, 220, view.getMeasurementChartLabel());
 

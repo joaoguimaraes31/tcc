@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package views;
 
 import controllers.CalibrationController;
@@ -14,15 +9,13 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
 
-/**
- *
- * @author joao
- */
+
 public class CalibrationPanel extends javax.swing.JPanel {
 
     private CalibrationController controller;
 
-    public CalibrationPanel() {
+    public CalibrationPanel(CalibrationController controller) {
+        this.controller=controller;
         initComponents();
     }
 
@@ -44,10 +37,10 @@ public class CalibrationPanel extends javax.swing.JPanel {
             controller.getModel().getLimitValues()[0][2], //max
             controller.getModel().getLimitValues()[0][3]);                //step
         factorSpinner = new javax.swing.JSpinner(factorSpinnerModel);
-        SpinnerModel offsetSpinnerModel = new SpinnerNumberModel(0, //initial value
-            -30, //min
-            30, //max
-            0.5);                //step
+        SpinnerModel offsetSpinnerModel = new SpinnerNumberModel(controller.getModel().getLimitValues()[1][0], //initial value
+            controller.getModel().getLimitValues()[1][1], //min
+            controller.getModel().getLimitValues()[1][2], //max
+            controller.getModel().getLimitValues()[1][3]);                  //step
         offsetSpinner = new javax.swing.JSpinner(offsetSpinnerModel);
         updateButton = new javax.swing.JButton();
         loadedPanel = new javax.swing.JPanel();

@@ -97,7 +97,7 @@ public class FileFunctionsCalibration extends FileFunctions {
                         fileCorrupted = true;
                     } else {
                         double value = Double.parseDouble(tempValues[i][j]);
-                        if ((value < limitValues[i - 2][0]) | (value > limitValues[i - 2][1])) {
+                        if ((value < limitValues[i - 2][1]) | (value > limitValues[i - 2][2])) {
                             fileCorrupted = true;
                         }
                     }

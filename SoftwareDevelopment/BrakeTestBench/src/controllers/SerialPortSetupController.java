@@ -24,8 +24,10 @@ public class SerialPortSetupController {
     //Constructor
     public SerialPortSetupController(NavigationController navigationController) {
         this.navigationController = navigationController;
-        view = navigationController.getView().getSerialPortSetupPanel();
+        //view = navigationController.getView().getSerialPortSetupPanel();
         model = new SerialPortSetupModel();
+        view = new SerialPortSetupPanel(this);
+        
         command = new SerialPortSetupCommand();
 
         controlView();
@@ -74,5 +76,9 @@ public class SerialPortSetupController {
             }
         };
         view.getSetButton().addActionListener(aLset);
+    }
+
+    public SerialPortSetupPanel getView() {
+        return view;
     }
 }

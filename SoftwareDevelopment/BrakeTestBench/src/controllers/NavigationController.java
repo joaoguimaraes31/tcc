@@ -24,11 +24,9 @@ public class NavigationController {
     private ActionListener aLloadCalibrationFile, aLsaveCalibrationFile,aLexit;//System.exit(0);
 
     public NavigationController() {
-        ////MVC
+
+        ///MVC
         model = new NavigationModel(false);
-        view = new ApplicationFrame();
-        view.setNavigationController(this);
-        
 
         //Creating Sub-systems
         ///Subsystem serial setup
@@ -38,6 +36,9 @@ public class NavigationController {
         ///Subsystem calibration
         calibrationControllerBuilder = new CalibrationControllerBuilder(this);
         calibrationController = calibrationControllerBuilder.getCalibrationController();
+        
+        ////MVC
+        view = new ApplicationFrame(this);
         
         
         view.setVisible(true);
@@ -80,4 +81,14 @@ public class NavigationController {
     public NavigationModel getModel() {
         return model;
     }
+
+    public SerialPortSetupController getSerialPortSetupController() {
+        return serialPortSetupController;
+    }
+
+    public CalibrationController getCalibrationController() {
+        return calibrationController;
+    }
+    
+    
 }
