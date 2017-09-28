@@ -92,6 +92,7 @@ public class CalibrationPanel extends javax.swing.JPanel {
         offsetSpinner.setEnabled(false);
 
         updateButton.setText("Update");
+        updateButton.setToolTipText("Conversion factor applied first, only after that offset is applied.");
         updateButton.setEnabled(false);
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,15 +124,15 @@ public class CalibrationPanel extends javax.swing.JPanel {
         settingsPanelLayout.setVerticalGroup(
             settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(settingsPanelLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(convFactorLabel)
                     .addComponent(factorSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(settingsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(offsetLabel)
                     .addComponent(offsetSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
+                .addGap(20, 20, 20)
                 .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -216,6 +217,7 @@ public class CalibrationPanel extends javax.swing.JPanel {
         controlPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Calibration Control", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 14))); // NOI18N
 
         startButton.setText("Start Calibration");
+        startButton.setEnabled(false);
         startButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 startButtonActionPerformed(evt);
@@ -326,8 +328,8 @@ public class CalibrationPanel extends javax.swing.JPanel {
             offsetSpinner.setEnabled(true);
             updateButton.setEnabled(true);
 
-            factorSpinner.setValue(controller.getModel().getCalibrationData()[sensorComboBox.getSelectedIndex()][0]);
-            offsetSpinner.setValue(controller.getModel().getCalibrationData()[sensorComboBox.getSelectedIndex()][1]);
+            factorSpinner.setValue(Float.parseFloat(controller.getModel().getSensorValues()[2][sensorComboBox.getSelectedIndex()]));
+            offsetSpinner.setValue(Float.parseFloat(controller.getModel().getSensorValues()[3][sensorComboBox.getSelectedIndex()]));
         }
 
     }//GEN-LAST:event_startButtonActionPerformed

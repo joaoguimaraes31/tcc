@@ -5,11 +5,17 @@ public class CalibrationModel {
     private final float ADC_VOLTAGE_REFERENCE=5;
     private final int ADC_RESOLUTION=1023;
     
-    
-    
-    //Calibration Data
-    private float calibrationData[][]={{1,0},{1,0},{1,0},{1,0},{1,0},{1,0}};
     private float currentCalibration[]={1,0};   //factor, offset
+    
+    //Strings for file functions
+    private String headers[]={"Sensor","Status","Conv.Factor","Offset"};
+    private String sensorValues[][]={{"Thermocouple 1","Thermocouple 2","Load Cell 1","Load Cell 2","Accelerometer","CKP"},
+                                     {"Connected","Connected","Connected","Connected","Connected","Connected"},
+                                     {"1.0","1.0","1.0","1.0","1.0","1.0"},
+                                     {"0.0","0.0","0.0","0.0","0.0","0.0",}};
+    
+    private String openingLine="Braketestbench Calibration Settings";
+
     
     
     //conversionFormulas
@@ -63,13 +69,23 @@ public class CalibrationModel {
         return out;
     }
 
-    public float[][] getCalibrationData() {
-        return calibrationData;
+    public String[] getHeaders() {
+        return headers;
     }
 
+    public String[][] getSensorValues() {
+        return sensorValues;
+    }
+    
     public float[] getCurrentCalibration() {
         return currentCalibration;
     }
+
+    public String getOpeningLine() {
+        return openingLine;
+    }
+    
+    
     
     
 }

@@ -4,7 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/joao/Documents/tcc/SoftwareDevelopment/BrakeTestBench/src/views/ApplicationFrame.java</file>
-            <file>file:/home/joao/Documents/tcc/SoftwareDevelopment/BrakeTestBench/src/views/CalibrationPanel.java</file>
+            <file>file:/home/joao/Documents/tcc/SoftwareDevelopment/BrakeTestBench/src/models/CalibrationModel.java</file>
+            <file>file:/home/joao/Documents/tcc/SoftwareDevelopment/BrakeTestBench/src/controllers/NavigationController.java</file>
+            <file>file:/home/joao/Documents/tcc/SoftwareDevelopment/BrakeTestBench/src/controllers/CalibrationController.java</file>
+            <file>file:/home/joao/Documents/tcc/SoftwareDevelopment/BrakeTestBench/src/commands/FileFunctions.java</file>
         </group>
     </open-files>
 </project-private>

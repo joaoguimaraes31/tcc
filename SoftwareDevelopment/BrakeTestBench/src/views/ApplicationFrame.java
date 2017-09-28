@@ -3,6 +3,7 @@ package views;
 import controllers.NavigationController;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import javax.swing.JMenuItem;
 
 public class ApplicationFrame extends javax.swing.JFrame {
 
@@ -40,7 +41,10 @@ public class ApplicationFrame extends javax.swing.JFrame {
         DynamicPanel = new javax.swing.JPanel();
         menuBar = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
+        menuItemOpenCalibrationFile = new javax.swing.JMenuItem();
+        menuItemSaveCalibrationFile = new javax.swing.JMenuItem();
         menuItemExit = new javax.swing.JMenuItem();
+        menuHelp = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 600));
@@ -116,6 +120,12 @@ public class ApplicationFrame extends javax.swing.JFrame {
 
         menuFile.setText("File");
 
+        menuItemOpenCalibrationFile.setText("Open Calibration File");
+        menuFile.add(menuItemOpenCalibrationFile);
+
+        menuItemSaveCalibrationFile.setText("Save Calibration File");
+        menuFile.add(menuItemSaveCalibrationFile);
+
         menuItemExit.setText("Exit");
         menuItemExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +135,9 @@ public class ApplicationFrame extends javax.swing.JFrame {
         menuFile.add(menuItemExit);
 
         menuBar.add(menuFile);
+
+        menuHelp.setText("Help");
+        menuBar.add(menuHelp);
 
         setJMenuBar(menuBar);
 
@@ -151,7 +164,7 @@ public class ApplicationFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemExitActionPerformed
-        System.exit(0);
+        
     }//GEN-LAST:event_menuItemExitActionPerformed
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
@@ -213,7 +226,10 @@ public class ApplicationFrame extends javax.swing.JFrame {
     private javax.swing.JToggleButton b5;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuFile;
+    private javax.swing.JMenu menuHelp;
     private javax.swing.JMenuItem menuItemExit;
+    private javax.swing.JMenuItem menuItemOpenCalibrationFile;
+    private javax.swing.JMenuItem menuItemSaveCalibrationFile;
     private javax.swing.JPanel menuPanel;
     // End of variables declaration//GEN-END:variables
 
@@ -230,6 +246,18 @@ public class ApplicationFrame extends javax.swing.JFrame {
 
     public CalibrationPanel getCalibrationPanel() {
         return calibrationPanel;
+    }
+
+    public JMenuItem getMenuItemExit() {
+        return menuItemExit;
+    }
+
+    public JMenuItem getMenuItemOpenCalibrationFile() {
+        return menuItemOpenCalibrationFile;
+    }
+
+    public JMenuItem getMenuItemSaveCalibrationFile() {
+        return menuItemSaveCalibrationFile;
     }
 
     public void setNavigationController(NavigationController navigationController) {

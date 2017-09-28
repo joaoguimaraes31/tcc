@@ -18,6 +18,7 @@ public class CalibrationController {
     //Commands
     private CalibrationCommunicator communicator;
     private ChartOperations voltageChartOp, measurementChartOp;
+    private FileFunctions fileFunctions;
 
     //ActionListeners
     private ActionListener aLstart, aLstop, aLupdate;
@@ -30,11 +31,11 @@ public class CalibrationController {
         model = new CalibrationModel();
         voltageChartOp = new ChartOperations("Voltage Reading", "Time (ms)", "Voltage", 400, 220, view.getVoltageChartLabel());
         measurementChartOp = new ChartOperations("Measured Value", "Time (s)", "Measurement", 400, 220, view.getMeasurementChartLabel());
-        
-        communicator = new CalibrationCommunicator(navigationController.getModel().getSelectedSerialPort(),this, voltageChartOp, measurementChartOp);
+
+        communicator = new CalibrationCommunicator(navigationController.getModel().getSelectedSerialPort(), this, voltageChartOp, measurementChartOp);
+        fileFunctions =  new FileFunctions(model.getHeaders(),model.getSensorValues(),model.getOpeningLine());
         addListeners();
     }
-
 
     public void addListeners() {
         aLstart = new ActionListener() {
@@ -42,17 +43,21 @@ public class CalibrationController {
                 communicator.setPortId(navigationController.getModel().getSelectedSerialPort());
                 //Try to connect
                 communicator.connect();
-                
+
                 //If sucessful
                 if (communicator.isConnected()) {
+                    //navigation controller view
+                    navigationController.getView().getMenuItemOpenCalibrationFile().setEnabled(false);
+                    navigationController.getView().getMenuItemSaveCalibrationFile().setEnabled(false);
+
                     //geting calibration data from model
-                    model.getCurrentCalibration()[0] = model.getCalibrationData()[view.getSensorComboBox().getSelectedIndex()][0];
-                    model.getCurrentCalibration()[1] = model.getCalibrationData()[view.getSensorComboBox().getSelectedIndex()][1];
-                    
+                    model.getCurrentCalibration()[0] = Float.parseFloat(model.getSensorValues()[2][view.getSensorComboBox().getSelectedIndex()]);
+                    model.getCurrentCalibration()[1] = Float.parseFloat(model.getSensorValues()[3][view.getSensorComboBox().getSelectedIndex()]);
+
                     //LED response
                     LedBlinker ledBlinker = new LedBlinker(communicator);
                     ledBlinker.Blink(150, 150, 2);
-                    
+
                     //starting acquisition and waiting for samples
                     communicator.startAcquisition();
                     communicator.initListener();
@@ -63,25 +68,29 @@ public class CalibrationController {
 
         aLstop = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
+                //navigation controller view
+                navigationController.getView().getMenuItemOpenCalibrationFile().setEnabled(true);
+                navigationController.getView().getMenuItemSaveCalibrationFile().setEnabled(true);
+
                 //LED response
                 LedBlinker ledBlinker = new LedBlinker(communicator);
                 ledBlinker.Blink(150, 150, 1);
-                
+
                 //set calibration data to model
-                model.getCalibrationData()[view.getSensorComboBox().getSelectedIndex()][0] = model.getCurrentCalibration()[0];
-                model.getCalibrationData()[view.getSensorComboBox().getSelectedIndex()][1] = model.getCurrentCalibration()[1];
-                
+                model.getSensorValues()[2][view.getSensorComboBox().getSelectedIndex()] = String.valueOf(model.getCurrentCalibration()[0]);
+                model.getSensorValues()[3][view.getSensorComboBox().getSelectedIndex()] = String.valueOf(model.getCurrentCalibration()[1]);
+
                 //disconnect and stop "hearing" microcontroller
                 communicator.disconnect();
             }
         };
         view.getStopButton().addActionListener(aLstop);
-        
-        aLupdate= new ActionListener() {
+
+        aLupdate = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 //set calibration data to model
-                model.getCurrentCalibration()[0]=Float.parseFloat(view.getFactorSpinner().getValue().toString());
-                model.getCurrentCalibration()[1]=Float.parseFloat(view.getOffsetSpinner().getValue().toString());
+                model.getCurrentCalibration()[0] = Float.parseFloat(view.getFactorSpinner().getValue().toString());
+                model.getCurrentCalibration()[1] = Float.parseFloat(view.getOffsetSpinner().getValue().toString());
 
             }
         };
@@ -100,4 +109,7 @@ public class CalibrationController {
         return communicator;
     }
 
+    public FileFunctions getFileFunctions() {
+        return fileFunctions;
+    }
 }

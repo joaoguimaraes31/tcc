@@ -9,6 +9,16 @@
             <Property name="text" type="java.lang.String" value="File"/>
           </Properties>
           <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemOpenCalibrationFile">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Open Calibration File"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemSaveCalibrationFile">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Save Calibration File"/>
+              </Properties>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemExit">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Exit"/>
@@ -18,6 +28,11 @@
               </Events>
             </MenuItem>
           </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="menuHelp">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Help"/>
+          </Properties>
         </Menu>
       </SubComponents>
     </Menu>
