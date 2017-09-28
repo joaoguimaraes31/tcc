@@ -155,7 +155,7 @@
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(factorSpinnerModel)"/>
-            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="SpinnerModel factorSpinnerModel = new SpinnerNumberModel(1, //initial value&#xa;                                            0.7, //min&#xa;                                            1.3, //max&#xa;                                            0.01);                //step"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="SpinnerModel factorSpinnerModel = new SpinnerNumberModel(controller.getModel().getLimitValues()[0][0], //initial value&#xa;                                            controller.getModel().getLimitValues()[0][1], //min&#xa;                                            controller.getModel().getLimitValues()[0][2], //max&#xa;                                            controller.getModel().getLimitValues()[0][3]);                //step"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JSpinner" name="offsetSpinner">

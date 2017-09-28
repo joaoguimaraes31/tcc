@@ -39,10 +39,10 @@ public class CalibrationPanel extends javax.swing.JPanel {
         settingsPanel = new javax.swing.JPanel();
         convFactorLabel = new javax.swing.JLabel();
         offsetLabel = new javax.swing.JLabel();
-        SpinnerModel factorSpinnerModel = new SpinnerNumberModel(1, //initial value
-            0.7, //min
-            1.3, //max
-            0.01);                //step
+        SpinnerModel factorSpinnerModel = new SpinnerNumberModel(controller.getModel().getLimitValues()[0][0], //initial value
+            controller.getModel().getLimitValues()[0][1], //min
+            controller.getModel().getLimitValues()[0][2], //max
+            controller.getModel().getLimitValues()[0][3]);                //step
         factorSpinner = new javax.swing.JSpinner(factorSpinnerModel);
         SpinnerModel offsetSpinnerModel = new SpinnerNumberModel(0, //initial value
             -30, //min

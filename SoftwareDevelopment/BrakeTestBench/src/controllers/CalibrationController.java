@@ -1,5 +1,6 @@
 package controllers;
 
+import builders.FileFunctionsCalibrationBuilder;
 import commands.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,6 +20,9 @@ public class CalibrationController {
     private CalibrationCommunicator communicator;
     private ChartOperations voltageChartOp, measurementChartOp;
     private FileFunctions fileFunctions;
+    
+    //Builders
+    private FileFunctionsCalibrationBuilder builder;
 
     //ActionListeners
     private ActionListener aLstart, aLstop, aLupdate;
@@ -33,7 +37,8 @@ public class CalibrationController {
         measurementChartOp = new ChartOperations("Measured Value", "Time (s)", "Measurement", 400, 220, view.getMeasurementChartLabel());
 
         communicator = new CalibrationCommunicator(navigationController.getModel().getSelectedSerialPort(), this, voltageChartOp, measurementChartOp);
-        fileFunctions =  new FileFunctions(model.getHeaders(),model.getSensorValues(),model.getOpeningLine());
+        builder = new FileFunctionsCalibrationBuilder(this);
+        fileFunctions=builder.getFileFunctions();
         addListeners();
     }
 

@@ -5,8 +5,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -16,18 +14,15 @@ import javax.swing.filechooser.FileSystemView;
 
 public class FileFunctions {
 
-    private String[] descriptors;
-    private String[][] values;
-    private String header;
+    private String fileName;
 
-    private final DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-    private final Date date = new Date();
-    private final int HEADER_SIZE = 3;
+    private final Date date;
+    private FileNameExtensionFilter filter;
 
-    public FileFunctions(String[] descriptors, String[][] values, String header) {
-        this.descriptors = descriptors;
-        this.values = values;
-        this.header = header;
+    public FileFunctions(String fileName, FileNameExtensionFilter filter) {
+        this.fileName = fileName;
+        this.filter = filter;
+        date = new Date();
     }
 
     public void writtingToFileRoutine() {
@@ -36,21 +31,12 @@ public class FileFunctions {
             chooser.setDialogTitle("Select Configuration File Directory");
             chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             int result = chooser.showSaveDialog(null);
-            int maxSize = matrixMaxMemberLength(values);
-            header = header + "\n" + "Date modified " + dateFormat.format(date) + "\n";
 
             if (result == chooser.APPROVE_OPTION) {
-                PrintWriter file = new PrintWriter(new File(chooser.getSelectedFile(), "BrakeTestBench.cfg"));
-                file.println(header);
+                PrintWriter file = new PrintWriter(new File(chooser.getSelectedFile(), fileName));
 
-                for (int i = 0; i < values[0].length; i++) {
-                    for (int j = 0; j < descriptors.length; j++) {
-                        file.print(descriptors[j] + "=" + values[j][i] + ";");
-                        file.print(spacesString(values[j][i], maxSize));
-                    }
-                    file.println();
+                writingLogic(file);
 
-                }
                 file.close();
             } else {
 
@@ -66,7 +52,6 @@ public class FileFunctions {
             JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
             jfc.setDialogTitle("Select a Configuration File");
             jfc.setAcceptAllFileFilterUsed(false);
-            FileNameExtensionFilter filter = new FileNameExtensionFilter("BrakeTestBench Configuration Files (.cfg)", "cfg");
             jfc.addChoosableFileFilter(filter);
 
             int returnValue = jfc.showOpenDialog(null);
@@ -84,28 +69,7 @@ public class FileFunctions {
 
                 inputFile = new FileReader(jfc.getSelectedFile().getPath());
                 bRead = new BufferedReader(inputFile);
-
-                if (numberOfLines == (values[0].length + HEADER_SIZE)) {
-                    int k = 0;
-                    while ((str = bRead.readLine()) != null) {
-                        //divides into sensor parameters
-                        if (k > (HEADER_SIZE - 1)) {
-                            String[] parts0 = str.split(";");
-
-                            for (int j = 0; j < (parts0.length -1); j++) {
-                                //separetes parameter description with value
-                                String[] parts1 = parts0[j].split("=");
-                                values[j][k-3] = parts1[1];
-
-                            }
-                        }
-                        k++;
-                    }
-                } else {
-                    JFrame frame = null;
-                    JOptionPane.showMessageDialog(frame, "Invalid file format", "File corrupted", JOptionPane.ERROR_MESSAGE);
-                    readingFromFile();
-                }
+                readingLogic(bRead, numberOfLines);
                 bRead.close();
             }
         } catch (IOException e) {
@@ -113,11 +77,9 @@ public class FileFunctions {
         }
     }
 
-    public String spacesString(String str, int l) {
+    public String spacesString(int numberOfSpaces) {
         String out = "";
-        l -= str.length();
-        l += 3;
-        for (int i = 0; i < l; i++) {
+        for (int i = 0; i < numberOfSpaces; i++) {
             out += " ";
         }
         return out;
@@ -135,4 +97,31 @@ public class FileFunctions {
         return maxSize;
     }
 
+    public void writingLogic(PrintWriter file) {
+        file.println("This has been written to the file");
+    }
+
+    public void readingLogic(BufferedReader bRead, int numberOfLines) throws IOException {
+        String strTemp = "";
+        String str = "";
+        int k = 0;
+        while ((strTemp = bRead.readLine()) != null) {
+            str += strTemp;
+            k++;
+        }
+
+        if (k != numberOfLines) {
+            JFrame frame = null;
+            JOptionPane.showMessageDialog(frame, "Invalid file format", "File corrupted", JOptionPane.ERROR_MESSAGE);
+            readingFromFile();
+        }
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public Date getDate() {
+        return date;
+    }
 }

@@ -175,10 +175,12 @@ public class ApplicationFrame extends javax.swing.JFrame {
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
         deselectButtonsPannels();
-        if (navigationController.getModel().getSelectedSerialPort() != null) {
+        if (navigationController.getModel().getSelectedSerialPort() != null) {         
             calibrationPanel.getSerialPortLabel().setText(navigationController.getModel().getSelectedSerialPort().getName());
+            calibrationPanel.getStartButton().setEnabled(true);
         }else{
             calibrationPanel.getSerialPortLabel().setText("null");
+            calibrationPanel.getStartButton().setEnabled(false);
         }
         calibrationPanel.setVisible(true);
         b3.setSelected(true);
