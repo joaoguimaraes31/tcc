@@ -104,39 +104,39 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="b1" alignment="0" pref="138" max="32767" attributes="0"/>
+              <Component id="serialPortsToggleButton" alignment="0" pref="138" max="32767" attributes="0"/>
               <Component id="b2" alignment="0" max="32767" attributes="0"/>
-              <Component id="b4" alignment="0" max="32767" attributes="0"/>
-              <Component id="b3" alignment="0" max="32767" attributes="0"/>
-              <Component id="b5" alignment="0" max="32767" attributes="0"/>
+              <Component id="configuraitonToggleButton" alignment="0" max="32767" attributes="0"/>
+              <Component id="calibrationToggleButton" alignment="0" max="32767" attributes="0"/>
+              <Component id="braketestToggleButton" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="b1" min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="serialPortsToggleButton" min="-2" pref="62" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="b2" min="-2" pref="62" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="b3" min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="calibrationToggleButton" min="-2" pref="62" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="b4" min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="configuraitonToggleButton" min="-2" pref="62" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="b5" min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="braketestToggleButton" min="-2" pref="62" max="-2" attributes="0"/>
                   <EmptySpace pref="193" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JToggleButton" name="b1">
+        <Component class="javax.swing.JToggleButton" name="serialPortsToggleButton">
           <Properties>
             <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Serial Ports Setup"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="serialPortsToggleButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JToggleButton" name="b2">
@@ -145,25 +145,29 @@
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="b4">
+        <Component class="javax.swing.JToggleButton" name="configuraitonToggleButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Configuration"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="configuraitonToggleButtonActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="b3">
+        <Component class="javax.swing.JToggleButton" name="calibrationToggleButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Calibration"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="b3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="calibrationToggleButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JToggleButton" name="b5">
+        <Component class="javax.swing.JToggleButton" name="braketestToggleButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Braketest"/>
-            <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="braketestToggleButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

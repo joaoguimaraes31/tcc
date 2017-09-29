@@ -4,21 +4,17 @@ import controllers.*;
 
 public class CalibrationControllerBuilder {
 
-    //Upper controller
-    NavigationController navigationController;
+    //Controllers
+    private NavigationController upperController;
+    private CalibrationController controller;
 
-    //Object
-    CalibrationController calibrationController;
-
-    public CalibrationControllerBuilder(NavigationController navigationController) {
-        this.navigationController = navigationController;
-
-        //Creating CalibrationController Instance
-        calibrationController = new CalibrationController(navigationController);
+    public CalibrationControllerBuilder(NavigationController upperController) {
+        this.upperController = upperController;
+        controller = new CalibrationController(upperController);
     }
 
-    public CalibrationController getCalibrationController() {
-        return calibrationController;
+    public CalibrationController getController() {
+        return controller;
     }
 
 }

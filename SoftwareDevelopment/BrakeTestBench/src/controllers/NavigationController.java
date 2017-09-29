@@ -11,11 +11,15 @@ public class NavigationController {
     //builders to create subsystems
     private SerialPortSetupControllerBuilder serialPortSetupBuilder;
     private CalibrationControllerBuilder calibrationControllerBuilder;
+    private ConfigurationControllerBuilder configurationControllerBuilder;
+    private BraketestControllerBuilder braketestControllerBuilder;
 
     //Lower controllers
     private SerialPortSetupController serialPortSetupController;
     private CalibrationController calibrationController;
-
+    private ConfigurationController configurationController;
+    private BraketestController braketestController;
+    
     //MVC
     private ApplicationFrame view;
     private NavigationModel model;
@@ -29,14 +33,22 @@ public class NavigationController {
         model = new NavigationModel(false);
 
         //Creating Sub-systems
-        ///Subsystem serial setup
+        ///Subsystem Serial Setup
         serialPortSetupBuilder = new SerialPortSetupControllerBuilder(this);
-        serialPortSetupController = serialPortSetupBuilder.getSerialPortSetupController();
+        serialPortSetupController = serialPortSetupBuilder.getController();
         
-        ///Subsystem calibration
+        ///Subsystem Calibration
         calibrationControllerBuilder = new CalibrationControllerBuilder(this);
-        calibrationController = calibrationControllerBuilder.getCalibrationController();
+        calibrationController = calibrationControllerBuilder.getController();
         
+        ///Subsystem Configuration
+        configurationControllerBuilder = new ConfigurationControllerBuilder(this);
+        configurationController = configurationControllerBuilder.getController();
+        
+        ///Subsystem Braketest
+        braketestControllerBuilder = new BraketestControllerBuilder(this);
+        braketestController = braketestControllerBuilder.getController();
+     
         ////MVC
         view = new ApplicationFrame(this);
         
@@ -89,6 +101,15 @@ public class NavigationController {
     public CalibrationController getCalibrationController() {
         return calibrationController;
     }
+
+    public ConfigurationController getConfigurationController() {
+        return configurationController;
+    }
+
+    public BraketestController getBraketestController() {
+        return braketestController;
+    }
+    
     
     
 }

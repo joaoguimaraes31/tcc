@@ -4,22 +4,20 @@ import controllers.*;
 
 public class SerialPortSetupControllerBuilder {
 
-    //Upper controller
-    NavigationController navigationController;
+    //Controllers
+    NavigationController upperController;
+    SerialPortSetupController controller;
 
-    //Object instance
-    SerialPortSetupController serialPortSetupController;
-
-    public SerialPortSetupControllerBuilder(NavigationController navigationController) {
-        this.navigationController = navigationController;
+    public SerialPortSetupControllerBuilder(NavigationController upperController) {
+        this.upperController = upperController;
         
         //Creating SerialPortSetupController instance with view reference
-        serialPortSetupController = new SerialPortSetupController(navigationController);
+        controller = new SerialPortSetupController(upperController);
     }
 
     //Getter
-    public SerialPortSetupController getSerialPortSetupController() {
-        return serialPortSetupController;
+    public SerialPortSetupController getController() {
+        return controller;
     }
 
 }

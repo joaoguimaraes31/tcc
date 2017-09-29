@@ -1,5 +1,6 @@
 package commands;
 
+import controllers.CalibrationController;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,25 +21,24 @@ public class FileFunctionsCalibration extends FileFunctions {
     private String[][] tempValues;
     private int headerSize;
     private DateFormat dateFormat;
-    private CalibrationModel model;
+    private CalibrationController upperController;
     private double[][] limitValues;
 
     public FileFunctionsCalibration(String fileName, FileNameExtensionFilter filter) {
         super(fileName, filter);
     }
 
-    public FileFunctionsCalibration(CalibrationModel model) {
-        super(model.getCalibrationFileName(), model.getFilter());
-        this.model = model;
-        this.descriptors = model.getDescriptors();
-        this.sensorValues = model.getSensorValues();
-        this.header = model.getHeader();
-        this.headerSize = model.getHeaderSize();
-        this.calibrationFileName = model.getCalibrationFileName();
-        this.values = model.getSensorValues();
+    public FileFunctionsCalibration(CalibrationController upperController) {
+        super(upperController.getModel().getCalibrationFileName(), upperController.getModel().getFilter());
+        this.descriptors = upperController.getModel().getDescriptors();
+        this.sensorValues = upperController.getModel().getSensorValues();
+        this.header = upperController.getModel().getHeader();
+        this.headerSize = upperController.getModel().getHeaderSize();
+        this.calibrationFileName = upperController.getModel().getCalibrationFileName();
+        this.values = upperController.getModel().getSensorValues();
         tempValues = values;
-        this.dateFormat = new SimpleDateFormat(model.getDateFormat());
-        this.limitValues = model.getLimitValues();
+        this.dateFormat = new SimpleDateFormat(upperController.getModel().getDateFormat());
+        this.limitValues = upperController.getModel().getLimitValues();
     }
 
     @Override

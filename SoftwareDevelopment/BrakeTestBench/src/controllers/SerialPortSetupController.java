@@ -27,7 +27,6 @@ public class SerialPortSetupController {
         //view = navigationController.getView().getSerialPortSetupPanel();
         model = new SerialPortSetupModel();
         view = new SerialPortSetupPanel(this);
-        
         command = new SerialPortSetupCommand();
 
         controlView();

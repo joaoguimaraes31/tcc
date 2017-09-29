@@ -5,13 +5,17 @@ import controllers.CalibrationController;
 
 public class FileFunctionsCalibrationBuilder {
     
-    FileFunctionsCalibration fileFunctions;
+    private CalibrationController upperController;
+    private FileFunctionsCalibration controller;
     
-    public FileFunctionsCalibrationBuilder(CalibrationController controller) {
-        fileFunctions = new FileFunctionsCalibration(controller.getModel());
+    public FileFunctionsCalibrationBuilder(CalibrationController upperController) {
+        this.upperController=upperController;
+        
+        controller = new FileFunctionsCalibration(upperController);
+        
     }
 
-    public FileFunctionsCalibration getFileFunctions() {
-        return fileFunctions;
+    public FileFunctionsCalibration getController() {
+        return controller;
     } 
 }

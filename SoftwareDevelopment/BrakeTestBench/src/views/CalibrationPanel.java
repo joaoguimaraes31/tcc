@@ -8,11 +8,13 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
+import models.CalibrationModel;
 
 
 public class CalibrationPanel extends javax.swing.JPanel {
 
     private CalibrationController controller;
+    private CalibrationModel model;
 
     public CalibrationPanel(CalibrationController controller) {
         this.controller=controller;
@@ -320,9 +322,9 @@ public class CalibrationPanel extends javax.swing.JPanel {
             offsetLabel.setEnabled(true);
             offsetSpinner.setEnabled(true);
             updateButton.setEnabled(true);
-
-            factorSpinner.setValue(Float.parseFloat(controller.getModel().getSensorValues()[2][sensorComboBox.getSelectedIndex()]));
-            offsetSpinner.setValue(Float.parseFloat(controller.getModel().getSensorValues()[3][sensorComboBox.getSelectedIndex()]));
+            
+            factorSpinner.setValue(Float.parseFloat(model.getSensorValues()[2][sensorComboBox.getSelectedIndex()]));
+            offsetSpinner.setValue(Float.parseFloat(model.getSensorValues()[3][sensorComboBox.getSelectedIndex()]));
         }
 
     }//GEN-LAST:event_startButtonActionPerformed
