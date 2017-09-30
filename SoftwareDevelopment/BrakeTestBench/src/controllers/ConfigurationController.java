@@ -8,6 +8,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import models.ConfigurationModel;
+import models.NavigationModel;
 import views.ConfigurationPanel;
 
 public class ConfigurationController {
@@ -69,13 +70,13 @@ public class ConfigurationController {
 
         aLchooseOutputDir = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                JFileChooser chooser = new JFileChooser();
+                JFileChooser chooser = new JFileChooser(getNavigationModel().getDEFAULT_DIR());
                 chooser.setDialogTitle("Select Output files Directory");
                 chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
                 if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                     model.setCurrentPath(chooser.getCurrentDirectory().toPath());
-                    if (chooser.getCurrentDirectory().toPath() != upperController.getModel().getDEFAULT_DIR()) {
+                    if (chooser.getCurrentDirectory().toPath() != upperController.getModel().getDEFAULT_PATH()) {
                         view.getDirectoryLabel().setText(model.getCurrentPath().toAbsolutePath().toString());
                     }
                 }
@@ -85,7 +86,7 @@ public class ConfigurationController {
 
         aLdefaultDir = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                model.setCurrentPath(upperController.getModel().getDEFAULT_DIR());
+                model.setCurrentPath(upperController.getModel().getDEFAULT_PATH());
                 view.getDirectoryLabel().setText("default");
             }
         };
@@ -132,4 +133,7 @@ public class ConfigurationController {
         return fileFunctions;
     }
 
+    public NavigationModel getNavigationModel() {
+        return upperController.getModel();
+    }
 }

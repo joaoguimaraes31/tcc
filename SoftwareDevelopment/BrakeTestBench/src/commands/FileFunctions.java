@@ -10,7 +10,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.filechooser.FileSystemView;
 
 public class FileFunctions {
 
@@ -18,17 +17,18 @@ public class FileFunctions {
     private Date date;
     private FileNameExtensionFilter filter;
 
-    public FileFunctions(String outputFileName, FileNameExtensionFilter filter) {
+    public FileFunctions(String outputFileName, String outputFilePath, FileNameExtensionFilter filter) {
         this.outputFileName = outputFileName;
+        this.outputFilePath = outputFilePath;
         this.filter = filter;
     }
 
     public void writtingToFileRoutine() {
         try {
-            JFileChooser chooser = new JFileChooser();
+            JFileChooser chooser = new JFileChooser(outputFilePath);
             chooser.setDialogTitle("Select Configuration File Directory");
             chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-            if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            if (chooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
                 outputFilePath=chooser.getSelectedFile().getAbsoluteFile().toString();
                 date = new Date();
                 PrintWriter file = new PrintWriter(new File(chooser.getSelectedFile(), outputFileName));
@@ -43,11 +43,12 @@ public class FileFunctions {
         } catch (IOException e) {
             // do something
         }
+        
     }
 
     public void readingFromFile() {
         try {
-            JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+            JFileChooser jfc = new JFileChooser(outputFilePath);
             jfc.setDialogTitle("Select a Configuration File");
             jfc.setAcceptAllFileFilterUsed(false);
             jfc.addChoosableFileFilter(filter);

@@ -9,7 +9,8 @@ public class NavigationModel {
     //Parameters
     private boolean isSerialPortSet = false;
     private CommPortIdentifier selectedSerialPort=null;
-    private final Path DEFAULT_DIR = Paths.get("");
+    private final Path DEFAULT_PATH = Paths.get("");
+    private final String DEFAULT_DIR = System.getProperty("user.dir");
 
     //Constructor
     public NavigationModel(boolean isSerialPortSet) {
@@ -33,8 +34,14 @@ public class NavigationModel {
         this.selectedSerialPort = selectedSerialPort;
     }
 
-    public Path getDEFAULT_DIR() {
+    public Path getDEFAULT_PATH() {
+        return DEFAULT_PATH;
+    }
+
+    public String getDEFAULT_DIR() {
         return DEFAULT_DIR;
     }
+    
+    
     
 }

@@ -17,12 +17,12 @@ public class FileFunctionsCalibration extends FileFunctions {
     private String[][] sensorValues;
     private String calibrationFileName;
 
-    public FileFunctionsCalibration(String fileName, FileNameExtensionFilter filter) {
-        super(fileName, filter);
+    public FileFunctionsCalibration(String outputFileName, String outputFilePath, FileNameExtensionFilter filter) {
+        super(outputFileName, outputFilePath, filter);
     }
 
     public FileFunctionsCalibration(CalibrationController upperController) {
-        super(upperController.getModel().getCalibrationFileName(), upperController.getModel().getFilter());
+        super(upperController.getModel().getCalibrationFileName(), upperController.getNavigationModel().getDEFAULT_DIR(), upperController.getModel().getFilter());
         this.upperController = upperController;
         model = upperController.getModel();
         

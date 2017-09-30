@@ -166,5 +166,5 @@ public class CalibrationModel {
     public void setSettingsLoadded(boolean settingsLoadded) {
         this.settingsLoadded = settingsLoadded;
     }
-
+    
 }

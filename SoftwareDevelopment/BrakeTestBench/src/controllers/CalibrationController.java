@@ -7,12 +7,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import models.CalibrationModel;
+import models.NavigationModel;
 import views.CalibrationPanel;
 
 public class CalibrationController {
 
     //upper controller
-    private NavigationController navigationController;
+    private NavigationController upperController;
 
     //MVC
     private CalibrationModel model;
@@ -30,14 +31,14 @@ public class CalibrationController {
     private ActionListener aLstart, aLstop, aLupdate, aLReset, aL;
 
     //Constructor
-    public CalibrationController(NavigationController navigationController) {
-        this.navigationController = navigationController;
+    public CalibrationController(NavigationController upperController) {
+        this.upperController = upperController;
         model = new CalibrationModel();
         view = new CalibrationPanel(this);
         voltageChartOp = new ChartOperations("Voltage Reading", "Time (ms)", "Voltage", 380, 220, view.getVoltageChartLabel());
         measurementChartOp = new ChartOperations("Measured Value", "Time (s)", "Measurement", 380, 220, view.getMeasurementChartLabel());
 
-        communicator = new CalibrationCommunicator(navigationController.getModel().getSelectedSerialPort(), this, voltageChartOp, measurementChartOp);
+        communicator = new CalibrationCommunicator(upperController.getModel().getSelectedSerialPort(), this, voltageChartOp, measurementChartOp);
         fileFunctionsCalibrationBuilder = new FileFunctionsCalibrationBuilder(this);
         fileFunctions = fileFunctionsCalibrationBuilder.getController();
         addListeners();
@@ -46,15 +47,15 @@ public class CalibrationController {
     public void addListeners() {
         aLstart = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                communicator.setPortId(navigationController.getModel().getSelectedSerialPort());
+                communicator.setPortId(upperController.getModel().getSelectedSerialPort());
                 //Try to connect
                 communicator.connect();
 
                 //If sucessful
                 if (communicator.isConnected()) {
                     //navigation controller view
-                    navigationController.getMenuController().getMenuBarBuilder().getLoadCalibrationMenuItem().setEnabled(false);
-                    navigationController.getMenuController().getMenuBarBuilder().getSaveCalibrationMenuItem().setEnabled(false);
+                    upperController.getMenuController().getMenuBarBuilder().getLoadCalibrationMenuItem().setEnabled(false);
+                    upperController.getMenuController().getMenuBarBuilder().getSaveCalibrationMenuItem().setEnabled(false);
 
                     //geting calibration data from model
                     model.getCurrentCalibration()[0] = model.getCalibrationValues()[0][view.getSensorComboBox().getSelectedIndex()];
@@ -77,8 +78,8 @@ public class CalibrationController {
             public void actionPerformed(ActionEvent actionEvent) {
 
                 //navigation controller view
-                navigationController.getMenuController().getMenuBarBuilder().getLoadCalibrationMenuItem().setEnabled(true);
-                navigationController.getMenuController().getMenuBarBuilder().getSaveCalibrationMenuItem().setEnabled(true);
+                upperController.getMenuController().getMenuBarBuilder().getLoadCalibrationMenuItem().setEnabled(true);
+                upperController.getMenuController().getMenuBarBuilder().getSaveCalibrationMenuItem().setEnabled(true);
 
                 //LED response
                 LedBlinker ledBlinker = new LedBlinker(communicator);
@@ -173,6 +174,10 @@ public class CalibrationController {
 
     public CalibrationModel getModel() {
         return model;
+    }
+
+    public NavigationModel getNavigationModel() {
+        return upperController.getModel();
     }
 
     public CalibrationPanel getView() {

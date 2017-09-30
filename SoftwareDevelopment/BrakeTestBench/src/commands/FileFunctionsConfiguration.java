@@ -15,12 +15,12 @@ public class FileFunctionsConfiguration extends FileFunctions {
     private ConfigurationController upperController;
     private ConfigurationModel model;
 
-    public FileFunctionsConfiguration(String outputFileName, FileNameExtensionFilter filter) {
-        super(outputFileName, filter);
+    public FileFunctionsConfiguration(String outputFileName, String outputFilePath, FileNameExtensionFilter filter) {
+        super(outputFileName, outputFilePath, filter);
     }
 
     public FileFunctionsConfiguration(ConfigurationController upperController, String outputFileName, FileNameExtensionFilter filter) {
-        super(outputFileName, filter);
+        super(upperController.getModel().getCONFIGURATION_FILE_NAME(), upperController.getNavigationModel().getDEFAULT_DIR(), upperController.getModel().getFILTER());
         this.upperController = upperController;
         this.model = this.upperController.getModel();
     }
