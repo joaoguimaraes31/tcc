@@ -5,12 +5,12 @@ import javax.swing.SpinnerNumberModel;
 public class ConfigurationModel {
 
     //Constants
-    private final SpinnerNumberModel NUMBER_OF_CYCLES_SPINNER_MODEL = new SpinnerNumberModel(0, 0, 0, 0);
-    private final SpinnerNumberModel CYCLES_TIME_SPINNER_MODEL = new SpinnerNumberModel(0, 0, 0, 0);
-    private final SpinnerNumberModel UPPER_LIMITS_SPINNER_MODEL = new SpinnerNumberModel(0, 0, 0, 0);
-    private final SpinnerNumberModel WAIT_UPPER_SPINNER_MODEL = new SpinnerNumberModel(0, 0, 0, 0);
-    private final SpinnerNumberModel LOWER_LIMITS_SPINNER_MODEL = new SpinnerNumberModel(0, 0, 0, 0);
-    private final SpinnerNumberModel WAIT_LOWER_SPINNER_MODEL = new SpinnerNumberModel(0, 0, 0, 0);
+    private final SpinnerNumberModel NUMBER_OF_CYCLES_SPINNER_MODEL = new SpinnerNumberModel(0, 0, 50, 1);   //initial,min,max,step
+    private final SpinnerNumberModel CYCLES_TIME_SPINNER_MODEL = new SpinnerNumberModel(0, 0, 10000, 10);
+    private final SpinnerNumberModel UPPER_LIMITS_SPINNER_MODEL = new SpinnerNumberModel(0, 0, 80, 5);
+    private final SpinnerNumberModel WAIT_UPPER_SPINNER_MODEL = new SpinnerNumberModel(0, 0, 10, 1);
+    private final SpinnerNumberModel LOWER_LIMITS_SPINNER_MODEL = new SpinnerNumberModel(0, 0, 40, 5);
+    private final SpinnerNumberModel WAIT_LOWER_SPINNER_MODEL = new SpinnerNumberModel(0, 0, 10, 1);
     private final String TEST_REGULARION_FILE_NAME = "none";
     private final String TEST_CONFIGURATION_FILE_NAME = "none";
     private final String DIRECTORY_NAME = "none";

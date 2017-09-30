@@ -172,7 +172,7 @@
         </Component>
         <Component class="javax.swing.JSpinner" name="waitLowerTimeSpinner">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(model.getLOWER_LIMITS_SPINNER_MODEL())"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(model.getWAIT_LOWER_SPINNER_MODEL())"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="numberOfCyclesFLabel">
@@ -272,7 +272,7 @@
                           <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                           <Component id="directoryLabel" min="-2" pref="440" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="chooseOutputLabel" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="chooseOutputButton" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
@@ -287,7 +287,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="directoryLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="chooseOutputLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="chooseOutputButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -315,7 +315,7 @@
             <Property name="opaque" type="boolean" value="true"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="chooseOutputLabel">
+        <Component class="javax.swing.JButton" name="chooseOutputButton">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Ubuntu" size="17" style="0"/>

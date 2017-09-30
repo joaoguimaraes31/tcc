@@ -1,8 +1,15 @@
 package views;
 
 import controllers.ConfigurationController;
+import javax.accessibility.AccessibleContext;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSpinner;
 import javax.swing.SpinnerModel;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.event.EventListenerList;
+import javax.swing.plaf.ComponentUI;
 import models.ConfigurationModel;
 
 public class ConfigurationPanel extends javax.swing.JPanel {
@@ -31,7 +38,7 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         waitUpperTimeSpinner = new javax.swing.JSpinner(model.getWAIT_UPPER_SPINNER_MODEL());
         cyclesTimeSpinner = new javax.swing.JSpinner(model.getCYCLES_TIME_SPINNER_MODEL());
         lowerLimitSpinner = new javax.swing.JSpinner(model.getLOWER_LIMITS_SPINNER_MODEL());
-        waitLowerTimeSpinner = new javax.swing.JSpinner(model.getLOWER_LIMITS_SPINNER_MODEL());
+        waitLowerTimeSpinner = new javax.swing.JSpinner(model.getWAIT_LOWER_SPINNER_MODEL());
         numberOfCyclesFLabel = new javax.swing.JLabel();
         upperLimitFLabel = new javax.swing.JLabel();
         waitUpperTimeFLabel = new javax.swing.JLabel();
@@ -44,7 +51,7 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         outputPanel = new javax.swing.JPanel();
         directoryFLabel = new javax.swing.JLabel();
         directoryLabel = new javax.swing.JLabel();
-        chooseOutputLabel = new javax.swing.JButton();
+        chooseOutputButton = new javax.swing.JButton();
         regulationPanel = new javax.swing.JPanel();
         testRegulationFLabel = new javax.swing.JLabel();
         regulationFileLabel = new javax.swing.JLabel();
@@ -160,8 +167,8 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         directoryLabel.setText("none");
         directoryLabel.setOpaque(true);
 
-        chooseOutputLabel.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
-        chooseOutputLabel.setText("Choose");
+        chooseOutputButton.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
+        chooseOutputButton.setText("Choose");
 
         javax.swing.GroupLayout outputPanelLayout = new javax.swing.GroupLayout(outputPanel);
         outputPanel.setLayout(outputPanelLayout);
@@ -175,7 +182,7 @@ public class ConfigurationPanel extends javax.swing.JPanel {
                         .addGap(10, 10, 10)
                         .addComponent(directoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(chooseOutputLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(chooseOutputButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20))
         );
         outputPanelLayout.setVerticalGroup(
@@ -186,7 +193,7 @@ public class ConfigurationPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(outputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(directoryLabel)
-                    .addComponent(chooseOutputLabel))
+                    .addComponent(chooseOutputButton))
                 .addContainerGap())
         );
 
@@ -260,7 +267,7 @@ public class ConfigurationPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton chooseOutputLabel;
+    private javax.swing.JButton chooseOutputButton;
     private javax.swing.JButton chooseRegulationButton;
     private javax.swing.JButton configurationDefaultButton;
     private javax.swing.JLabel configurationFileFLabel;
@@ -285,4 +292,200 @@ public class ConfigurationPanel extends javax.swing.JPanel {
     private javax.swing.JLabel waitUpperTimeFLabel;
     private javax.swing.JSpinner waitUpperTimeSpinner;
     // End of variables declaration//GEN-END:variables
+
+    public ConfigurationController getController() {
+        return controller;
+    }
+
+    public ConfigurationModel getModel() {
+        return model;
+    }
+
+    public JButton getChooseOutputLabel() {
+        return chooseOutputButton;
+    }
+
+    public JButton getChooseRegulationButton() {
+        return chooseRegulationButton;
+    }
+
+    public JButton getConfigurationDefaultButton() {
+        return configurationDefaultButton;
+    }
+
+    public JLabel getConfigurationFileFLabel() {
+        return configurationFileFLabel;
+    }
+
+    public JLabel getCyclesTimeFLabel() {
+        return cyclesTimeFLabel;
+    }
+
+    public JSpinner getCyclesTimeSpinner() {
+        return cyclesTimeSpinner;
+    }
+
+    public JLabel getDirectoryFLabel() {
+        return directoryFLabel;
+    }
+
+    public JLabel getDirectoryLabel() {
+        return directoryLabel;
+    }
+
+    public JLabel getLowerLimitFLabel() {
+        return lowerLimitFLabel;
+    }
+
+    public JSpinner getLowerLimitSpinner() {
+        return lowerLimitSpinner;
+    }
+
+    public JLabel getNumberOfCyclesFLabel() {
+        return numberOfCyclesFLabel;
+    }
+
+    public JSpinner getNumberOfCyclesSpinner() {
+        return numberOfCyclesSpinner;
+    }
+
+    public JPanel getOutputPanel() {
+        return outputPanel;
+    }
+
+    public JLabel getRegulationFileLabel() {
+        return regulationFileLabel;
+    }
+
+    public JLabel getRegulationFileLabel1() {
+        return regulationFileLabel1;
+    }
+
+    public JPanel getRegulationPanel() {
+        return regulationPanel;
+    }
+
+    public JPanel getTestConfigurationPanel() {
+        return testConfigurationPanel;
+    }
+
+    public JLabel getTestRegulationFLabel() {
+        return testRegulationFLabel;
+    }
+
+    public JLabel getUpperLimitFLabel() {
+        return upperLimitFLabel;
+    }
+
+    public JSpinner getUpperLimitSpinner() {
+        return upperLimitSpinner;
+    }
+
+    public JLabel getWaitLowerTimeFLabel() {
+        return waitLowerTimeFLabel;
+    }
+
+    public JSpinner getWaitLowerTimeSpinner() {
+        return waitLowerTimeSpinner;
+    }
+
+    public JLabel getWaitUpperTimeFLabel() {
+        return waitUpperTimeFLabel;
+    }
+
+    public JSpinner getWaitUpperTimeSpinner() {
+        return waitUpperTimeSpinner;
+    }
+
+    public ComponentUI getUi() {
+        return ui;
+    }
+
+    public EventListenerList getListenerList() {
+        return listenerList;
+    }
+
+    public static int getWHEN_FOCUSED() {
+        return WHEN_FOCUSED;
+    }
+
+    public static int getWHEN_ANCESTOR_OF_FOCUSED_COMPONENT() {
+        return WHEN_ANCESTOR_OF_FOCUSED_COMPONENT;
+    }
+
+    public static int getWHEN_IN_FOCUSED_WINDOW() {
+        return WHEN_IN_FOCUSED_WINDOW;
+    }
+
+    public static int getUNDEFINED_CONDITION() {
+        return UNDEFINED_CONDITION;
+    }
+
+    public static String getTOOL_TIP_TEXT_KEY() {
+        return TOOL_TIP_TEXT_KEY;
+    }
+
+    public static float getTOP_ALIGNMENT() {
+        return TOP_ALIGNMENT;
+    }
+
+    public static float getCENTER_ALIGNMENT() {
+        return CENTER_ALIGNMENT;
+    }
+
+    public static float getBOTTOM_ALIGNMENT() {
+        return BOTTOM_ALIGNMENT;
+    }
+
+    public static float getLEFT_ALIGNMENT() {
+        return LEFT_ALIGNMENT;
+    }
+
+    public static float getRIGHT_ALIGNMENT() {
+        return RIGHT_ALIGNMENT;
+    }
+
+    public AccessibleContext getAccessibleContext() {
+        return accessibleContext;
+    }
+
+    public static int getWIDTH() {
+        return WIDTH;
+    }
+
+    public static int getHEIGHT() {
+        return HEIGHT;
+    }
+
+    public static int getPROPERTIES() {
+        return PROPERTIES;
+    }
+
+    public static int getSOMEBITS() {
+        return SOMEBITS;
+    }
+
+    public static int getFRAMEBITS() {
+        return FRAMEBITS;
+    }
+
+    public static int getALLBITS() {
+        return ALLBITS;
+    }
+
+    public static int getERROR() {
+        return ERROR;
+    }
+
+    public static int getABORT() {
+        return ABORT;
+    }
+
+    public JButton getChooseOutputButton() {
+        return chooseOutputButton;
+    }
+
+
+
+
 }
