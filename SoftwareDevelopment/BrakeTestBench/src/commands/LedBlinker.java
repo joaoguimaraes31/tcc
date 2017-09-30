@@ -1,9 +1,5 @@
 package commands;
 
-import controllers.SensorSetupController;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 public class LedBlinker {
 
     Communicator communicator;
@@ -20,13 +16,13 @@ public class LedBlinker {
             try {
                 Thread.sleep(delayOn);
             } catch (InterruptedException ex) {
-                Logger.getLogger(SensorSetupController.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(SensorSetupController.class.getName()).log(Level.SEVERE, null, ex);
             }
             communicator.writeData(96);
             try {
                 Thread.sleep(delayOff);
             } catch (InterruptedException ex) {
-                Logger.getLogger(SensorSetupController.class.getName()).log(Level.SEVERE, null, ex);
+               // Logger.getLogger(SensorSetupController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

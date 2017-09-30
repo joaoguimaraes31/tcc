@@ -16,8 +16,10 @@ public class CalibrationModel {
     {"1.0", "1.0", "1.0", "1.0", "1.0", "1.0"},
     {"0.0", "0.0", "0.0", "0.0", "0.0", "0.0",}};
 
+    //Vars
     private float currentCalibration[] = {1, 0};   //factor, offset
     private float previousCalibration[] = {1, 0};   //factor, offset
+    private boolean settingsLoadded = false;
 
     //Strings for file functions
     private String descriptors[] = {"Sensor", "Status", "Conv.Factor", "Offset"};
@@ -148,6 +150,10 @@ public class CalibrationModel {
         return previousCalibration;
     }
 
+    public boolean isSettingsLoadded() {
+        return settingsLoadded;
+    }
+
     public void setCurrentCalibration(float[] currentCalibration) {
         this.currentCalibration = currentCalibration;
     }
@@ -156,5 +162,8 @@ public class CalibrationModel {
         this.previousCalibration = previousCalibration;
     }
 
-    
+    public void setSettingsLoadded(boolean settingsLoadded) {
+        this.settingsLoadded = settingsLoadded;
+    }
+
 }

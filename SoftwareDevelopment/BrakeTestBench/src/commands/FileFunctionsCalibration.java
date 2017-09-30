@@ -117,6 +117,7 @@ public class FileFunctionsCalibration extends FileFunctions {
             CalibrationModel model = upperController.getModel();
             model.stringValuesToFloat(temp, model.getCalibrationValues());
             JOptionPane.showMessageDialog(frame, "Calibration values loadded!", "Sucess", JOptionPane.INFORMATION_MESSAGE);
+            upperController.getModel().setSettingsLoadded(true);
             upperController.getView().getLoadedSettingLabel().setText(calibrationFileName);
         }
     }

@@ -115,6 +115,7 @@ public class CalibrationController {
     }
 
     public void resetCalibrationValues() {
+        model.setSettingsLoadded(false);
         view.getLoadedSettingLabel().setText("default");
         float values[] = {1, 0};
         for(int i=0;i<model.getCalibrationValues().length;i++){
