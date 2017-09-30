@@ -70,8 +70,9 @@ public class NavigationController {
         
         aLloadCalibrationFile= new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-              // System.out.println("load calibration files");
+              //System.out.println("load calibration files");
               calibrationController.getFileFunctions().readingFromFile();
+              
             }
         };
         view.getMenuItemOpenCalibrationFile().addActionListener(aLloadCalibrationFile);

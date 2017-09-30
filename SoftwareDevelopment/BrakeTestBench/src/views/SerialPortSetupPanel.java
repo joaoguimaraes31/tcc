@@ -26,7 +26,7 @@ public class SerialPortSetupPanel extends javax.swing.JPanel {
         setMinimumSize(new java.awt.Dimension(626, 569));
         setPreferredSize(new java.awt.Dimension(626, 569));
 
-        portsSearchPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Ports Search"));
+        portsSearchPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ports Search", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
 
         searchButton.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         searchButton.setText("Search");
@@ -43,11 +43,13 @@ public class SerialPortSetupPanel extends javax.swing.JPanel {
         setButton.setText("Set");
         setButton.setEnabled(false);
 
-        serialPortFixedLabel.setFont(new java.awt.Font("Ubuntu", 2, 18)); // NOI18N
+        serialPortFixedLabel.setFont(new java.awt.Font("Ubuntu", 2, 20)); // NOI18N
         serialPortFixedLabel.setText("Selected Serial Port:");
 
-        selectedPortLabel.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        selectedPortLabel.setBackground(java.awt.Color.white);
+        selectedPortLabel.setFont(new java.awt.Font("Ubuntu", 0, 20)); // NOI18N
         selectedPortLabel.setText("null");
+        selectedPortLabel.setOpaque(true);
 
         javax.swing.GroupLayout portsSearchPanelLayout = new javax.swing.GroupLayout(portsSearchPanel);
         portsSearchPanel.setLayout(portsSearchPanelLayout);
@@ -55,17 +57,18 @@ public class SerialPortSetupPanel extends javax.swing.JPanel {
             portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(portsSearchPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(portsSearchPanelLayout.createSequentialGroup()
+                        .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(portsCB, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(setButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
-                .addGroup(portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(serialPortFixedLabel)
-                    .addComponent(selectedPortLabel))
-                .addGap(33, 33, 33))
+                        .addComponent(setButton, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(portsSearchPanelLayout.createSequentialGroup()
+                        .addComponent(serialPortFixedLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(selectedPortLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(0, 175, Short.MAX_VALUE))
         );
         portsSearchPanelLayout.setVerticalGroup(
             portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,12 +76,11 @@ public class SerialPortSetupPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchButton)
-                    .addComponent(serialPortFixedLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(portsCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(setButton))
+                    .addComponent(portsCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(setButton))
+                .addGap(33, 33, 33)
+                .addGroup(portsSearchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(serialPortFixedLabel)
                     .addComponent(selectedPortLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -97,7 +99,7 @@ public class SerialPortSetupPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(portsSearchPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(438, Short.MAX_VALUE))
+                .addContainerGap(413, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -19,6 +19,16 @@
                 <Property name="text" type="java.lang.String" value="Save Calibration File"/>
               </Properties>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemOpenConfigurationFile">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Open Configuration File"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="menuSaveConfiguration">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Save Configuration File"/>
+              </Properties>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemExit">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Exit"/>
@@ -72,7 +82,7 @@
           <Group type="102" alignment="1" attributes="0">
               <Component id="DynamicPanel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="menuPanel" min="-2" max="-2" attributes="0"/>
+              <Component id="menuPanel" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -82,8 +92,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="menuPanel" max="32767" attributes="0"/>
-                  <Component id="DynamicPanel" max="32767" attributes="0"/>
+                  <Component id="DynamicPanel" pref="571" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="menuPanel" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
       </Group>
@@ -95,7 +108,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="Menu">
-              <Font PropertyName="font" name="Dialog" size="18" style="0"/>
+              <Font PropertyName="font" name="Dialog" size="20" style="0"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -104,9 +117,9 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="serialPortsToggleButton" alignment="0" pref="138" max="32767" attributes="0"/>
+              <Component id="serialPortsToggleButton" alignment="0" max="32767" attributes="0"/>
               <Component id="b2" alignment="0" max="32767" attributes="0"/>
-              <Component id="configuraitonToggleButton" alignment="0" max="32767" attributes="0"/>
+              <Component id="configuraitonToggleButton" alignment="0" pref="144" max="32767" attributes="0"/>
               <Component id="calibrationToggleButton" alignment="0" max="32767" attributes="0"/>
               <Component id="braketestToggleButton" alignment="0" max="32767" attributes="0"/>
           </Group>
@@ -124,7 +137,7 @@
                   <Component id="configuraitonToggleButton" min="-2" pref="62" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="braketestToggleButton" min="-2" pref="62" max="-2" attributes="0"/>
-                  <EmptySpace pref="193" max="32767" attributes="0"/>
+                  <EmptySpace pref="181" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -133,7 +146,7 @@
         <Component class="javax.swing.JToggleButton" name="serialPortsToggleButton">
           <Properties>
             <Property name="selected" type="boolean" value="true"/>
-            <Property name="text" type="java.lang.String" value="Serial Ports Setup"/>
+            <Property name="text" type="java.lang.String" value="Ports Setup"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="serialPortsToggleButtonActionPerformed"/>

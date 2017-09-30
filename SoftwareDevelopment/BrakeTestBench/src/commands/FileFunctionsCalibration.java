@@ -14,11 +14,10 @@ import models.CalibrationModel;
 public class FileFunctionsCalibration extends FileFunctions {
 
     private String[] descriptors;
-    private String[][] sensorValues;
+    private String[][] sensorValues,temp;
     private String header;
     private String calibrationFileName;
-    private String[][] values;
-    private String[][] tempValues;
+    //private float[][] calibrationValues;
     private int headerSize;
     private DateFormat dateFormat;
     private CalibrationController upperController;
@@ -30,25 +29,28 @@ public class FileFunctionsCalibration extends FileFunctions {
 
     public FileFunctionsCalibration(CalibrationController upperController) {
         super(upperController.getModel().getCalibrationFileName(), upperController.getModel().getFilter());
-        this.descriptors = upperController.getModel().getDescriptors();
-        this.sensorValues = upperController.getModel().getSensorValues();
-        this.header = upperController.getModel().getHeader();
-        this.headerSize = upperController.getModel().getHeaderSize();
-        this.calibrationFileName = upperController.getModel().getCalibrationFileName();
-        this.values = upperController.getModel().getSensorValues();
-        tempValues = values;
-        this.dateFormat = new SimpleDateFormat(upperController.getModel().getDateFormat());
-        this.limitValues = upperController.getModel().getLimitValues();
+        this.upperController=upperController;
+        CalibrationModel model = upperController.getModel();
+        this.descriptors = model.getDescriptors();
+        this.header = model.getHeader();
+        this.headerSize = model.getHeaderSize();
+        this.calibrationFileName = model.getCalibrationFileName();
+        this.dateFormat = new SimpleDateFormat(model.getDateFormat());
+        //this.calibrationValues = model.getCalibrationValues();
+        this.sensorValues = model.getSENSOR_VALUES();
+        this.temp = model.getSENSOR_VALUES();
+        this.limitValues = model.getSPINNERS_RANGE();
+        model.floatValuesToString(this.sensorValues,model.getCalibrationValues());
     }
 
     @Override
     public void writingLogic(PrintWriter file) {
-        int maxSize = matrixMaxMemberLength(values);
+        int maxSize = matrixMaxMemberLength(sensorValues);
         file.println(header + dateFormat.format(getDate()) + "\n");
-        for (int i = 0; i < values[0].length; i++) {
+        for (int i = 0; i < sensorValues[0].length; i++) {
             for (int j = 0; j < descriptors.length; j++) {
-                file.print(descriptors[j] + "=" + values[j][i] + ";");
-                file.print(spacesString(-values[j][i].length() + maxSize + 3));
+                file.print(descriptors[j] + "=" + sensorValues[j][i] + ";");
+                file.print(spacesString(-sensorValues[j][i].length() + maxSize + 3));
             }
             file.println();
 
@@ -59,7 +61,7 @@ public class FileFunctionsCalibration extends FileFunctions {
 
     @Override
     public void readingLogic(BufferedReader bRead, int numberOfLines) throws IOException {
-        if (numberOfLines == (values[0].length + headerSize + 1)) {
+        if (numberOfLines == (sensorValues[0].length + headerSize + 1)) {
             String str = "";
             int k = 0;
             int parametersNumber = 0;
@@ -71,7 +73,7 @@ public class FileFunctionsCalibration extends FileFunctions {
                     for (int j = 0; j < (parts0.length - 1); j++) {
                         //separetes parameter description with value
                         String[] parts1 = parts0[j].split("=");
-                        tempValues[j][k - 3] = parts1[1];
+                        temp[j][k - 3] = parts1[1];
                         parametersNumber++;
                     }
                 }
@@ -81,23 +83,24 @@ public class FileFunctionsCalibration extends FileFunctions {
         } else {
             JFrame frame = null;
             JOptionPane.showMessageDialog(frame, "Invalid file format 2", "File corrupted", JOptionPane.ERROR_MESSAGE);
+            upperController.resetCalibrationValues();
             readingFromFile();
         }
     }
 
     public void checkAcquiredValues(int parametersNumber) {
         boolean fileCorrupted = false;
-        if (parametersNumber != values[0].length * values.length) {
+        if (parametersNumber != sensorValues[0].length * sensorValues.length) {
             fileCorrupted = true;
         } else {
 
             for (int i = 2; i < 4; i++) {
-                for (int j = 0; j < values[0].length; j++) {//tempValues[2][j]
-                    if (isNumeric(tempValues[i][j]) == false) {
+                for (int j = 0; j < sensorValues[0].length; j++) {//tempValues[2][j]
+                    if (isNumeric(temp[i][j]) == false) {
                         fileCorrupted = true;
                     } else {
-                        double value = Double.parseDouble(tempValues[i][j]);
-                        if ((value < limitValues[i - 2][1]) | (value > limitValues[i - 2][2])) {
+                        double value = Double.parseDouble(temp[i][j]);
+                        if ((value < limitValues[i - 2][0]) | (value > limitValues[i - 2][1])) {
                             fileCorrupted = true;
                         }
                     }
@@ -108,10 +111,13 @@ public class FileFunctionsCalibration extends FileFunctions {
         JFrame frame = null;
         if (fileCorrupted) {
             JOptionPane.showMessageDialog(frame, "Invalid file format", "File corrupted", JOptionPane.ERROR_MESSAGE);
+            upperController.resetCalibrationValues();
             readingFromFile();
         } else {
-            values = tempValues;
+            CalibrationModel model = upperController.getModel();
+            model.stringValuesToFloat(temp, model.getCalibrationValues());
             JOptionPane.showMessageDialog(frame, "Calibration values loadded!", "Sucess", JOptionPane.INFORMATION_MESSAGE);
+            upperController.getView().getLoadedSettingLabel().setText(calibrationFileName);
         }
     }
 
@@ -123,4 +129,9 @@ public class FileFunctionsCalibration extends FileFunctions {
         }
         return true;
     }
+
+    public void stringValuesToFloat(String[][] values) {
+
+    }
+
 }
