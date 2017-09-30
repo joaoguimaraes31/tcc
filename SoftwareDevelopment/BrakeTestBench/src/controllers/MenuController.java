@@ -44,7 +44,6 @@ public class MenuController {
             public void actionPerformed(ActionEvent actionEvent) {
                 //System.out.println("load calibration files");
                 upperController.getCalibrationController().getFileFunctions().readingFromFile();
-
             }
         };
         menuBarBuilder.getLoadCalibrationMenuItem().addActionListener(aLloadCalibrationFile);
@@ -59,14 +58,14 @@ public class MenuController {
 
         aLLoadConfigFile = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                //System.out.println("save calibration files");
+                upperController.getConfigurationController().getFileFunctions().readingFromFile();
             }
         };
         menuBarBuilder.getLoadConfigurationMenuItem().addActionListener(aLLoadConfigFile);
 
         aLSaveConfigFile = new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                //System.out.println("save calibration files");
+                upperController.getConfigurationController().getFileFunctions().writtingToFileRoutine();
 
             }
         };

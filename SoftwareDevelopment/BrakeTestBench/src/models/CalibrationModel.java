@@ -1,5 +1,6 @@
 package models;
 
+import java.text.SimpleDateFormat;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
@@ -22,13 +23,13 @@ public class CalibrationModel {
     private boolean settingsLoadded = false;
 
     //Strings for file functions
-    private String descriptors[] = {"Sensor", "Status", "Conv.Factor", "Offset"};
+    private final String descriptors[] = {"Sensor", "Status", "Conv.Factor", "Offset"};
     private float calibrationValues[][] = {{1, 1, 1, 1, 1, 1}, {0, 0, 0, 0, 0, 0}};
 
-    private String header = "Braketestbench Calibration Settings\nDateModified";
-    private String calibrationFileName = "BrakeTestBench.cfg";
-    private String dateFormat = "yyyy/MM/dd HH:mm:ss";
-    private FileNameExtensionFilter filter = new FileNameExtensionFilter("BrakeTestBench Configuration Files (.cfg)", "cfg");
+    private final String header = "Braketestbench Calibration Settings\nDate Modified ";
+    private final String calibrationFileName = "BTF-calibration.cfg";
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    private final FileNameExtensionFilter filter = new FileNameExtensionFilter("BrakeTestBench Configuration Files (.cfg)", "cfg");
     private int headerSize = 2;
 
     //conversionFormulas
@@ -118,10 +119,10 @@ public class CalibrationModel {
         return calibrationFileName;
     }
 
-    public String getDateFormat() {
+    public SimpleDateFormat getDateFormat() {
         return dateFormat;
     }
-
+    
     public FileNameExtensionFilter getFilter() {
         return filter;
     }

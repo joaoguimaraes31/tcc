@@ -6,8 +6,6 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
-import javax.swing.SpinnerModel;
-import javax.swing.SpinnerNumberModel;
 import javax.swing.event.EventListenerList;
 import javax.swing.plaf.ComponentUI;
 import models.ConfigurationModel;
@@ -17,14 +15,14 @@ public class ConfigurationPanel extends javax.swing.JPanel {
     //MVC
     private ConfigurationController controller;
     private ConfigurationModel model;
-            
+
     public ConfigurationPanel() {
         initComponents();
     }
-    
-    public ConfigurationPanel(ConfigurationController controller){
-        this.controller=controller;
-        this.model=controller.getModel();
+
+    public ConfigurationPanel(ConfigurationController controller) {
+        this.controller = controller;
+        this.model = controller.getModel();
         initComponents();
     }
 
@@ -48,11 +46,11 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         configurationDefaultButton = new javax.swing.JButton();
         configurationFileFLabel = new javax.swing.JLabel();
         configurationFileLabel = new javax.swing.JLabel();
-        setButton = new javax.swing.JButton();
         outputPanel = new javax.swing.JPanel();
         directoryFLabel = new javax.swing.JLabel();
         directoryLabel = new javax.swing.JLabel();
         chooseOutputButton = new javax.swing.JButton();
+        defaultOutputButton = new javax.swing.JButton();
         regulationPanel = new javax.swing.JPanel();
         testRegulationFLabel = new javax.swing.JLabel();
         regulationFileLabel = new javax.swing.JLabel();
@@ -90,9 +88,6 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         configurationFileLabel.setText("default");
         configurationFileLabel.setOpaque(true);
 
-        setButton.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
-        setButton.setText("Set");
-
         javax.swing.GroupLayout testConfigurationPanelLayout = new javax.swing.GroupLayout(testConfigurationPanel);
         testConfigurationPanel.setLayout(testConfigurationPanelLayout);
         testConfigurationPanelLayout.setHorizontalGroup(
@@ -101,43 +96,40 @@ public class ConfigurationPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, testConfigurationPanelLayout.createSequentialGroup()
-                        .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cyclesTimeFLabel)
-                            .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(cyclesTimeSpinner, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
-                                .addComponent(numberOfCyclesFLabel)
-                                .addComponent(numberOfCyclesSpinner)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lowerLimitFLabel)
-                            .addComponent(upperLimitFLabel)
-                            .addComponent(upperLimitSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lowerLimitSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(93, 93, 93)
                         .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(waitUpperTimeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(waitUpperTimeFLabel)
-                            .addComponent(waitLowerTimeFLabel)
-                            .addComponent(waitLowerTimeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(testConfigurationPanelLayout.createSequentialGroup()
+                                .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cyclesTimeFLabel)
+                                    .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(cyclesTimeSpinner, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                                        .addComponent(numberOfCyclesFLabel)
+                                        .addComponent(numberOfCyclesSpinner)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lowerLimitFLabel)
+                                    .addComponent(upperLimitFLabel)
+                                    .addComponent(upperLimitSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lowerLimitSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(93, 93, 93)
+                                .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(waitUpperTimeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(waitUpperTimeFLabel)
+                                    .addComponent(waitLowerTimeFLabel)
+                                    .addComponent(waitLowerTimeSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(testConfigurationPanelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(configurationDefaultButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(83, 83, 83))
                     .addGroup(testConfigurationPanelLayout.createSequentialGroup()
                         .addComponent(configurationFileFLabel)
                         .addGap(18, 18, 18)
                         .addComponent(configurationFileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(testConfigurationPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(configurationDefaultButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(setButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
         );
         testConfigurationPanelLayout.setVerticalGroup(
             testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, testConfigurationPanelLayout.createSequentialGroup()
-                .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(configurationDefaultButton)
-                    .addComponent(setButton))
+                .addComponent(configurationDefaultButton)
                 .addGap(32, 32, 32)
                 .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numberOfCyclesFLabel)
@@ -178,6 +170,9 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         chooseOutputButton.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
         chooseOutputButton.setText("Choose");
 
+        defaultOutputButton.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
+        defaultOutputButton.setText("Default");
+
         javax.swing.GroupLayout outputPanelLayout = new javax.swing.GroupLayout(outputPanel);
         outputPanel.setLayout(outputPanelLayout);
         outputPanelLayout.setHorizontalGroup(
@@ -185,19 +180,26 @@ public class ConfigurationPanel extends javax.swing.JPanel {
             .addGroup(outputPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(outputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(directoryFLabel)
                     .addGroup(outputPanelLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(directoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(chooseOutputButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(directoryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(directoryFLabel))
+                .addGap(18, 18, 18)
+                .addGroup(outputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(chooseOutputButton, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                    .addComponent(defaultOutputButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
         outputPanelLayout.setVerticalGroup(
             outputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(outputPanelLayout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(directoryFLabel)
+                .addGroup(outputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(outputPanelLayout.createSequentialGroup()
+                        .addContainerGap(18, Short.MAX_VALUE)
+                        .addComponent(directoryFLabel))
+                    .addGroup(outputPanelLayout.createSequentialGroup()
+                        .addComponent(defaultOutputButton)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(outputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(directoryLabel)
@@ -286,6 +288,7 @@ public class ConfigurationPanel extends javax.swing.JPanel {
     private javax.swing.JLabel configurationFileLabel;
     private javax.swing.JLabel cyclesTimeFLabel;
     private javax.swing.JSpinner cyclesTimeSpinner;
+    private javax.swing.JButton defaultOutputButton;
     private javax.swing.JLabel directoryFLabel;
     private javax.swing.JLabel directoryLabel;
     private javax.swing.JLabel lowerLimitFLabel;
@@ -295,7 +298,6 @@ public class ConfigurationPanel extends javax.swing.JPanel {
     private javax.swing.JPanel outputPanel;
     private javax.swing.JLabel regulationFileLabel;
     private javax.swing.JPanel regulationPanel;
-    private javax.swing.JButton setButton;
     private javax.swing.JPanel testConfigurationPanel;
     private javax.swing.JLabel testRegulationFLabel;
     private javax.swing.JLabel upperLimitFLabel;
@@ -410,99 +412,11 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         return waitUpperTimeSpinner;
     }
 
-    public ComponentUI getUi() {
-        return ui;
-    }
-
-    public EventListenerList getListenerList() {
-        return listenerList;
-    }
-
-    public static int getWHEN_FOCUSED() {
-        return WHEN_FOCUSED;
-    }
-
-    public static int getWHEN_ANCESTOR_OF_FOCUSED_COMPONENT() {
-        return WHEN_ANCESTOR_OF_FOCUSED_COMPONENT;
-    }
-
-    public static int getWHEN_IN_FOCUSED_WINDOW() {
-        return WHEN_IN_FOCUSED_WINDOW;
-    }
-
-    public static int getUNDEFINED_CONDITION() {
-        return UNDEFINED_CONDITION;
-    }
-
-    public static String getTOOL_TIP_TEXT_KEY() {
-        return TOOL_TIP_TEXT_KEY;
-    }
-
-    public static float getTOP_ALIGNMENT() {
-        return TOP_ALIGNMENT;
-    }
-
-    public static float getCENTER_ALIGNMENT() {
-        return CENTER_ALIGNMENT;
-    }
-
-    public static float getBOTTOM_ALIGNMENT() {
-        return BOTTOM_ALIGNMENT;
-    }
-
-    public static float getLEFT_ALIGNMENT() {
-        return LEFT_ALIGNMENT;
-    }
-
-    public static float getRIGHT_ALIGNMENT() {
-        return RIGHT_ALIGNMENT;
-    }
-
-    public AccessibleContext getAccessibleContext() {
-        return accessibleContext;
-    }
-
-    public static int getWIDTH() {
-        return WIDTH;
-    }
-
-    public static int getHEIGHT() {
-        return HEIGHT;
-    }
-
-    public static int getPROPERTIES() {
-        return PROPERTIES;
-    }
-
-    public static int getSOMEBITS() {
-        return SOMEBITS;
-    }
-
-    public static int getFRAMEBITS() {
-        return FRAMEBITS;
-    }
-
-    public static int getALLBITS() {
-        return ALLBITS;
-    }
-
-    public static int getERROR() {
-        return ERROR;
-    }
-
-    public static int getABORT() {
-        return ABORT;
+    public JButton getDefaultOutputButton() {
+        return defaultOutputButton;
     }
 
     public JButton getChooseOutputButton() {
         return chooseOutputButton;
     }
-
-    public JButton getSetButton() {
-        return setButton;
-    }
-
-
-    
-
 }

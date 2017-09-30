@@ -4,7 +4,6 @@ import controllers.CalibrationController;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -14,12 +13,12 @@ import models.CalibrationModel;
 public class FileFunctionsCalibration extends FileFunctions {
 
     private String[] descriptors;
-    private String[][] sensorValues,temp;
+    private String[][] sensorValues, temp;
     private String header;
     private String calibrationFileName;
     //private float[][] calibrationValues;
     private int headerSize;
-    private DateFormat dateFormat;
+    private SimpleDateFormat dateFormat;
     private CalibrationController upperController;
     private double[][] limitValues;
 
@@ -29,23 +28,23 @@ public class FileFunctionsCalibration extends FileFunctions {
 
     public FileFunctionsCalibration(CalibrationController upperController) {
         super(upperController.getModel().getCalibrationFileName(), upperController.getModel().getFilter());
-        this.upperController=upperController;
+        this.upperController = upperController;
         CalibrationModel model = upperController.getModel();
         this.descriptors = model.getDescriptors();
         this.header = model.getHeader();
         this.headerSize = model.getHeaderSize();
         this.calibrationFileName = model.getCalibrationFileName();
-        this.dateFormat = new SimpleDateFormat(model.getDateFormat());
+        this.dateFormat = model.getDateFormat();
         //this.calibrationValues = model.getCalibrationValues();
         this.sensorValues = model.getSENSOR_VALUES();
         this.temp = model.getSENSOR_VALUES();
         this.limitValues = model.getSPINNERS_RANGE();
-        model.floatValuesToString(this.sensorValues,model.getCalibrationValues());
+        model.floatValuesToString(this.sensorValues, model.getCalibrationValues());
     }
 
     @Override
     public void writingLogic(PrintWriter file) {
-        int maxSize = matrixMaxMemberLength(sensorValues);
+        int maxSize = arrayMaxMemberLength(sensorValues);
         file.println(header + dateFormat.format(getDate()) + "\n");
         for (int i = 0; i < sensorValues[0].length; i++) {
             for (int j = 0; j < descriptors.length; j++) {
@@ -82,8 +81,10 @@ public class FileFunctionsCalibration extends FileFunctions {
             checkAcquiredValues(parametersNumber);
         } else {
             JFrame frame = null;
-            JOptionPane.showMessageDialog(frame, "Invalid file format 2", "File corrupted", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(frame, "Invalid file format", "File corrupted", JOptionPane.ERROR_MESSAGE);
             upperController.resetCalibrationValues();
+            upperController.getModel().setSettingsLoadded(false);
+            upperController.getView().getLoadedSettingLabel().setText("none");
             readingFromFile();
         }
     }
@@ -112,6 +113,8 @@ public class FileFunctionsCalibration extends FileFunctions {
         if (fileCorrupted) {
             JOptionPane.showMessageDialog(frame, "Invalid file format", "File corrupted", JOptionPane.ERROR_MESSAGE);
             upperController.resetCalibrationValues();
+            upperController.getModel().setSettingsLoadded(false);
+            upperController.getView().getLoadedSettingLabel().setText("none");
             readingFromFile();
         } else {
             CalibrationModel model = upperController.getModel();
@@ -120,19 +123,6 @@ public class FileFunctionsCalibration extends FileFunctions {
             upperController.getModel().setSettingsLoadded(true);
             upperController.getView().getLoadedSettingLabel().setText(calibrationFileName);
         }
-    }
-
-    public static boolean isNumeric(String str) {
-        try {
-            double d = Double.parseDouble(str);
-        } catch (NumberFormatException nfe) {
-            return false;
-        }
-        return true;
-    }
-
-    public void stringValuesToFloat(String[][] values) {
-
     }
 
 }

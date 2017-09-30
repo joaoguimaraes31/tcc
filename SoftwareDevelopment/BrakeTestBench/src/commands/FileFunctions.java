@@ -30,9 +30,7 @@ public class FileFunctions {
             JFileChooser chooser = new JFileChooser();
             chooser.setDialogTitle("Select Configuration File Directory");
             chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-            int result = chooser.showSaveDialog(null);
-
-            if (result == chooser.APPROVE_OPTION) {
+            if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
                 PrintWriter file = new PrintWriter(new File(chooser.getSelectedFile(), fileName));
 
                 writingLogic(file);
@@ -85,12 +83,22 @@ public class FileFunctions {
         return out;
     }
 
-    public int matrixMaxMemberLength(String[][] matrix) {
+    public int arrayMaxMemberLength(String[] array) {
         int maxSize = 0;
-        for (int i = 0; i < matrix.length; i++) {
-            for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j].length() > maxSize) {
-                    maxSize = matrix[i][j].length();
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].length() > maxSize) {
+                maxSize = array[i].length();
+            }
+        }
+        return maxSize;
+    }
+
+    public int arrayMaxMemberLength(String[][] array) {
+        int maxSize = 0;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j].length() > maxSize) {
+                    maxSize = array[i][j].length();
                 }
             }
         }
@@ -115,6 +123,15 @@ public class FileFunctions {
             JOptionPane.showMessageDialog(frame, "Invalid file format", "File corrupted", JOptionPane.ERROR_MESSAGE);
             readingFromFile();
         }
+    }
+
+    public static boolean isNumeric(String str) {
+        try {
+            double d = Double.parseDouble(str);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+        return true;
     }
 
     public String getFileName() {
