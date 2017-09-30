@@ -14,6 +14,7 @@ public class ConfigurationModel {
     private final String TEST_REGULARION_FILE_NAME = "none";
     private final String TEST_CONFIGURATION_FILE_NAME = "none";
     private final String DIRECTORY_NAME = "none";
+    private final int SPINNERS_DEFAULT_VALUE[] = {0, 0, 0, 0, 0, 0};
 
     //Variables
     private String testRegulationFileName = "none";
@@ -73,6 +74,10 @@ public class ConfigurationModel {
 
     public double[] getValues() {
         return values;
+    }
+
+    public int[] getSPINNERS_DEFAULT_VALUE() {
+        return SPINNERS_DEFAULT_VALUE;
     }
 
     public void setTestRegulationFileName(String testRegulationFileName) {

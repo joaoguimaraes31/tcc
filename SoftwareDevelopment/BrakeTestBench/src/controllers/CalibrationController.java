@@ -118,17 +118,32 @@ public class CalibrationController {
         model.setSettingsLoadded(false);
         view.getLoadedSettingLabel().setText("default");
         float values[] = {1, 0};
-        for(int i=0;i<model.getCalibrationValues().length;i++){
-            for(int j=0;j<model.getCalibrationValues()[0].length;j++){
-                model.getCalibrationValues()[i][j]=values[i];
+        boolean differ = false;
+
+        for (int i = 0; i < model.getCalibrationValues().length; i++) {
+            for (int j = 0; j < model.getCalibrationValues()[0].length; j++) {
+                if (values[i] != model.getCalibrationValues()[i][j]) {
+                    differ = true;
+                }
             }
         }
+
         view.getFactorSpinner().setValue(values[0]);
         view.getOffsetSpinner().setValue(values[1]);
         model.setCurrentCalibration(values);
         model.setPreviousCalibration(values);
-        JFrame frame=null;
-        JOptionPane.showMessageDialog(frame, "Calibration values reset to default", "Sucess", JOptionPane.INFORMATION_MESSAGE);
+
+        if (differ) {
+
+            for (int i = 0; i < model.getCalibrationValues().length; i++) {
+                for (int j = 0; j < model.getCalibrationValues()[0].length; j++) {
+                    model.getCalibrationValues()[i][j] = values[i];
+                }
+            }
+            JFrame frame = null;
+            JOptionPane.showMessageDialog(frame, "Calibration values reset to default", "Sucess", JOptionPane.INFORMATION_MESSAGE);
+        }
+
     }
 
     public void checkIfPreviousCalibration() {

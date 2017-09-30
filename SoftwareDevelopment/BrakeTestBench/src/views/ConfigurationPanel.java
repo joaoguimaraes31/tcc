@@ -47,7 +47,8 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         cyclesTimeFLabel = new javax.swing.JLabel();
         configurationDefaultButton = new javax.swing.JButton();
         configurationFileFLabel = new javax.swing.JLabel();
-        regulationFileLabel1 = new javax.swing.JLabel();
+        configurationFileLabel = new javax.swing.JLabel();
+        setButton = new javax.swing.JButton();
         outputPanel = new javax.swing.JPanel();
         directoryFLabel = new javax.swing.JLabel();
         directoryLabel = new javax.swing.JLabel();
@@ -84,19 +85,18 @@ public class ConfigurationPanel extends javax.swing.JPanel {
 
         configurationFileFLabel.setText("Configuration File:");
 
-        regulationFileLabel1.setBackground(java.awt.Color.white);
-        regulationFileLabel1.setFont(new java.awt.Font("Ubuntu", 0, 16)); // NOI18N
-        regulationFileLabel1.setText("none");
-        regulationFileLabel1.setOpaque(true);
+        configurationFileLabel.setBackground(java.awt.Color.white);
+        configurationFileLabel.setFont(new java.awt.Font("Ubuntu", 0, 16)); // NOI18N
+        configurationFileLabel.setText("default");
+        configurationFileLabel.setOpaque(true);
+
+        setButton.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
+        setButton.setText("Set");
 
         javax.swing.GroupLayout testConfigurationPanelLayout = new javax.swing.GroupLayout(testConfigurationPanel);
         testConfigurationPanel.setLayout(testConfigurationPanelLayout);
         testConfigurationPanelLayout.setHorizontalGroup(
             testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, testConfigurationPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(configurationDefaultButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
             .addGroup(testConfigurationPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -123,13 +123,21 @@ public class ConfigurationPanel extends javax.swing.JPanel {
                     .addGroup(testConfigurationPanelLayout.createSequentialGroup()
                         .addComponent(configurationFileFLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(regulationFileLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(configurationFileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(testConfigurationPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(configurationDefaultButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(setButton, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         testConfigurationPanelLayout.setVerticalGroup(
             testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, testConfigurationPanelLayout.createSequentialGroup()
-                .addComponent(configurationDefaultButton)
+                .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(configurationDefaultButton)
+                    .addComponent(setButton))
                 .addGap(32, 32, 32)
                 .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(numberOfCyclesFLabel)
@@ -153,7 +161,7 @@ public class ConfigurationPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(testConfigurationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(configurationFileFLabel)
-                    .addComponent(regulationFileLabel1))
+                    .addComponent(configurationFileLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -164,7 +172,7 @@ public class ConfigurationPanel extends javax.swing.JPanel {
 
         directoryLabel.setBackground(java.awt.Color.white);
         directoryLabel.setFont(new java.awt.Font("Ubuntu", 0, 16)); // NOI18N
-        directoryLabel.setText("none");
+        directoryLabel.setText("default");
         directoryLabel.setOpaque(true);
 
         chooseOutputButton.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
@@ -198,17 +206,21 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         );
 
         regulationPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Regulation", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 18))); // NOI18N
+        regulationPanel.setEnabled(false);
 
         testRegulationFLabel.setFont(new java.awt.Font("Ubuntu", 0, 18)); // NOI18N
         testRegulationFLabel.setText("Test Regulation File");
+        testRegulationFLabel.setEnabled(false);
 
         regulationFileLabel.setBackground(java.awt.Color.white);
         regulationFileLabel.setFont(new java.awt.Font("Ubuntu", 0, 16)); // NOI18N
         regulationFileLabel.setText("none");
+        regulationFileLabel.setEnabled(false);
         regulationFileLabel.setOpaque(true);
 
         chooseRegulationButton.setFont(new java.awt.Font("Ubuntu", 0, 17)); // NOI18N
         chooseRegulationButton.setText("Choose");
+        chooseRegulationButton.setEnabled(false);
 
         javax.swing.GroupLayout regulationPanelLayout = new javax.swing.GroupLayout(regulationPanel);
         regulationPanel.setLayout(regulationPanelLayout);
@@ -271,6 +283,7 @@ public class ConfigurationPanel extends javax.swing.JPanel {
     private javax.swing.JButton chooseRegulationButton;
     private javax.swing.JButton configurationDefaultButton;
     private javax.swing.JLabel configurationFileFLabel;
+    private javax.swing.JLabel configurationFileLabel;
     private javax.swing.JLabel cyclesTimeFLabel;
     private javax.swing.JSpinner cyclesTimeSpinner;
     private javax.swing.JLabel directoryFLabel;
@@ -281,8 +294,8 @@ public class ConfigurationPanel extends javax.swing.JPanel {
     private javax.swing.JSpinner numberOfCyclesSpinner;
     private javax.swing.JPanel outputPanel;
     private javax.swing.JLabel regulationFileLabel;
-    private javax.swing.JLabel regulationFileLabel1;
     private javax.swing.JPanel regulationPanel;
+    private javax.swing.JButton setButton;
     private javax.swing.JPanel testConfigurationPanel;
     private javax.swing.JLabel testRegulationFLabel;
     private javax.swing.JLabel upperLimitFLabel;
@@ -357,8 +370,8 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         return regulationFileLabel;
     }
 
-    public JLabel getRegulationFileLabel1() {
-        return regulationFileLabel1;
+    public JLabel getConfigurationFileLabel() {
+        return configurationFileLabel;
     }
 
     public JPanel getRegulationPanel() {
@@ -485,7 +498,11 @@ public class ConfigurationPanel extends javax.swing.JPanel {
         return chooseOutputButton;
     }
 
+    public JButton getSetButton() {
+        return setButton;
+    }
 
 
+    
 
 }

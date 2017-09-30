@@ -98,6 +98,7 @@ public class ApplicationFrame extends javax.swing.JFrame {
         });
 
         braketestToggleButton.setText("Braketest");
+        braketestToggleButton.setEnabled(false);
         braketestToggleButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 braketestToggleButtonActionPerformed(evt);
