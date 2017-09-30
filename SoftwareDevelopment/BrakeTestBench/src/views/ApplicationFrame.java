@@ -32,6 +32,8 @@ public class ApplicationFrame extends javax.swing.JFrame {
         calibrationPanel = controller.getCalibrationController().getView();
         configurationPanel = controller.getConfigurationController().getView();
         braketestPanel = controller.getBraketestController().getView();
+        appMenuBar = controller.getMenuController().getView();
+        setJMenuBar(appMenuBar);
         DynamicPanel.setLayout(layout);
         GridBagConstraints c = new GridBagConstraints();
         c.gridx = 0;
@@ -56,14 +58,7 @@ public class ApplicationFrame extends javax.swing.JFrame {
         calibrationToggleButton = new javax.swing.JToggleButton();
         braketestToggleButton = new javax.swing.JToggleButton();
         DynamicPanel = new javax.swing.JPanel();
-        menuBar = new javax.swing.JMenuBar();
-        menuFile = new javax.swing.JMenu();
-        menuItemOpenCalibrationFile = new javax.swing.JMenuItem();
-        menuItemSaveCalibrationFile = new javax.swing.JMenuItem();
-        menuItemOpenConfigurationFile = new javax.swing.JMenuItem();
-        menuSaveConfiguration = new javax.swing.JMenuItem();
-        menuItemExit = new javax.swing.JMenuItem();
-        menuHelp = new javax.swing.JMenu();
+        appMenuBar = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(800, 600));
@@ -146,34 +141,7 @@ public class ApplicationFrame extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        menuFile.setText("File");
-
-        menuItemOpenCalibrationFile.setText("Open Calibration File");
-        menuFile.add(menuItemOpenCalibrationFile);
-
-        menuItemSaveCalibrationFile.setText("Save Calibration File");
-        menuFile.add(menuItemSaveCalibrationFile);
-
-        menuItemOpenConfigurationFile.setText("Open Configuration File");
-        menuFile.add(menuItemOpenConfigurationFile);
-
-        menuSaveConfiguration.setText("Save Configuration File");
-        menuFile.add(menuSaveConfiguration);
-
-        menuItemExit.setText("Exit");
-        menuItemExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuItemExitActionPerformed(evt);
-            }
-        });
-        menuFile.add(menuItemExit);
-
-        menuBar.add(menuFile);
-
-        menuHelp.setText("Help");
-        menuBar.add(menuHelp);
-
-        setJMenuBar(menuBar);
+        setJMenuBar(appMenuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -198,10 +166,6 @@ public class ApplicationFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void menuItemExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemExitActionPerformed
-        
-    }//GEN-LAST:event_menuItemExitActionPerformed
 
     private void serialPortsToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serialPortsToggleButtonActionPerformed
         deselectButtonsPannels();
@@ -269,19 +233,12 @@ public class ApplicationFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel DynamicPanel;
+    private javax.swing.JMenuBar appMenuBar;
     private javax.swing.JToggleButton b2;
     private javax.swing.JToggleButton braketestToggleButton;
     private javax.swing.JToggleButton calibrationToggleButton;
     private javax.swing.JToggleButton configuraitonToggleButton;
-    private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenu menuFile;
-    private javax.swing.JMenu menuHelp;
-    private javax.swing.JMenuItem menuItemExit;
-    private javax.swing.JMenuItem menuItemOpenCalibrationFile;
-    private javax.swing.JMenuItem menuItemOpenConfigurationFile;
-    private javax.swing.JMenuItem menuItemSaveCalibrationFile;
     private javax.swing.JPanel menuPanel;
-    private javax.swing.JMenuItem menuSaveConfiguration;
     private javax.swing.JToggleButton serialPortsToggleButton;
     // End of variables declaration//GEN-END:variables
 
@@ -303,17 +260,4 @@ public class ApplicationFrame extends javax.swing.JFrame {
     public CalibrationPanel getCalibrationPanel() {
         return calibrationPanel;
     }
-
-    public JMenuItem getMenuItemExit() {
-        return menuItemExit;
-    }
-
-    public JMenuItem getMenuItemOpenCalibrationFile() {
-        return menuItemOpenCalibrationFile;
-    }
-
-    public JMenuItem getMenuItemSaveCalibrationFile() {
-        return menuItemSaveCalibrationFile;
-    }
-
 }

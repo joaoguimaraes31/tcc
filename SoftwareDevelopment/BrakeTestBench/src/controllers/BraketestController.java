@@ -18,7 +18,6 @@ public class BraketestController {
     //Builders
     
     //Constructor
-    
     public BraketestController(NavigationController upperController) {
         this.upperController = upperController;
                 model = new BraketestModel();

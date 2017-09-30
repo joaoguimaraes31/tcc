@@ -13,20 +13,19 @@ public class NavigationController {
     private CalibrationControllerBuilder calibrationControllerBuilder;
     private ConfigurationControllerBuilder configurationControllerBuilder;
     private BraketestControllerBuilder braketestControllerBuilder;
+    private MenuControllerBuilder menuControllerBuilder;
 
     //Lower controllers
     private SerialPortSetupController serialPortSetupController;
     private CalibrationController calibrationController;
     private ConfigurationController configurationController;
     private BraketestController braketestController;
+    private MenuController menuController;
     
     //MVC
     private ApplicationFrame view;
     private NavigationModel model;
     
-    //ActionListeners
-    private ActionListener aLloadCalibrationFile, aLsaveCalibrationFile,aLexit;//System.exit(0);
-
     public NavigationController() {
 
         ///MVC
@@ -48,42 +47,17 @@ public class NavigationController {
         ///Subsystem Braketest
         braketestControllerBuilder = new BraketestControllerBuilder(this);
         braketestController = braketestControllerBuilder.getController();
+        
+        ///Subsystem menu
+        menuControllerBuilder =  new MenuControllerBuilder(this);
+        menuController = menuControllerBuilder.getController();
+        
      
         ////MVC
         view = new ApplicationFrame(this);
         
         
         view.setVisible(true);
-        addListeners();
-    }
-    
-    public void addListeners(){
-        aLexit= new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-               if (calibrationController.getCommunicator().isConnected()){
-                   calibrationController.getCommunicator().disconnect();
-               }
-               System.exit(0);
-            }
-        };
-        view.getMenuItemExit().addActionListener(aLexit);
-        
-        aLloadCalibrationFile= new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-              //System.out.println("load calibration files");
-              calibrationController.getFileFunctions().readingFromFile();
-              
-            }
-        };
-        view.getMenuItemOpenCalibrationFile().addActionListener(aLloadCalibrationFile);
-        
-        aLsaveCalibrationFile= new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-                //System.out.println("save calibration files");
-                calibrationController.getFileFunctions().writtingToFileRoutine();
-            }
-        };
-        view.getMenuItemSaveCalibrationFile().addActionListener(aLsaveCalibrationFile);
     }
     
     //Getters
@@ -109,6 +83,10 @@ public class NavigationController {
 
     public BraketestController getBraketestController() {
         return braketestController;
+    }
+
+    public MenuController getMenuController() {
+        return menuController;
     }
     
     

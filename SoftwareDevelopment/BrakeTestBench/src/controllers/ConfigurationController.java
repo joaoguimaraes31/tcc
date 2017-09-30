@@ -18,6 +18,7 @@ public class ConfigurationController {
 
     //Commands
     //Builders
+    
     //ActionListeners
     private ActionListener aLchooseReg, aLDefault, aLchooseOutputDir, aLset;
 
@@ -94,7 +95,11 @@ public class ConfigurationController {
         };
         view.getSetButton().addActionListener(aLset);
     }
-
+    
+    
+    
+    
+    ///Getters and Setters
     public ConfigurationModel getModel() {
         return model;
     }

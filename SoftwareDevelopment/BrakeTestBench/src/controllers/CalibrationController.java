@@ -27,7 +27,7 @@ public class CalibrationController {
     private FileFunctionsCalibrationBuilder fileFunctionsCalibrationBuilder;
 
     //ActionListeners
-    private ActionListener aLstart, aLstop, aLupdate, aLReset;
+    private ActionListener aLstart, aLstop, aLupdate, aLReset,aL;
 
     //Constructor
     public CalibrationController(NavigationController navigationController) {
@@ -53,7 +53,7 @@ public class CalibrationController {
                 //If sucessful
                 if (communicator.isConnected()) {
                     //navigation controller view
-                    navigationController.getView().getMenuItemOpenCalibrationFile().setEnabled(false);
+                    navigationController.getView().getMenuBar().get.setEnabled(false);
                     navigationController.getView().getMenuItemSaveCalibrationFile().setEnabled(false);
 
                     //geting calibration data from model
