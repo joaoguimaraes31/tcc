@@ -27,7 +27,7 @@ public class CalibrationController {
     private FileFunctionsCalibrationBuilder fileFunctionsCalibrationBuilder;
 
     //ActionListeners
-    private ActionListener aLstart, aLstop, aLupdate, aLReset,aL;
+    private ActionListener aLstart, aLstop, aLupdate, aLReset, aL;
 
     //Constructor
     public CalibrationController(NavigationController navigationController) {
@@ -53,8 +53,8 @@ public class CalibrationController {
                 //If sucessful
                 if (communicator.isConnected()) {
                     //navigation controller view
-                    navigationController.getView().getMenuBar().get.setEnabled(false);
-                    navigationController.getView().getMenuItemSaveCalibrationFile().setEnabled(false);
+                    navigationController.getMenuController().getMenuBarBuilder().getLoadCalibrationMenuItem().setEnabled(false);
+                    navigationController.getMenuController().getMenuBarBuilder().getSaveCalibrationMenuItem().setEnabled(false);
 
                     //geting calibration data from model
                     model.getCurrentCalibration()[0] = model.getCalibrationValues()[0][view.getSensorComboBox().getSelectedIndex()];
@@ -77,8 +77,8 @@ public class CalibrationController {
             public void actionPerformed(ActionEvent actionEvent) {
 
                 //navigation controller view
-                navigationController.getView().getMenuItemOpenCalibrationFile().setEnabled(true);
-                navigationController.getView().getMenuItemSaveCalibrationFile().setEnabled(true);
+                navigationController.getMenuController().getMenuBarBuilder().getLoadCalibrationMenuItem().setEnabled(true);
+                navigationController.getMenuController().getMenuBarBuilder().getSaveCalibrationMenuItem().setEnabled(true);
 
                 //LED response
                 LedBlinker ledBlinker = new LedBlinker(communicator);

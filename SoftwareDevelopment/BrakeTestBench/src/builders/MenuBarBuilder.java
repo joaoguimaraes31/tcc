@@ -1,10 +1,13 @@
-package views;
+package builders;
 
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public class MenuBar extends JMenuBar {
+public class MenuBarBuilder{
+    
+    //Menu Bar
+    private JMenuBar menuBar;
     
     //Menu's
     private JMenu fileMenu;
@@ -15,17 +18,18 @@ public class MenuBar extends JMenuBar {
     private JMenuItem loadConfigurationMenuItem;
     private JMenuItem saveConfigurationMenuItem;
     private JMenuItem exitMenuItem;
-    String teste= "teste";
+    public String teste= "teste";
     
 
-    public MenuBar() {
+    public MenuBarBuilder() {
+        menuBar=new JMenuBar();
         fileMenu=new JMenu();
         fileMenu.setText("File");
-        this.add(fileMenu);
+        menuBar.add(fileMenu);
         
         helpMenu=new JMenu();
         helpMenu.setText("Help");
-        this.add(helpMenu);
+        menuBar.add(helpMenu);
         
         loadCalibrationMenuItem = new JMenuItem();
         loadCalibrationMenuItem.setText("Load Calibration Settings");
@@ -47,14 +51,13 @@ public class MenuBar extends JMenuBar {
         exitMenuItem.setText("Exit");
         fileMenu.add(exitMenuItem);
     }
-    
-    //Getters
-    public JMenu getFileMenu() {
-        return fileMenu;
+
+    public JMenuBar getView() {
+        return menuBar;
     }
 
-    public JMenu getHelpMenu() {
-        return helpMenu;
+    public JMenuBar getMenuBar() {
+        return menuBar;
     }
 
     public JMenuItem getLoadCalibrationMenuItem() {
@@ -76,11 +79,10 @@ public class MenuBar extends JMenuBar {
     public JMenuItem getExitMenuItem() {
         return exitMenuItem;
     }
-    
-    public void teste(){
-        
+
+    public String getTeste() {
+        return teste;
     }
-    
     
     
 }
