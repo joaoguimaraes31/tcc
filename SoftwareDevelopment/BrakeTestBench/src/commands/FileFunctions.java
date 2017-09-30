@@ -14,15 +14,13 @@ import javax.swing.filechooser.FileSystemView;
 
 public class FileFunctions {
 
-    private String fileName;
-
-    private final Date date;
+    public String inputFileName,outputFileName,outputFilePath;
+    private Date date;
     private FileNameExtensionFilter filter;
 
-    public FileFunctions(String fileName, FileNameExtensionFilter filter) {
-        this.fileName = fileName;
+    public FileFunctions(String outputFileName, FileNameExtensionFilter filter) {
+        this.outputFileName = outputFileName;
         this.filter = filter;
-        date = new Date();
     }
 
     public void writtingToFileRoutine() {
@@ -31,8 +29,10 @@ public class FileFunctions {
             chooser.setDialogTitle("Select Configuration File Directory");
             chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
             if (chooser.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-                PrintWriter file = new PrintWriter(new File(chooser.getSelectedFile(), fileName));
-
+                outputFilePath=chooser.getSelectedFile().getAbsoluteFile().toString();
+                date = new Date();
+                PrintWriter file = new PrintWriter(new File(chooser.getSelectedFile(), outputFileName));
+                
                 writingLogic(file);
 
                 file.close();
@@ -54,7 +54,7 @@ public class FileFunctions {
 
             int returnValue = jfc.showOpenDialog(null);
             if (returnValue == JFileChooser.APPROVE_OPTION) {
-                System.out.println(jfc.getSelectedFile().getPath());
+                inputFileName=jfc.getSelectedFile().getAbsoluteFile().toString();
 
                 FileReader inputFile = new FileReader(jfc.getSelectedFile().getPath());
                 BufferedReader bRead = new BufferedReader(inputFile);
@@ -132,10 +132,6 @@ public class FileFunctions {
             return false;
         }
         return true;
-    }
-
-    public String getFileName() {
-        return fileName;
     }
 
     public Date getDate() {

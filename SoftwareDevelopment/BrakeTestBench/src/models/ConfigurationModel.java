@@ -25,10 +25,10 @@ public class ConfigurationModel {
 
     //Writing to file constants
     private final String HEADER = "Braketestbench Configuration Settings\nDate Modified ";
-    private final String CALIBRATION_FILE_NAME = "BTF-Settings.cfg";
+    private final String CONFIGURATION_FILE_NAME = "BTF-Settings.cfg";
     private SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     private final FileNameExtensionFilter FILTER = new FileNameExtensionFilter("BrakeTestBench Configuration Files (.cfg)", "cfg");
-    private int headerSize = 2;
+    private final int HEADER_SIZE = 2;
     private final String DESCRIPTORS[] = {"Number of Cycles", "Time between cycles (ms)", "Upper limit (kph)", "Wait time (s)", "Lower limit (kph)", "Wait time (s)"};
 
     //Variables
@@ -126,8 +126,8 @@ public class ConfigurationModel {
         return HEADER;
     }
 
-    public String getCALIBRATION_FILE_NAME() {
-        return CALIBRATION_FILE_NAME;
+    public String getCONFIGURATION_FILE_NAME() {
+        return CONFIGURATION_FILE_NAME;
     }
 
     public SimpleDateFormat getDATE_FORMAT() {
@@ -138,8 +138,8 @@ public class ConfigurationModel {
         return FILTER;
     }
 
-    public int getHeaderSize() {
-        return headerSize;
+    public int getHEADER_SIZE() {
+        return HEADER_SIZE;
     }
 
     public String[] getDESCRIPTORS() {

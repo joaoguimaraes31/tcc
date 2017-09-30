@@ -52,27 +52,11 @@ public class ConfigurationController {
             public void actionPerformed(ActionEvent actionEvent) {
                 //set calibration data to model
                 boolean differ = false;
-                if (Integer.parseInt(view.getNumberOfCyclesSpinner().getValue().toString()) != model.getSP_DEF()[0]) {
-                    differ = true;
-                }
-                if (Integer.parseInt(view.getCyclesTimeSpinner().getValue().toString()) != model.getSP_DEF()[1]) {
-                    differ = true;
-                }
-                if (Integer.parseInt(view.getUpperLimitSpinner().getValue().toString()) != model.getSP_DEF()[2]) {
-                    differ = true;
-                }
-                if (Integer.parseInt(view.getWaitUpperTimeSpinner().getValue().toString()) != model.getSP_DEF()[3]) {
-                    differ = true;
-                }
-                if (Integer.parseInt(view.getLowerLimitSpinner().getValue().toString()) != model.getSP_DEF()[4]) {
-                    differ = true;
-                }
-                if (Integer.parseInt(view.getWaitUpperTimeSpinner().getValue().toString()) != model.getSP_DEF()[5]) {
+                if ((Double.parseDouble(view.getNumberOfCyclesSpinner().getValue().toString()) != model.getSP_DEF()[0]) | (Double.parseDouble(view.getCyclesTimeSpinner().getValue().toString()) != model.getSP_DEF()[1]) | (Double.parseDouble(view.getUpperLimitSpinner().getValue().toString()) != model.getSP_DEF()[2]) | (Double.parseDouble(view.getWaitUpperTimeSpinner().getValue().toString()) != model.getSP_DEF()[3]) | (Double.parseDouble(view.getLowerLimitSpinner().getValue().toString()) != model.getSP_DEF()[4]) | (Double.parseDouble(view.getWaitUpperTimeSpinner().getValue().toString()) != model.getSP_DEF()[5])) {
                     differ = true;
                 }
 
-                resetValuesInView();
-                updateValuesFromView();
+                resetValues();
 
                 if (differ) {
                     JFrame frame = null;
@@ -116,16 +100,23 @@ public class ConfigurationController {
             Double.parseDouble(view.getWaitUpperTimeSpinner().getValue().toString()),
             Double.parseDouble(view.getLowerLimitSpinner().getValue().toString()),
             Double.parseDouble(view.getWaitLowerTimeSpinner().getValue().toString())};
-        
+
         model.setValues(configurationValues);
     }
 
     public void updateValuesInView() {
 
+        view.getNumberOfCyclesSpinner().setValue(model.getValues()[0]);
+        view.getCyclesTimeSpinner().setValue(model.getValues()[1]);
+        view.getUpperLimitSpinner().setValue(model.getValues()[2]);
+        view.getWaitUpperTimeSpinner().setValue(model.getValues()[3]);
+        view.getLowerLimitSpinner().setValue(model.getValues()[4]);
+        view.getWaitLowerTimeSpinner().setValue(model.getValues()[5]);
     }
 
-    public void resetValuesInView() {
-
+    public void resetValues() {
+        model.setValues(model.getSP_DEF());
+        updateValuesInView();
     }
 
     ///Getters and Setters
