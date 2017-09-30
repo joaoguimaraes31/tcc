@@ -39,7 +39,6 @@ public class FileFunctionsConfiguration extends FileFunctions {
         }
         JFrame frame = null;
         JOptionPane.showMessageDialog(frame, "Calibration values written to file sucesfully", "Sucess", JOptionPane.INFORMATION_MESSAGE);
-        //String a = outputFileName+model.getCONFIGURATION_FILE_NAME();
         upperController.getView().getConfigurationFileLabel().setText(outputFilePath+outputFileName);
     }
 

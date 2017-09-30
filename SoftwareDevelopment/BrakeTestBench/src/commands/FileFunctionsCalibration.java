@@ -4,7 +4,6 @@ import controllers.CalibrationController;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -12,15 +11,11 @@ import models.CalibrationModel;
 
 public class FileFunctionsCalibration extends FileFunctions {
 
-    private String[] descriptors;
-    private String[][] sensorValues, temp;
-    private String header;
-    private String calibrationFileName;
-    //private float[][] calibrationValues;
-    private int headerSize;
-    private SimpleDateFormat dateFormat;
     private CalibrationController upperController;
-    private double[][] limitValues;
+    private CalibrationModel model;
+    
+    private String[][] sensorValues;
+    private String calibrationFileName;
 
     public FileFunctionsCalibration(String fileName, FileNameExtensionFilter filter) {
         super(fileName, filter);
@@ -29,26 +24,20 @@ public class FileFunctionsCalibration extends FileFunctions {
     public FileFunctionsCalibration(CalibrationController upperController) {
         super(upperController.getModel().getCalibrationFileName(), upperController.getModel().getFilter());
         this.upperController = upperController;
-        CalibrationModel model = upperController.getModel();
-        this.descriptors = model.getDescriptors();
-        this.header = model.getHeader();
-        this.headerSize = model.getHeaderSize();
+        model = upperController.getModel();
+        
         this.calibrationFileName = model.getCalibrationFileName();
-        this.dateFormat = model.getDateFormat();
-        //this.calibrationValues = model.getCalibrationValues();
         this.sensorValues = model.getSENSOR_VALUES();
-        this.temp = model.getSENSOR_VALUES();
-        this.limitValues = model.getSPINNERS_RANGE();
         model.floatValuesToString(this.sensorValues, model.getCalibrationValues());
     }
 
     @Override
     public void writingLogic(PrintWriter file) {
         int maxSize = arrayMaxMemberLength(sensorValues);
-        file.println(header + dateFormat.format(getDate()) + "\n");
+        file.println(model.getHeader() + model.getDateFormat().format(getDate()) + "\n");
         for (int i = 0; i < sensorValues[0].length; i++) {
-            for (int j = 0; j < descriptors.length; j++) {
-                file.print(descriptors[j] + "=" + sensorValues[j][i] + ";");
+            for (int j = 0; j < model.getDescriptors().length; j++) {
+                file.print(model.getDescriptors()[j] + "=" + sensorValues[j][i] + ";");
                 file.print(spacesString(-sensorValues[j][i].length() + maxSize + 3));
             }
             file.println();
@@ -56,10 +45,13 @@ public class FileFunctionsCalibration extends FileFunctions {
         }
         JFrame frame = null;
         JOptionPane.showMessageDialog(frame, "Calibration values written to file sucesfully", "Sucess", JOptionPane.INFORMATION_MESSAGE);
+        upperController.getView().getLoadedSettingLabel().setText(outputFilePath+outputFileName);
     }
 
     @Override
     public void readingLogic(BufferedReader bRead, int numberOfLines) throws IOException {
+        String temp[][] = model.getSENSOR_VALUES();
+        int headerSize = model.getHeaderSize();
         if (numberOfLines == (sensorValues[0].length + headerSize + 1)) {
             String str = "";
             int k = 0;
@@ -78,7 +70,7 @@ public class FileFunctionsCalibration extends FileFunctions {
                 }
                 k++;
             }
-            checkAcquiredValues(parametersNumber);
+            checkAcquiredValues(parametersNumber,temp);
         } else {
             JFrame frame = null;
             JOptionPane.showMessageDialog(frame, "Invalid file format", "File corrupted", JOptionPane.ERROR_MESSAGE);
@@ -89,7 +81,8 @@ public class FileFunctionsCalibration extends FileFunctions {
         }
     }
 
-    public void checkAcquiredValues(int parametersNumber) {
+    public void checkAcquiredValues(int parametersNumber,String[][] temp) {
+        double[][] limitValues = model.getSPINNERS_RANGE();
         boolean fileCorrupted = false;
         if (parametersNumber != sensorValues[0].length * sensorValues.length) {
             fileCorrupted = true;
@@ -121,7 +114,7 @@ public class FileFunctionsCalibration extends FileFunctions {
             model.stringValuesToFloat(temp, model.getCalibrationValues());
             JOptionPane.showMessageDialog(frame, "Calibration values loadded!", "Sucess", JOptionPane.INFORMATION_MESSAGE);
             upperController.getModel().setSettingsLoadded(true);
-            upperController.getView().getLoadedSettingLabel().setText(calibrationFileName);
+            upperController.getView().getLoadedSettingLabel().setText(inputFileName);
         }
     }
 
