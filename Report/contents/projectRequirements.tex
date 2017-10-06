@@ -1,0 +1,34 @@
+\chapter{Project Requirements}
+
+	\section{Functional Requirements of the Testbench}
+
+		According to the specification of the \textit{SAE J2522} and according to parameters considered to be important, some requirements for the testbench were defined.
+
+		\begin{enumerate}
+			\item Measure a braking pressure up to 16 MPa.
+			\item Apply a braking pressure of at least 300 kPa.
+			\item Measure temperatures up to 600 $^{\circ}$C
+			\item Measure temperatures with a minimal resolution of 7.5 $^{\circ}$C.
+			\item Accelerate the rotor to a speed up to 200 kph.
+			\item System most have a sampling rate of 50ms.
+			\item The system hardware most be able to operate under temperatures up to 40$^{\circ}$C.
+			\item System must two acquisition channels for temperature.
+			\item System must have at least one channel for braking pressure acquisition.
+			\item System must have a channel for vibration acquisition.
+			\item System must have at least two digital outputs to control relays.
+			\item System must have a channel for acquiring speed.
+			\item The system must work with real time acquisition.
+		\end{enumerate}
+		
+	\section{Software Requirements}
+		
+		\begin{enumerate}
+			\item System must have a sampling rate of 50 ms.
+			\item System must be able to monitor six analog channels at once.
+			\item System must be able to control the digital outputs and one analog output during acquisition without loosing the real time constrain.
+			\item The data acquired does not need to be shown to user in real time.
+			\item The software layer must be able to record the data of the test.
+			\item The software highest layer must have a friendly GUI, advanced electronic and simple programmable knowledge cannot be a requirement to operate the software.
+			\item Calibration of the sensors data must be easy to modify on the software.
+			\item Software must be multiplatform.
+		\end{enumerate}
