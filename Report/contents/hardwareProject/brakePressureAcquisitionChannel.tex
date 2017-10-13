@@ -1,58 +1,17 @@
 \section{Brake Pressure Acquisition Channel}
-			
-	\subsection{Brake Pressure Sensor}
+
+	A very influential parameter in a braking system is the pressure that the brake exerts on the rotor. Pressure is a magnitude measured in Pascal and can be expressed by the force ratio by the area. There are some sensors based on the piezoelectric effect, but the most accurate way to measure force is by using load cells.
+
+	Load cells have very low output levels, of the level of 2mV/V, and therefore an amplification is fundamental. It is not necessary to know the nature of the strain gauges when a load cell is being calibrated since generally the manufacturers provide a calibration curve based on the signals $V_{O}$ and $V_{EX}$ of the Figure \ref{fig-wheatstone}, it is worth noting that these signals can not have the same reference, otherwise it will not be possible to excite the wheatstone bridge correctly. 
+
+	The most common way to amplify the signal of a load cell is using a instrumentation amplifier. Although it is a widely used configuration, assembling this amplifier using three different operational amplifiers and seven resistors as in Figure \ref{fig-instrumentation-amplifier} may make it inaccurate due to manufacturing imperfections of the components. Another factor that greatly influences the output signal of a load cell is the excitation voltage of its wheatstone bridge, if it varies too much the output will vary greatly as well, which will hamper its calibration.
 		
-		The load cell is a transducer formed by strain gauges. Thoose are devices which their electrical resistance varies proportionally to their distension. Distension
-		
-		A célula de carga é um transdutor formado por strain gauges. Strain gauges são dispositivos cuja resistência elétrica varia proporcionalmente a sua distensão. Distension is a quantification of the deformation of a body, it can also be defined as a fractional change of the body of a body. Distension may be negative (compression) or positive (traction).
-
-		\begin{figure}[htbp]
-			\centering
-				\includegraphics[scale=0.4]{figuras/distensao.png}
-			\caption{Distension \cite{strain-def}}
-			\label{fig-distension}
-		\end{figure}
-
-		Generally, the length variation in a strain gauge is very small and this makes them very susceptible to measurement errors. As a result, the use of a Wheatstone bridge is very common, it is formed by four resistive arms and an excitation voltage applied to the bridge \cite{window1982strain}.
-
-		\begin{figure}[htbp]
-			\centering
-				\includegraphics[scale=1.2]{figuras/wheatstone.jpg}
-			\caption{Wheatstone bridge \cite{wheat-bridge}}
-			\label{fig-wheatstone}
-		\end{figure}
-
-		The voltage output $V_{O}$ can be obtained from the Equation \ref{eqn-voWheatstone} above:
-
-		\begin{equation}\label{eqn-voWheatstone}
-		V_{O}=\frac{ R_{3} }{ R_{3} + R_{4} } - \frac{ R_{2} }{ R_{1} + R_{2}}
-		\end{equation}
-	
-
-	\subsection{Load Cell Signal Condition}
-		
-		A very influential parameter in a braking system is the pressure that the brake exerts on the rotor. Pressure is a magnitude measured in Pascal and can be expressed by the force ratio by the area. There are some sensors based on the piezoelectric effect, but the most accurate way to measure force is by using load cells.
-
-		
-		In general, the load cells have very low output levels, of the level of 2mV/V, and therefore an amplification is fundamental. It is not necessary to know the nature of the strain gauges when a load cell is being calibrated since generally the manufacturers provide a calibration curve based on the signals $V_{O}$ and $V_{EX}$ of the Figure \ref{fig-wheatstone}, it is worth noting that these signals can not have the same reference, otherwise it will not be possible to excite the wheatstone bridge correctly. The most commonly used amplifier circuit in instrumentation engineering is the common joint differential amplifier more commonly refered as \textit{Instrumentation Amplifier} (Figure \ref{fig-instrumentation-amplifier}), which is very stable and significantly reduces the output signal noise \cite{wait1975introduction}.
-
-		\begin{figure}[htbp]
-			\centering
-				\includegraphics[scale=1.1]{figuras/amp-rejeicao-junta-comum.png}
-			\caption{Instrumentation Amplifier \cite{3opamp}}
-			\label{fig-instrumentation-amplifier}
-		\end{figure}
-
-
-		Although it is a widely used configuration, assembling this amplifier using three different operational amplifiers and seven resistors as in Figure \ref{fig-instrumentation-amplifier} may make it inaccurate due to manufacturing imperfections of the components. Another factor that greatly influences the output signal of a load cell is the excitation voltage of its wheatstone bridge, if it varies too much the output will vary greatly as well, which will hamper its calibration.
-		
-		
-		In order to solve these two problems there is a solution widely used in the market which is the \textit{INA125} of Texas Instruments, this CI besides performing signal amplification also provides a very precise excitation source for the wheatstone bridge, the only component required to be coupled is a resistor $R_{G}$, as shown in Figure \ref{fig-ina125-schematic}. This resistor will determine the gain for the amplification according to the equations \ref{eqn-ina125-vo} and \ref{eqn-ina125-g}:
+	In order to solve these two problems there is a solution widely used in the market which is the \textit{INA125} of Texas Instruments, this CI besides performing signal amplification also provides a very precise excitation source for the wheatstone bridge, the only component required to be coupled is a resistor $R_{G}$, as shown in Figure \ref{fig-ina125-schematic}. This resistor will determine the gain for the amplification according to the equations \ref{eqn-ina125-vo} and \ref{eqn-ina125-g}:
 	
 
 		\begin{figure}[htbp]
 			\centering
-				\includegraphics[scale=0.6]{figuras/ina125-schematic.png}
+				\includegraphics[scale=0.6]{figuras/fig-ina125-schematic.png}
 			\caption{INA125 Schematic \cite{ina125data}}
 			\label{fig-ina125-schematic}
 		\end{figure}
@@ -72,7 +31,7 @@
 
 		\begin{figure}[htbp]
 			\centering
-				\includegraphics[scale=0.35]{figuras/cic-celula.png}
+				\includegraphics[scale=0.35]{figuras/fig-cic-cell.png}
 			\caption{Conditioning Circuit for the Load Cell}
 			\label{fig-cic-cell}
 		\end{figure}
