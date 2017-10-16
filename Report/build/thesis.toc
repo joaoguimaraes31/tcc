@@ -15,18 +15,18 @@
 \contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Literature Review}}{27}{chapter.2}
 \contentsline {section}{\numberline {2.1}Instrumentation Engineering}{27}{section.2.1}
 \contentsline {section}{\numberline {2.2}The \textit {SAE J2522} regulation}{27}{section.2.2}
-\contentsline {section}{\numberline {2.3}Working principles of disk brake systems}{27}{section.2.3}
+\contentsline {section}{\numberline {2.3}Working principles of disk brake systems}{28}{section.2.3}
 \contentsline {section}{\numberline {2.4}Electronic Background}{28}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}Crankshaft Position Sensor}{28}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Thermocouple}{29}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.2}Thermocouple}{30}{subsection.2.4.2}
 \contentsline {subsection}{\numberline {2.4.3}Load Cell}{31}{subsection.2.4.3}
 \contentsline {subsection}{\numberline {2.4.4}Accelerometer}{32}{subsection.2.4.4}
-\contentsline {subsection}{\numberline {2.4.5}Instrumentation Amplifier}{32}{subsection.2.4.5}
-\contentsline {subsubsection}{\numberline {2.4.5.1}The Operational Amplifier}{32}{subsubsection.2.4.5.1}
+\contentsline {subsection}{\numberline {2.4.5}Instrumentation Amplifier}{33}{subsection.2.4.5}
+\contentsline {subsubsection}{\numberline {2.4.5.1}The Operational Amplifier}{33}{subsubsection.2.4.5.1}
 \contentsline {subsubsection}{\numberline {2.4.5.2}The Closed-loop amplifier}{33}{subsubsection.2.4.5.2}
 \contentsline {subsection}{\numberline {2.4.6}The Instrumentation Amplifier}{35}{subsection.2.4.6}
-\contentsline {subsection}{\numberline {2.4.7}The Relay}{36}{subsection.2.4.7}
-\contentsline {subsection}{\numberline {2.4.8}Microcontroller}{36}{subsection.2.4.8}
+\contentsline {subsection}{\numberline {2.4.7}The Relay}{37}{subsection.2.4.7}
+\contentsline {subsection}{\numberline {2.4.8}Microcontroller}{37}{subsection.2.4.8}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Methodology}}{39}{chapter.3}
 \contentsline {section}{\numberline {3.1}Study Stages}{39}{section.3.1}
@@ -42,35 +42,42 @@
 \contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Hardware Project}}{43}{chapter.5}
 \contentsline {section}{\numberline {5.1}MCU}{43}{section.5.1}
 \contentsline {section}{\numberline {5.2}Temperature Acquisition Channel}{44}{section.5.2}
-\contentsline {section}{\numberline {5.3}Brake Pressure Acquisition Channel}{44}{section.5.3}
-\contentsline {section}{\numberline {5.4}Speed Acquisition Channel}{46}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}CKP Signal Condition}{46}{subsection.5.4.1}
-\contentsline {section}{\numberline {5.5}Acceleration Acquisition Channel}{46}{section.5.5}
+\contentsline {section}{\numberline {5.3}Brake Pressure Acquisition Channel}{45}{section.5.3}
+\contentsline {section}{\numberline {5.4}Speed Acquisition Channel}{47}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}CKP Signal Condition}{47}{subsection.5.4.1}
+\contentsline {section}{\numberline {5.5}Acceleration Acquisition Channel}{47}{section.5.5}
+\setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Software Project}}{49}{chapter.6}
+\contentsline {section}{\numberline {6.1}Microcontroller Software}{49}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Microcontroller programming basics}{49}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Microcontroller Code Map}{49}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.2}Computer Software}{50}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}}{50}{subsection.6.2.1}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {References}}{47}{section*.14}
+\contentsline {chapter}{\uppercase {References}}{51}{section*.14}
 \renewcommand *{\cftappendixname }{APPENDIX \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Appendix}}{51}{section*.15}
+\contentsline {part}{\uppercase {Appendix}}{55}{section*.15}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {First Appendix}}{53}{appendix.A}
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {First Appendix}}{57}{appendix.A}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase {Second Appendix}}{55}{appendix.B}
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase {Second Appendix}}{59}{appendix.B}
 \cftinsert {AAA}
 \renewcommand *{\cftappendixname }{ANNEX \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Annex}}{57}{section*.16}
+\contentsline {part}{\uppercase {Annex}}{61}{section*.16}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {First Annex}}{59}{appendix.anexochapback.1}
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {First Annex}}{63}{appendix.anexochapback.1}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase {Second Annex}}{61}{appendix.anexochapback.2}
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase {Second Annex}}{65}{appendix.anexochapback.2}

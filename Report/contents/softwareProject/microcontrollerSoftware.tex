@@ -1,0 +1,29 @@
+\section{Microcontroller Software}
+
+	\subsection{Microcontroller programming basics}
+		Microcontrollers were traditionally programmed using Assembly language, nowadays we have a different scenario though. With the advancement of compilers, today it is most common to write the code for a microcontroller in C language and let the compiler translate it to a binary assembly format \cite{Mazidi:2010:AME:1824214}. A convinient reason to use C is that it is one of the most efficient programming languages in terms of execution speed, this happens because it was designed to efficiently map typical machine instructions \cite{kernighan2006c}, so considering real-time constrains and other execution constrains in microcontrollers it is a excelent fit.
+		
+		\par
+		A microcontroller code is composed basically of two parts:
+		
+		\begin{itemize}
+			\item \textit{Setup: } This part of the code is only executed once, as the name may indicate, it is used to set properties, configure timers, inputs and other features of the hardware.
+			\item \textit{Loop: } This part of the code is executed continuously or until some condition is reached. 
+		\end{itemize}
+		
+		\par
+		
+		Other important component of a microcontroller code are interruptions. It is possible to interrupt the standard execution of a program when a event happens, or as it is more common to say, when a event triggers a interruption. This event may be a timer overflow, a event triggered by an input change among other things. Interrupt routines are really useful when working with intrumentation and timers, because using interruptions it is feasible to meet real-time requirements in a project \cite{mukaro1999microcontroller}.
+		
+	\subsection{Microcontroller Code Map}
+	
+	The Figure \ref{fig-microCodeMap} gives a overral idea of the microcontroller code that can be found in ............
+	
+	
+	As soon as the microcontroller is turned on it enters in the \textit{Setup Function}, on this function the following things are setted:
+	\begin{itemize}
+		\item \textit{Timer 1: } Timer one is used for controlling acquisition sampling rate, i.e., the interval between each acquisition. Each moment that this timer overflow its count, a interruption is triggered and the analog inputs are read (sensor signals) and stored. In the setup block only the timer clock frequency and the maximum value are defined.
+		\item \textit{Timer 2: } This timer is used only to control the blinking frequency of a LED used to indicate if a execution is happening.
+		\item \textit{Serial Port: } The serial port baud rate is defined and the serial port is opened.
+		\item \textit{Port definitions: } The I/O ports are defined as inputs (high impedance) or as outputs (low impedance).
+	\end{itemize}
