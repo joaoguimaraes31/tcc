@@ -13,6 +13,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: abntex2-options.bib
 Database file #2: bibliografia.bib
+Warning--I didn't find a database entry for "mancini2000understanding"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
@@ -22,44 +23,45 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 10 entries,
+You've used 37 entries,
             6714 wiz_defined-function locations,
-            1237 strings with 10800 characters,
-and the built_in function-call counts, 13922 in all, are:
-= -- 1781
-> -- 152
-< -- 406
-+ -- 504
-- -- 50
-* -- 775
-:= -- 1778
-add.period$ -- 33
-call.type$ -- 10
-change.case$ -- 63
-chr.to.int$ -- 9
-cite$ -- 9
-duplicate$ -- 1474
-empty$ -- 536
-format.name$ -- 231
-if$ -- 2695
-int.to.chr$ -- 1
+            1363 strings with 13808 characters,
+and the built_in function-call counts, 42601 in all, are:
+= -- 4771
+> -- 712
+< -- 1017
++ -- 1298
+- -- 227
+* -- 2526
+:= -- 5449
+add.period$ -- 127
+call.type$ -- 37
+change.case$ -- 267
+chr.to.int$ -- 45
+cite$ -- 36
+duplicate$ -- 4092
+empty$ -- 2080
+format.name$ -- 1055
+if$ -- 8636
+int.to.chr$ -- 4
 int.to.str$ -- 0
-missing$ -- 157
-newline$ -- 52
-num.names$ -- 45
-pop$ -- 216
+missing$ -- 609
+newline$ -- 178
+num.names$ -- 180
+pop$ -- 802
 preamble$ -- 1
-purify$ -- 31
+purify$ -- 121
 quote$ -- 0
-skip$ -- 1592
+skip$ -- 4323
 stack$ -- 1
-substring$ -- 614
-swap$ -- 502
-text.length$ -- 6
+substring$ -- 1756
+swap$ -- 1456
+text.length$ -- 26
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 62
+while$ -- 241
 width$ -- 0
-write$ -- 136
+write$ -- 528
+(There was 1 warning)

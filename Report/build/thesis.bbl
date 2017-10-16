@@ -17,6 +17,32 @@ Dispon{\'\i}vel em:
 Dispon{\'\i}vel em:
   \url{http://www.carrosnaweb.com.br/fichadetalhe.asp?codigo=431}.}
 
+\bibitem[Coorporation 2011]{coorporation2011atmel}
+\abntrefinfo{Coorporation}{COORPORATION}{2011}
+{COORPORATION, A. \emph{Atmel ATmega328P Datasheet}. 2011.}
+
+\bibitem[Desconhecido 2016]{cam-sensor-signal}
+\abntrefinfo{Desconhecido}{DESCONHECIDO}{2016a}
+{DESCONHECIDO. \emph{Magnetic Cam Sensor Signal}. 2016.
+Dispon{\'\i}vel em:
+  \url{http://i287.photobucket.com/albums/ll154/arghx7/LGT\_engine\_speed2.jpg}.}
+
+\bibitem[Desconhecido 2016]{3opamp}
+\abntrefinfo{Desconhecido}{DESCONHECIDO}{2016b}
+{DESCONHECIDO. \emph{Typical instrumentation amplifier schematic}. 2016.
+Dispon{\'\i}vel em:
+  \url{https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Op-Amp\_Instrumentation\_Amplifier.svg/400px-Op-Amp\_Instrumentation\_Amplifier.svg.png}.}
+
+\bibitem[ECIL 2016]{termo-med}
+\abntrefinfo{ECIL}{ECIL}{2016}
+{ECIL. \emph{Medição com Termopares}. 2016.
+Dispon{\'\i}vel em: \url{http://www.ecil.com.br/imagens/seedback2.jpg}.}
+
+\bibitem[Fernandes 2000]{joaocan2000}
+\abntrefinfo{Fernandes}{FERNANDES}{2000}
+{FERNANDES, J.~C. \emph{Segurança nas Vibrações sobre o Corpo Humano}.
+[S.l.], 2000. 11~p.}
+
 \bibitem[Gardinalli 2005]{gardinalli2005comparaccao}
 \abntrefinfo{Gardinalli}{GARDINALLI}{2005}
 {GARDINALLI, G.~J. Compara{\c{c}}{\~a}o do desempenho de frenagem simulada x
@@ -24,6 +50,10 @@ Dispon{\'\i}vel em:
 \emph{Trabalho de Conclus{\~a}o de Curso apresentado {\`a} Escola
   Polit{\'e}cnica da Universidade de S{\~a}o Paulo para obten{\c{c}}{\~a}o do
   t{\'\i}tulo de Mestre em Engenharia Automotiva}, 2005.}
+
+\bibitem[Guimaraes 2017]{hw-proj}
+\abntrefinfo{Guimaraes}{GUIMARAES}{2017}
+{GUIMARAES, J. \emph{Brake Test Bench Hardware Project}. 2017.}
 
 \bibitem[Halderman e Mitchell 2016]{halderman2016automotive}
 \abntrefinfo{Halderman e Mitchell}{HALDERMAN; MITCHELL}{2016}
@@ -43,21 +73,133 @@ Dispon{\'\i}vel em:
   Destinados ao Uso em Freios de Veículos Roviários Automotores}.
 Rio de Janeiro, Brasil, 2013. 25~p.}
 
+\bibitem[Instruments 2016]{strain-def}
+\abntrefinfo{Instruments}{INSTRUMENTS}{2016a}
+{INSTRUMENTS, N. \emph{Definition of Strain}. 2016.
+Dispon{\'\i}vel em:
+  \url{http://www.ni.com/cms/images/devzone/tut/a/83a1fe69763.gif}.}
+
+\bibitem[Instruments 2016]{wheat-bridge}
+\abntrefinfo{Instruments}{INSTRUMENTS}{2016b}
+{INSTRUMENTS, N. \emph{Wheatstone Bridge Circuit}. 2016.
+Dispon{\'\i}vel em:
+  \url{http://www.ni.com/cms/images/devzone/tut/a/a28b553b1069.gif}.}
+
+\bibitem[Instruments 1998]{ina125data}
+\abntrefinfo{Instruments}{INSTRUMENTS}{1998}
+{INSTRUMENTS, T. \emph{Instrumentation Amplifier, With Precision Voltage
+  Reference}. 1998.}
+
+\bibitem[Instruments 2000]{schematic-ina118}
+\abntrefinfo{Instruments}{INSTRUMENTS}{2000a}
+{INSTRUMENTS, T. \emph{INA 118}. 2000.}
+
+\bibitem[Instruments 2000]{ina118}
+\abntrefinfo{Instruments}{INSTRUMENTS}{2000b}
+{INSTRUMENTS, T. \emph{INA118 Precision, Low Power Instrumentation Amplifier}.
+[S.l.], 2000. 29~p.}
+
+\bibitem[Jr 1968]{nordtvedt1968equivalence}
+\abntrefinfo{Jr}{JR}{1968}
+{JR, K. N. Equivalence principle for massive bodies. ii. theory.
+\emph{Physical Review}, APS, v.~169, n.~5, p.~1017, 1968.}
+
 \bibitem[Kawaguchi 2005]{kawaguchi}
 \abntrefinfo{Kawaguchi}{KAWAGUCHI}{2005}
 {KAWAGUCHI, H. Comparação da análise de conforto de frenagem subjetiva x
   objetiva de um veículo de passeio.
 São Paulo, Brazil, p.~101, 2005.}
 
+\bibitem[Keller 1962]{keller1962relays}
+\abntrefinfo{Keller}{KELLER}{1962}
+{KELLER, A. Relays and switches.
+\emph{Proceedings of the IRE}, IEEE, v.~50, n.~5, p. 932--934, 1962.}
+
+\bibitem[Kinzie e Rubin 1973]{kinzie1973thermocouple}
+\abntrefinfo{Kinzie e Rubin}{KINZIE; RUBIN}{1973}
+{KINZIE, P.~A.; RUBIN, L.~G. Thermocouple temperature measurement.
+\emph{Physics Today}, v.~26, p.~52, 1973.}
+
+\bibitem[MettingVanRijn, Peper e Grimbergen 1994]{mettingvanrijn1994amplifiers}
+\abntrefinfo{MettingVanRijn, Peper e Grimbergen}{METTINGVANRIJN; PEPER;
+  GRIMBERGEN}{1994}
+{METTINGVANRIJN, A.; PEPER, A.; GRIMBERGEN, C. Amplifiers for bioelectric
+  events: a design with a minimal number of parts.
+\emph{Medical and Biological Engineering and Computing}, Springer, v.~32, n.~3,
+  p. 305--310, 1994.}
+
+\bibitem[Omegatron 2007]{fig-opamp}
+\abntrefinfo{Omegatron}{OMEGATRON}{2007}
+{OMEGATRON. \emph{Op-amp pinouts}. 2007.}
+
+\bibitem[Patrick 2007]{patrick2006}
+\abntrefinfo{Patrick}{PATRICK}{2007}
+{PATRICK, W.~L. The history of the accelerometer: 1920s-1996 - prologue and
+  epilogue.
+Ft. Worth - Texas, Estados Unidos da América, p.~9, 2007.}
+
+\bibitem[Pollock 1991]{pollock1991thermocouples}
+\abntrefinfo{Pollock}{POLLOCK}{1991}
+{POLLOCK, D.~D. \emph{Thermocouples: theory and properties}. [S.l.]: CRC press,
+  1991.}
+
+\bibitem[Reman 2016]{ckp-gm}
+\abntrefinfo{Reman}{REMAN}{2016}
+{REMAN, M.~C. \emph{GM Replacement 10456042 Crankshaft Position Sensor}. 2016.
+Dispon{\'\i}vel em:
+  \url{http://ep.yimg.com/ay/motorcityreman/general-motors-oe-10456042-crankshaft-position-sensor-1.gif}.}
+
+\bibitem[SAE 2003]{saej2522}
+\abntrefinfo{SAE}{SAE}{2003}
+{SAE. \emph{Dynamometer Global Brake Effectiveness}.
+Rio de Janeiro, Brasil, 2003. 18~p.}
+
 \bibitem[SAE 2016]{sae}
 \abntrefinfo{SAE}{SAE}{2016}
 {SAE. \emph{SAE}. 2016.
 Dispon{\'\i}vel em: \url{http://www.sae.org/}.}
 
-\bibitem[Unknown 2017]{working-of-disk-breaks}
-\abntrefinfo{Unknown}{UNKNOWN}{2017}
-{UNKNOWN. \emph{Working Of Disk Breaks}. 2017.
+\bibitem[saluri 2009]{fig-closed-loop-opamp}
+\abntrefinfo{saluri}{SALURI}{2009}
+{SALURI, O. \emph{Op-amp inverting amplifier circuit}. 2009.}
+
+\bibitem[Schroeder 2002]{schroeder2002crankshaft}
+\abntrefinfo{Schroeder}{SCHROEDER}{2002}
+{SCHROEDER, T. \emph{Crankshaft position sensor}. [S.l.]: Google Patents, 2002.
+US Patent 6,346,808.}
+
+\bibitem[Teschler 2016]{relay-scheme}
+\abntrefinfo{Teschler}{TESCHLER}{2016}
+{TESCHLER, L. \emph{Typical Simplified Eletromechanical Relay Schematic}. 2016.
 Dispon{\'\i}vel em:
-  \url{http://www.mechanicalengineeringblog.com/wp-content/uploads/2015/07/01-WORKING-OF-A-DISK-BRAKE-MECHANICAL-BRAKE-AND-ITS-CONSTRUCTION-AND-WORKING\_thumb.jpg}.}
+  \url{http://machinedesign.com/site-files/machinedesign.com/files/uploads/2014/07/relay\_diagram.gif}.}
+
+\bibitem[Thomsen et al. 2003]{thomsen2003application}
+\abntrefinfo{Thomsen et al.}{THOMSEN et al.}{2003}
+{THOMSEN, A. et al. \emph{Application of a conditionally stable instrumentation
+  amplifier to industrial measurement}. [S.l.]: Google Patents, 2003.
+US Patent 6,525,589.}
+
+\bibitem[UK 2016]{piezo-accel}
+\abntrefinfo{UK}{UK}{2016}
+{UK, M.~O. \emph{Compression Accelerometer}. 2016.
+Dispon{\'\i}vel em:
+  \url{http://www.maintenanceonline.co.uk/maintenanceonline/content\_images/figure-2(1).jpg}.}
+
+\bibitem[Unkwnon 2016]{termo-curves}
+\abntrefinfo{Unkwnon}{UNKWNON}{2016}
+{UNKWNON. \emph{Curva de Variação da F.E.M dos Termopares}. 2016.
+Dispon{\'\i}vel em:
+  \url{http://www.termopares.com.br/teoria\_sensores\_temperatura\_termopares\_curvas\_variacao\_fem/curvas.gif}.}
+
+\bibitem[Wait, Huelsman e Korn 1975]{wait1975introduction}
+\abntrefinfo{Wait, Huelsman e Korn}{WAIT; HUELSMAN; KORN}{1975}
+{WAIT, J.~V.; HUELSMAN, L.~P.; KORN, G.~A. \emph{Introduction to operational
+  amplifier theory and applications}. [S.l.]: McGraw-Hill Companies, 1975.}
+
+\bibitem[Window, Holister et al. 1982]{window1982strain}
+\abntrefinfo{Window, Holister et al.}{WINDOW; HOLISTER et al.}{1982}
+{WINDOW, A.~L.; HOLISTER, G.~S. et al. \emph{Strain gauge technology.} [S.l.]:
+  Applied science publishers, 1982.}
 
 \end{thebibliography}
