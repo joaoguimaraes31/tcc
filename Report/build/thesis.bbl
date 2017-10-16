@@ -5,6 +5,13 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.6 }
 
+\bibitem[Bartz, Zhaksilikov e Ogami 2004]{bartz2004data}
+\abntrefinfo{Bartz, Zhaksilikov e Ogami}{BARTZ; ZHAKSILIKOV; OGAMI}{2004}
+{BARTZ, M.; ZHAKSILIKOV, M.; OGAMI, K.~Y. \emph{Data driven method and system
+  for monitoring hardware resource usage for programming an electronic device}.
+  [S.l.]: Google Patents, 2004.
+US Patent 6,785,881.}
+
 \bibitem[CNW 2017]{cnwgol2013}
 \abntrefinfo{CNW}{CNW}{2017a}
 {CNW. \emph{{Volkswagen Gol 1.0} Ficha Técnica}. 2017.
@@ -115,10 +122,28 @@ São Paulo, Brazil, p.~101, 2005.}
 {KELLER, A. Relays and switches.
 \emph{Proceedings of the IRE}, IEEE, v.~50, n.~5, p. 932--934, 1962.}
 
+\bibitem[Kernighan e Ritchie 2006]{kernighan2006c}
+\abntrefinfo{Kernighan e Ritchie}{KERNIGHAN; RITCHIE}{2006}
+{KERNIGHAN, B.~W.; RITCHIE, D.~M. \emph{The C programming language}. [S.l.:
+  s.n.], 2006.}
+
 \bibitem[Kinzie e Rubin 1973]{kinzie1973thermocouple}
 \abntrefinfo{Kinzie e Rubin}{KINZIE; RUBIN}{1973}
 {KINZIE, P.~A.; RUBIN, L.~G. Thermocouple temperature measurement.
 \emph{Physics Today}, v.~26, p.~52, 1973.}
+
+\bibitem[Mandell 1972]{mandell1972hardware}
+\abntrefinfo{Mandell}{MANDELL}{1972}
+{MANDELL, R.~L. Hardware/software trade-offs: reasons and directions. In:  ACM.
+  \emph{Proceedings of the December 5-7, 1972, fall joint computer conference,
+  part I}. [S.l.], 1972. p. 453--459.}
+
+\bibitem[Mazidi, Naimi e Naimi 2010]{Mazidi:2010:AME:1824214}
+\abntrefinfo{Mazidi, Naimi e Naimi}{MAZIDI; NAIMI; NAIMI}{2010}
+{MAZIDI, M.~A.; NAIMI, S.; NAIMI, S. \emph{AVR Microcontroller and Embedded
+  Systems: Using Assembly and C}. 1st. ed. Upper Saddle River, NJ, USA:
+  Prentice Hall Press, 2010.
+ISBN 0138003319, 9780138003319.}
 
 \bibitem[MettingVanRijn, Peper e Grimbergen 1994]{mettingvanrijn1994amplifiers}
 \abntrefinfo{MettingVanRijn, Peper e Grimbergen}{METTINGVANRIJN; PEPER;
@@ -127,6 +152,13 @@ São Paulo, Brazil, p.~101, 2005.}
   events: a design with a minimal number of parts.
 \emph{Medical and Biological Engineering and Computing}, Springer, v.~32, n.~3,
   p. 305--310, 1994.}
+
+\bibitem[Mukaro e Carelse 1999]{mukaro1999microcontroller}
+\abntrefinfo{Mukaro e Carelse}{MUKARO; CARELSE}{1999}
+{MUKARO, R.; CARELSE, X.~F. A microcontroller-based data acquisition system for
+  solar radiation and environmental monitoring.
+\emph{IEEE transactions on instrumentation and measurement}, IEEE, v.~48, n.~6,
+  p. 1232--1238, 1999.}
 
 \bibitem[Omegatron 2007]{fig-opamp}
 \abntrefinfo{Omegatron}{OMEGATRON}{2007}
@@ -149,6 +181,12 @@ Ft. Worth - Texas, Estados Unidos da América, p.~9, 2007.}
 Dispon{\'\i}vel em:
   \url{http://ep.yimg.com/ay/motorcityreman/general-motors-oe-10456042-crankshaft-position-sensor-1.gif}.}
 
+\bibitem[Rouse 2012]{mcuDef}
+\abntrefinfo{Rouse}{ROUSE}{2012}
+{ROUSE, M. \emph{microcontroller}. 2012.
+Dispon{\'\i}vel em:
+  \url{http://internetofthingsagenda.techtarget.com/definition/microcontroller}.}
+
 \bibitem[SAE 2003]{saej2522}
 \abntrefinfo{SAE}{SAE}{2003}
 {SAE. \emph{Dynamometer Global Brake Effectiveness}.
@@ -167,6 +205,13 @@ Dispon{\'\i}vel em: \url{http://www.sae.org/}.}
 \abntrefinfo{Schroeder}{SCHROEDER}{2002}
 {SCHROEDER, T. \emph{Crankshaft position sensor}. [S.l.]: Google Patents, 2002.
 US Patent 6,346,808.}
+
+\bibitem[Shree 2016]{careerIndia}
+\abntrefinfo{Shree}{SHREE}{2016}
+{SHREE, V. \emph{What is Instrumentation Engineering? Scope and Career
+  Opportunities}. 2016.
+Dispon{\'\i}vel em:
+  \url{https://www.careerindia.com/courses/unique-courses/what-is-instrumentation-engineering-scope-and-career-opportunities-015486.html}.}
 
 \bibitem[Teschler 2016]{relay-scheme}
 \abntrefinfo{Teschler}{TESCHLER}{2016}
@@ -197,9 +242,22 @@ Dispon{\'\i}vel em:
 {WAIT, J.~V.; HUELSMAN, L.~P.; KORN, G.~A. \emph{Introduction to operational
   amplifier theory and applications}. [S.l.]: McGraw-Hill Companies, 1975.}
 
+\bibitem[Webster e Eren 2014]{webster2014measurement}
+\abntrefinfo{Webster e Eren}{WEBSTER; EREN}{2014}
+{WEBSTER, J.~G.; EREN, H. \emph{Measurement, instrumentation, and sensors
+  handbook: spatial, mechanical, thermal, and radiation measurement}. [S.l.]:
+  CRC press, 2014. v.~1.}
+
 \bibitem[Window, Holister et al. 1982]{window1982strain}
 \abntrefinfo{Window, Holister et al.}{WINDOW; HOLISTER et al.}{1982}
 {WINDOW, A.~L.; HOLISTER, G.~S. et al. \emph{Strain gauge technology.} [S.l.]:
   Applied science publishers, 1982.}
+
+\bibitem[You 2012]{instrumentation-control-engineering-perfectionists}
+\abntrefinfo{You}{YOU}{2012}
+{YOU, E.~F. \emph{Instrumentation and Control Engineering is for
+  Perfectionists}. 2012.
+Dispon{\'\i}vel em:
+  \url{http://electronicsforu.com/resources/instrumentation-control-engineering-perfectionists}.}
 
 \end{thebibliography}
