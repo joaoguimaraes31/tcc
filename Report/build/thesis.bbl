@@ -90,6 +90,15 @@ Dispon{\'\i}vel em:
 {INSTRUMENTS, T. \emph{Instrumentation Amplifier, With Precision Voltage
   Reference}. 1998.}
 
+\bibitem[Instruments 2000]{schematic-ina118}
+\abntrefinfo{Instruments}{INSTRUMENTS}{2000a}
+{INSTRUMENTS, T. \emph{INA 118}. 2000.}
+
+\bibitem[Instruments 2000]{ina118}
+\abntrefinfo{Instruments}{INSTRUMENTS}{2000b}
+{INSTRUMENTS, T. \emph{INA118 Precision, Low Power Instrumentation Amplifier}.
+[S.l.], 2000. 29~p.}
+
 \bibitem[Jr 1968]{nordtvedt1968equivalence}
 \abntrefinfo{Jr}{JR}{1968}
 {JR, K. N. Equivalence principle for massive bodies. ii. theory.
@@ -110,6 +119,18 @@ São Paulo, Brazil, p.~101, 2005.}
 \abntrefinfo{Kinzie e Rubin}{KINZIE; RUBIN}{1973}
 {KINZIE, P.~A.; RUBIN, L.~G. Thermocouple temperature measurement.
 \emph{Physics Today}, v.~26, p.~52, 1973.}
+
+\bibitem[MettingVanRijn, Peper e Grimbergen 1994]{mettingvanrijn1994amplifiers}
+\abntrefinfo{MettingVanRijn, Peper e Grimbergen}{METTINGVANRIJN; PEPER;
+  GRIMBERGEN}{1994}
+{METTINGVANRIJN, A.; PEPER, A.; GRIMBERGEN, C. Amplifiers for bioelectric
+  events: a design with a minimal number of parts.
+\emph{Medical and Biological Engineering and Computing}, Springer, v.~32, n.~3,
+  p. 305--310, 1994.}
+
+\bibitem[Omegatron 2007]{fig-opamp}
+\abntrefinfo{Omegatron}{OMEGATRON}{2007}
+{OMEGATRON. \emph{Op-amp pinouts}. 2007.}
 
 \bibitem[Patrick 2007]{patrick2006}
 \abntrefinfo{Patrick}{PATRICK}{2007}
@@ -138,6 +159,10 @@ Rio de Janeiro, Brasil, 2003. 18~p.}
 {SAE. \emph{SAE}. 2016.
 Dispon{\'\i}vel em: \url{http://www.sae.org/}.}
 
+\bibitem[saluri 2009]{fig-closed-loop-opamp}
+\abntrefinfo{saluri}{SALURI}{2009}
+{SALURI, O. \emph{Op-amp inverting amplifier circuit}. 2009.}
+
 \bibitem[Schroeder 2002]{schroeder2002crankshaft}
 \abntrefinfo{Schroeder}{SCHROEDER}{2002}
 {SCHROEDER, T. \emph{Crankshaft position sensor}. [S.l.]: Google Patents, 2002.
@@ -148,6 +173,12 @@ US Patent 6,346,808.}
 {TESCHLER, L. \emph{Typical Simplified Eletromechanical Relay Schematic}. 2016.
 Dispon{\'\i}vel em:
   \url{http://machinedesign.com/site-files/machinedesign.com/files/uploads/2014/07/relay\_diagram.gif}.}
+
+\bibitem[Thomsen et al. 2003]{thomsen2003application}
+\abntrefinfo{Thomsen et al.}{THOMSEN et al.}{2003}
+{THOMSEN, A. et al. \emph{Application of a conditionally stable instrumentation
+  amplifier to industrial measurement}. [S.l.]: Google Patents, 2003.
+US Patent 6,525,589.}
 
 \bibitem[UK 2016]{piezo-accel}
 \abntrefinfo{UK}{UK}{2016}
