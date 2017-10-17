@@ -59,8 +59,12 @@ Dispon{\'\i}vel em: \url{http://www.ecil.com.br/imagens/seedback2.jpg}.}
   t{\'\i}tulo de Mestre em Engenharia Automotiva}, 2005.}
 
 \bibitem[Guimaraes 2017]{hw-proj}
-\abntrefinfo{Guimaraes}{GUIMARAES}{2017}
+\abntrefinfo{Guimaraes}{GUIMARAES}{2017a}
 {GUIMARAES, J. \emph{Brake Test Bench Hardware Project}. 2017.}
+
+\bibitem[Guimaraes 2017]{microCodeMap}
+\abntrefinfo{Guimaraes}{GUIMARAES}{2017b}
+{GUIMARAES, J. \emph{Brake Test Bench Microcontroller Code Map}. 2017.}
 
 \bibitem[Halderman e Mitchell 2016]{halderman2016automotive}
 \abntrefinfo{Halderman e Mitchell}{HALDERMAN; MITCHELL}{2016}

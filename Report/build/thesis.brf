@@ -13,6 +13,7 @@
 \backcite {hw-proj}{{13}{(document)}{Doc-Start}}
 \backcite {coorporation2011atmel}{{13}{(document)}{Doc-Start}}
 \backcite {ina125data}{{13}{(document)}{Doc-Start}}
+\backcite {microCodeMap}{{13}{(document)}{Doc-Start}}
 \backcite {lideres-vendas-brasil}{{23}{1}{chapter.1}}
 \backcite {cnwgol1993}{{23}{1}{chapter.1}}
 \backcite {cnwgol2013}{{23}{1}{chapter.1}}
@@ -60,3 +61,4 @@
 \backcite {Mazidi:2010:AME:1824214}{{49}{6.1.1}{subsection.6.1.1}}
 \backcite {kernighan2006c}{{49}{6.1.1}{subsection.6.1.1}}
 \backcite {mukaro1999microcontroller}{{49}{6.1.1}{subsection.6.1.1}}
+\backcite {microCodeMap}{{50}{18}{figure.6.18}}
