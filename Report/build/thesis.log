@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.7)  17 OCT 2017 16:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.7)  17 OCT 2017 16:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1208,7 +1208,7 @@ l.2
 ]) (./editaveis/epigrafe.tex [9] [10
 
 ])
-(./editaveis/resumo.tex [11] [12
+(./contents/resumo.tex [11] [12
 
 ]) (./fixos/listasAutomaticas.tex
 (build/thesis.lof) [13] [14
@@ -1707,12 +1707,12 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 45.
  ) 
 Here is how much of TeX's memory you used:
  14648 strings out of 493029
- 218447 string characters out of 6136234
- 370464 words of memory out of 5000000
+ 218443 string characters out of 6136234
+ 370396 words of memory out of 5000000
  17317 multiletter control sequences out of 15000+600000
  88807 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,13n,51p,1240b,2011s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,13n,51p,1240b,2009s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/l
@@ -1728,7 +1728,7 @@ texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/
 lmssbo10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/t
 exmf/fonts/type1/public/lm/lmsso17.pfb></usr/share/texmf/fonts/type1/public/lm/
 lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb>
-Output written on build/thesis.pdf (66 pages, 1009255 bytes).
+Output written on build/thesis.pdf (66 pages, 1008185 bytes).
 PDF statistics:
  1379 PDF objects out of 1440 (max. 8388607)
  1217 compressed objects within 13 object streams
