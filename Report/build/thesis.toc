@@ -56,13 +56,12 @@
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \contentsline {chapter}{\uppercase {References}}{53}{section*.14}
-\cftinsert {AAA}
-\renewcommand *{\cftappendixname }{ANNEX \space }
+\renewcommand *{\cftappendixname }{APPENDIX \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Annex}}{57}{section*.15}
+\contentsline {part}{\uppercase {Appendix}}{57}{section*.15}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {First Annex}}{59}{appendix.anexochapback.1}
-\contentsline {section}{\numberline {A.1}Micontroller Code}{59}{section.anexochapback.1.1}
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase {First Appendix}}{59}{appendix.A}
+\contentsline {section}{\numberline {A.1}Micontroller Code}{59}{section.A.1}
