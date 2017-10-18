@@ -6,69 +6,64 @@
 //HW DEFINITIONS
 //Digital ports
 ///inputs
-#define	ADC_CON_0		2
-#define	ADC_CON_1		3
-#define	ADC_CON_2		4
-#define	ADC_CON_3		6
-#define	ADC_CON_4		7
-#define	ADC_CON_5		8
+#define	ADC_CON_0			2
+#define	ADC_CON_1			3
+#define	ADC_CON_2			4
+#define	ADC_CON_3			6
+#define	ADC_CON_4			7
+#define	ADC_CON_5			8
 ///outputs
 #define DIG_OUT_PORT_0		9
 #define	DIG_OUT_PORT_1		10
-#define RELAY_OUT_0		11
-#define RELAY_OUT_1		12
-#define	ACQ_LED			13
+#define RELAY_OUT_0			11
+#define RELAY_OUT_1			12
+#define	ACQ_LED				13
 
 //Analog Ports
-#define	PWM_OUT			5
-
+#define	PWM_OUT				5
 
 //COMMUNICATIONS DEFINITIONS
+#define BAUD_RATE			9600
 #define START_ACQ_BYTE		21
 #define	STOP_ACQ_BYTE		22
-#define MASTER_RESET_BYTE	23
 #define NULL_DIGITAL_BYTE	96
 #define MAX_DIGITAL_BYTE	111
 #define NULL_SPEED_BYTE		155
 #define MAX_SPEED_BYTE		255
+#define SENSOR_ERROR		-1
 
 
 //GENERAL DEFINITIONS
-#define SET			1
-#define RESET			0
+#define SET					1
+#define RESET				0
 #define ACQ_LED_BLINK_MS	250
-#define SAMPLE_RATE		10
+#define SAMPLE_RATE			10
 #define NUMBER_OF_SAMPLES	100
-
 
 //GLOBAL VARS
 static boolean acquisitionEnabled=false;
 int samples=RESET;
+boolean state=RESET;
+int adcReads[]={RESET,RESET,RESET,RESET,RESET,RESET};
 short DIGITAL_OUT_PORTS[]={DIG_OUT_PORT_0,DIG_OUT_PORT_1,RELAY_OUT_0,RELAY_OUT_1};
 short DIGITAL_IN_PORTS[]={ADC_CON_0,ADC_CON_1,ADC_CON_2,ADC_CON_3,ADC_CON_4,ADC_CON_5};
-
-boolean digitalInstruction={RESET,RESET,RESET,RESET};
-static float sensorData[]={RESET,RESET,RESET,RESET,RESET,RESET};
-
-
-//Function to write to digital ports
-void digitalOutputControl(){
-	for(int i=RESET;i<NUMBER_OF_DIGITAL_PORTS;i++){
-		digitalWrite(DIGITAL_OUT_PORTS[i],digitalInstruction[i])
-	}
-}
-
-//Function to set all digital outputs to low
-void resetDigOutputs(){
-	for(int i=RESET;i<NUMBER_OF_DIGITAL_PORTS;i++){
-		digitalInstruction[i]=RESET;
-	}
-	digitalOutputControl;
-}
 
 //Function to configure Timer 0 - PWM-OUT
 void configureTimer0(){
 	TCCR0B = (TCCR0B & 0b11111000) | 0x01;
+}
+
+void IOsetup(){
+	pinMode(ACQ_LED_PIN,OUTPUT);
+	
+	for(int i=RESET;i<sizeof(DIGITAL_IN_PORTS);i++){
+		if (i<sizeof(DIGITAL_OUT_PORTS)){
+			pinMode(DIGITAL_OUT_PORTS[i],OUTPUT)
+		}
+		pinMode(DIGITAL_IN_PORTS[i],INPUT);
+	}
+	
+	resetDigitalOutputs();
 }
 
 //Function to configure Timer 1 - ACQUISITION 
@@ -86,123 +81,127 @@ void configureTimer2() {
 //Timer 1 overflow interruption routine
 void timer1_OISR(){
 	if (samples<NUMBER_OF_SAMPLES){
-		if(enableAcquisition==true){
-			//Lendo dado analogico
-			sensorData[0]=sensorData[0]+analogRead(A0);
-		    	sensorData[1]=sensorData[1]+analogRead(A1);
-		    	sensorData[2]=sensorData[2]+analogRead(A2);
-		    	sensorData[3]=sensorData[3]+analogRead(A3);
-		    	sensorData[4]=sensorData[4]+analogRead(A4);
-			sensorData[5]=sensorData[5]+analogRead(A5);
-			samples++;
-		}   
+		//Lendo dado analogico
+		adcReads[0]+=analogRead(A0);
+		adcReads[1]+=analogRead(A1);
+		adcReads[2]+=analogRead(A2);
+		adcReads[3]+=analogRead(A3);
+		adcReads[4]+=analogRead(A4);
+		adcReads[5]+=analogRead(A5);
+		samples++;
+		}  
 	}
 }
 
 //Timer 1 overflow interruption routine
 void timer2_OISR(){
-	if(enableAcquisition){
-		digitalWrite(ACQ_LED_PIN, digitalRead(ACQ_LED_PIN) ^ 1);
-	}else{
-    		digitalWrite(ACQ_LED_PIN, LOW);
-  	}
+	digitalWrite(ACQ_LED, digitalRead(ACQ_LED) ^ 1);
 }
 
-//Function to write adc results in serial port
-void printResults(int * result){    
-	Serial.print(result[0]);
-	Serial.print(",");
-	Serial.print(result[1]);
-	Serial.print(",");
-	Serial.print(result[2]);
-	Serial.print(",");
-	Serial.print(result[3]);
-	Serial.print(",");
-	Serial.print(result[4]);
-	Serial.print(",");
-	Serial.print(result[5]);
-	Serial.print(".");
-}
-
-void IOsetup(){
-	pinMode(ACQ_LED_PIN,OUTPUT);
-
-	for(int i=0;i<6;i++){
-		if (i<4){
-			pinMode(DIGITAL_OUT_PORTS[i],OUTPUT)
-		}
-		pinMode(DIGITAL_IN_PORTS[i],INPUT);
+void digitalOutputControl(char input){
+	for(int i=RESET;i<sizeof(DIGITAL_OUT_PORTS[i]);i++){
+		digitalWrite(DIGITAL_OUT_PORTS[i],((input >> i) & 1));
 	}
+}
 
+void resetDigitalOutputs(){
+	digitalOutputControl(NULL_DIGITAL_BYTE);
+	digitalWrite(ACQ_LED, LOW);
+}
+
+void avgPrintResults(){
+	
+	for(int i=RESET;i<sizeof(adcReads);i++){
+		if (!digitalRead(DIGITAL_IN_PORTS[i])){
+			Serial.print((int)roundf((adcReads[counter]/samples)));
+		}else{
+			Serial.print(SENSOR_ERROR);
+		}
+		Serial.print(",");
+		adcReads[i]=RESET;
+	}
+	Serial.println();
+	samples=RESET;
+	Timer1.restart();
+}
+
+void clearAdcReads(){
+	for(int i=RESET;i<sizeof(adcReads);i++){
+		adcReads[i]=RESET;
+	}
+}
+
+void acquisitionStart(){
+	samples=RESET;
+	clearAdcReads();
+	resetDigitalOutputs();
+    Timer1.restart();
+    MsTimer2::start();
+}
+
+void acquisitionStop(){
+	Timer1.stop();
+	MsTimer2::stop();
+	samples=RESET;
+	
+	clearAdcReads();
+	resetDigitalOutputs();
+	
+}
+
+void speedControl(char speed_byte){
+	speed_byte-=NULL_SPEED_BYTE;
+	int speed = 1023*speed_byte/(MAX_SPEED_BYTE - NULL_SPEED_BYTE);
+	analogWrite(PWM_OUT,speed);
 }
 
 void setup(){
-	Serial.begin(9600);
+	Serial.begin(BAUD_RATE);
 	IOsetup();
-	digitalWrite(ACQ_LED_PIN,LOW);
-
 	configureTimer0();
 	configureTimer1();
 	configureTimer2();
-	MsTimer2::start();
 }
 
 void loop(){
-	if (samples>=NUMBER_OF_SAMPLES){
-		Timer1.stop();
-		static int resultAcq[6];
+	boolean nextState;
+	char byteRead;
 	
-		for(int k=0;k<6;k++){
-			resultAcq[counter] = (int)roundf((sensorData[counter]/NUMBER_OF_SAMPLES));
-			sensorData[counter]=RESET;
-		}
-		samples=RESET;
-		Timer1.restart();
-		
-		printResults(resultAcq);
-	}
-
 	if(Serial.available()){
-	
-	char.byteRead = Serial.read();
-
-	switch(byteRead){
-		
-		case START_ACQ_BYTE:{
-			if (!acquisitionEnabled){
-				acquisitionEnabled=true;
-				samples=RESET;
-				Timer1.restart();
-			}
-		}
-		break;
-
-		case STOP_ACQ_BYTE:{
-			acquisitionStop();
-		}
-		break;
-
-		case MASTER_RESET_BYTE:{
-			acquisitionStop();
-			resetDigOutputs();
-		}
-		break;
-
-		default:{
-			if (byteRead>=NULL_SPEED_BYTE){
-				unsigned char speed_byte = byteRead;
-				speed_byte-=NULL_SPEED_BYTE;
-				int speed=RESET;
-				speed = 1023*speed_byte/(MAX_SPEED_BYTE - NULL_SPEED_BYTE);
-				analogWrite(PWM_OUT,speed);
-				
-			}else if ((byteRead>=NULL_DIGITAL_BYTE) && (byteRead<=MAX_DIGITAL_BYTE)){
-				for (int i = 3; i>-1; i--) {
-              				digitalInstruction[i]=((byteRead >> i) & 1);
-            			}
-           			digitalOutputControl();
-			}
-		}
-		break;
+		byteRead = Serial.read();
 	}
+	
+	switch (state){
+		case RESET:{
+			if (byteRead=START_ACQ_BYTE){
+					acquisitionStart();
+					nextState=SET;
+					
+			}else{
+					nextState=RESET;
+			}
+		}
+		break;
+		
+		case SET:{
+			if (samples>=SAMPLES_TO_READ){
+				avgPrintResults();
+			}
+			
+			if (byteRead==STOP_ACQ_BYTE){
+				acquisitionStop();
+				nextState=RESET;
+			}else{
+				if (byteRead>=NULL_SPEED_BYTE){
+					speedControl(byteRead);
+				}else if ((byteRead>=NULL_DIGITAL_BYTE) && (byteRead<=MAX_DIGITAL_BYTE)){
+					digitalOutputControl(byteRead);
+				}
+				nextState=SET;
+			}
+		}
+		break;
+		
+	}
+	state=nextState;
 }
