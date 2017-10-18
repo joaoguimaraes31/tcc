@@ -18,15 +18,15 @@
 \contentsline {section}{\numberline {2.3}Working principles of disk brake systems}{28}{section.2.3}
 \contentsline {section}{\numberline {2.4}Electronic Background}{28}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}Crankshaft Position Sensor}{28}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Thermocouple}{30}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.2}Thermocouple}{29}{subsection.2.4.2}
 \contentsline {subsection}{\numberline {2.4.3}Load Cell}{31}{subsection.2.4.3}
 \contentsline {subsection}{\numberline {2.4.4}Accelerometer}{32}{subsection.2.4.4}
 \contentsline {subsection}{\numberline {2.4.5}Instrumentation Amplifier}{33}{subsection.2.4.5}
 \contentsline {subsubsection}{\numberline {2.4.5.1}The Operational Amplifier}{33}{subsubsection.2.4.5.1}
-\contentsline {subsubsection}{\numberline {2.4.5.2}The Closed-loop amplifier}{33}{subsubsection.2.4.5.2}
-\contentsline {subsection}{\numberline {2.4.6}The Instrumentation Amplifier}{35}{subsection.2.4.6}
-\contentsline {subsection}{\numberline {2.4.7}The Relay}{37}{subsection.2.4.7}
-\contentsline {subsection}{\numberline {2.4.8}Microcontroller}{37}{subsection.2.4.8}
+\contentsline {subsubsection}{\numberline {2.4.5.2}The Closed-loop amplifier}{34}{subsubsection.2.4.5.2}
+\contentsline {subsection}{\numberline {2.4.6}The Instrumentation Amplifier}{34}{subsection.2.4.6}
+\contentsline {subsection}{\numberline {2.4.7}The Relay}{36}{subsection.2.4.7}
+\contentsline {subsection}{\numberline {2.4.8}Microcontroller}{36}{subsection.2.4.8}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase {Methodology}}{39}{chapter.3}
 \contentsline {section}{\numberline {3.1}Lieterature Review}{39}{section.3.1}
@@ -61,11 +61,11 @@
 \contentsline {subsection}{\numberline {6.2.1}}{53}{subsection.6.2.1}
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {References}}{55}{section*.14}
+\contentsline {chapter}{\uppercase {References}}{55}{section*.35}
 \renewcommand *{\cftappendixname }{APPENDIX \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {Appendix}}{59}{section*.15}
+\contentsline {part}{\uppercase {Appendix}}{59}{section*.36}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}

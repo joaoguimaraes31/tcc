@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.7)  18 OCT 2017 17:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.10.7)  18 OCT 2017 17:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1005,8 +1005,37 @@ File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 )
-(./fixos/comandos.tex) (./fixos/customizacoes.sty) (./editaveis/informacoes.tex
-) (./fixos/informacoes.tex) (./fixos/setup.tex
+(./fixos/comandos.tex) (./fixos/customizacoes.sty
+
+Class memoir Warning: You are using the caption package with the memoir class. 
+To prepare we will now reset all captioning macros and configurations to kernel
+ defaults, and then let the caption package take over. Please remember to use t
+he caption package interfaces in order to configure your captions. .
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen161
+\captionmargin@=\dimen162
+\captionwidth=\dimen163
+\caption@tempdima=\dimen164
+\caption@indent=\dimen165
+\caption@parindent=\dimen166
+\caption@hangindent=\dimen167
+)
+Package caption Info: We need package `newfloat' on input line 292.
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/newfloat.sty
+Package: newfloat 2015/09/17 v1.1-109 Defining new floating environments (AR)
+)
+\c@ContinuedFloat=\count175
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+))
+(./editaveis/informacoes.tex) (./fixos/informacoes.tex) (./fixos/setup.tex
 Package color Info: Redefining color blue on input line 1.
 Package hyperref Info: Option `colorlinks' set `true' on input line 16.
 )
@@ -1045,7 +1074,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count175
+\c@section@level=\count176
 )
 Redoing nameref's sectioning
 Redoing nameref's label
@@ -1060,16 +1089,16 @@ Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             ! on input line 10.
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count176
-\scratchdimen=\dimen161
+\scratchcounter=\count177
+\scratchdimen=\dimen168
 \scratchbox=\box34
-\nofMPsegments=\count177
-\nofMParguments=\count178
+\nofMPsegments=\count178
+\nofMParguments=\count179
 \everyMPshowfont=\toks28
-\MPscratchCnt=\count179
-\MPscratchDim=\dimen162
-\MPnumerator=\count180
-\makeMPintoPDFobject=\count181
+\MPscratchCnt=\count180
+\MPscratchDim=\dimen169
+\MPnumerator=\count181
+\makeMPintoPDFobject=\count182
 \everyMPtoPDFconversion=\toks29
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -1086,7 +1115,9 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\c@lstlisting=\count182
+\c@lstlisting=\count183
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Try loading font information for T1+lmss on input line 13.
 
 (/usr/share/texmf/tex/latex/lm/t1lmss.fd
@@ -1284,10 +1315,8 @@ File: figuras/fig-ckp-signal.png Graphic file (type png)
 Package pdftex.def Info: figuras/fig-ckp-signal.png used on input line 18.
 (pdftex.def)             Requested size: 403.5106pt x 163.81326pt.
 )
-(./contents/literatureReview/electronicBackground/thermocouple.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [29 <./figuras/disk_brake_working.jpg> <./figuras/fig-ckp-real.jpg>]
+(./contents/literatureReview/electronicBackground/thermocouple.tex [29 <./figur
+as/disk_brake_working.jpg> <./figuras/fig-ckp-real.jpg>]
 <figuras/fig-thermocouple-output.jpg, id=441, 559.33969pt x 413.29407pt>
 File: figuras/fig-thermocouple-output.jpg Graphic file (type jpg)
 
@@ -1330,16 +1359,18 @@ File: figuras/fig-wheatstone.jpg Graphic file (type jpg)
 <use figuras/fig-wheatstone.jpg>
 Package pdftex.def Info: figuras/fig-wheatstone.jpg used on input line 16.
 (pdftex.def)             Requested size: 220.49776pt x 135.35504pt.
- [31 <./figuras/fig-thermocouple-measurement.jpg>]) (./contents/literatureRevie
-w/electronicBackground/accelerometer.tex
-<figuras/fig-piezo-acel.jpg, id=482, 232.87pt x 217.81375pt>
+)
+(./contents/literatureReview/electronicBackground/accelerometer.tex [31 <./figu
+ras/fig-thermocouple-measurement.jpg>]
+<figuras/fig-piezo-acel.jpg, id=483, 232.87pt x 217.81375pt>
 File: figuras/fig-piezo-acel.jpg Graphic file (type jpg)
 
 <use figuras/fig-piezo-acel.jpg>
 Package pdftex.def Info: figuras/fig-piezo-acel.jpg used on input line 11.
 (pdftex.def)             Requested size: 221.22522pt x 206.92188pt.
- [32 <./figuras/fig-distension.png> <./figuras/fig-wheatstone.jpg>])
+)
 (./contents/literatureReview/electronicBackground/instrumentationAmplifier.tex
+[32 <./figuras/fig-distension.png> <./figuras/fig-wheatstone.jpg>]
 
 LaTeX Warning: Citation `mancini2000understanding' on page 33 undefined on inpu
 t line 5.
@@ -1350,24 +1381,23 @@ File: figuras/fig-opamp.png Graphic file (type png)
 <use figuras/fig-opamp.png>
 Package pdftex.def Info: figuras/fig-opamp.png used on input line 9.
 (pdftex.def)             Requested size: 240.90184pt x 204.76657pt.
-
-<figuras/fig-closed-loop-opamp.png, id=504, 441.65pt x 435.6275pt>
+ [33 <./figuras/fig-piezo-acel.jpg> <./figuras/fig-opamp.png>] <figuras/fig-clo
+sed-loop-opamp.png, id=510, 441.65pt x 435.6275pt>
 File: figuras/fig-closed-loop-opamp.png Graphic file (type png)
 
 <use figuras/fig-closed-loop-opamp.png>
 Package pdftex.def Info: figuras/fig-closed-loop-opamp.png used on input line 2
 2.
 (pdftex.def)             Requested size: 264.99203pt x 261.37851pt.
- [33 <./figuras/fig-piezo-acel.jpg>]
-[34 <./figuras/fig-opamp.png> <./figuras/fig-closed-loop-opamp.png>]
-<figuras/fig-instrumentation-amp.png, id=524, 270.00874pt x 187.70125pt>
+ [34 <./figuras/fig-closed-loop-opamp.png>] <figuras/fig-instrumentation-amp.pn
+g, id=526, 270.00874pt x 187.70125pt>
 File: figuras/fig-instrumentation-amp.png Graphic file (type png)
 
 <use figuras/fig-instrumentation-amp.png>
 Package pdftex.def Info: figuras/fig-instrumentation-amp.png used on input line
  41.
 (pdftex.def)             Requested size: 337.51009pt x 234.62598pt.
- [35 <./figuras/fig-instrumentation-amp.png>] <figuras/fig-ina118.jpg, id=547, 
+ [35 <./figuras/fig-instrumentation-amp.png>] <figuras/fig-ina118.jpg, id=550, 
 294.09875pt x 172.645pt>
 File: figuras/fig-ina118.jpg Graphic file (type jpg)
 
@@ -1376,21 +1406,18 @@ Package pdftex.def Info: figuras/fig-ina118.jpg used on input line 58.
 (pdftex.def)             Requested size: 411.73543pt x 241.70132pt.
 )
 (./contents/literatureReview/electronicBackground/relay.tex
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [36 <./figuras/fig-ina118.jpg>]
-<figuras/fig-relay.png, id=563, 588.1975pt x 338.26375pt>
+<figuras/fig-relay.png, id=558, 588.1975pt x 338.26375pt>
 File: figuras/fig-relay.png Graphic file (type png)
 
 <use figuras/fig-relay.png>
 Package pdftex.def Info: figuras/fig-relay.png used on input line 6.
 (pdftex.def)             Requested size: 264.68643pt x 152.21727pt.
 )
-(./contents/literatureReview/electronicBackground/mcu.tex)) [37 <./figuras/fig-
-relay.png>]) (./contents/methodology.tex [38])
-(./contents/projectRequirements.tex [39
+(./contents/literatureReview/electronicBackground/mcu.tex [36 <./figuras/fig-in
+a118.jpg>]))) (./contents/methodology.tex [37 <./figuras/fig-relay.png>]
+[38
 
-] [40
+]) (./contents/projectRequirements.tex [39] [40
 
 ]
 Underfull \hbox (badness 1097) in paragraph at lines 1--1
@@ -1404,27 +1431,14 @@ File: figuras/fig-projectProblem.png Graphic file (type png)
 <use figuras/fig-projectProblem.png>
 Package pdftex.def Info: figuras/fig-projectProblem.png used on input line 7.
 (pdftex.def)             Requested size: 361.79834pt x 256.78195pt.
-
-
-LaTeX Warning: Reference `a' on page 41 undefined on input line 12.
-
-
-LaTeX Warning: Reference `.' on page 41 undefined on input line 12.
-
-
-Overfull \hbox (6.2807pt too wide) in paragraph at lines 12--13
-[]\T1/lmr/m/n/12 The ex-pla-na-tion of the struc-ture of Fi-gure [][]14[][] wil
-l be ex-plai-ned in Sec-ti-ons [][]4.1.1[][],[]nd
- []
-
-[41 <./figuras/fig-projectProblem.png>])
+ [41 <./figuras/fig-projectProblem.png>])
 (./contents/projectRequirements/monitoredParameters.tex
-Underfull \vbox (badness 1430) has occurred while \output is active []
+Underfull \vbox (badness 1308) has occurred while \output is active []
 
  [42])
 (./contents/projectRequirements/functionalRequirements.tex [43]))
 (./contents/hardwareProject.tex [44]
-<figuras/fig-hardwareProject.png, id=646, 635.37375pt x 484.81125pt>
+<figuras/fig-hardwareProject.png, id=647, 635.37375pt x 484.81125pt>
 File: figuras/fig-hardwareProject.png Graphic file (type png)
 
 <use figuras/fig-hardwareProject.png>
@@ -1438,7 +1452,7 @@ Overfull \hbox (53.29968pt too wide) in paragraph at lines 6--7
 (./contents/hardwareProject/mcu.tex [45
 
  <./figuras/fig-hardwareProject.png>]
-<figuras/fig-atmega328p.png, id=656, 712.6625pt x 423.5825pt>
+<figuras/fig-atmega328p.png, id=657, 712.6625pt x 423.5825pt>
 File: figuras/fig-atmega328p.png Graphic file (type png)
 
 <use figuras/fig-atmega328p.png>
@@ -1454,7 +1468,7 @@ Overfull \hbox (43.86035pt too wide) in paragraph at lines 6--7
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [46 <./figuras/fig-atmega328p.png>]
-<figuras/fig-ina125-schematic.png, id=671, 359.09157pt x 559.33969pt>
+<figuras/fig-ina125-schematic.png, id=672, 359.09157pt x 559.33969pt>
 File: figuras/fig-ina125-schematic.png Graphic file (type png)
 
 <use figuras/fig-ina125-schematic.png>
@@ -1462,7 +1476,7 @@ Package pdftex.def Info: figuras/fig-ina125-schematic.png used on input line 14
 .
 (pdftex.def)             Requested size: 305.22926pt x 475.44098pt.
  [47] [48 <./figuras/fig-ina125-schematic.png>] <figuras/fig-cic-cell.png, id=6
-90, 1309.89375pt x 792.9625pt>
+91, 1309.89375pt x 792.9625pt>
 File: figuras/fig-cic-cell.png Graphic file (type png)
 
 <use figuras/fig-cic-cell.png>
@@ -1480,7 +1494,7 @@ Overfull \hbox (3.4697pt too wide) in paragraph at lines 34--35
 
 ]
 (./contents/softwareProject/microCode.tex
-<figuras/fig-microCodeMap.png, id=707, 469.755pt x 376.40625pt>
+<figuras/fig-microCodeMap.png, id=708, 469.755pt x 376.40625pt>
 File: figuras/fig-microCodeMap.png Graphic file (type png)
 
 <use figuras/fig-microCodeMap.png>
@@ -1732,13 +1746,13 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 45.
  ) 
 Here is how much of TeX's memory you used:
- 14700 strings out of 493029
- 219599 string characters out of 6136234
- 371607 words of memory out of 5000000
- 17351 multiletter control sequences out of 15000+600000
+ 15821 strings out of 493029
+ 240497 string characters out of 6136234
+ 384251 words of memory out of 5000000
+ 18464 multiletter control sequences out of 15000+600000
  88807 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,13n,51p,1240b,2009s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 46i,13n,51p,1240b,2009s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/en
 c/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/s
 hare/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/l
@@ -1754,10 +1768,10 @@ texmf/fonts/type1/public/lm/lmss17.pfb></usr/share/texmf/fonts/type1/public/lm/
 lmssbo10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></usr/share/t
 exmf/fonts/type1/public/lm/lmsso17.pfb></usr/share/texmf/fonts/type1/public/lm/
 lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb>
-Output written on build/thesis.pdf (68 pages, 1030465 bytes).
+Output written on build/thesis.pdf (68 pages, 1030153 bytes).
 PDF statistics:
- 1445 PDF objects out of 1728 (max. 8388607)
- 1278 compressed objects within 13 object streams
+ 1446 PDF objects out of 1728 (max. 8388607)
+ 1279 compressed objects within 13 object streams
  446 named destinations out of 1000 (max. 500000)
  617 words of extra memory for PDF output out of 10000 (max. 10000000)
 
