@@ -10,6 +10,7 @@
 \backcite {3opamp}{{13}{(document)}{Doc-Start}}
 \backcite {schematic-ina118}{{13}{(document)}{Doc-Start}}
 \backcite {relay-scheme}{{13}{(document)}{Doc-Start}}
+\backcite {projectProblem}{{13}{(document)}{Doc-Start}}
 \backcite {hw-proj}{{13}{(document)}{Doc-Start}}
 \backcite {coorporation2011atmel}{{13}{(document)}{Doc-Start}}
 \backcite {ina125data}{{13}{(document)}{Doc-Start}}
@@ -55,10 +56,12 @@
 \backcite {relay-scheme}{{37}{13}{figure.2.13}}
 \backcite {mcuDef}{{37}{2.4.8}{subsection.2.4.8}}
 \backcite {bartz2004data}{{38}{2.4.8}{subsection.2.4.8}}
-\backcite {hw-proj}{{43}{14}{figure.5.14}}
-\backcite {coorporation2011atmel}{{44}{15}{figure.5.15}}
-\backcite {ina125data}{{46}{16}{figure.5.16}}
-\backcite {Mazidi:2010:AME:1824214}{{49}{6.1.1}{subsection.6.1.1}}
-\backcite {kernighan2006c}{{49}{6.1.1}{subsection.6.1.1}}
-\backcite {mukaro1999microcontroller}{{49}{6.1.1}{subsection.6.1.1}}
-\backcite {microCodeMap}{{50}{18}{figure.6.18}}
+\backcite {sae}{{41}{4.1}{section.4.1}}
+\backcite {projectProblem}{{41}{14}{figure.4.14}}
+\backcite {hw-proj}{{45}{15}{figure.5.15}}
+\backcite {coorporation2011atmel}{{46}{16}{figure.5.16}}
+\backcite {ina125data}{{48}{17}{figure.5.17}}
+\backcite {Mazidi:2010:AME:1824214}{{51}{6.1.1}{subsection.6.1.1}}
+\backcite {kernighan2006c}{{51}{6.1.1}{subsection.6.1.1}}
+\backcite {mukaro1999microcontroller}{{51}{6.1.1}{subsection.6.1.1}}
+\backcite {microCodeMap}{{52}{19}{figure.6.19}}

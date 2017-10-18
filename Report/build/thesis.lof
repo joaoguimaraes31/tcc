@@ -12,8 +12,9 @@
 \contentsline {figure}{\numberline {11}{\ignorespaces Instrumentation Amplifier \cite {3opamp}}}{35}{figure.2.11}
 \contentsline {figure}{\numberline {12}{\ignorespaces INA 118 \cite {schematic-ina118}}}{36}{figure.2.12}
 \contentsline {figure}{\numberline {13}{\ignorespaces Schematic Relay \cite {relay-scheme}}}{37}{figure.2.13}
-\contentsline {figure}{\numberline {14}{\ignorespaces Hardware Project Architecture \cite {hw-proj}}}{43}{figure.5.14}
-\contentsline {figure}{\numberline {15}{\ignorespaces \textit {ATmega238p} \cite {coorporation2011atmel}}}{44}{figure.5.15}
-\contentsline {figure}{\numberline {16}{\ignorespaces INA125 Schematic \cite {ina125data}}}{46}{figure.5.16}
-\contentsline {figure}{\numberline {17}{\ignorespaces Conditioning Circuit for the Load Cell}}{47}{figure.5.17}
-\contentsline {figure}{\numberline {18}{\ignorespaces Microcontroller Code Map \cite {microCodeMap}}}{50}{figure.6.18}
+\contentsline {figure}{\numberline {14}{\ignorespaces Project Problem Depuration \cite {projectProblem}}}{41}{figure.4.14}
+\contentsline {figure}{\numberline {15}{\ignorespaces Hardware Project Architecture \cite {hw-proj}}}{45}{figure.5.15}
+\contentsline {figure}{\numberline {16}{\ignorespaces \textit {ATmega238p} \cite {coorporation2011atmel}}}{46}{figure.5.16}
+\contentsline {figure}{\numberline {17}{\ignorespaces INA125 Schematic \cite {ina125data}}}{48}{figure.5.17}
+\contentsline {figure}{\numberline {18}{\ignorespaces Conditioning Circuit for the Load Cell}}{49}{figure.5.18}
+\contentsline {figure}{\numberline {19}{\ignorespaces Microcontroller Code Map \cite {microCodeMap}}}{52}{figure.6.19}
