@@ -6,7 +6,7 @@
 
 	The most common way to amplify the signal of a load cell is using a instrumentation amplifier. Although it is a widely used configuration, assembling this amplifier using three different operational amplifiers and seven resistors as in Figure \ref{fig-instrumentation-amplifier} may make it inaccurate due to manufacturing imperfections of the components. Another factor that greatly influences the output signal of a load cell is the excitation voltage of its wheatstone bridge, if it varies too much the output will vary greatly as well, which will hamper its calibration.
 		
-	In order to solve these two problems there is a solution widely used in the market which is the \textit{INA125} of Texas Instruments, this CI besides performing signal amplification also provides a very precise excitation source for the wheatstone bridge, the only component required to be coupled is a resistor $R_{G}$, as shown in Figure \ref{fig-ina125-schematic}. This resistor will determine the gain for the amplification according to the equations \ref{eqn-ina125-vo} and \ref{eqn-ina125-g}:
+	In order to solve these two problems there is a solution widely used in the market which is the \textit{INA125} of Texas Instruments, this IC besides performing signal amplification also provides a very precise excitation source for the wheatstone bridge, the only component required to be coupled is a resistor $R_{G}$, as shown in Figure \ref{fig-ina125-schematic}. This resistor will determine the gain for the amplification according to the equations \ref{eqn-ina125-vo} and \ref{eqn-ina125-g}:
 	
 
 		\begin{figure}[htbp]
@@ -24,10 +24,10 @@
 			G=4 + \frac{60k\Omega}{R_{G}}
 		\end{equation}
 
-		Taking into account the sensitivity of 2mV/V, this means that if the cell is excited with 10V, its output will vary from 0 to 20mV. Since the analog input of the chosen microcontroller (Atmega328) is 0 to 5V, we may to amplify the cell output signal by a factor of 250 to increase precision. Using Equation \ref{eqn-ina125-g}, to obtain a gain of amplification ratio of the ideal $R_{G}$ would be 243$\Omega$, a resistor of this value is not commercially available, the closest ones would be 240$\Omega$ and 270$\Omega$. The first would cause a gain greater than 250 and consequently an IC output voltage greater than 5V when the cell had an output voltage of 20mV. The resistor 270$\Omega$ will generate a gain of 226 and cause the CI output to range from about 0V to 4.52V, using 90.4\% of the resolution of the microcontroller input. 
+		Taking into account the sensitivity of 2mV/V, this means that if the cell is excited with 10V, its output will vary from 0 to 20mV. Since the analog input of the chosen microcontroller (Atmega328) is 0 to 5V, we may to amplify the cell output signal by a factor of 250 to increase precision. Using Equation \ref{eqn-ina125-g}, to obtain a gain of amplification ratio of the ideal $R_{G}$ would be 243$\Omega$, a resistor of this value is not commercially available, the closest ones would be 240$\Omega$ and 270$\Omega$. The first would cause a gain greater than 250 and consequently an IC output voltage greater than 5V when the cell had an output voltage of 20mV. The resistor 270$\Omega$ will generate a gain of 226 and cause the IC output to range from about 0V to 4.52V, using 90.4\% of the resolution of the microcontroller input. 
 		\par
 
-		Figure \ref{fig-cic-cell} shows the schematic of the charge cell conditioning circuit with the Texas Instruments INA125 IC.
+		Figure \ref{fig-cic-cell} shows the schematic of the load cell conditioning circuit with the Texas Instruments INA125 IC.
 
 		\begin{figure}[htbp]
 			\centering
