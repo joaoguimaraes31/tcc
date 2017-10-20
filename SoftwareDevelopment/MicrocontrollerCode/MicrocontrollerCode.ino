@@ -54,16 +54,27 @@ void configureTimer0(){
 }
 
 void IOsetup(){
-	pinMode(ACQ_LED_PIN,OUTPUT);
+	pinMode(ACQ_LED,OUTPUT);
 	
 	for(int i=RESET;i<sizeof(DIGITAL_IN_PORTS);i++){
 		if (i<sizeof(DIGITAL_OUT_PORTS)){
-			pinMode(DIGITAL_OUT_PORTS[i],OUTPUT)
+			pinMode(DIGITAL_OUT_PORTS[i],OUTPUT);
 		}
 		pinMode(DIGITAL_IN_PORTS[i],INPUT);
 	}
 	
 	resetDigitalOutputs();
+}
+
+void digitalOutputControl(char input){
+	for(int i=RESET;i<sizeof(DIGITAL_OUT_PORTS[i]);i++){
+		digitalWrite(DIGITAL_OUT_PORTS[i],((input >> i) & 1));
+	}
+}
+
+void resetDigitalOutputs(){
+	digitalOutputControl(NULL_DIGITAL_BYTE);
+	digitalWrite(ACQ_LED, LOW);
 }
 
 //Function to configure Timer 1 - ACQUISITION 
@@ -80,8 +91,7 @@ void configureTimer2() {
 
 //Timer 1 overflow interruption routine
 void timer1_OISR(){
-	if (samples<NUMBER_OF_SAMPLES){
-		//Lendo dado analogico
+	if (samples < NUMBER_OF_SAMPLES){
 		adcReads[0]+=analogRead(A0);
 		adcReads[1]+=analogRead(A1);
 		adcReads[2]+=analogRead(A2);
@@ -89,31 +99,19 @@ void timer1_OISR(){
 		adcReads[4]+=analogRead(A4);
 		adcReads[5]+=analogRead(A5);
 		samples++;
-		}  
 	}
 }
 
-//Timer 1 overflow interruption routine
+//Timer 2 overflow interruption routine
 void timer2_OISR(){
 	digitalWrite(ACQ_LED, digitalRead(ACQ_LED) ^ 1);
-}
-
-void digitalOutputControl(char input){
-	for(int i=RESET;i<sizeof(DIGITAL_OUT_PORTS[i]);i++){
-		digitalWrite(DIGITAL_OUT_PORTS[i],((input >> i) & 1));
-	}
-}
-
-void resetDigitalOutputs(){
-	digitalOutputControl(NULL_DIGITAL_BYTE);
-	digitalWrite(ACQ_LED, LOW);
 }
 
 void avgPrintResults(){
 	
 	for(int i=RESET;i<sizeof(adcReads);i++){
 		if (!digitalRead(DIGITAL_IN_PORTS[i])){
-			Serial.print((int)roundf((adcReads[counter]/samples)));
+			Serial.print((int)roundf((adcReads[i]/samples)));
 		}else{
 			Serial.print(SENSOR_ERROR);
 		}
@@ -184,7 +182,7 @@ void loop(){
 		break;
 		
 		case SET:{
-			if (samples>=SAMPLES_TO_READ){
+			if (samples>=NUMBER_OF_SAMPLES){
 				avgPrintResults();
 			}
 			
